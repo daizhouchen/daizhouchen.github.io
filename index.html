@@ -63,19 +63,17 @@
 
   /* ---------- project cards ---------- */
   .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:18px}
-  .card{border:1px solid var(--line);border-radius:12px;background:#fff;padding:22px;display:flex;flex-direction:column;transition:transform .15s ease, box-shadow .15s ease, border-color .15s ease}
-  .card:hover{transform:translateY(-3px);box-shadow:0 10px 28px rgba(28,26,23,.08);border-color:#d5cbb6;text-decoration:none}
+  .card{border:1px solid var(--line);border-radius:12px;background:#fff;padding:22px;display:flex;flex-direction:column;transition:transform .15s ease, box-shadow .15s ease, border-color .15s ease;color:inherit}
+  a.card:hover{transform:translateY(-3px);box-shadow:0 10px 28px rgba(28,26,23,.08);border-color:#d5cbb6;text-decoration:none}
   .card h3{font-family:var(--serif);font-size:18.5px;color:var(--ink);margin-bottom:6px}
   .card p{font-size:13.8px;color:var(--ink-soft);flex:1}
   .card .tags{margin-top:14px;display:flex;flex-wrap:wrap;gap:6px}
   .tag{font-family:var(--mono);font-size:11px;padding:2.5px 9px;border-radius:5px;background:var(--paper-2);color:var(--ink-soft)}
   .tag.hot{background:rgba(158,58,47,.09);color:var(--accent)}
+  .tag.lock{background:var(--paper-2);color:var(--ink-faint);border:1px dashed var(--ink-faint)}
   .flag{font-size:11px;font-family:var(--mono);letter-spacing:.12em;color:var(--accent);text-transform:uppercase;margin-bottom:8px}
+  .flag.lock{color:var(--ink-faint)}
   .card.featured{border-color:#d8b9a3;background:linear-gradient(180deg,#fffdf9,#fff)}
-
-  /* ---------- skill cloud ---------- */
-  .skills{display:flex;flex-wrap:wrap;gap:10px}
-  .skill{font-size:14px;padding:8px 18px;border:1px solid var(--line);border-radius:999px;background:#fff;color:var(--ink-soft)}
 
   /* ---------- timeline ---------- */
   .timeline{border-left:2px solid var(--line);margin-left:6px;padding-left:28px}
@@ -109,7 +107,7 @@
     <h1>戴宙辰<span class="en">DAI ZHOUCHEN · AI PRODUCT &amp; EXPERIMENTS</span></h1>
     <p class="tagline">AI 产品经理 / 独立实验者。现在在做 <b>UniTrade</b>（AI Native B2B 跨境贸易）和一批小实验——用研究的方式做产品，用产品的方式做研究。</p>
     <div class="meta-line">
-      <span class="chip"><b>50+</b> 公开仓库</span>
+      <span class="chip"><b>50+</b> 仓库（33 个公开）</span>
       <span class="chip"><b>3</b> 条产品线：研究 / 创业 / AI Skills</span>
       <span class="chip">Python · PyTorch · Java · TypeScript · Claude Code</span>
     </div>
@@ -141,8 +139,9 @@
       <div>
         <p>我的工作是<strong>把 AI 能力变成可交付的产品与可复现的研究</strong>。三条主线贯穿我的全部仓库：</p>
         <p><strong>① AI 研究</strong> —— 围绕多模态 RAG 的生成引擎优化（GEO）方向：从 CoGEO 攻击方法，到 HonestVGEO 诚实评测协议，论文、代码、数据全流程自持，每个数字都可溯源。</p>
-        <p><strong>② 产品工程</strong> —— 正在创业的 <a href="https://unitrade.shop" target="_blank" rel="noopener">UniTrade</a>：AI Native B2B 跨境贸易平台。开源了商品数据底座（28 字段规范 + 866 节点分类树 + 9141 冷启动商品）与平台源码，另有幕境、能力森林等已落地 MVP。</p>
-        <p><strong>③ AI Agent 工程</strong> —— 30+ 个 Claude Code Skill 与 SuperPM（给 AI Agent 用的项目管理框架），把"提示词"工程化成可分发、可复用的流程资产。</p>
+        <p><strong>② 产品工程</strong> —— 正在创业的 <a href="https://unitrade.shop" target="_blank" rel="noopener">UniTrade</a>：AI Native B2B 跨境贸易平台。建设了商品数据底座（28 字段规范 + 866 节点分类树 + 9141 冷启动商品）与平台源码，另有幕境、能力森林等已落地 MVP。</p>
+        <p><strong>③ AI Agent 工程</strong> —— 30+ 个公开与私有的 Claude Code Skill 与 SuperPM（给 AI Agent 用的项目管理框架），把"提示词"工程化成可分发、可复用的流程资产。</p>
+        <p style="font-size:13.5px;color:var(--ink-faint)">注：涉及商业与研究敏感性的项目以私有仓库承载，本站以文字概述；公开仓库均可直接点击访问。</p>
       </div>
       <dl class="facts">
         <dt>当前焦点</dt><dd>UniTrade · AI Native B2B</dd>
@@ -161,26 +160,26 @@
     <h2><span class="num">02</span>AI 研究 · 多模态 RAG 与视觉 GEO</h2>
     <p class="sub">一条完整的研究线：提出方法 → 诚实评测 → 公开协议与复现指南。</p>
     <div class="grid">
-      <a class="card featured" href="https://github.com/daizhouchen/cogeo" target="_blank" rel="noopener">
-        <div class="flag">Flagship · 论文 + 代码</div>
+      <div class="card featured">
+        <div class="flag lock">Flagship · 私有仓库</div>
         <h3>CoGEO</h3>
-        <p>VLM 引导的视觉检索优化框架：非对称知识条件下，商品图检索排名 Recall@10 最高 +30.9pp，且视觉质量 SSIM &gt; 0.98。含 9 组实验、7 篇深度文档与复现指南。</p>
-        <div class="tags"><span class="tag hot">PyTorch</span><span class="tag">CLIP</span><span class="tag">VLM</span><span class="tag">对抗优化</span></div>
-      </a>
-      <a class="card" href="https://github.com/daizhouchen/honestvgeo" target="_blank" rel="noopener">
-        <div class="flag">评测协议</div>
+        <p>VLM 引导的视觉检索优化框架：非对称知识条件下，商品图检索排名 Recall@10 最高 +30.9pp，且视觉质量 SSIM &gt; 0.98。含 9 组实验、LaTeX 论文与 7 篇深度文档（方法详解 / 复现指南 / 数字溯源）。</p>
+        <div class="tags"><span class="tag hot">PyTorch</span><span class="tag">CLIP</span><span class="tag">VLM</span><span class="tag lock">私有</span></div>
+      </div>
+      <div class="card">
+        <div class="flag lock">评测协议 · 私有仓库</div>
         <h3>HonestVGEO</h3>
         <p>锚点解耦的留出式评测协议：针对图文商品检索的视觉 GEO 攻击，附带 CoGEO（白盒）与 AE-CoGEO（迁移）参考实现、可容许性校验器与参考打分器。</p>
-        <div class="tags"><span class="tag hot">Python</span><span class="tag">评测协议</span><span class="tag">可复现</span></div>
-      </a>
-      <a class="card" href="https://github.com/daizhouchen/cogeo-anchor-decoupled-eval" target="_blank" rel="noopener">
-        <div class="flag">ICMR 2026</div>
+        <div class="tags"><span class="tag hot">Python</span><span class="tag">评测协议</span><span class="tag lock">私有</span></div>
+      </div>
+      <div class="card">
+        <div class="flag lock">ICMR 2026 · 私有仓库</div>
         <h3>CoGEO 锚点解耦评测</h3>
         <p>在 ESCI + Food-101 上对 4 种攻击方法进行锚点解耦的对照评测，检验"攻击增益是否依赖锚点泄漏"。</p>
-        <div class="tags"><span class="tag hot">Python</span><span class="tag">ESCI</span><span class="tag">Food-101</span></div>
-      </a>
+        <div class="tags"><span class="tag hot">Python</span><span class="tag">ESCI</span><span class="tag lock">私有</span></div>
+      </div>
       <a class="card" href="https://github.com/daizhouchen/ML-PD" target="_blank" rel="noopener">
-        <div class="flag">机器学习</div>
+        <div class="flag">机器学习 · 公开仓库</div>
         <h3>ML-PD</h3>
         <p>基于代谢组学数据的帕金森病机器学习诊断：特征工程 + 多模型对比的完整 Notebook 流程。</p>
         <div class="tags"><span class="tag">Jupyter</span><span class="tag">scikit-learn</span><span class="tag">生物医学</span></div>
@@ -193,39 +192,38 @@
 <section id="products">
   <div class="wrap">
     <h2><span class="num">03</span>产品工程 · 从 0 到 1 的交付</h2>
-    <p class="sub">UniTrade 全家桶（数据底座 / 平台源码 / 迁移交付）+ 三个已落地 MVP。</p>
+    <p class="sub">UniTrade 全家桶（数据底座 / 平台源码 / 迁移交付）+ 已落地 MVP。</p>
     <div class="grid">
-      <a class="card featured" href="https://github.com/daizhouchen/unitrade-product-platform" target="_blank" rel="noopener">
-        <div class="flag">Flagship · 创业中</div>
+      <div class="card featured">
+        <div class="flag lock">Flagship · 创业中 · 私有仓库</div>
         <h3>UniTrade 商品数据底座</h3>
         <p>AI Native B2B 平台的商品数据核心：28 字段规范 + 866 节点分类体系 + 737 L4 属性清单 + 中英双语类目同义词 + 商家批量上传（Excel / SPU / SKU）+ 9141 冷启动商品。文档含 30 秒导读与全栈概览。</p>
-        <div class="tags"><span class="tag hot">Python</span><span class="tag">数据架构</span><span class="tag">B2B</span></div>
-      </a>
-      <a class="card" href="https://github.com/daizhouchen/unitrade-source" target="_blank" rel="noopener">
-        <h3>UniTrade 平台源码</h3>
-        <p>平台全栈源码：pinwaimao-api（Java 后端）+ pinwaimao-ui（前端），支撑选品、匹配与自动询盘流程。</p>
-        <div class="tags"><span class="tag hot">Java</span><span class="tag">Spring</span><span class="tag">全栈</span></div>
-      </a>
-      <a class="card" href="https://github.com/daizhouchen/unitrade-legacy-product-migration" target="_blank" rel="noopener">
-        <h3>旧平台商品迁移交付</h3>
-        <p>9141 件旧商品按新 28 字段结构 + 分类树 + 属性清单 + 双语同义词的完整迁移交付仓库，含工程记录。</p>
-        <div class="tags"><span class="tag">Python</span><span class="tag">数据迁移</span><span class="tag">LLM 增强</span></div>
-      </a>
-      <a class="card" href="https://github.com/daizhouchen/mujing-harness-mvp" target="_blank" rel="noopener">
+        <div class="tags"><span class="tag hot">Python</span><span class="tag">数据架构</span><span class="tag lock">私有</span></div>
+      </div>
+      <div class="card">
+        <div class="flag lock">私有仓库</div>
+        <h3>UniTrade 平台源码与迁移</h3>
+        <p>平台全栈源码（Java API + UI），支撑选品、匹配与自动询盘流程；并完成 9141 件旧商品按新数据规范的完整迁移交付。</p>
+        <div class="tags"><span class="tag hot">Java</span><span class="tag">数据迁移</span><span class="tag lock">私有</span></div>
+      </div>
+      <div class="card">
+        <div class="flag lock">私有仓库</div>
         <h3>幕境 · 沉浸式活动引擎</h3>
         <p>面向线下场地的 AI 驱动沉浸式活动引擎：9-pass 生成流水线 + 实时 harness，MVP v7.2 已可演示。</p>
-        <div class="tags"><span class="tag hot">TypeScript</span><span class="tag">Vite</span><span class="tag">AI 生成</span></div>
-      </a>
-      <a class="card" href="https://github.com/daizhouchen/nengli-senlin" target="_blank" rel="noopener">
+        <div class="tags"><span class="tag hot">TypeScript</span><span class="tag">Vite</span><span class="tag lock">私有</span></div>
+      </div>
+      <div class="card">
+        <div class="flag lock">私有仓库</div>
         <h3>能力森林 · 微信小程序</h3>
         <p>感统轻训练微信小程序 MVP（V1.2.1）：微信小程序 + 腾讯云 CloudBase，已上线运行的完整产品。</p>
-        <div class="tags"><span class="tag hot">JavaScript</span><span class="tag">微信小程序</span><span class="tag">CloudBase</span></div>
-      </a>
-      <a class="card" href="https://github.com/daizhouchen/reality-director" target="_blank" rel="noopener">
+        <div class="tags"><span class="tag hot">JavaScript</span><span class="tag">微信小程序</span><span class="tag lock">私有</span></div>
+      </div>
+      <div class="card">
+        <div class="flag lock">私有仓库</div>
         <h3>Reality Director · AI Game Master</h3>
         <p>AI 现实导演：完整产品文档、首发产品包与 1/2/3/4 人模式规格，展示从概念到规格书的产品设计能力。</p>
-        <div class="tags"><span class="tag">产品设计</span><span class="tag">规格文档</span></div>
-      </a>
+        <div class="tags"><span class="tag">产品设计</span><span class="tag">规格文档</span><span class="tag lock">私有</span></div>
+      </div>
     </div>
   </div>
 </section>
@@ -234,37 +232,42 @@
 <section id="skills">
   <div class="wrap">
     <h2><span class="num">04</span>AI Agent 工程 · Claude Code Skills</h2>
-    <p class="sub">把流程工程化成可分发的 Skill：30+ 个作品，覆盖研究、写作、设计、开发四类。</p>
+    <p class="sub">把流程工程化成可分发的 Skill：30+ 个作品（以下全部公开可直接安装），覆盖研究、写作、设计、开发四类。</p>
     <div class="grid">
       <a class="card featured" href="https://github.com/daizhouchen/superpm" target="_blank" rel="noopener">
-        <div class="flag">Flagship</div>
+        <div class="flag">Flagship · 公开</div>
         <h3>SuperPM</h3>
         <p>给 AI Agent 用的 spec 驱动项目管理框架：7 阶段生命周期、质量门、风险管理与并行执行。</p>
         <div class="tags"><span class="tag hot">Shell</span><span class="tag">Agent 编排</span><span class="tag">Spec 驱动</span></div>
       </a>
       <a class="card" href="https://github.com/daizhouchen/openclaw-skills" target="_blank" rel="noopener">
+        <div class="flag">公开</div>
         <h3>OpenClaw Skills 合集</h3>
-        <p>"11 天 11 个 Skill"集中实验：api-mocker、codebase-cartographer、commit-poet、data-detective、env-guardian、git-storyteller 等 10 个开发者工具 Skill，各自独立成仓。</p>
+        <p>"11 天 11 个 Skill"集中实验：<a href="https://github.com/daizhouchen/api-mocker" target="_blank" rel="noopener">api-mocker</a>、<a href="https://github.com/daizhouchen/codebase-cartographer" target="_blank" rel="noopener">codebase-cartographer</a>、<a href="https://github.com/daizhouchen/data-detective" target="_blank" rel="noopener">data-detective</a>、<a href="https://github.com/daizhouchen/git-storyteller" target="_blank" rel="noopener">git-storyteller</a> 等 10 个开发者工具 Skill，各自独立成仓。</p>
         <div class="tags"><span class="tag hot">Python</span><span class="tag">10 个子仓库</span></div>
       </a>
       <a class="card" href="https://github.com/daizhouchen/book-distiller" target="_blank" rel="noopener">
+        <div class="flag">公开</div>
         <h3>Distiller 系列</h3>
         <p>把书 / 电影 / 领域 / JD 蒸馏成一张典雅的单文件 HTML 网页：<a href="https://github.com/daizhouchen/book-distiller" target="_blank" rel="noopener">book</a> · <a href="https://github.com/daizhouchen/movie-distiller" target="_blank" rel="noopener">movie</a> · <a href="https://github.com/daizhouchen/domain-onboarding" target="_blank" rel="noopener">domain</a> · <a href="https://github.com/daizhouchen/jd-interview-prep" target="_blank" rel="noopener">jd-interview</a>。</p>
         <div class="tags"><span class="tag hot">4 个仓库</span><span class="tag">单文件 HTML</span></div>
       </a>
       <a class="card" href="https://github.com/daizhouchen/prism-research" target="_blank" rel="noopener">
+        <div class="flag">公开</div>
         <h3>棱镜研究 Prism Research</h3>
         <p>深度研究 Skill：多层次穿透式调研产品 / 公司 / 概念 / 技术，产出可打印为 PDF 的精美 HTML 报告。</p>
         <div class="tags"><span class="tag hot">Python</span><span class="tag">深度研究</span></div>
       </a>
       <a class="card" href="https://github.com/daizhouchen/claude-product-designer" target="_blank" rel="noopener">
+        <div class="flag">公开</div>
         <h3>Claude Product Designer</h3>
         <p>把粗糙产品想法蒸馏成大师级 0→1 产品设计文档：24 张理论卡按上下文调用 + 8 套 SVG 模板，通过率 100%（基线 40%）。</p>
         <div class="tags"><span class="tag hot">HTML</span><span class="tag">产品设计</span></div>
       </a>
       <a class="card" href="https://github.com/daizhouchen/resume-builder" target="_blank" rel="noopener">
+        <div class="flag">公开</div>
         <h3>更多 Skills</h3>
-        <p>resume-builder（简历导师）· wechat-mp-writer（公众号创作）· tool-mastery（工具教学站）· market-research / product-design 系列——全部公开可安装。</p>
+        <p>resume-builder（简历导师）· wechat-mp-writer（公众号创作）· tool-mastery（工具教学站）· jd-interview-arsenal（面试武器库）· market-research / product-design 系列——全部公开可安装。</p>
         <div class="tags"><span class="tag">10+ 仓库</span><span class="tag">Claude Code</span></div>
       </a>
     </div>
@@ -310,11 +313,10 @@
 <footer id="contact">
   <div class="wrap">
     <h2><span class="num">06</span>联系我</h2>
-    <p class="sub">欢迎交流 AI 产品、多模态研究与 Agent 工程。</p>
+    <p class="sub">欢迎交流 AI 产品、多模态研究与 Agent 工程。简历与私有项目详情可在沟通中提供。</p>
     <div class="contact">
       <a class="btn primary" href="https://github.com/daizhouchen" target="_blank" rel="noopener">GitHub · daizhouchen</a>
       <a class="btn ghost" href="https://unitrade.shop" target="_blank" rel="noopener">unitrade.shop</a>
-      <a class="btn ghost" href="https://github.com/daizhouchen/mianshi" target="_blank" rel="noopener">简历 PDF</a>
     </div>
     <p class="fine">© 2026 戴宙辰 Daizhouchen · 本站为单文件 HTML，无追踪、无依赖 · 由 <a href="https://github.com/daizhouchen/daizhouchen.github.io" target="_blank" rel="noopener">daizhouchen.github.io</a> 仓库托管</p>
   </div>
