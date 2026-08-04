@@ -4,7 +4,7 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>戴宙辰 Daizhouchen · AI 产品作品集</title>
-<meta name="description" content="戴宙辰 — AI 产品经理 / 独立实验者。AI 研究（多模态 RAG 优化）、AI Native 创业产品（UniTrade）、与一批 Claude Code Skill 实验。"/>
+<meta name="description" content="戴宙辰 — AI 产品经理 / 独立实验者。可交互产品演示 · AI Native 创业产品 · Claude Code Skills。"/>
 <style>
   :root{
     --ink:#1c1a17; --ink-soft:#4a453e; --ink-faint:#8a8278;
@@ -19,84 +19,113 @@
   body{background:var(--paper);color:var(--ink);font-family:var(--sans);line-height:1.75;font-size:16px}
   a{color:var(--accent);text-decoration:none}
   a:hover{text-decoration:underline}
-  .wrap{max-width:960px;margin:0 auto;padding:0 24px}
+  .wrap{max-width:1000px;margin:0 auto;padding:0 24px}
 
   /* ---------- header ---------- */
-  header{padding:72px 0 48px;border-bottom:1px solid var(--line);
-    background:
-      radial-gradient(1200px 400px at 80% -100px, rgba(158,58,47,.06), transparent 60%),
-      var(--paper);}
+  header{padding:76px 0 52px;border-bottom:1px solid var(--line);
+    background:radial-gradient(1200px 420px at 82% -120px, rgba(158,58,47,.07), transparent 60%),var(--paper)}
   .eyebrow{font-family:var(--mono);font-size:13px;letter-spacing:.35em;color:var(--accent);text-transform:uppercase;margin-bottom:18px}
-  h1{font-family:var(--serif);font-size:clamp(34px,6vw,52px);font-weight:700;letter-spacing:.02em;line-height:1.2}
-  h1 .en{display:block;font-size:.42em;font-weight:400;color:var(--ink-faint);letter-spacing:.14em;margin-top:8px}
-  .tagline{margin-top:20px;font-family:var(--serif);font-size:19px;color:var(--ink-soft);max-width:640px}
-  .meta-line{margin-top:28px;display:flex;flex-wrap:wrap;gap:10px}
-  .chip{font-size:13px;padding:5px 14px;border:1px solid var(--line);border-radius:999px;background:#fff;color:var(--ink-soft)}
-  .chip b{color:var(--ink)}
-  .cta{margin-top:30px;display:flex;flex-wrap:wrap;gap:14px}
+  h1{font-family:var(--serif);font-size:clamp(36px,6vw,54px);font-weight:700;letter-spacing:.02em;line-height:1.2}
+  h1 .en{display:block;font-size:.4em;font-weight:400;color:var(--ink-faint);letter-spacing:.14em;margin-top:8px}
+  .tagline{margin-top:20px;font-family:var(--serif);font-size:19.5px;color:var(--ink-soft);max-width:680px}
+  .tagline b{color:var(--ink)}
+  .cta{margin-top:30px;display:flex;flex-wrap:wrap;gap:12px}
   .btn{display:inline-block;padding:10px 22px;border-radius:8px;font-size:14.5px;font-weight:600;border:1px solid var(--ink)}
   .btn.primary{background:var(--ink);color:var(--paper)}
   .btn.primary:hover{background:var(--accent);border-color:var(--accent);text-decoration:none}
   .btn.ghost{color:var(--ink)}
   .btn.ghost:hover{border-color:var(--accent);color:var(--accent);text-decoration:none}
+  .hero-stats{margin-top:30px;display:flex;flex-wrap:wrap;gap:28px;font-size:13.5px;color:var(--ink-faint)}
+  .hero-stats b{display:block;font-family:var(--serif);font-size:24px;color:var(--ink);line-height:1.3}
 
   /* ---------- nav ---------- */
   nav{position:sticky;top:0;z-index:50;background:rgba(250,247,241,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
-  nav .wrap{display:flex;gap:6px;overflow-x:auto;padding-top:0;padding-bottom:0}
-  nav a{font-size:14px;color:var(--ink-soft);padding:14px 14px;white-space:nowrap;border-bottom:2px solid transparent}
+  nav .wrap{display:flex;gap:4px;overflow-x:auto;padding-top:0;padding-bottom:0}
+  nav a{font-size:14px;color:var(--ink-soft);padding:13px 14px;white-space:nowrap;border-bottom:2px solid transparent}
   nav a:hover{color:var(--accent);text-decoration:none;border-bottom-color:var(--accent)}
 
   /* ---------- sections ---------- */
-  section{padding:64px 0;border-bottom:1px solid var(--line)}
-  h2{font-family:var(--serif);font-size:30px;margin-bottom:8px}
-  .sub{color:var(--ink-faint);font-size:14.5px;margin-bottom:32px}
+  section{padding:60px 0;border-bottom:1px solid var(--line)}
+  h2{font-family:var(--serif);font-size:29px;margin-bottom:6px}
+  .sub{color:var(--ink-faint);font-size:14.5px;margin-bottom:30px}
   .num{font-family:var(--mono);color:var(--accent);font-size:14px;margin-right:10px}
 
-  /* ---------- about ---------- */
-  .about-grid{display:grid;grid-template-columns:1.5fr 1fr;gap:40px}
-  .about-grid p{color:var(--ink-soft);margin-bottom:14px}
-  .about-grid strong{color:var(--ink)}
-  .facts{border:1px solid var(--line);border-radius:12px;background:#fff;padding:22px;font-size:14px;align-self:start}
-  .facts dt{font-family:var(--mono);font-size:11px;letter-spacing:.18em;color:var(--ink-faint);text-transform:uppercase;margin-top:14px}
-  .facts dt:first-child{margin-top:0}
-  .facts dd{margin-top:2px;color:var(--ink)}
+  /* ---------- demo showcase ---------- */
+  .demo-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  .demo-card{border:1px solid var(--line);border-radius:14px;background:#fff;overflow:hidden;display:flex;flex-direction:column;transition:transform .15s ease,box-shadow .15s ease,border-color .15s ease}
+  .demo-card:hover{transform:translateY(-3px);box-shadow:0 12px 30px rgba(28,26,23,.09);border-color:#d5cbb6}
+  .preview{aspect-ratio:16/10;display:flex;align-items:center;justify-content:center;overflow:hidden;border-bottom:1px solid var(--line)}
+  .demo-info{padding:18px 20px 20px;display:flex;flex-direction:column;flex:1}
+  .demo-info h3{font-family:var(--serif);font-size:19px;margin-bottom:4px}
+  .demo-info .kind{font-family:var(--mono);font-size:11px;letter-spacing:.14em;color:var(--accent);text-transform:uppercase;margin-bottom:8px}
+  .demo-info p{font-size:13.5px;color:var(--ink-soft);flex:1;margin-bottom:14px}
+  .actions{display:flex;gap:8px;flex-wrap:wrap}
+  .abtn{font-size:12.5px;font-weight:600;padding:7px 14px;border-radius:7px;border:1px solid var(--ink);color:var(--ink);background:#fff}
+  .abtn:hover{text-decoration:none;border-color:var(--accent);color:var(--accent)}
+  .abtn.fill{background:var(--accent);border-color:var(--accent);color:#fff}
+  .abtn.fill:hover{background:#822e25;color:#fff}
+  /* preview A: mujing archive room */
+  .pv-mujing{background:linear-gradient(160deg,#17140f,#241f16);width:100%;height:100%;padding:18px 20px;display:flex;flex-direction:column;gap:9px}
+  .pv-mujing .bar{height:7px;border-radius:4px;background:rgba(232,226,214,.16)}
+  .pv-mujing .bar.w1{width:42%;background:#c96f4a;opacity:.85}
+  .pv-mujing .bar.w2{width:78%}.pv-mujing .bar.w3{width:64%}.pv-mujing .bar.w4{width:70%}
+  .pv-mujing .role-row{display:flex;gap:7px;margin-top:auto}
+  .pv-mujing .role{height:20px;width:52px;border-radius:5px;border:1px solid rgba(201,111,74,.5)}
+  .pv-mujing .role.on{background:rgba(201,111,74,.35);border-color:#c96f4a}
+  /* preview B: radar */
+  .pv-radar{background:linear-gradient(160deg,#fdfbf6,#f4efe2);width:100%;height:100%}
+  /* preview C: unitrade data */
+  .pv-ut{background:linear-gradient(160deg,#f2f6fc,#e6edf7);width:100%;height:100%;padding:18px 22px;display:flex;flex-direction:column;gap:9px;justify-content:center}
+  .pv-ut .st{display:flex;gap:8px}
+  .pv-ut .box{flex:1;height:44px;border-radius:7px;background:#fff;border:1px solid #ccd8e8;position:relative;overflow:hidden}
+  .pv-ut .box:before{content:"";position:absolute;left:8px;top:8px;width:34px;height:8px;border-radius:4px;background:#2456a6;opacity:.75}
+  .pv-ut .box:after{content:"";position:absolute;left:8px;top:24px;width:52px;height:6px;border-radius:3px;background:#c3cede}
+  .pv-ut .bar{height:7px;border-radius:4px;background:#c3cede}
+  .pv-ut .bar.b1{width:82%}.pv-ut .bar.b2{width:60%}
 
-  /* ---------- project cards ---------- */
-  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:18px}
-  .card{border:1px solid var(--line);border-radius:12px;background:#fff;padding:22px;display:flex;flex-direction:column;transition:transform .15s ease, box-shadow .15s ease, border-color .15s ease;color:inherit}
-  a.card:hover{transform:translateY(-3px);box-shadow:0 10px 28px rgba(28,26,23,.08);border-color:#d5cbb6;text-decoration:none}
-  .card h3{font-family:var(--serif);font-size:18.5px;color:var(--ink);margin-bottom:6px}
-  .card p{font-size:13.8px;color:var(--ink-soft);flex:1}
-  .card .tags{margin-top:14px;display:flex;flex-wrap:wrap;gap:6px}
-  .tag{font-family:var(--mono);font-size:11px;padding:2.5px 9px;border-radius:5px;background:var(--paper-2);color:var(--ink-soft)}
+  /* ---------- compact rows ---------- */
+  .rows{display:flex;flex-direction:column}
+  .row{display:grid;grid-template-columns:190px 1fr auto;gap:18px;align-items:center;padding:18px 4px;border-bottom:1px solid var(--line)}
+  .row:last-child{border-bottom:none}
+  .row .name{font-family:var(--serif);font-size:17px;font-weight:600}
+  .row .name small{display:block;font-family:var(--mono);font-size:10.5px;font-weight:400;letter-spacing:.1em;color:var(--ink-faint);text-transform:uppercase;margin-top:2px}
+  .row .desc{font-size:13.8px;color:var(--ink-soft)}
+  .row .desc .tags{margin-top:5px;display:flex;flex-wrap:wrap;gap:6px}
+  .tag{font-family:var(--mono);font-size:10.5px;padding:2px 8px;border-radius:5px;background:var(--paper-2);color:var(--ink-soft)}
   .tag.hot{background:rgba(158,58,47,.09);color:var(--accent)}
-  .tag.lock{background:var(--paper-2);color:var(--ink-faint);border:1px dashed var(--ink-faint)}
-  .flag{font-size:11px;font-family:var(--mono);letter-spacing:.12em;color:var(--accent);text-transform:uppercase;margin-bottom:8px}
-  .flag.lock{color:var(--ink-faint)}
-  .card.featured{border-color:#d8b9a3;background:linear-gradient(180deg,#fffdf9,#fff)}
+  .tag.lock{border:1px dashed #c9bfa9;background:transparent;color:var(--ink-faint)}
+  .row .go{text-align:right;white-space:nowrap}
+
+  /* ---------- skills with shots ---------- */
+  .shot-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:18px}
+  .shot{border:1px solid var(--line);border-radius:12px;background:#fff;overflow:hidden;display:flex;flex-direction:column;transition:transform .15s ease,box-shadow .15s ease,border-color .15s ease;color:inherit}
+  a.shot:hover{transform:translateY(-3px);box-shadow:0 10px 26px rgba(28,26,23,.08);border-color:#d5cbb6;text-decoration:none}
+  .shot img{width:100%;aspect-ratio:16/9;object-fit:cover;object-position:top;border-bottom:1px solid var(--line);background:var(--paper-2)}
+  .shot .body{padding:16px 18px 18px;display:flex;flex-direction:column;flex:1}
+  .shot h3{font-family:var(--serif);font-size:17px;color:var(--ink);margin-bottom:4px}
+  .shot p{font-size:13px;color:var(--ink-soft);flex:1}
+  .shot .tags{margin-top:12px;display:flex;flex-wrap:wrap;gap:6px}
 
   /* ---------- timeline ---------- */
   .timeline{border-left:2px solid var(--line);margin-left:6px;padding-left:28px}
-  .tl-item{position:relative;padding-bottom:26px}
+  .tl-item{position:relative;padding-bottom:24px}
   .tl-item:before{content:"";position:absolute;left:-35px;top:8px;width:10px;height:10px;border-radius:50%;background:var(--accent)}
   .tl-date{font-family:var(--mono);font-size:12.5px;color:var(--ink-faint)}
-  .tl-item h4{font-family:var(--serif);font-size:17px;margin:2px 0}
+  .tl-item h4{font-family:var(--serif);font-size:16.5px;margin:2px 0}
   .tl-item p{font-size:14px;color:var(--ink-soft)}
 
   /* ---------- footer ---------- */
   footer{padding:56px 0 72px}
-  .contact{display:flex;flex-wrap:wrap;gap:12px;margin-top:18px}
-  .fine{margin-top:40px;font-size:12.5px;color:var(--ink-faint)}
+  .fine{margin-top:36px;font-size:12.5px;color:var(--ink-faint)}
 
-  @media (max-width:720px){
-    .about-grid{grid-template-columns:1fr}
-    header{padding:52px 0 36px}
-    section{padding:48px 0}
+  @media (max-width:860px){
+    .demo-grid{grid-template-columns:1fr}
+    .row{grid-template-columns:1fr;gap:8px}
+    .row .go{text-align:left}
+    section{padding:46px 0}
+    header{padding:54px 0 38px}
   }
-  @media print{
-    nav{display:none}
-    .card{break-inside:avoid;box-shadow:none}
-  }
+  @media print{ nav{display:none} .demo-card,.shot{break-inside:avoid;box-shadow:none} }
 </style>
 </head>
 <body>
@@ -105,180 +134,196 @@
   <div class="wrap">
     <div class="eyebrow">Portfolio · 2026</div>
     <h1>戴宙辰<span class="en">DAI ZHOUCHEN · AI PRODUCT &amp; EXPERIMENTS</span></h1>
-    <p class="tagline">AI 产品经理 / 独立实验者。现在在做 <b>UniTrade</b>（AI Native B2B 跨境贸易）和一批小实验——用研究的方式做产品，用产品的方式做研究。</p>
-    <div class="meta-line">
-      <span class="chip"><b>50+</b> 仓库（33 个公开）</span>
-      <span class="chip"><b>3</b> 条产品线：研究 / 创业 / AI Skills</span>
-      <span class="chip">Python · PyTorch · Java · TypeScript · Claude Code</span>
-    </div>
+    <p class="tagline">AI 产品经理 / 独立实验者。现在在做 <b>UniTrade</b>（AI Native B2B 跨境贸易）和一批小实验——用研究的方式做产品，用产品的方式做研究。<b>下面每个作品都能点开看。</b></p>
     <div class="cta">
-      <a class="btn primary" href="https://github.com/daizhouchen" target="_blank" rel="noopener">GitHub 主页</a>
+      <a class="btn primary" href="#demos">先看演示 ↓</a>
+      <a class="btn ghost" href="https://github.com/daizhouchen" target="_blank" rel="noopener">GitHub 主页</a>
       <a class="btn ghost" href="https://unitrade.shop" target="_blank" rel="noopener">UniTrade 产品站</a>
-      <a class="btn ghost" href="#contact">联系我</a>
+    </div>
+    <div class="hero-stats">
+      <div><b>3</b>产品演示页</div>
+      <div><b>33</b>公开仓库</div>
+      <div><b>9141</b>商品迁移交付（UniTrade）</div>
+      <div><b>30+</b>AI Skills 全部公开</div>
     </div>
   </div>
 </header>
 
 <nav>
   <div class="wrap">
-    <a href="#about">关于我</a>
-    <a href="#research">AI 研究</a>
+    <a href="#demos">演示</a>
     <a href="#products">产品工程</a>
-    <a href="#skills">AI Agent / Skills</a>
+    <a href="#skills">AI Skills</a>
     <a href="#timeline">时间轴</a>
     <a href="#contact">联系</a>
   </div>
 </nav>
 
-<!-- ============ 关于 ============ -->
-<section id="about">
+<!-- ============ 01 演示 ============ -->
+<section id="demos">
   <div class="wrap">
-    <h2><span class="num">01</span>关于我</h2>
-    <p class="sub">实验家时间轴：先动手，再沉淀，最后交付。</p>
-    <div class="about-grid">
-      <div>
-        <p>我的工作是<strong>把 AI 能力变成可交付的产品与可复现的研究</strong>。三条主线贯穿我的全部仓库：</p>
-        <p><strong>① AI 研究</strong> —— 围绕多模态 RAG 的生成引擎优化（GEO）方向：从 CoGEO 攻击方法，到 HonestVGEO 诚实评测协议，论文、代码、数据全流程自持，每个数字都可溯源。</p>
-        <p><strong>② 产品工程</strong> —— 正在创业的 <a href="https://unitrade.shop" target="_blank" rel="noopener">UniTrade</a>：AI Native B2B 跨境贸易平台。建设了商品数据底座（28 字段规范 + 866 节点分类树 + 9141 冷启动商品）与平台源码，另有幕境、能力森林等已落地 MVP。</p>
-        <p><strong>③ AI Agent 工程</strong> —— 30+ 个公开与私有的 Claude Code Skill 与 SuperPM（给 AI Agent 用的项目管理框架），把"提示词"工程化成可分发、可复用的流程资产。</p>
-        <p style="font-size:13.5px;color:var(--ink-faint)">注：涉及商业与研究敏感性的项目以私有仓库承载，本站以文字概述；公开仓库均可直接点击访问。</p>
+    <h2><span class="num">01</span>可交互演示</h2>
+    <p class="sub">无需安装、点开即用：两个产品的可交互演示 + 创业产品的展示页。私有代码不出站，演示数据均来自真实产出。</p>
+    <div class="demo-grid">
+
+      <div class="demo-card">
+        <div class="preview">
+          <div class="pv-mujing">
+            <div class="bar w1"></div><div class="bar w2"></div><div class="bar w3"></div><div class="bar w4"></div>
+            <div class="role-row"><div class="role on"></div><div class="role"></div><div class="role"></div><div class="role"></div></div>
+          </div>
+        </div>
+        <div class="demo-info">
+          <div class="kind">沉浸式叙事引擎 · MVP v7.2</div>
+          <h3>幕境 Mujing</h3>
+          <p>AI 驱动的线下沉浸式活动引擎。演示内含 30 篇真实生成文档：切换 6 个角色视角、逐幕解锁档案室，看"多视角叙事"如何被工程化。</p>
+          <div class="actions"><a class="abtn fill" href="demo/mujing.html">进入档案室演示 →</a></div>
+        </div>
       </div>
-      <dl class="facts">
-        <dt>当前焦点</dt><dd>UniTrade · AI Native B2B</dd>
-        <dt>研究方向</dt><dd>多模态 RAG · 视觉 GEO · CLIP/VLM</dd>
-        <dt>技术栈</dt><dd>Python / PyTorch / Java / TypeScript / 微信小程序</dd>
-        <dt>工作方式</dt><dd>Spec 驱动 · 全程留档 · 单文件优雅 HTML 交付</dd>
-        <dt>开源</dt><dd><a href="https://github.com/daizhouchen" target="_blank" rel="noopener">github.com/daizhouchen</a></dd>
-      </dl>
+
+      <div class="demo-card">
+        <div class="preview">
+          <svg class="pv-radar" viewBox="0 0 320 200" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <g transform="translate(160,104)">
+              <polygon points="0,-72 68.5,-22.3 42.3,58.3 -42.3,58.3 -68.5,-22.3" fill="none" stroke="#d9cfba" stroke-width="1"/>
+              <polygon points="0,-48 45.7,-14.8 28.2,38.8 -28.2,38.8 -45.7,-14.8" fill="none" stroke="#e3dccd" stroke-width="1"/>
+              <polygon points="0,-59 51.4,-16.7 28.8,39.7 -33.4,46.1 -51.4,-16.7" fill="rgba(79,192,141,.18)" stroke="#4fc08d" stroke-width="2"/>
+              <circle cx="0" cy="-59" r="3" fill="#4fc08d"/><circle cx="51.4" cy="-16.7" r="3" fill="#f39c6a"/>
+              <circle cx="28.8" cy="39.7" r="3" fill="#5aa9e6"/><circle cx="-33.4" cy="46.1" r="3" fill="#b07fe6"/>
+              <circle cx="-51.4" cy="-16.7" r="3" fill="#e37383"/>
+              <text x="0" y="-80" text-anchor="middle" font-size="10" fill="#8a8278">平衡</text>
+              <text x="84" y="-20" text-anchor="middle" font-size="10" fill="#8a8278">反应</text>
+              <text x="52" y="72" text-anchor="middle" font-size="10" fill="#8a8278">注意力</text>
+              <text x="-52" y="72" text-anchor="middle" font-size="10" fill="#8a8278">协调</text>
+              <text x="-84" y="-20" text-anchor="middle" font-size="10" fill="#8a8278">抗压</text>
+            </g>
+          </svg>
+        </div>
+        <div class="demo-info">
+          <div class="kind">微信小程序 · V1.2.1 已上线</div>
+          <h3>能力森林</h3>
+          <p>感统轻训练小程序：五维能力模型（平衡 / 反应 / 注意力 / 协调 / 抗压）+ 腾讯云 CloudBase 六云函数。演示可点击雷达图的每一维。</p>
+          <div class="actions"><a class="abtn fill" href="demo/nengli-senlin.html">查看五维雷达演示 →</a></div>
+        </div>
+      </div>
+
+      <div class="demo-card">
+        <div class="preview">
+          <div class="pv-ut">
+            <div class="st"><div class="box"></div><div class="box"></div><div class="box"></div></div>
+            <div class="bar b1"></div><div class="bar b2"></div>
+          </div>
+        </div>
+        <div class="demo-info">
+          <div class="kind">AI Native B2B · 在线运营中</div>
+          <h3>UniTrade</h3>
+          <p>正在创业的跨境贸易平台。产品展示页呈现其数据底座：28 字段规范 + 866 节点分类树 + 9141 冷启动商品的交付规模，可直达在线产品。</p>
+          <div class="actions"><a class="abtn fill" href="demo/unitrade.html">查看产品展示 →</a><a class="abtn" href="https://unitrade.shop" target="_blank" rel="noopener">unitrade.shop</a></div>
+        </div>
+      </div>
+
     </div>
+
   </div>
 </section>
 
-<!-- ============ 研究 ============ -->
-<section id="research">
-  <div class="wrap">
-    <h2><span class="num">02</span>AI 研究 · 多模态 RAG 与视觉 GEO</h2>
-    <p class="sub">一条完整的研究线：提出方法 → 诚实评测 → 公开协议与复现指南。</p>
-    <div class="grid">
-      <div class="card featured">
-        <div class="flag lock">Flagship · 私有仓库</div>
-        <h3>CoGEO</h3>
-        <p>VLM 引导的视觉检索优化框架：非对称知识条件下，商品图检索排名 Recall@10 最高 +30.9pp，且视觉质量 SSIM &gt; 0.98。含 9 组实验、LaTeX 论文与 7 篇深度文档（方法详解 / 复现指南 / 数字溯源）。</p>
-        <div class="tags"><span class="tag hot">PyTorch</span><span class="tag">CLIP</span><span class="tag">VLM</span><span class="tag lock">私有</span></div>
-      </div>
-      <div class="card">
-        <div class="flag lock">评测协议 · 私有仓库</div>
-        <h3>HonestVGEO</h3>
-        <p>锚点解耦的留出式评测协议：针对图文商品检索的视觉 GEO 攻击，附带 CoGEO（白盒）与 AE-CoGEO（迁移）参考实现、可容许性校验器与参考打分器。</p>
-        <div class="tags"><span class="tag hot">Python</span><span class="tag">评测协议</span><span class="tag lock">私有</span></div>
-      </div>
-      <div class="card">
-        <div class="flag lock">ICMR 2026 · 私有仓库</div>
-        <h3>CoGEO 锚点解耦评测</h3>
-        <p>在 ESCI + Food-101 上对 4 种攻击方法进行锚点解耦的对照评测，检验"攻击增益是否依赖锚点泄漏"。</p>
-        <div class="tags"><span class="tag hot">Python</span><span class="tag">ESCI</span><span class="tag lock">私有</span></div>
-      </div>
-      <a class="card" href="https://github.com/daizhouchen/ML-PD" target="_blank" rel="noopener">
-        <div class="flag">机器学习 · 公开仓库</div>
-        <h3>ML-PD</h3>
-        <p>基于代谢组学数据的帕金森病机器学习诊断：特征工程 + 多模型对比的完整 Notebook 流程。</p>
-        <div class="tags"><span class="tag">Jupyter</span><span class="tag">scikit-learn</span><span class="tag">生物医学</span></div>
-      </a>
-    </div>
-  </div>
-</section>
-
-<!-- ============ 产品 ============ -->
+<!-- ============ 02 产品 ============ -->
 <section id="products">
   <div class="wrap">
-    <h2><span class="num">03</span>产品工程 · 从 0 到 1 的交付</h2>
-    <p class="sub">UniTrade 全家桶（数据底座 / 平台源码 / 迁移交付）+ 已落地 MVP。</p>
-    <div class="grid">
-      <div class="card featured">
-        <div class="flag lock">Flagship · 创业中 · 私有仓库</div>
-        <h3>UniTrade 商品数据底座</h3>
-        <p>AI Native B2B 平台的商品数据核心：28 字段规范 + 866 节点分类体系 + 737 L4 属性清单 + 中英双语类目同义词 + 商家批量上传（Excel / SPU / SKU）+ 9141 冷启动商品。文档含 30 秒导读与全栈概览。</p>
-        <div class="tags"><span class="tag hot">Python</span><span class="tag">数据架构</span><span class="tag lock">私有</span></div>
+    <h2><span class="num">02</span>产品工程 · 从 0 到 1 的交付</h2>
+    <p class="sub">已上线 / 已交付的完整产品。带「演示」标记的可直接点开。</p>
+    <div class="rows">
+      <div class="row">
+        <div class="name">UniTrade<small>创业中 · 含展示页</small></div>
+        <div class="desc">AI Native B2B 跨境贸易平台，unitrade.shop 在线运营。数据底座：28 字段规范 + 866 节点分类树 + 9141 商品迁移交付。</div>
+        <div class="go"><a class="abtn fill" href="demo/unitrade.html">展示页 →</a></div>
       </div>
-      <div class="card">
-        <div class="flag lock">私有仓库</div>
-        <h3>UniTrade 平台源码与迁移</h3>
-        <p>平台全栈源码（Java API + UI），支撑选品、匹配与自动询盘流程；并完成 9141 件旧商品按新数据规范的完整迁移交付。</p>
-        <div class="tags"><span class="tag hot">Java</span><span class="tag">数据迁移</span><span class="tag lock">私有</span></div>
+      <div class="row">
+        <div class="name">幕境<small>沉浸式活动引擎 · 私有</small></div>
+        <div class="desc">面向线下场地的 AI 活动引擎：9-pass 生成流水线 + 实时 harness，MVP v7.2。</div>
+        <div class="go"><a class="abtn fill" href="demo/mujing.html">演示 →</a></div>
       </div>
-      <a class="card" href="demo/mujing.html">
-        <div class="flag lock">私有仓库 · <b>含可交互演示</b></div>
-        <h3>幕境 · 沉浸式活动引擎</h3>
-        <p>面向线下场地的 AI 驱动沉浸式活动引擎：9-pass 生成流水线 + 实时 harness，MVP v7.2 已可演示。<b>点击进入档案室演示 →</b></p>
-        <div class="tags"><span class="tag hot">TypeScript</span><span class="tag">Vite</span><span class="tag">交互演示</span><span class="tag lock">代码私有</span></div>
-      </a>
-      <a class="card" href="demo/nengli-senlin.html">
-        <div class="flag lock">私有仓库 · <b>含产品展示</b></div>
-        <h3>能力森林 · 微信小程序</h3>
-        <p>感统轻训练微信小程序 MVP（V1.2.1）：微信小程序 + 腾讯云 CloudBase，已上传运行的完整产品。<b>点击查看五维雷达演示 →</b></p>
-        <div class="tags"><span class="tag hot">JavaScript</span><span class="tag">微信小程序</span><span class="tag">产品演示</span><span class="tag lock">代码私有</span></div>
-      </a>
-      <div class="card">
-        <div class="flag lock">私有仓库</div>
-        <h3>Reality Director · AI Game Master</h3>
-        <p>AI 现实导演：完整产品文档、首发产品包与 1/2/3/4 人模式规格，展示从概念到规格书的产品设计能力。</p>
-        <div class="tags"><span class="tag">产品设计</span><span class="tag">规格文档</span><span class="tag lock">私有</span></div>
+      <div class="row">
+        <div class="name">能力森林<small>微信小程序 · 私有</small></div>
+        <div class="desc">感统轻训练 V1.2.1，小程序 + CloudBase 全栈，已上传运行。</div>
+        <div class="go"><a class="abtn fill" href="demo/nengli-senlin.html">演示 →</a></div>
+      </div>
+      <div class="row">
+        <div class="name">Reality Director<small>AI Game Master · 私有</small></div>
+        <div class="desc">AI 现实导演：完整产品文档、首发产品包与 1/2/3/4 人模式规格书——从概念到规格的完整设计过程。</div>
+        <div class="go"><span class="tag lock">文档可阅</span></div>
+      </div>
+      <div class="row">
+        <div class="name">ML-PD<small>机器学习实践 · 公开</small></div>
+        <div class="desc">基于代谢组学数据的帕金森病诊断：特征工程 + 多模型对比的完整 Notebook 流程。</div>
+        <div class="go"><a class="abtn" href="https://github.com/daizhouchen/ML-PD" target="_blank" rel="noopener">GitHub →</a></div>
       </div>
     </div>
+    <p class="sub" style="margin:18px 0 0">注：商业与研究敏感项目以私有仓库承载，本站仅文字概述；沟通中可提供详细文档与现场演示。</p>
   </div>
 </section>
 
-<!-- ============ Skills ============ -->
+<!-- ============ 03 Skills ============ -->
 <section id="skills">
   <div class="wrap">
-    <h2><span class="num">04</span>AI Agent 工程 · Claude Code Skills</h2>
-    <p class="sub">把流程工程化成可分发的 Skill：30+ 个作品（以下全部公开可直接安装），覆盖研究、写作、设计、开发四类。</p>
-    <div class="grid">
-      <a class="card featured" href="https://github.com/daizhouchen/superpm" target="_blank" rel="noopener">
-        <div class="flag">Flagship · 公开</div>
-        <h3>SuperPM</h3>
-        <p>给 AI Agent 用的 spec 驱动项目管理框架：7 阶段生命周期、质量门、风险管理与并行执行。</p>
-        <div class="tags"><span class="tag hot">Shell</span><span class="tag">Agent 编排</span><span class="tag">Spec 驱动</span></div>
+    <h2><span class="num">03</span>AI Agent 工程 · Claude Code Skills</h2>
+    <p class="sub">把流程工程化成可分发的 Skill：30+ 个作品全部公开、可直接安装。下图为各 Skill 的真实产出页面。</p>
+    <div class="shot-grid">
+      <a class="shot" href="https://github.com/daizhouchen/superpm" target="_blank" rel="noopener">
+        <div class="body">
+          <h3>SuperPM <span class="tag hot" style="vertical-align:2px">Flagship</span></h3>
+          <p>给 AI Agent 用的 spec 驱动项目管理框架：7 阶段生命周期、质量门、风险管理与并行执行。</p>
+          <div class="tags"><span class="tag">Shell</span><span class="tag">Agent 编排</span><span class="tag">Spec 驱动</span></div>
+        </div>
       </a>
-      <a class="card" href="https://github.com/daizhouchen/openclaw-skills" target="_blank" rel="noopener">
-        <div class="flag">公开</div>
-        <h3>OpenClaw Skills 合集</h3>
-        <p>"11 天 11 个 Skill"集中实验：<a href="https://github.com/daizhouchen/openclaw-skills/tree/main/skills/api-mocker" target="_blank" rel="noopener">api-mocker</a>、<a href="https://github.com/daizhouchen/openclaw-skills/tree/main/skills/codebase-cartographer" target="_blank" rel="noopener">codebase-cartographer</a>、<a href="https://github.com/daizhouchen/openclaw-skills/tree/main/skills/data-detective" target="_blank" rel="noopener">data-detective</a>、<a href="https://github.com/daizhouchen/openclaw-skills/tree/main/skills/git-storyteller" target="_blank" rel="noopener">git-storyteller</a> 等 10 个开发者工具 Skill，已合并至聚合仓库。</p>
-        <div class="tags"><span class="tag hot">Python</span><span class="tag">10 个子仓库</span></div>
+      <a class="shot" href="https://github.com/daizhouchen/book-distiller" target="_blank" rel="noopener">
+        <img src="https://raw.githubusercontent.com/daizhouchen/daizhouchen/main/assets/now-book-distiller.png" alt="book-distiller 产出的典雅单文件 HTML 书页" loading="lazy"/>
+        <div class="body">
+          <h3>Distiller 蒸馏系列</h3>
+          <p>把书 / 电影 / 领域 / JD 蒸馏成一张典雅的单文件 HTML 网页（上图即真实产出）。含 book · movie · domain · jd-interview 四个 Skill。</p>
+          <div class="tags"><span class="tag hot">4 个仓库</span><span class="tag">单文件 HTML</span></div>
+        </div>
       </a>
-      <a class="card" href="https://github.com/daizhouchen/book-distiller" target="_blank" rel="noopener">
-        <div class="flag">公开</div>
-        <h3>Distiller 系列</h3>
-        <p>把书 / 电影 / 领域 / JD 蒸馏成一张典雅的单文件 HTML 网页：<a href="https://github.com/daizhouchen/book-distiller" target="_blank" rel="noopener">book</a> · <a href="https://github.com/daizhouchen/movie-distiller" target="_blank" rel="noopener">movie</a> · <a href="https://github.com/daizhouchen/domain-onboarding" target="_blank" rel="noopener">domain</a> · <a href="https://github.com/daizhouchen/jd-interview-prep" target="_blank" rel="noopener">jd-interview</a>。</p>
-        <div class="tags"><span class="tag hot">4 个仓库</span><span class="tag">单文件 HTML</span></div>
+      <a class="shot" href="https://github.com/daizhouchen/prism-research" target="_blank" rel="noopener">
+        <img src="https://raw.githubusercontent.com/daizhouchen/daizhouchen/main/assets/now-prism-research.png" alt="prism-research 产出的深度研究报告页面" loading="lazy"/>
+        <div class="body">
+          <h3>棱镜研究 Prism Research</h3>
+          <p>多层次穿透式调研产品 / 公司 / 概念 / 技术，产出可打印为 PDF 的精美报告（上图即真实产出）。</p>
+          <div class="tags"><span class="tag hot">深度研究</span><span class="tag">HTML 报告</span></div>
+        </div>
       </a>
-      <a class="card" href="https://github.com/daizhouchen/prism-research" target="_blank" rel="noopener">
-        <div class="flag">公开</div>
-        <h3>棱镜研究 Prism Research</h3>
-        <p>深度研究 Skill：多层次穿透式调研产品 / 公司 / 概念 / 技术，产出可打印为 PDF 的精美 HTML 报告。</p>
-        <div class="tags"><span class="tag hot">Python</span><span class="tag">深度研究</span></div>
+      <a class="shot" href="https://github.com/daizhouchen/jd-interview-prep" target="_blank" rel="noopener">
+        <img src="https://raw.githubusercontent.com/daizhouchen/daizhouchen/main/assets/now-jd-interview-prep.png" alt="jd-interview-prep 产出的面试准备页面" loading="lazy"/>
+        <div class="body">
+          <h3>JD 面试准备</h3>
+          <p>输入职位描述，产出针对性的面试准备方案页面（上图即真实产出）。配套 jd-interview-arsenal 知识武器库。</p>
+          <div class="tags"><span class="tag hot">面试场景</span><span class="tag">单文件 HTML</span></div>
+        </div>
       </a>
-      <a class="card" href="https://github.com/daizhouchen/claude-product-designer" target="_blank" rel="noopener">
-        <div class="flag">公开</div>
-        <h3>Claude Product Designer</h3>
-        <p>把粗糙产品想法蒸馏成大师级 0→1 产品设计文档：24 张理论卡按上下文调用 + 8 套 SVG 模板，通过率 100%（基线 40%）。</p>
-        <div class="tags"><span class="tag hot">HTML</span><span class="tag">产品设计</span></div>
+      <a class="shot" href="https://github.com/daizhouchen/openclaw-skills" target="_blank" rel="noopener">
+        <div class="body">
+          <h3>OpenClaw Skills 合集</h3>
+          <p>"11 天 11 个 Skill"集中实验：api-mocker、codebase-cartographer、data-detective、git-storyteller 等 10 个开发者工具 Skill，已合并至聚合仓库。</p>
+          <div class="tags"><span class="tag hot">10 个 Skill</span><span class="tag">Python</span></div>
+        </div>
       </a>
-      <a class="card" href="https://github.com/daizhouchen/resume-builder" target="_blank" rel="noopener">
-        <div class="flag">公开</div>
-        <h3>更多 Skills</h3>
-        <p>resume-builder（简历导师）· wechat-mp-writer（公众号创作）· tool-mastery（工具教学站）· jd-interview-arsenal（面试武器库）· market-research / product-design 系列——全部公开可安装。</p>
-        <div class="tags"><span class="tag">10+ 仓库</span><span class="tag">Claude Code</span></div>
+      <a class="shot" href="https://github.com/daizhouchen/claude-product-designer" target="_blank" rel="noopener">
+        <div class="body">
+          <h3>Claude Product Designer</h3>
+          <p>把粗糙想法蒸馏成大师级 0→1 产品设计文档：24 张理论卡按上下文调用 + 8 套 SVG 模板，通过率 100%（基线 40%）。</p>
+          <div class="tags"><span class="tag hot">产品设计</span><span class="tag">HTML</span></div>
+        </div>
       </a>
     </div>
+    <p class="sub" style="margin:18px 0 0">更多公开 Skill：resume-builder · wechat-mp-writer · tool-mastery · market-research —— 全部可在 <a href="https://github.com/daizhouchen" target="_blank" rel="noopener">GitHub 主页</a>直接安装。</p>
   </div>
 </section>
 
-<!-- ============ 时间轴 ============ -->
+<!-- ============ 04 时间轴 ============ -->
 <section id="timeline">
   <div class="wrap">
-    <h2><span class="num">05</span>实验家时间轴</h2>
-    <p class="sub">按交付时间倒序。</p>
+    <h2><span class="num">04</span>实验家时间轴</h2>
+    <p class="sub">先动手，再沉淀，最后交付。按交付时间倒序。</p>
     <div class="timeline">
       <div class="tl-item">
         <div class="tl-date">2026.06 – 至今</div>
@@ -287,8 +332,8 @@
       </div>
       <div class="tl-item">
         <div class="tl-date">2026.04 – 2026.06</div>
-        <h4>视觉 GEO 研究线</h4>
-        <p>CoGEO 方法 → HonestVGEO 诚实评测协议 → ICMR 2026 锚点解耦评测；同期交付幕境 MVP。</p>
+        <h4>幕境 MVP 交付</h4>
+        <p>沉浸式活动引擎 MVP v7.2：9-pass 生成流水线 + 实时 harness，可演示 30 篇多视角生成文档。</p>
       </div>
       <div class="tl-item">
         <div class="tl-date">2026.05</div>
@@ -303,7 +348,7 @@
       <div class="tl-item">
         <div class="tl-date">2025 – 2026.04</div>
         <h4>能力森林 · 微信小程序</h4>
-        <p>感统轻训练 MVP V1.2.1，微信小程序 + CloudBase 全栈交付。</p>
+        <p>感统轻训练 MVP V1.2.1，微信小程序 + CloudBase 全栈交付并上线。</p>
       </div>
     </div>
   </div>
@@ -312,9 +357,9 @@
 <!-- ============ 联系 ============ -->
 <footer id="contact">
   <div class="wrap">
-    <h2><span class="num">06</span>联系我</h2>
-    <p class="sub">欢迎交流 AI 产品、多模态研究与 Agent 工程。简历与私有项目详情可在沟通中提供。</p>
-    <div class="contact">
+    <h2><span class="num">05</span>联系我</h2>
+    <p class="sub">欢迎交流 AI 产品与 Agent 工程。简历与私有项目详情可在沟通中提供。</p>
+    <div class="cta">
       <a class="btn primary" href="https://github.com/daizhouchen" target="_blank" rel="noopener">GitHub · daizhouchen</a>
       <a class="btn ghost" href="https://unitrade.shop" target="_blank" rel="noopener">unitrade.shop</a>
     </div>
