@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>UniTrade · 产品展示 — AI Native B2B 跨境贸易平台</title>
+<meta name="description" content="UniTrade：AI Native B2B 跨境贸易平台。28 字段商品规范 + 866 节点分类树 + 9141 冷启动商品的数据底座，支撑选品、匹配与自动询盘。"/>
+<style>
+  :root{
+    --paper:#f8f9fb; --paper-2:#eef1f5; --line:#dde3ea; --ink:#16202e; --ink-soft:#4c5a6d; --ink-faint:#8a97a8;
+    --blue:#2456a6; --blue-deep:#1a3f7c; --gold:#b98a2e;
+    --serif:"Noto Serif SC","Source Han Serif SC","Songti SC",Georgia,serif;
+    --sans:"Noto Sans SC","PingFang SC","Microsoft YaHei",-apple-system,sans-serif;
+    --mono:"JetBrains Mono","SFMono-Regular",Consolas,monospace;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{background:var(--paper);color:var(--ink);font-family:var(--sans);line-height:1.75;font-size:16px}
+  a{color:var(--blue-deep);text-decoration:none}
+  a:hover{text-decoration:underline}
+  .wrap{max-width:1020px;margin:0 auto;padding:0 24px}
+
+  header{padding:56px 0 44px;border-bottom:1px solid var(--line);
+    background:radial-gradient(900px 380px at 75% -120px, rgba(36,86,166,.12), transparent 60%)}
+  .topbar{display:flex;justify-content:space-between;margin-bottom:26px}
+  .back{font-family:var(--mono);font-size:12.5px;color:var(--ink-faint)}
+  .back:hover{color:var(--blue-deep);text-decoration:none}
+  .eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.4em;color:var(--blue);text-transform:uppercase;margin-bottom:16px}
+  h1{font-family:var(--serif);font-size:clamp(30px,5vw,44px);letter-spacing:.04em}
+  h1 small{display:block;font-size:.4em;font-weight:400;color:var(--ink-faint);letter-spacing:.16em;margin-top:8px;font-family:var(--mono)}
+  .lede{margin-top:16px;color:var(--ink-soft);max-width:680px;font-size:15.5px}
+  .meta-line{margin-top:22px;display:flex;flex-wrap:wrap;gap:10px}
+  .chip{font-size:12.5px;padding:4px 13px;border:1px solid var(--line);border-radius:999px;color:var(--ink-soft);background:#fff}
+  .chip b{color:var(--blue-deep)}
+  .visit{display:inline-block;margin-top:24px;padding:11px 26px;border-radius:8px;background:var(--blue);color:#fff;font-weight:600;font-size:14.5px}
+  .visit:hover{background:var(--blue-deep);text-decoration:none}
+
+  section{padding:54px 0;border-bottom:1px solid var(--line)}
+  h2{font-family:var(--serif);font-size:27px;margin-bottom:6px}
+  .sub{color:var(--ink-faint);font-size:14px;margin-bottom:26px}
+
+  /* ---------- big numbers ---------- */
+  .nums{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:14px}
+  .num-card{border:1px solid var(--line);border-radius:12px;background:#fff;padding:20px;text-align:center;transition:.15s}
+  .num-card:hover{transform:translateY(-2px);box-shadow:0 8px 22px rgba(22,32,46,.08)}
+  .num-card .v{font-family:var(--serif);font-size:30px;font-weight:700;color:var(--blue-deep)}
+  .num-card .v small{font-size:.55em;color:var(--ink-faint);font-weight:400}
+  .num-card .k{font-size:12.5px;color:var(--ink-soft);margin-top:4px}
+
+  /* ---------- pipeline ---------- */
+  .pipe{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:14px;counter-reset:step}
+  .pstep{border:1px solid var(--line);border-radius:12px;background:#fff;padding:20px;position:relative}
+  .pstep:before{counter-increment:step;content:"0" counter(step);font-family:var(--mono);font-size:11px;letter-spacing:.14em;color:var(--blue)}
+  .pstep h4{font-family:var(--serif);font-size:16px;margin:6px 0 4px}
+  .pstep p{font-size:13px;color:var(--ink-soft)}
+
+  /* ---------- data foundation ---------- */
+  .foundation{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  .fcard{border:1px solid var(--line);border-radius:12px;background:#fff;padding:24px}
+  .fcard h4{font-family:var(--serif);font-size:17px;margin-bottom:12px;color:var(--blue-deep)}
+  .fcard ul{list-style:none}
+  .fcard li{font-size:13.5px;color:var(--ink-soft);padding:6px 0;border-bottom:1px dashed var(--paper-2)}
+  .fcard li:last-child{border-bottom:none}
+  .fcard li b{color:var(--ink)}
+
+  /* ---------- tree visual ---------- */
+  .tree-box{border:1px solid var(--line);border-radius:12px;background:#fff;padding:26px;margin-top:16px}
+  .tree-box p.cap{font-size:12.5px;color:var(--ink-faint);text-align:center;margin-top:12px}
+
+  footer{padding:46px 0 60px}
+  .fine{margin-top:14px;font-size:12.5px;color:var(--ink-faint)}
+
+  @media (max-width:760px){
+    .foundation{grid-template-columns:1fr}
+    header{padding:42px 0 34px}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <div class="topbar">
+      <a class="back" href="../index.html">← 返回作品集</a>
+      <a class="back" href="https://unitrade.shop" target="_blank" rel="noopener">unitrade.shop ↗</a>
+    </div>
+    <div class="eyebrow">Product Showcase</div>
+    <h1>UniTrade<small>AI NATIVE B2B CROSS-BORDER TRADE · LIVE</small></h1>
+    <p class="lede">正在创业中的 AI Native B2B 跨境贸易平台。本页展示其<b>商品数据底座</b>的设计与交付规模——这是平台选品、匹配与自动询盘能力的基础。平台在线运营于 unitrade.shop。</p>
+    <div class="meta-line">
+      <span class="chip"><b>Java + Python</b> 全栈</span>
+      <span class="chip"><b>2026.06</b> 起持续交付</span>
+      <span class="chip">源码与数据 <b>私有</b> · 本页为产品概述</span>
+    </div>
+    <a class="visit" href="https://unitrade.shop" target="_blank" rel="noopener">访问在线产品 unitrade.shop →</a>
+  </div>
+</header>
+
+<!-- ============ 数据规模 ============ -->
+<section>
+  <div class="wrap">
+    <h2>数据底座 · 一组已交付的数字</h2>
+    <p class="sub">B2B 跨境贸易的商品数据远比 C 端复杂：多语言、多层级类目、SKU/SPU 双粒度。先建数据规范，再做平台功能。</p>
+    <div class="nums">
+      <div class="num-card"><div class="v">28</div><div class="k">字段商品规范</div></div>
+      <div class="num-card"><div class="v">866</div><div class="k">节点分类树</div></div>
+      <div class="num-card"><div class="v">737</div><div class="k">L4 属性清单</div></div>
+      <div class="num-card"><div class="v">9141</div><div class="k">冷启动商品（已迁移）</div></div>
+      <div class="num-card"><div class="v">2<small> 语</small></div><div class="k">中英类目同义词</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 分类树示意 ============ -->
+<section>
+  <div class="wrap">
+    <h2>866 节点分类体系 · 结构示意</h2>
+    <p class="sub">四层类目 + 属性挂载。下图为结构示意（真实类目体系为商业资产，不在此展示）。</p>
+    <div class="tree-box">
+      <svg viewBox="0 0 760 240" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto" aria-label="分类树结构示意图">
+        <rect x="310" y="10" width="140" height="34" rx="8" fill="#1a3f7c"/>
+        <text x="380" y="32" text-anchor="middle" font-size="13" fill="#fff" font-family="sans-serif">根类目 · L1</text>
+        <line x1="380" y1="44" x2="150" y2="86" stroke="#c3cede" stroke-width="1.4"/>
+        <line x1="380" y1="44" x2="380" y2="86" stroke="#c3cede" stroke-width="1.4"/>
+        <line x1="380" y1="44" x2="610" y2="86" stroke="#c3cede" stroke-width="1.4"/>
+        <rect x="80" y="86" width="140" height="32" rx="8" fill="#fff" stroke="#2456a6" stroke-width="1.4"/>
+        <text x="150" y="106" text-anchor="middle" font-size="12" fill="#16202e" font-family="sans-serif">行业类目 · L2</text>
+        <rect x="310" y="86" width="140" height="32" rx="8" fill="#fff" stroke="#2456a6" stroke-width="1.4"/>
+        <text x="380" y="106" text-anchor="middle" font-size="12" fill="#16202e" font-family="sans-serif">行业类目 · L2</text>
+        <rect x="540" y="86" width="140" height="32" rx="8" fill="#fff" stroke="#2456a6" stroke-width="1.4"/>
+        <text x="610" y="106" text-anchor="middle" font-size="12" fill="#16202e" font-family="sans-serif">行业类目 · L2</text>
+        <line x1="150" y1="118" x2="150" y2="152" stroke="#c3cede" stroke-width="1.2"/>
+        <line x1="380" y1="118" x2="380" y2="152" stroke="#c3cede" stroke-width="1.2"/>
+        <line x1="610" y1="118" x2="610" y2="152" stroke="#c3cede" stroke-width="1.2"/>
+        <rect x="80" y="152" width="140" height="32" rx="8" fill="#fff" stroke="#8a97a8" stroke-width="1.2"/>
+        <text x="150" y="172" text-anchor="middle" font-size="12" fill="#4c5a6d" font-family="sans-serif">细分类目 · L3</text>
+        <rect x="310" y="152" width="140" height="32" rx="8" fill="#fff" stroke="#8a97a8" stroke-width="1.2"/>
+        <text x="380" y="172" text-anchor="middle" font-size="12" fill="#4c5a6d" font-family="sans-serif">细分类目 · L3</text>
+        <rect x="540" y="152" width="140" height="32" rx="8" fill="#fff" stroke="#8a97a8" stroke-width="1.2"/>
+        <text x="610" y="172" text-anchor="middle" font-size="12" fill="#4c5a6d" font-family="sans-serif">细分类目 · L3</text>
+        <line x1="380" y1="184" x2="380" y2="204" stroke="#b98a2e" stroke-width="1.4"/>
+        <rect x="270" y="204" width="220" height="30" rx="8" fill="#fdf6e7" stroke="#b98a2e" stroke-width="1.4"/>
+        <text x="380" y="223" text-anchor="middle" font-size="12" fill="#8a6416" font-family="sans-serif">L4 属性清单 · 737 项挂载</text>
+      </svg>
+      <p class="cap">L1 → L2 → L3 → L4 属性：共 866 节点 · 中英双语类目同义词支撑跨语言检索</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 交付链路 ============ -->
+<section>
+  <div class="wrap">
+    <h2>从数据到业务 · 交付链路</h2>
+    <p class="sub">数据底座不是孤立的表结构，而是按业务链路倒推设计的。</p>
+    <div class="pipe">
+      <div class="pstep">
+        <h4>商品规范先行</h4>
+        <p>28 字段规范统一 SPU/SKU 双粒度表达，商家可按 Excel / SPU / SKU 三种方式批量上传。</p>
+      </div>
+      <div class="pstep">
+        <h4>类目与属性体系</h4>
+        <p>866 节点分类树 + 737 项 L4 属性，让"选品"与"匹配"有共同的结构化语言。</p>
+      </div>
+      <div class="pstep">
+        <h4>冷启动迁移</h4>
+        <p>9141 件旧商品按新规范完整迁移交付——规范不是纸面设计，而是跑通了全量数据。</p>
+      </div>
+      <div class="pstep">
+        <h4>平台能力</h4>
+        <p>选品、供需匹配与自动询盘流程建立在同一数据底座上（Java API + UI 全栈）。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 我的角色 ============ -->
+<section style="border-bottom:none">
+  <div class="wrap">
+    <h2>我在其中的角色</h2>
+    <p class="sub">独立创业者：产品、数据架构与工程交付一肩挑。</p>
+    <div class="foundation">
+      <div class="fcard">
+        <h4>产品与数据架构</h4>
+        <ul>
+          <li><b>商品数据规范</b>：28 字段定义、SPU/SKU 粒度边界、必填/选填策略</li>
+          <li><b>分类体系设计</b>：866 节点类目树 + L4 属性清单的建模与演进</li>
+          <li><b>跨语言检索</b>：中英双语类目同义词表，服务跨境场景的供需匹配</li>
+          <li><b>文档体系</b>：30 秒导读 + 全栈概览，让协作者快速进入语境</li>
+        </ul>
+      </div>
+      <div class="fcard">
+        <h4>工程交付</h4>
+        <ul>
+          <li><b>平台全栈</b>：Java API + 前端 UI，支撑选品 / 匹配 / 自动询盘</li>
+          <li><b>批量上传工具</b>：Excel / SPU / SKU 三种商家接入路径</li>
+          <li><b>数据迁移</b>：9141 件旧商品按新规范迁移，交付可核验</li>
+          <li><b>上线运营</b>：unitrade.shop 持续运营迭代中</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <a class="visit" href="https://unitrade.shop" target="_blank" rel="noopener">访问在线产品 unitrade.shop →</a>
+    <p class="fine">本页为产品概述演示 · UniTrade 源码与数据为商业资产，不在此公开 · <a href="../index.html">返回作品集首页</a></p>
+  </div>
+</footer>
+
+</body>
+</html>
