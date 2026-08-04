@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>幕境 · 可交互演示 — 毕业聚会档案</title>
+<meta name="description" content="幕境（Mujing）AI 沉浸式活动引擎的可交互内容演示：一场毕业聚会的 6 视角 × 5 幕档案室。"/>
+<style>
+  :root{
+    --bg:#14120f; --panel:#1d1a16; --panel-2:#242019; --line:#37312a;
+    --ink:#e8e2d6; --ink-soft:#b3a996; --ink-faint:#7a7164;
+    --accent:#c96f4a; --accent-soft:#e0a184; --gold:#c9a86a;
+    --serif:"Noto Serif SC","Source Han Serif SC","Songti SC",Georgia,serif;
+    --sans:"Noto Sans SC","PingFang SC","Microsoft YaHei",-apple-system,sans-serif;
+    --mono:"JetBrains Mono","SFMono-Regular",Consolas,monospace;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{background:var(--bg);color:var(--ink);font-family:var(--sans);line-height:1.8;font-size:16px}
+  a{color:var(--accent-soft);text-decoration:none}
+  a:hover{text-decoration:underline}
+
+  .wrap{max-width:1060px;margin:0 auto;padding:0 24px}
+
+  /* ---------- header ---------- */
+  header{padding:56px 0 40px;border-bottom:1px solid var(--line);
+    background:radial-gradient(900px 380px at 70% -120px, rgba(201,111,74,.14), transparent 60%)}
+  .eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.4em;color:var(--accent);text-transform:uppercase;margin-bottom:16px}
+  h1{font-family:var(--serif);font-size:clamp(30px,5vw,44px);letter-spacing:.04em}
+  h1 small{display:block;font-size:.4em;font-weight:400;color:var(--ink-faint);letter-spacing:.16em;margin-top:8px;font-family:var(--mono)}
+  .lede{margin-top:16px;color:var(--ink-soft);max-width:680px;font-size:15.5px}
+  .meta-line{margin-top:22px;display:flex;flex-wrap:wrap;gap:10px}
+  .chip{font-size:12.5px;padding:4px 13px;border:1px solid var(--line);border-radius:999px;color:var(--ink-soft);background:var(--panel)}
+  .chip b{color:var(--gold)}
+  .topbar{display:flex;justify-content:space-between;align-items:center;margin-bottom:28px}
+  .back{font-family:var(--mono);font-size:12.5px;color:var(--ink-faint)}
+  .back:hover{color:var(--accent-soft);text-decoration:none}
+
+  /* ---------- controls ---------- */
+  .controls{display:flex;flex-wrap:wrap;gap:10px;padding:22px 0;border-bottom:1px solid var(--line)}
+  .roles{display:flex;flex-wrap:wrap;gap:8px;flex:1}
+  .role-btn{border:1px solid var(--line);background:var(--panel);color:var(--ink-soft);border-radius:10px;padding:8px 14px;cursor:pointer;font-size:13.5px;font-family:var(--sans);transition:.15s}
+  .role-btn:hover{border-color:var(--accent);color:var(--ink)}
+  .role-btn.active{border-color:var(--accent);background:rgba(201,111,74,.12);color:var(--accent-soft)}
+  .role-btn .role-key{display:block;font-family:var(--mono);font-size:10px;color:var(--ink-faint);letter-spacing:.1em}
+  .unlock{border:1px dashed var(--gold);background:transparent;color:var(--gold);border-radius:10px;padding:8px 14px;cursor:pointer;font-size:13px;font-family:var(--sans)}
+  .unlock:hover{background:rgba(201,168,106,.1)}
+
+  /* ---------- stage tabs ---------- */
+  .stages{display:flex;gap:6px;padding:16px 0 0;flex-wrap:wrap}
+  .stage-btn{background:none;border:none;color:var(--ink-faint);font-family:var(--mono);font-size:12px;letter-spacing:.1em;padding:7px 12px;cursor:pointer;border-bottom:2px solid transparent}
+  .stage-btn:hover{color:var(--ink-soft)}
+  .stage-btn.active{color:var(--accent-soft);border-bottom-color:var(--accent)}
+
+  /* ---------- document ---------- */
+  .doc{margin:28px 0 40px;border:1px solid var(--line);border-radius:14px;background:linear-gradient(180deg,var(--panel),#191612);overflow:hidden}
+  .doc-head{padding:22px 28px 14px;border-bottom:1px solid var(--line);display:flex;flex-wrap:wrap;align-items:baseline;gap:12px}
+  .doc-head h2{font-family:var(--serif);font-size:24px;letter-spacing:.03em}
+  .kind{font-family:var(--mono);font-size:11px;letter-spacing:.14em;padding:3px 10px;border-radius:5px}
+  .k-diary_entry{background:rgba(201,168,106,.14);color:var(--gold)}
+  .k-chat_log{background:rgba(90,169,230,.13);color:#7db8e8}
+  .k-voice_transcript{background:rgba(227,115,131,.13);color:#e893a1}
+  .k-email{background:rgba(79,192,141,.13);color:#6fce9f}
+  .k-object_note{background:rgba(176,127,230,.13);color:#c5a2ee}
+  .k-letter{background:rgba(224,161,132,.13);color:var(--accent-soft)}
+  .k-phone_log{background:rgba(243,156,106,.13);color:#f3b98a}
+  .k-social_post{background:rgba(232,226,214,.1);color:var(--ink-soft)}
+  .doc-meta{padding:10px 28px 0;font-family:var(--mono);font-size:11.5px;color:var(--ink-faint);display:flex;flex-wrap:wrap;gap:14px}
+  .doc-body{padding:20px 28px 30px;font-family:var(--serif);font-size:16.5px;color:#ddd5c5;white-space:pre-wrap;position:relative;max-height:520px;overflow:hidden}
+  .doc-body.expanded{max-height:none}
+  .doc-body:after{content:"";position:absolute;left:0;right:0;bottom:0;height:90px;background:linear-gradient(transparent,#191612);pointer-events:none}
+  .doc-body.expanded:after{display:none}
+  .doc-toggle{display:block;width:100%;padding:12px;background:var(--panel-2);border:none;border-top:1px solid var(--line);color:var(--accent-soft);font-family:var(--mono);font-size:12px;letter-spacing:.14em;cursor:pointer}
+  .doc-toggle:hover{color:var(--gold)}
+  .doc-empty{padding:60px 28px;text-align:center;color:var(--ink-faint);font-size:14px}
+
+  /* ---------- mechanism ---------- */
+  section{padding:56px 0;border-top:1px solid var(--line)}
+  h3.sec{font-family:var(--serif);font-size:26px;margin-bottom:6px}
+  .sub{color:var(--ink-faint);font-size:14px;margin-bottom:28px}
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px}
+  .mcard{border:1px solid var(--line);border-radius:12px;background:var(--panel);padding:20px}
+  .mcard h4{font-family:var(--serif);font-size:16.5px;color:var(--gold);margin-bottom:6px}
+  .mcard p{font-size:13.5px;color:var(--ink-soft)}
+  .mcard .tag{font-family:var(--mono);font-size:10.5px;color:var(--ink-faint);letter-spacing:.12em;text-transform:uppercase}
+
+  footer{padding:44px 0 60px;border-top:1px solid var(--line);font-size:13px;color:var(--ink-faint)}
+  .fine{margin-top:14px;font-size:12px}
+
+  @media (max-width:720px){
+    header{padding:40px 0 30px}
+    .doc-head{padding:18px 20px 12px}
+    .doc-meta{padding:8px 20px 0}
+    .doc-body{padding:16px 20px 24px}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <div class="topbar">
+      <a class="back" href="/index.html">← 返回作品集</a>
+      <a class="back" href="nengli-senlin.html">下一个演示 · 能力森林 →</a>
+    </div>
+    <div class="eyebrow">Mujing · Interactive Demo</div>
+    <h1>幕境<small>AI 沉浸式活动引擎 · 可交互内容档案</small></h1>
+    <p class="lede">幕境用 AI 流水线为线下场地生成"多视角沉浸叙事"：同一场活动，每个参与者只看到属于自己视角的档案。下面是真实生成内容《毕业聚会》的档案室切片——<b>选择视角，阅读各自隐瞒的秘密。</b></p>
+    <div class="meta-line">
+      <span class="chip"><b>6</b> 视角</span>
+      <span class="chip"><b>5</b> 幕结构</span>
+      <span class="chip"><b>30</b> 篇长文档</span>
+      <span class="chip"><b>8</b> 种文档体裁</span>
+      <span class="chip">9-pass 生成流水线 + 实时 harness</span>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="controls">
+    <div class="roles" id="roles"></div>
+    <button class="unlock" id="unlock">🔓 解锁全幕（含结局走向）</button>
+  </div>
+  <div class="stages" id="stages"></div>
+</div>
+
+<div class="wrap">
+  <div class="doc" id="doc">
+    <div class="doc-empty">请选择视角以调阅档案。</div>
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <h3 class="sec">这份内容是怎么来的</h3>
+    <p class="sub">不是手写剧本，而是幕境引擎的生成产物——以下为引擎机制的缩影。</p>
+    <div class="grid">
+      <div class="mcard"><div class="tag">Pipeline</div><h4>9-pass 生成流水线</h4><p>设定 → 人物 → 关系网 → 幕结构 → 视角文档 → 一致性校验，逐遍收敛，保证 6 视角叙事互不矛盾。</p></div>
+      <div class="mcard"><div class="tag">Structure</div><h4>5 幕状态机</h4><p>开场 / 发展 ×3 / 终幕，每个视角在每一幕都有独立文档，跨幕信息严格隔离以防剧透。</p></div>
+      <div class="mcard"><div class="tag">Format</div><h4>8 种文档体裁</h4><p>日记 / 聊天记录 / 语音转写 / 邮件草稿 / 物品观察笔记 / 书信 / 通话记录 / 朋友圈草稿——同一事件用不同媒介呈现。</p></div>
+      <div class="mcard"><div class="tag">Runtime</div><h4>实时 harness</h4><p>活动进行中，主持人侧实时校验玩家行动与档案的一致性，MVP v7.2 已可现场演示。</p></div>
+      <div class="mcard"><div class="tag">Design</div><h4>信息不对称设计</h4><p>关键线索（水钻、天蓝色绳结、戒指盒）分散在不同视角的档案里，拼合即真相。</p></div>
+      <div class="mcard"><div class="tag">Evidence</div><h4>本页数据即真实产物</h4><p>本页档案直接取自仓库内 fixture 数据（featured_summer_party.longform.json），未经人工改写。</p></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p>幕境为私有仓库项目，本页展示的内容切片已获允许公开。完整引擎代码、生成流水线与 harness 可在沟通后提供访问。</p>
+    <p class="fine">© 2026 戴宙辰 Daizhouchen · <a href="/index.html">返回作品集</a> · <a href="https://github.com/daizhouchen">GitHub</a></p>
+  </div>
+</footer>
+
+<script>
+const ROLES = [
+  { id:"r_su_xiaotang",   name:"苏晓棠", key:"支教老师的日记" },
+  { id:"r_li_yuzhe",      name:"林宇哲", key:"角落里的观察笔记" },
+  { id:"r_chen_jiajia",   name:"陈佳佳", key:"未公开的聊天" },
+  { id:"r_zhao_kai",      name:"赵凯",   key:"语音与通话记录" },
+  { id:"r_li_hao",        name:"李浩",   key:"草稿箱里的邮件" },
+  { id:"r_meng_yue",      name:"孟月",   key:"未回复的消息" }
+];
+const STAGES = [
+  { id:"s_open",  label:"第一幕 · 开场" },
+  { id:"s_act1",  label:"第二幕" },
+  { id:"s_act2",  label:"第三幕" },
+  { id:"s_act3",  label:"第四幕" },
+  { id:"s_final", label:"终幕" }
+];
+const KIND_LABEL = {
+  diary_entry:"日记", chat_log:"聊天记录", voice_transcript:"语音转写",
+  email:"邮件草稿", object_note:"物品观察笔记", letter:"书信",
+  phone_log:"通话记录", social_post:"朋友圈草稿"
+};
+const DOCS = [{"id":"lf_su_open","roleId":"r_su_xiaotang","stageId":"s_open","kind":"diary_entry","title":"6月18日晴","body":"2026年6月18日 晴\n早上给中班的小朋友上手工课，乐乐偷偷塞给我一朵用彩纸折的向日葵，说祝老师去山里也能每天看到太阳。我捏着那朵皱巴巴的纸花躲在教具室哭了十分钟，妆花了一半，补妆的时候翻到手机相册里去年毕业旅行的集体照，大家挤在婺源的油菜花田里，我站在最中间，脸上沾了点李浩抹的蛋糕奶油。\n下午收拾行李的时候犹豫了三次，还是把装集体照的天蓝色相册盒塞进了背包最内层，支教的山区信号不好，也不知道下次聚齐是什么时候。出门前收到支教队的通知，说下周一会派车来接，我对着镜子练了好几遍“我要去支教两年”的开场白，每次说到一半就卡壳。\n刚才轰趴馆玄关的灯很暖，大家进门的时候都笑着抱我，我攥着背包肩带的手一直出汗，那句到了嘴边的话，还是咽回去了。","metadata":{"date":"2026-06-18","time":"18:05","location":"轰趴馆二楼储物间门口","tags":["手写原件","页边有泪痕"]}},{"id":"lf_lin_open","roleId":"r_li_yuzhe","stageId":"s_open","kind":"object_note","title":"口袋里的银手链","body":"物品：哑光银手链，链尾挂着一个迷你的向日葵吊坠，吊坠背面刻了极小的“X.T”字样，盒子是浅米色的丝绒盒，边角有点磨损，盒盖内侧贴了一张打印的小票，日期是2026年6月10日，购买记录显示是在老巷口的银饰店定制的，付款人姓名是林宇哲。\n观察笔记：18:12进门的时候，我把盒子揣在牛仔裤左边口袋里，陈佳佳拉着赵凯试新衣服的时候，我下意识摸了三次口袋，盒子的边角硌得大腿有点疼。刚才苏晓棠从我身边经过的时候，她发梢上的桃子味洗发水飘过来，我攥着盒子的手突然出汗，指尖蹭到了吊坠的边缘，有点凉。\n上周看到她朋友圈发的小朋友送的纸向日葵，特意找店家定制的，本来打算今天她吹蜡烛的时候送给她，刚才看到她站在窗边擦眼泪，我站在拐角看了她五分钟，还是没敢走过去。","metadata":{"date":"2026-06-18","time":"18:22","location":"轰趴馆客厅拐角","tags":["未送出","盒内附空白贺卡"]}},{"id":"lf_chen_open","roleId":"r_chen_jiajia","stageId":"s_open","kind":"chat_log","title":"和未婚夫的聊天","body":"17:47 阿哲\n    宝贝你到轰趴馆了吗？戒指我放在你外套内侧口袋了，别弄丢了\n17:48 我\n    知道啦，刚进门，苏晓棠正跟蛋糕店师傅挥手呢，我等下找机会跟大家说\n17:50 阿哲\n    不急，你跟朋友们好久没聚了，玩得开心点，我晚上十点来接你\n17:51 我\n    对了，你说我现在说会不会扫大家的兴啊？去年毕业的时候说好要一起闯三年的，我这先订婚了，总觉得有点不好意思\n（17:51 - 18:03 间隔12分钟无消息）\n18:03 阿哲\n    傻不傻，大家肯定会替你开心的，赵凯那边…你要是觉得尴尬，不说也行，我没关系的\n18:04 我\n    算了，还是说吧，躲着也不是回事。刚赵凯进门了，穿了件白T恤，跟去年毕业的时候一模一样，我看着他笑了半天，他挠头的样子还跟以前一样傻\n18:05 阿哲\n    嗯，玩去吧，我等你\n（18:05 对方正在输入中… 持续3分钟后消失）","metadata":{"date":"2026-06-18","from":"陈佳佳","to":"未婚夫阿哲","tags":["未删除","最新一条未回复"]}},{"id":"lf_zhao_open","roleId":"r_zhao_kai","stageId":"s_open","kind":"voice_transcript","title":"给哥们的语音","body":"[00:00 背景音是轰趴馆的喧闹声，有人在笑]\n我跟你说，我刚才进门的时候，佳佳正站在玄关试她新买的那条白裙子，跟我以前跟你说的她高考完穿的那条一模一样，我差点就认不出来了。\n[00:12 沉默2秒，声音放低]\n她手上戴了个戒指，闪得很，我猜应该是订婚了，上次她朋友圈晒的那个男的，看起来挺靠谱的，对她应该挺好。\n[00:28 笑了一声，有点哑]\n我今天特意没穿她以前说我穿腻了的黑T恤，穿了件白的，刚才她看见我的时候愣了一下，然后笑着跟我打招呼，说我怎么还是跟以前一样傻。我本来准备了好多话，问她最近生意好不好，有没有按时吃饭，结果到嘴边就只剩一句“好久不见”。\n[00:51 远处有人喊赵凯的名字，他应了一声]\n行了不说了，他们叫我过去搬饮料呢，反正…她过得好就行，我就不打扰了。\n[01:07 录音中断]","metadata":{"date":"2026-06-18","time":"18:15","duration":"1分07秒","tags":["未发送","录音文件名是“随便录的”"]}},{"id":"lf_li_open","roleId":"r_li_hao","stageId":"s_open","kind":"email","title":"借款草稿邮件","body":"From: lihao@xxx.com\nTo: 未填写\nSubject: 有个事想请兄弟们帮个忙\nDate: 2026-06-18 18:07\n各位，好久没联系了，这次聚会本来想开开心心玩的，有个事我犹豫了好久还是想说。\n我妈上周查出来心脏病，要做支架手术，前后大概要十几万，我工作这两年攒的钱都交了首付，实在凑不齐了，思来想去还是想找你们借点，我可以打欠条，按银行利息算，最多两年肯定能还上。\n刚才进门的时候看到大家都没变，苏晓棠还是那么温柔，林宇哲还是躲在角落玩手机，佳佳跟赵凯两个人站在一起聊天，看起来气氛还挺好的，我好几次想开口，都怕扫了大家的兴。\n我等下找机会挨个跟你们说吧，要是不方便也没关系，我再想别的办法。对了，今天我带了上次去青岛出差带的啤酒，等下大家多喝点，好久没聚了，先玩开心再说。\n（草稿未发送，光标停在最后一行末尾）","metadata":{"date":"2026-06-18","time":"18:07","tags":["DRAFT","未发送"]}},{"id":"lf_meng_open","roleId":"r_meng_yue","stageId":"s_open","kind":"diary_entry","title":"7月15日 晴","body":"2024年7月15日 晴 轰趴馆一楼客厅\n17:32进门的时候空调开得很足，我刚从外面三十度的太阳下跑进来，眼镜上蒙了一层雾。赵凯举着半瓶冰可乐凑过来拍我肩膀，说就等我了，陈佳佳在厨房捣鼓特调，林宇哲蹲在沙发旁边连投影的线，李浩举着个拍立得到处晃。我擦干净眼镜抬头的时候，看见靠窗的位置站着个人，背对着我，指尖捏着个方形的东西，肩膀好像在轻轻抖，我刚想走过去，就被李浩拽去拍合影。\n17:58吃饭的时候我刷到导师下午发的消息，问我要不要直博，硕博连读要占用五年，我之前跟陈佳佳提过想辞职做医学科普博主，她说我肯定能火。桌上的提拉米苏甜得发腻，我偷偷把上面的可可粉刮到纸巾上，抬头刚好看见刚才站在窗边的人走过来，手里攥着个一次性纸杯，指甲盖掐得有点发白。她对着我笑了一下，我总觉得她眼睛有点红，刚想问她是不是不舒服，陈佳佳端着两杯特调撞了撞我的胳膊，说先喝东西，一会还有惊喜。我把到嘴边的话咽了回去，手机屏幕还停在导师的消息界面，光标闪了半天，我还是没敲下回复。","metadata":{"date":"2024-07-15","time":"18:05","location":"轰趴馆一楼休息区","tags":["手写","页边有咖啡渍"]}},{"id":"lf_su_act1","roleId":"r_su_xiaotang","stageId":"s_act1","kind":"letter","title":"给孩子们的告别信","body":"亲爱的小一班的宝贝们：\n今天老师最后一次给你们讲小兔子的故事哦。昨天壮壮把画着太阳的蜡笔画塞到我包里，说要给我当行李的时候，老师差点就哭了。\n下周开始会有新的李老师来带你们，她也会唱你们最喜欢的《小花朵》，也会帮你们扎歪歪的羊角辫。老师要去很远的地方，那里也有很多像你们一样喜欢画小太阳的小朋友，等着老师给他们讲故事。\n老师偷偷把毕业那天和哥哥姐姐们的合影放进了行李，就像把你们画的小太阳也塞进去一样，走到哪里都不会怕啦。\n等老师回来的时候，要看到壮壮能自己系鞋带，朵朵能把完整的《小花朵》唱给我听哦。\n你们的晓棠老师\n7月16日","metadata":{"date":"2024-07-16","location":"轰趴馆二楼走廊窗边","tags":["草稿","未寄出"]}},{"id":"lf_lin_act1","roleId":"r_li_yuzhe","stageId":"s_act1","kind":"object_note","title":"丝绒首饰盒观察笔记","body":"物品：藏蓝色丝绒首饰盒，边长约8厘米，盒盖边角有轻微磨损痕迹。\n盒内物品：一枚银质小雏菊吊坠，链子长度42厘米，吊坠背面刻有 tiny 的字母 \"S\"，是去年去婺源支教的同学帮忙带的当地银饰，店员说小雏菊的花语是藏在心底的爱。\n放置位置：今天出门前特意放在背包内层的暗袋里，和移动电源、备用口罩放在一起，刚才找U盘的时候摸到过，还带着体温。\n观察记录：18:25在客厅窗边看到她站着擦眼泪，手指攥着什么方形的东西，当时想过去递纸巾，被赵凯喊着帮忙搬投影仪打断了。首饰盒还在暗袋里，等没人的时候再给她吧，现在大家都在找东西，贸然拿出来太突兀了。","metadata":{"date":"2024-07-16","time":"18:40","location":"轰趴馆一楼沙发角落","tags":["私人笔记","未公开"]}},{"id":"lf_chen_act1","roleId":"r_chen_jiajia","stageId":"s_act1","kind":"chat_log","title":"和未婚夫的聊天记录","body":"18:32 阿哲\n    宝贝你那边聚会结束了吗？我在楼下停车场等你？\n18:33 我\n    还没呢，出了点小状况，我们之前毕业的集体照找不到了，大家正在找\n18:33 阿哲\n    要不要我上去帮忙？我拎了两箱你爱喝的青柠气泡水\n18:34 我\n    不用不用，你就在车上等我吧，我想等会跟大家宣布我们订婚的事，现在乱糟糟的不太合适\n18:35 阿哲\n    好，我不急，你慢慢来，戒指我放你外套口袋里了，等会拿出来的时候小心点别刮到手\n18:36 我\n    知道啦，对了，你之前送我的那个小方戒我今天戴了，刚好配我今天的裙子\n(18:37-18:45 间隔8分钟无消息)\n18:45 我\n    刚才在地毯上捡到个小水钻，好像是晓棠发夹上掉的，等会问问她\n18:46 阿哲\n    好，你慢慢来，我等你","metadata":{"date":"2024-07-16","from":"陈佳佳","to":"阿哲","tags":["未删除"]}},{"id":"lf_zhao_act1","roleId":"r_zhao_kai","stageId":"s_act1","kind":"phone_log","title":"近三天通话记录","body":"2024-07-14 09:23 呼出 房产中介 时长2分17秒 备注：询问江北区两居室转租事宜\n2024-07-14 12:05 呼入 健身房老板 时长4分32秒 备注：确认下个月调去新店当店长的通知\n2024-07-15 18:47 呼出 陈佳佳 时长0秒 备注：响了两声就挂了，怕打扰她试婚纱\n2024-07-15 22:10 呼入 大学室友 时长12分05秒 备注：问我要不要去参加毕业五周年聚会，说佳佳也会去\n2024-07-16 17:52 呼出 轰趴馆房东 时长3分11秒 备注：问要不要帮忙搬门口的两箱啤酒\n2024-07-16 18:28 呼入 快递员 时长1分03秒 备注：新买的运动鞋到了，让快递员放在驿站\n2024-07-16 18:35 呼出 陈佳佳 时长0秒 备注：刚想喊她过来喝冰可乐，看到她蹲在地上找东西，又挂了","metadata":{"date":"2024-07-16","time":"18:42","tags":["本机记录","未删除"]}},{"id":"lf_li_act1","roleId":"r_li_hao","stageId":"s_act1","kind":"email","title":"婚礼策划项目尾款催收草稿","body":"To: 市场部王经理\nFrom: 李浩\nSubject: 关于6月15日玫瑰园婚礼项目的尾款催收申请\nDate: 2024-07-16 18:45\n王经理您好：\n打扰您了，我是策划部的李浩，之前负责的6月15日玫瑰园户外婚礼项目已经圆满结束，客户上周已经确认了所有交付物料，满意度评分9.8分，按照合同约定，剩下的30%尾款共12万元应该在本月20号之前到账。\n我这边最近家里出了点急事，母亲住院需要手术费，能不能麻烦您帮忙跟财务那边打个招呼，看看能不能提前把这笔尾款的提成结算给我？一共是12000元，对公司来说不是大数目，但对我来说真的是救命钱。\n今天的毕业五周年聚会我本来想跟几个关系好的同学开口借，但大家好久没见，一上来就提钱太突兀了，实在是没办法才麻烦您。\n麻烦您了，等我母亲做完手术我一定请您吃饭。\n李浩","metadata":{"date":"2024-07-16","from":"李浩","to":"王经理","tags":["DRAFT","未发送"]}},{"id":"lf_meng_act1","roleId":"r_meng_yue","stageId":"s_act1","kind":"chat_log","title":"和师姐的未读对话","body":"16:42  师姐\n    上周跟你说的科普博主的事，你考虑得怎么样了\n16:45  你\n    师姐我还在纠结，今天刚好是毕业三周年聚会，我想听听朋友们的意见\n16:46  师姐\n    没问题，你本身有临床医学背景，做健康科普比那些半吊子专业多了，流量肯定不会差\n16:47  师姐\n    对了，之前那个三甲医院的面试通知下来了，下周三要去面，你别忘了准备\n16:48  你\n    好的师姐，我记着呢\n(16:48 - 18:27 间隔1小时39分无消息)\n18:27  你\n    师姐，今天聚会上出了点事，我们大学宿舍的集体照找不到了，大家现在都在找\n18:28  你\n    刚才弯腰捡掉在地上的笔的时候，我好像在谁的背包侧袋看到个眼熟的绳结，就是以前我们一起拼单买的那种天蓝色包装绳\n18:29  你\n    我是不是应该直接说啊？毕竟大家都是这么多年的朋友\n18:30  师姐\n    ？别冲动，先搞清楚状况再说，万一认错了多尴尬\n18:30  你\n    我知道，我再观察观察，就是觉得有点奇怪，好端端的照片怎么会不见呢","metadata":{"date":"2026-07-16","from":"孟月 / 实验室师姐","tags":["微信聊天记录","未同步到云端"]}},{"id":"lf_su_act2","roleId":"r_su_xiaotang","stageId":"s_act2","kind":"letter","title":"给小朋友的告别信","body":"亲爱的小月亮班的小朋友们：\n今天老师收拾行李的时候，翻到了上个月你们画的全家福，画里的老师扎着歪歪扭扭的辫子，旁边还画了好多颗糖果。老师下周就要去很远的地方，那里也有好多像你们一样可爱的小朋友，他们还没有见过彩色的蜡笔，也没有听过小兔子的故事。\n老师会把我们毕业的合照放在背包最里面的夹层，想你们的时候就拿出来看看。昨天去轰趴馆的时候，老师看到蛋糕上写着“毕业三周年快乐”，突然就红了眼睛，怕被哥哥姐姐们笑话，就躲去了窗边。\n等老师明年回来，给你们带山那边的小野花，好不好？\n对了，今天老师的发夹上掉了一颗水钻，要是你们捡到了，要替老师好好收着哦。\n爱你们的晓棠老师","metadata":{"date":"2026-07-15","time":"19:27","location":"轰趴馆二楼客房书桌","tags":["未寄出"]}},{"id":"lf_lin_act2","roleId":"r_li_yuzhe","stageId":"s_act2","kind":"object_note","title":"丝绒礼盒观察笔记","body":"藏在背包内层的藏蓝色丝绒礼盒，边长15厘米，表面有轻微压痕，是昨天下班路过巷口的银饰店买的。\n盒子里放着一枚银质书签，尾端刻了小小的山茶花图案，去年冬天她发朋友圈说过，最喜欢山茶花的香味。当时看到的时候下意识就保存了图片，存到了专门的相册里，相册名只有一个“苏”字。\n刚才在客厅看监控的时候，指尖一直攥着礼盒的边角，丝绒磨得指腹发烫。她刚才擦眼泪的样子，和三年前毕业那天站在礼堂门口哭的样子一模一样。\n礼盒侧面还贴着银饰店的价格标签，刚才掏手机的时候不小心蹭掉了一半，粘在牛仔裤口袋上，现在还留着一点透明的胶痕。\n口袋里的手机震了一下，是工作群的消息，我没点开。","metadata":{"date":"2026-07-15","time":"19:32","location":"轰趴馆客厅沙发角落","tags":["私人笔记"]}},{"id":"lf_chen_act2","roleId":"r_chen_jiajia","stageId":"s_act2","kind":"chat_log","title":"和未婚夫的聊天记录","body":"19:17 阿哲\n  戒指我放在你外套内侧口袋了，你今天要不要跟朋友们说呀？\n19:18 我\n  再说吧，现在他们都在找那张毕业照，有点乱\n19:18 阿哲\n  好，都听你的，要是他们问起来，我就说我是来接你的司机\n19:20 我\n  你少贫\n19:21 阿哲\n  对了，我妈刚才问我们蜜月要不要去云南，她说那边花开得正好\n19:23 我\n  等今天聚会结束了再说吧，我现在有点乱，刚才在地毯上看到半片水钻，好像是晓棠的发夹上的，没敢说\n(19:23 - 19:30 间隔7分钟无消息)\n19:30 我\n  其实我有点怕，我怕我说我要订婚了，赵凯他会难受\n19:31 阿哲\n  我懂，我等你\n19:31 我\n  嗯","metadata":{"date":"2026-07-15","location":"轰趴馆阳台","tags":["未删除"]}},{"id":"lf_zhao_act2","roleId":"r_zhao_kai","stageId":"s_act2","kind":"diary_entry","title":"7月15日聚会日记","body":"2026年7月15日 晴 轰趴馆\n刚才蹲在地上找照片的时候，摸到了半片水钻，凉冰冰的，我认得是苏晓棠那个Hello Kitty发夹上的，上次她带小盆友去我们健身房搞亲子活动的时候，发夹上的水钻还闪得晃眼。\n我抬头的时候刚好看到陈佳佳站在冰箱旁边翻可乐，左手无名指上戴着个素圈，我之前在她朋友圈见过，是那个男生送的订婚戒指。她今天穿了条米白色的连衣裙，以前她总说自己穿白色不好看，没想到现在穿得这么温柔。\n我把水钻攥在手里，没敢吭声，也没敢问她是不是真的要结婚了。三年前毕业聚餐的时候，我本来打算跟她表白的，结果喝多了，抱着李浩哭了半小时，什么都没说出口。\n可乐罐上的水珠滴在了地板上，留下一小片湿痕，很快就干了。","metadata":{"date":"2026-07-15","time":"19:35","location":"轰趴馆一楼储物间门口","tags":["手写"]}},{"id":"lf_li_act2","roleId":"r_li_hao","stageId":"s_act2","kind":"email","title":"欠款协商邮件草稿","body":"To: 小额贷款催收部\nFrom: lihao@xxx.com\nSubject: 关于欠款延期还款的申请\n您好，我是借款人李浩，身份证号xxxxxx19980312xxxx，此前借款的12万元本月应还3万元，目前因为公司项目款尚未到账，申请将本月还款延期至8月15日，逾期产生的利息我会一并支付。\n本来今天同学聚会打算跟几个关系好的朋友开口借钱，刚才看到大家都在找丢失的毕业照，话到嘴边又咽了回去。上周跟孟月吃饭的时候，她提过她们医院马上要评职称，正是用钱的时候，肯定不能跟她开口。赵凯最近刚开了自己的健身工作室，手头估计也紧。\n附件是我公司的项目合同扫描件，还有近期的流水证明，麻烦您这边帮忙申请一下延期，谢谢。\n（光标停在“发送”按钮上，未点击）","metadata":{"date":"2026-07-15","time":"19:40","location":"轰趴馆二楼公共电脑","tags":["草稿","未发送"]}},{"id":"lf_meng_act2","roleId":"r_meng_yue","stageId":"s_act2","kind":"chat_log","title":"和师姐的聊天记录","body":"18:07 师姐\n  小孟，昨天跟你说的保研资格的事，系里现在名额确定了，你排在第二，只要没问题下周就公示了\n18:08 孟月\n  谢谢师姐！我这段时间一直在跟进实验室的项目，上周的论文数据也整理得差不多了\n18:09 师姐\n  对了，我前几天刷到你做的医学科普账号了，内容做得挺专业的，粉丝涨得很快啊\n18:10 孟月\n  就是平时课余时间随便更的，分享点日常的健康知识，没想到有人看\n(18:10 - 18:15 间隔5分钟无消息)\n18:15 师姐\n  上次有个MCN找我谈合作，我推掉了，不过他们提到如果是你这种有科研背景还会做内容的，开的待遇比咱们毕业进医院的起薪高两倍\n18:16 孟月\n  啊？还有这种事\n18:17 师姐\n  我知道你从小就想当医生，不过现在新媒体赛道机会确实多，你可以好好想想，反正保研还有一周才截止\n18:18 孟月\n  我……我再考虑考虑吧\n(18:18 - 18:32 间隔14分钟无消息)\n18:32 孟月\n  师姐，我现在在同学聚会，回头我找你聊\n18:32 师姐\n  好，不急，你慢慢想","metadata":{"date":"2026-07-16","from":"师姐、孟月","to":"孟月、师姐","location":"轰趴馆二楼休息区","tags":["手机聊天记录截图","未同步到云盘"]}},{"id":"lf_su_act3","roleId":"r_su_xiaotang","stageId":"s_act3","kind":"diary_entry","title":"支教前最后一篇","body":"2024年6月22日 晴 轰趴馆二楼阳台\n背包里的录取通知书边角已经被我摸得起毛，下午收拾行李的时候我把它夹在了大三那年大家一起去海边拍的集体照背面。刚才在储物间拿纸杯的时候看见相册就摆在置物架最上层，天蓝色的包装绳还是去年毕业时陈佳佳帮我系的，我鬼使神差就拿了下来。\n刚才林宇哲递水给我的时候眼神好像有话要说，我不敢多看他，攥着背包带的手心全是汗。蛋糕上的蜡烛还插着，客厅里赵凯和李浩在抢话筒唱校歌，孟月抱着电脑在整理刚整理完的体检报告。我摸了摸背包侧袋露出的半截天蓝色绳头，又摸了摸口袋里没写完的告别信。\n风把阳台的纱帘吹得蹭过我的胳膊，楼下的蝉叫得比上学时操场边的还要响。我咬了咬嘴唇，把到了嘴边的话又咽了回去。","metadata":{"date":"2024-06-22","time":"18:47","location":"轰趴馆二楼阳台","tags":["手写原件","页边有泪痕"]}},{"id":"lf_lin_act3","roleId":"r_li_yuzhe","stageId":"s_act3","kind":"object_note","title":"口袋里的银项链","body":"口袋里的银项链盒子硌得我大腿发疼，是上周我攒了三个月的加班费买的，吊坠是个小小的向日葵，我记得她以前说过最想当能照亮小朋友的向日葵老师。\n刚才我在储物间门口看见地毯上有半片Hello Kitty发夹掉的水钻，和她昨天戴的那只碎的位置一模一样。我蹲下来捡的时候听见她在里面吸鼻子，我站在门口愣了三分钟，最后还是转身去了厨房拿了两瓶冰柠檬水。\n我把水递给她的时候，她手指尖冰凉，接过水的时候说了句谢谢，眼睛红红的，像是刚哭过。我想问她是不是有什么事，又看见她背包侧袋露出来的天蓝色绳头，和去年我们一起包毕业礼物用的包装绳一模一样。\n我捏了捏口袋里的项链盒子，话到嘴边又变成了“少喝点冰的，你胃不好”。她低着头嗯了一声，头发遮住了眼睛。","metadata":{"date":"2024-06-22","location":"轰趴馆客厅沙发","tags":["私人物品","未送出"]}},{"id":"lf_chen_act3","roleId":"r_chen_jiajia","stageId":"s_act3","kind":"chat_log","title":"和未婚夫的聊天","body":"18:35  阿哲\n    戒指我放在你外套口袋里了，别紧张\n18:35  你\n    知道了，他们刚才还在说找集体照的事，晚点再说\n18:36  阿哲\n    不急，我在楼下等你，结束了我来接你\n(18:36 - 18:42 间隔6分钟无消息)\n18:42  你\n    刚才晓棠坐我旁边的时候一直在擦眼泪，我问她怎么了她也不说，以前她什么事都跟我说的\n18:43  阿哲\n    可能最近压力大吧，你们好久没聚了，多聊聊\n18:44  你\n    我刚才看见她背包里好像露出了点天蓝色的绳子，和咱们去年包相册用的那种一样\n18:45  阿哲\n    别多想，等下好好跟朋友们说，他们肯定会祝福我们的\n18:46  你\n    嗯。我摸了摸口袋里的戒指盒，磨砂的边缘硌得手心有点痒。客厅里赵凯正在抢李浩的话筒，唱的还是毕业晚会那首歌。我抬头看了一眼坐在窗边的晓棠，她正对着手里的什么东西发呆，肩膀轻轻抖着。我把输入框里的“要不要现在问问她”删了，改成了“知道了，我晚点给你打电话”。","metadata":{"date":"2024-06-22","from":"陈佳佳","to":"阿哲（未婚夫）","tags":["未删除","最后一条未发送"]}},{"id":"lf_zhao_act3","roleId":"r_zhao_kai","stageId":"s_act3","kind":"phone_log","title":"近一周通话记录","body":"2024-06-16 19:32  呼出 陈佳佳  时长 0分12秒  未接通\n2024-06-17 08:45  呼出 健身馆前台  时长 2分37秒  已接通\n2024-06-18 22:17  呼入 陈佳佳  时长 1分42秒  已接通\n    内容：我下周订婚，你有空来吗？\n    我攥着手机愣了三秒，说“恭喜啊，肯定来”，她在那边笑了笑，说“到时候帮我招呼下老同学”，我嗯了一声，挂了电话之后在操场跑了五圈。\n2024-06-20 10:23  呼出 蛋糕店  时长 3分05秒  已接通\n    我订的那个毕业纪念款蛋糕，麻烦帮我加个向日葵装饰，谢谢。\n2024-06-22 18:27  呼入 李浩  时长 0分47秒  已接通\n    内容：你在哪呢？大家都在找集体照，你快过来帮忙\n    我挂了电话往客厅走，看见陈佳佳正坐在沙发上摸口袋，指尖碰到了一个方盒子的边缘，我赶紧别开眼，去储物间的路上踢到了个小碎片，捡起来看是半片水钻，好像是晓棠发夹上的。我把水钻攥在手里，没出声。","metadata":{"date":"2024-06-16 至 2024-06-22","tags":["手机截图","部分号码打码"]}},{"id":"lf_li_act3","roleId":"r_li_hao","stageId":"s_act3","kind":"email","title":"项目启动资金申请草稿","body":"From: lihao@xxx.com\nTo: 待发送\nSubject: 线下活动策划项目启动资金申请\nDate: 2024-06-22 18:31\n\n上周谈的那个校园文化节策划项目已经敲定了，启动资金还差八万，我找了好几个朋友周转都没凑够。上周刷朋友圈的时候看见晓棠点赞了好几条西部支教的招募信息，我当时问她是不是感兴趣，她打了个哈哈就过去了，我也没多问。\n刚才找集体照的时候我在地毯上捡到了半片Hello Kitty的水钻，和她上周戴的发夹碎的位置一样，我偷偷塞进了口袋里。孟月刚才在跟我算体检报告的数据，说晓棠的体检报告所有指标都正常，完全符合支教的要求，我愣了一下，才反应过来她可能真的要走。\n我摸了摸口袋里的项目合同，又看了一眼坐在窗边擦眼泪的晓棠，把邮件收件人栏里写了一半的“孟月”删掉了。客厅里赵凯正在唱跑调的校歌，陈佳佳坐在沙发上攥着个方盒子发呆。我把邮件最小化，起身去抢赵凯的话筒，笑着喊“唱得这么难听还敢抢麦，让我来”。","metadata":{"date":"2024-06-22","time":"18:31","tags":["草稿","未发送"]}},{"id":"lf_meng_act3","roleId":"r_meng_yue","stageId":"s_act3","kind":"chat_log","title":"导师未回复的消息","body":"2024-07-15 16:22 孟月\n    李老师，我这边期末的临床数据已经整理完发您邮箱了，您有空可以看一下\n2024-07-15 16:23 孟月\n    还有上次跟您提的，我想gap半年再申请直博的事，您之前说让我毕业前再给您答复，我...还是有点拿不定主意\n（16:23 - 19:47 间隔3小时24分无消息）\n2024-07-15 19:47 同校师姐 张雯\n    月月，你上次说想做医学科普博主的事考虑得怎么样啊？我上周帮你问的MCN那边说只要你愿意签，底薪加流量分成，比你在医院规培挣得多三倍都不止\n2024-07-15 19:50 孟月\n    我还在想，今天跟朋友聚会，他们都在说年轻要做自己想做的事，可是我爸妈那边肯定不会同意我放弃读博的\n2024-07-15 19:51 同校师姐 张雯\n    你自己的人生干嘛总听别人的？对了，下周三之前要给人准信啊，过了这村没这店了\n2024-07-15 19:52 孟月\n    我知道了，我再想想\n（19:52 - 21:03 间隔1小时11分无消息）\n2024-07-15 21:03 孟月\n    对了师姐，你说如果我做博主的话，会不会以后再也穿不上白大褂了？\n2024-07-15 21:04 你撤回了一条消息","metadata":{"date":"2024-07-15","location":"轰趴馆二楼露台","tags":["微信聊天记录","未撤回成功"]}},{"id":"lf_su_final","roleId":"r_su_xiaotang","stageId":"s_final","kind":"diary_entry","title":"7月15日 晴","body":"2024年7月15日 晴\n下午收拾背包的时候，指尖碰到相册盒边缘的天蓝色绳结，忽然就红了眼。上周去支教点踩点，看到山路上跑着的小孩光着脚，手里攥着皱巴巴的画纸，忽然就想起我们大一那年在海边拍集体照的样子，大家都笑得傻气，林宇哲还被浪打湿了半个裤腿。\n刚才在客厅擦眼泪的时候好像被他看见了，他没问，只是递了张印着小太阳的纸巾。等下吃饭的时候要怎么跟大家说呢？说我要去山里待两年？说我偷偷把集体照塞进了背包？\n桌上的冰汽水冒着凉气，陈佳佳在跟赵凯闹着要抢最后一块西瓜，李浩举着手机要拍孟月沾了奶油的脸，大家都还和以前一样。我把背包往身后挪了挪，绳结从侧袋露出来一点，我赶紧塞了回去。\n风从窗户吹进来，带着楼下栀子花的香味。","metadata":{"date":"2024-07-15","time":"19:47","location":"轰趴馆二楼客房书桌","tags":["手写","墨迹未干"]}},{"id":"lf_lin_final","roleId":"r_li_yuzhe","stageId":"s_final","kind":"chat_log","title":"与老姐的聊天记录","body":"18:32 老姐\n  之前让你帮忙找的山区小学捐款链接发你了，你要捐直接走这个通道就行\n18:33 我\n  好，谢了\n18:34 老姐\n  对了，你说要送的那个姑娘，真要去支教啊？你憋了三年的话还不说？\n18:34 我\n  不知道\n(18:34 - 19:21 间隔47分钟无消息)\n19:21 我\n  刚才看见她在窗边哭，手里攥着个方形盒子，看见我过来赶紧藏到身后了。我没问，把之前买的那个装着山区小学孩子照片的相册放她门口了\n19:22 老姐\n  你是不是傻？直接给啊\n19:22 我\n  她要是想走，我不能拦着。之前她提过想当幼教，想去能帮到孩子的地方\n19:23 老姐\n  那你呢？等她两年？\n19:23 我\n  口袋里还攥着昨天买的去她支教点 nearest 县城的高铁票，还没说。楼下有人喊我下去切蛋糕了，先不说了","metadata":{"date":"2024-07-15","time":"19:30","from":"林宇哲","to":"林宇哲姐姐","tags":["未删除","置顶聊天"]}},{"id":"lf_chen_final","roleId":"r_chen_jiajia","stageId":"s_final","kind":"letter","title":"给大家的手写信","body":"亲爱的各位：\n今天收拾包的时候，戒指盒硌到了腰，我才想起还没跟你们说我要订婚的事。对方是个做设计的，脾气很好，上次你们见过的，聚餐的时候帮我挡了三杯酒的那个。\n刚才赵凯帮我捡掉在地上的发圈，我看见他手腕上还戴着我们大二一起买的运动手环，边缘都磨白了。我没提，他也没说。本来打算今天派对结束就公布这个消息，但是看到苏晓棠眼睛红红的，林宇哲一直跟在她身后半步远，忽然就觉得好像不用急着说这些。\n刚才我去储物间找一次性盘子，看见地毯上有个亮闪闪的水钻，好像是苏晓棠发夹上的，我捡起来放在茶几上了。集体照要是找不到也没关系，我们等下再拍一张就是，反正以后还有好多好多张。\n蛋糕端过来了，我先去藏戒指了，等下你们可别笑我手抖。\n佳佳 留","metadata":{"date":"2024-07-15","time":"19:52","location":"轰趴馆客厅沙发缝隙","tags":["手写","未发出"]}},{"id":"lf_zhao_final","roleId":"r_zhao_kai","stageId":"s_final","kind":"voice_transcript","title":"给兄弟的语音转写","body":"[00:00 背景音是轰趴馆的音乐声，笑]\n  兄弟，我现在在以前大学同学的聚会上，你之前跟我提的那个健身工作室合伙人的事，我答应了\n[00:12 停顿3秒，咳嗽一声]\n  对，就是陈佳佳也在的那个局。她刚才跟我说她要订婚了，我看见她包里露出来的戒指盒了，粉色的，她以前说过订婚戒指要放在粉色盒子里\n[00:27 沉默5秒，声音放低]\n  我刚才帮她捡发圈，看见她手指上的戒指印，应该是戴了挺久了。之前我还想着等我工作室开起来就跟她告白，现在不用了，她过得好就行\n[00:45 远处有人喊赵凯的名字，他应了一声]\n  对了，刚才我去储物间找冰桶，看见地毯上有碎照片，还有半片Hello Kitty的水钻，我没动，等下要是大家问起集体照的事，我就说我刚才没看见，省得苏晓棠尴尬，那姑娘脸皮薄\n[01:08 脚步声，声音越来越远]\n  不说了，他们喊我去切蛋糕了，等下回去再跟你细聊工作室的事","metadata":{"date":"2024-07-15","time":"19:41","duration":"1分17秒","tags":["未发送语音","本地缓存"]}},{"id":"lf_li_final","roleId":"r_li_hao","stageId":"s_final","kind":"social_post","title":"朋友圈草稿","body":"正文：\n毕业五年第一次聚这么齐，老地方轰趴馆，西瓜还是当年的味道，李浩你抢我奶油的毛病能不能改改？[配图：六个人围着蛋糕的模糊背影，蛋糕上写着“毕业五周年快乐”]\n时间：2024-07-15 19:55\n可见范围：仅六人小群可见\n评论区（预写）：\n孟月：你少来，明明是你先抹我脸的\n陈佳佳：@赵凯 你刚才把我发圈弄掉的事还没跟你算账\n林宇哲：蛋糕是苏晓棠选的，芒果味的，她记得你爱吃\n苏晓棠：[笑脸] 大家等下记得再拍张合照哦\n（草稿编辑备注：等下要怎么跟孟月开口借钱啊？上周策划的项目黄了，欠了供应商三万块，她家里条件好，应该能帮上忙？刚才看见她在跟苏晓棠聊考研的事，好像挺忙的。等下喝两杯再说吧，要是实在不好意思就等派对结束单独找她。对了，刚才我去卫生间的时候，看见苏晓棠背包里露出来天蓝色的绳子，好像是装集体照的那个盒子上的，我没敢说，怕她不好意思。）","metadata":{"date":"2024-07-15","time":"19:55","tags":["未发布草稿","仅自己可见"]}},{"id":"lf_meng_final","roleId":"r_meng_yue","stageId":"s_final","kind":"diary_entry","title":"7.16 轰趴馆露台","body":"2024年7月16日 晴 21:47\n露台的风还带着白天晒过的水泥地味道，楼下卖冰粉的推车还亮着暖黄的灯。刚把听诊器放回白大褂口袋，指尖还沾着刚才碰过的蛋糕上的芒果奶油。\n刚才李浩举着手机问我要不要看他剪的我们去年去山里做志愿的vlog，我顿了两秒说等会儿，其实是怕看见镜头里蹲在泥地里给小孩扎辫子的人。口袋里的手机还亮着导师下午发的消息，问我要不要确定直博的名额，早上醒来的时候还在某书的后台看到三条新的私信，问我什么时候更下一期医学科普的视频。\n风把陈佳佳挂在露台栏杆上的帆布包吹得晃了晃，露出里面装着的新的服装设计样稿。赵凯在楼下喊我们下去拍新的合照，我摸了摸包里揣着的支教队去年给我寄的明信片，背面小孩歪歪扭扭写着「孟姐姐什么时候再来」。\n手机屏幕暗下去，我盯着自己映在上面的脸，还没回导师的消息，也没点开放在后台的私信对话框。","metadata":{"date":"2024-07-16","time":"21:47","location":"轰趴馆露台","tags":["手写","页脚沾了奶油印"]}}];
+
+let curRole = ROLES[0].id, curStage = STAGES[0].id, unlocked = false;
+
+function visibleStages(){ return unlocked ? STAGES : STAGES.slice(0, 2); }
+
+function renderRoles(){
+  document.getElementById("roles").innerHTML = ROLES.map(r =>
+    `<button class="role-btn ${r.id===curRole?'active':''}" data-role="${r.id}">${r.name}<span class="role-key">${r.key}</span></button>`).join("");
+}
+function renderStages(){
+  document.getElementById("stages").innerHTML = visibleStages().map(s =>
+    `<button class="stage-btn ${s.id===curStage?'active':''}" data-stage="${s.id}">${s.label}</button>`).join("");
+  if(!unlocked){
+    document.getElementById("stages").innerHTML +=
+      `<button class="stage-btn" data-stage="__locked" style="opacity:.45">第四幕 · 终幕 🔒</button>`;
+  }
+}
+function renderDoc(){
+  const d = DOCS.find(x => x.roleId===curRole && x.stageId===curStage);
+  const box = document.getElementById("doc");
+  if(!d){ box.innerHTML = `<div class="doc-empty">该视角在此幕暂无可调阅的档案。</div>`; return; }
+  const meta = d.metadata || {};
+  const metaBits = [meta.date, meta.time, meta.location, meta.duration, meta.from && `发件人 ${meta.from}`, meta.to && `收件人 ${meta.to}`].filter(Boolean);
+  const tags = (meta.tags||[]).map(t=>`<span style="color:var(--accent-soft)">${t}</span>`).join(" · ");
+  box.innerHTML = `
+    <div class="doc-head"><span class="kind k-${d.kind}">${KIND_LABEL[d.kind]||d.kind}</span><h2>${d.title}</h2></div>
+    <div class="doc-meta"><span>${metaBits.join(" · ")}</span>${tags?`<span>${tags}</span>`:""}</div>
+    <div class="doc-body" id="docBody">${d.body}</div>
+    <button class="doc-toggle" id="docToggle">展开全文 ▾</button>`;
+  const body = document.getElementById("docBody");
+  const toggle = document.getElementById("docToggle");
+  if(body.scrollHeight <= 540){ toggle.style.display = "none"; }
+  toggle.onclick = () => {
+    body.classList.toggle("expanded");
+    toggle.textContent = body.classList.contains("expanded") ? "收起 ▴" : "展开全文 ▾";
+  };
+}
+document.addEventListener("click", e => {
+  const r = e.target.closest("[data-role]");
+  const s = e.target.closest("[data-stage]");
+  if(r){ curRole = r.dataset.role; renderAll(); }
+  if(s){
+    if(s.dataset.stage === "__locked"){ alert("点击右上角「解锁全幕」查看后续幕。"); return; }
+    curStage = s.dataset.stage; renderStages(); renderDoc();
+  }
+});
+document.getElementById("unlock").onclick = function(){
+  unlocked = true; this.style.display = "none"; renderAll();
+};
+function renderAll(){ renderRoles(); renderStages(); renderDoc(); }
+renderAll();
+</script>
+
+</body>
+</html>
