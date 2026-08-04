@@ -34,6 +34,10 @@
   .meta-line{margin-top:22px;display:flex;flex-wrap:wrap;gap:10px}
   .chip{font-size:12.5px;padding:4px 13px;border:1px solid var(--line);border-radius:999px;color:var(--ink-soft);background:var(--panel)}
   .chip b{color:var(--gold)}
+  .cta-row{margin-top:26px;display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+  .cta{display:inline-block;font-family:var(--serif);font-size:16px;letter-spacing:.12em;color:#14120f;background:linear-gradient(120deg,var(--accent),var(--accent-soft));padding:12px 30px;border-radius:8px;font-weight:700;transition:.15s;box-shadow:0 4px 18px rgba(201,111,74,.35)}
+  .cta:hover{text-decoration:none;transform:translateY(-2px);box-shadow:0 6px 24px rgba(201,111,74,.5)}
+  .cta-note{font-size:12.5px;color:var(--ink-faint);font-family:var(--mono)}
 
   section{padding:54px 0;border-bottom:1px solid var(--line)}
   h2{font-family:var(--serif);font-size:27px;margin-bottom:6px}
@@ -100,6 +104,10 @@
       <span class="chip"><b>35/35</b> 测试通过</span>
       <span class="chip">端到端探针 <b>~16 min / 场</b></span>
       <span class="chip">本页为产品概述 · 可当面演示</span>
+    </div>
+    <div class="cta-row">
+      <a class="cta" href="https://daizhouchen.github.io/mujing-demo/" target="_blank" rel="noopener">▶ 体验在线 Demo</a>
+      <span class="cta-note">静态演示版 · 可浏览内置示例《盛夏告别派对》与全部界面 · AI 实时生成需当面演示</span>
     </div>
   </div>
 </header>
@@ -207,7 +215,7 @@
 
 <footer>
   <div class="wrap">
-    <p class="fine">本页为产品概述展示 · 幕境源码为私有仓库，面试沟通中可提供现场演示与文档（PRD / 技术白皮书）· <a href="../index.html">返回作品集首页</a></p>
+    <p class="fine">本页为产品概述展示 · 幕境源码为私有仓库，面试沟通中可提供现场演示与文档（PRD / 技术白皮书）· <a href="https://daizhouchen.github.io/mujing-demo/" target="_blank" rel="noopener">在线 Demo</a> · <a href="../index.html">返回作品集首页</a></p>
   </div>
 </footer>
 
