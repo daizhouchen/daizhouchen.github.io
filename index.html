@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml"/>
 <title>戴宙辰 Daizhouchen · AI 产品作品集</title>
 <meta name="description" content="戴宙辰 — AI 产品经理 / 独立实验者。产品展示页 · 产品工程与创业经历 · Claude Code Skills。"/>
 <style>
@@ -55,6 +56,7 @@
   .demo-card{border:1px solid var(--line);border-radius:14px;background:#fff;overflow:hidden;display:flex;flex-direction:column;transition:transform .15s ease,box-shadow .15s ease,border-color .15s ease}
   .demo-card:hover{transform:translateY(-3px);box-shadow:0 12px 30px rgba(28,26,23,.09);border-color:#d5cbb6}
   .preview{aspect-ratio:16/10;display:flex;align-items:center;justify-content:center;overflow:hidden;border-bottom:1px solid var(--line)}
+  .preview>img{width:100%;height:100%;object-fit:cover;object-position:top;display:block}
   .demo-info{padding:18px 20px 20px;display:flex;flex-direction:column;flex:1}
   .demo-info h3{font-family:var(--serif);font-size:19px;margin-bottom:4px}
   .demo-info .kind{font-family:var(--mono);font-size:11px;letter-spacing:.14em;color:var(--accent);text-transform:uppercase;margin-bottom:8px}
@@ -144,7 +146,7 @@
     </div>
     <div class="hero-stats">
       <div><b>3</b>产品展示页</div>
-      <div><b>35</b>公开仓库</div>
+      <div><b>60+</b>公开仓库</div>
       <div><b>5</b>环节全链路交付（UniTrade）</div>
       <div><b>30+</b>AI Skills 全部公开</div>
     </div>
@@ -165,8 +167,28 @@
 <section id="demos">
   <div class="wrap">
     <h2><span class="num">01</span>产品展示页</h2>
-    <p class="sub">三个产品的展示页：定位、架构、交付规模与真实产出，一页看懂。私有代码不出站，沟通中可安排现场演示与真机体验。</p>
+    <p class="sub">五个代表项目：AI 影视、Agent 工程与从 0 到 1 产品交付。公开项目可直接体验，私有代码在沟通中提供现场演示。</p>
     <div class="demo-grid">
+
+      <div class="demo-card">
+        <div class="preview"><img src="assets/scriptgraph-demo.png" alt="ScriptGraph 剧本知识图谱界面"/></div>
+        <div class="demo-info">
+          <div class="kind">AI 影视 · GraphRAG · 公开</div>
+          <h3>ScriptGraph</h3>
+          <p>剧本知识图谱与可追溯 RAG：带场次引用的问答、连续性审校和改稿影响分析。包含 4 部原创合成剧本、固定评测、Neo4j 与 Docker。</p>
+          <div class="actions"><a class="abtn fill" href="https://daizhouchen.github.io/scriptgraph-rag/" target="_blank" rel="noopener">体验 Demo →</a><a class="abtn" href="https://github.com/daizhouchen/scriptgraph-rag" target="_blank" rel="noopener">GitHub</a></div>
+        </div>
+      </div>
+
+      <div class="demo-card">
+        <div class="preview"><img src="assets/flowspec-demo.png" alt="FlowSpec 工作流编译界面"/></div>
+        <div class="demo-info">
+          <div class="kind">Agent 工程 · SFT · 公开</div>
+          <h3>FlowSpec</h3>
+          <p>自然语言到受约束工作流 DAG：18 个虚拟工具、Schema 与依赖校验、无副作用沙箱，以及 Qwen3 QLoRA 训练与统一评测管线。</p>
+          <div class="actions"><a class="abtn fill" href="https://daizhouchen.github.io/flowspec-sft/" target="_blank" rel="noopener">体验 Demo →</a><a class="abtn" href="https://github.com/daizhouchen/flowspec-sft" target="_blank" rel="noopener">GitHub</a></div>
+        </div>
+      </div>
 
       <div class="demo-card">
         <div class="preview">
@@ -235,6 +257,16 @@
     <h2><span class="num">02</span>产品工程 · 从 0 到 1 的交付</h2>
     <p class="sub">已上线 / 已交付的完整产品。带「展示页」标记的可直接点开。</p>
     <div class="rows">
+      <div class="row">
+        <div class="name">ScriptGraph<small>AI 影视 · GraphRAG · 公开</small></div>
+        <div class="desc">面向编剧与剧本统筹的知识图谱工具：证据问答、连续性冲突和改稿影响路径；FastAPI + Neo4j + React/Vite + Docker。</div>
+        <div class="go"><a class="abtn fill" href="https://daizhouchen.github.io/scriptgraph-rag/" target="_blank" rel="noopener">Demo →</a><a class="abtn" href="https://github.com/daizhouchen/scriptgraph-rag" target="_blank" rel="noopener">GitHub</a></div>
+      </div>
+      <div class="row">
+        <div class="name">FlowSpec<small>Agent 工作流 · SFT · 公开</small></div>
+        <div class="desc">中文任务到 WorkflowSpec v1：工具注册表、DAG/参数/权限校验、沙箱轨迹与 Qwen3 QLoRA 训练评测管线。</div>
+        <div class="go"><a class="abtn fill" href="https://daizhouchen.github.io/flowspec-sft/" target="_blank" rel="noopener">Demo →</a><a class="abtn" href="https://github.com/daizhouchen/flowspec-sft" target="_blank" rel="noopener">GitHub</a></div>
+      </div>
       <div class="row">
         <div class="name">UniTrade<small>创业经历 · 含展示页</small></div>
         <div class="desc">AI Native B2B 跨境贸易平台（创业期间上线 unitrade.shop）。独立负责全链路：商家接入与供给治理、数据底座（28 字段规范 + 866 节点分类树 + 9141 商品迁移）、选品匹配、询盘交易与平台运维。</div>
