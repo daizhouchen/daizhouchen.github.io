@@ -53,6 +53,7 @@
 
   /* ---------- demo showcase ---------- */
   .demo-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  .demo-grid.tech-grid{grid-template-columns:repeat(2,1fr)}
   .demo-card{border:1px solid var(--line);border-radius:14px;background:#fff;overflow:hidden;display:flex;flex-direction:column;transition:transform .15s ease,box-shadow .15s ease,border-color .15s ease}
   .demo-card:hover{transform:translateY(-3px);box-shadow:0 12px 30px rgba(28,26,23,.09);border-color:#d5cbb6}
   .preview{aspect-ratio:16/10;display:flex;align-items:center;justify-content:center;overflow:hidden;border-bottom:1px solid var(--line)}
@@ -123,7 +124,7 @@
   .fine{margin-top:36px;font-size:12.5px;color:var(--ink-faint)}
 
   @media (max-width:860px){
-    .demo-grid{grid-template-columns:1fr}
+    .demo-grid,.demo-grid.tech-grid{grid-template-columns:1fr}
     .row{grid-template-columns:1fr;gap:8px}
     .row .go{text-align:left}
     section{padding:46px 0}
@@ -140,7 +141,7 @@
     <h1>戴宙辰<span class="en">DAI ZHOUCHEN · AI PRODUCT &amp; EXPERIMENTS</span></h1>
     <p class="tagline">AI 产品经理 / 独立实验者。曾主导 <b>UniTrade</b>（AI Native B2B 跨境贸易）创业，现在持续做一批小实验——用研究的方式做产品，用产品的方式做研究。<b>下面每个作品都能点开看。</b></p>
     <div class="cta">
-      <a class="btn primary" href="#demos">先看产品展示 ↓</a>
+      <a class="btn primary" href="#product-showcase">先看产品作品 ↓</a>
       <a class="btn ghost" href="https://github.com/daizhouchen" target="_blank" rel="noopener">GitHub 主页</a>
       <a class="btn ghost" href="https://unitrade.shop" target="_blank" rel="noopener">UniTrade 产品站</a>
     </div>
@@ -155,40 +156,21 @@
 
 <nav>
   <div class="wrap">
-    <a href="#demos">展示页</a>
-    <a href="#products">产品工程</a>
+    <a href="#product-showcase">产品作品</a>
+    <a href="#projects">技术项目</a>
+    <a href="#products">产品交付</a>
     <a href="#skills">AI Skills</a>
     <a href="#timeline">时间轴</a>
     <a href="#contact">联系</a>
   </div>
 </nav>
 
-<!-- ============ 01 展示页 ============ -->
-<section id="demos">
+<!-- ============ 01 产品作品 ============ -->
+<section id="product-showcase">
   <div class="wrap">
-    <h2><span class="num">01</span>产品展示页</h2>
-    <p class="sub">五个代表项目：AI 影视、Agent 工程与从 0 到 1 产品交付。公开项目可直接体验，私有代码在沟通中提供现场演示。</p>
+    <h2><span class="num">01</span>产品作品</h2>
+    <p class="sub">围绕真实用户与使用场景完成的产品设计和交付。公开版本可直接体验，私有代码可在沟通中现场演示。</p>
     <div class="demo-grid">
-
-      <div class="demo-card">
-        <div class="preview"><img src="assets/scriptgraph-demo.png" alt="ScriptGraph 剧本知识图谱界面"/></div>
-        <div class="demo-info">
-          <div class="kind">AI 影视 · GraphRAG · 公开</div>
-          <h3>ScriptGraph</h3>
-          <p>剧本知识图谱与可追溯 RAG：带场次引用的问答、连续性审校和改稿影响分析。包含 4 部原创合成剧本、固定评测、Neo4j 与 Docker。</p>
-          <div class="actions"><a class="abtn fill" href="https://daizhouchen.github.io/scriptgraph-rag/" target="_blank" rel="noopener">体验 Demo →</a><a class="abtn" href="https://github.com/daizhouchen/scriptgraph-rag" target="_blank" rel="noopener">GitHub</a></div>
-        </div>
-      </div>
-
-      <div class="demo-card">
-        <div class="preview"><img src="assets/flowspec-demo.png" alt="FlowSpec 工作流编译界面"/></div>
-        <div class="demo-info">
-          <div class="kind">Agent 工程 · SFT · 公开</div>
-          <h3>FlowSpec</h3>
-          <p>自然语言到受约束工作流 DAG：18 个虚拟工具、Schema 与依赖校验、无副作用沙箱。Qwen3-1.7B QLoRA 在固定测试集实现 100% Schema / DAG / 沙箱通过，语义结构较 few-shot 提高 11.95 个百分点（provisional）。</p>
-          <div class="actions"><a class="abtn fill" href="https://daizhouchen.github.io/flowspec-sft/" target="_blank" rel="noopener">体验 Demo →</a><a class="abtn" href="https://github.com/daizhouchen/flowspec-sft" target="_blank" rel="noopener">GitHub</a></div>
-        </div>
-      </div>
 
       <div class="demo-card">
         <div class="preview">
@@ -251,22 +233,48 @@
   </div>
 </section>
 
-<!-- ============ 02 产品 ============ -->
+<!-- ============ 02 技术项目 ============ -->
+<section id="projects">
+  <div class="wrap">
+    <h2><span class="num">02</span>技术项目</h2>
+    <p class="sub">围绕模型、检索和工程部署完成的可复现实践。重点展示技术问题、实验对照与实现结果。</p>
+    <div class="demo-grid tech-grid">
+      <div class="demo-card">
+        <div class="preview"><img src="assets/scriptgraph-demo.png" alt="ScriptGraph 剧本知识图谱界面"/></div>
+        <div class="demo-info">
+          <div class="kind">AI 影视 · GraphRAG · 公开</div>
+          <h3>ScriptGraph</h3>
+          <p>剧本知识图谱与可追溯 RAG：带场次引用的问答、连续性审校和改稿影响分析。包含 4 部原创合成剧本、固定评测、Neo4j 与 Docker。</p>
+          <div class="actions"><a class="abtn fill" href="https://daizhouchen.github.io/scriptgraph-rag/" target="_blank" rel="noopener">体验 Demo →</a><a class="abtn" href="https://github.com/daizhouchen/scriptgraph-rag" target="_blank" rel="noopener">GitHub</a></div>
+        </div>
+      </div>
+
+      <div class="demo-card">
+        <div class="preview"><img src="assets/flowspec-demo.png" alt="FlowSpec 工作流编译界面"/></div>
+        <div class="demo-info">
+          <div class="kind">Agent 工程 · SFT · 公开</div>
+          <h3>FlowSpec</h3>
+          <p>自然语言到受约束工作流 DAG：18 个虚拟工具、Schema 与依赖校验、无副作用沙箱。Qwen3-1.7B QLoRA 在固定测试集实现 100% Schema / DAG / 沙箱通过，语义结构较 few-shot 提高 11.95 个百分点（provisional）。</p>
+          <div class="actions"><a class="abtn fill" href="https://daizhouchen.github.io/flowspec-sft/" target="_blank" rel="noopener">体验 Demo →</a><a class="abtn" href="https://github.com/daizhouchen/flowspec-sft" target="_blank" rel="noopener">GitHub</a></div>
+        </div>
+      </div>
+
+    </div>
+    <div class="rows" style="margin-top:18px">
+      <div class="row">
+        <div class="name">ML-PD<small>机器学习实践 · 公开</small></div>
+        <div class="desc">基于代谢组学数据的帕金森病诊断：完成特征工程、多模型训练与指标对比的 Notebook 流程。</div>
+        <div class="go"><a class="abtn" href="https://github.com/daizhouchen/ML-PD" target="_blank" rel="noopener">GitHub →</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- ============ 03 产品交付 ============ -->
 <section id="products">
   <div class="wrap">
-    <h2><span class="num">02</span>产品工程 · 从 0 到 1 的交付</h2>
+    <h2><span class="num">03</span>产品工程 · 从 0 到 1 的交付</h2>
     <p class="sub">已上线 / 已交付的完整产品。带「展示页」标记的可直接点开。</p>
     <div class="rows">
-      <div class="row">
-        <div class="name">ScriptGraph<small>AI 影视 · GraphRAG · 公开</small></div>
-        <div class="desc">面向编剧与剧本统筹的知识图谱工具：证据问答、连续性冲突和改稿影响路径；FastAPI + Neo4j + React/Vite + Docker。</div>
-        <div class="go"><a class="abtn fill" href="https://daizhouchen.github.io/scriptgraph-rag/" target="_blank" rel="noopener">Demo →</a><a class="abtn" href="https://github.com/daizhouchen/scriptgraph-rag" target="_blank" rel="noopener">GitHub</a></div>
-      </div>
-      <div class="row">
-        <div class="name">FlowSpec<small>Agent 工作流 · SFT · 公开</small></div>
-        <div class="desc">中文任务到 WorkflowSpec v1：18 个工具、DAG/参数/权限校验与沙箱轨迹；完成 Qwen3-1.7B QLoRA、四组基线和 GGUF CPU 部署验证。</div>
-        <div class="go"><a class="abtn fill" href="https://daizhouchen.github.io/flowspec-sft/" target="_blank" rel="noopener">Demo →</a><a class="abtn" href="https://github.com/daizhouchen/flowspec-sft" target="_blank" rel="noopener">GitHub</a></div>
-      </div>
       <div class="row">
         <div class="name">UniTrade<small>创业经历 · 含展示页</small></div>
         <div class="desc">AI Native B2B 跨境贸易平台（创业期间上线 unitrade.shop）。独立负责全链路：商家接入与供给治理、数据底座（28 字段规范 + 866 节点分类树 + 9141 商品迁移）、选品匹配、询盘交易与平台运维。</div>
@@ -287,20 +295,15 @@
         <div class="desc">AI 现实导演：完整产品文档、首发产品包与 1/2/3/4 人模式规格书——从概念到规格的完整设计过程。静态演示版可在线体验。</div>
         <div class="go"><a class="abtn fill" href="https://daizhouchen.github.io/reality-director-demo/" target="_blank" rel="noopener">体验 Demo →</a></div>
       </div>
-      <div class="row">
-        <div class="name">ML-PD<small>机器学习实践 · 公开</small></div>
-        <div class="desc">基于代谢组学数据的帕金森病诊断：特征工程 + 多模型对比的完整 Notebook 流程。</div>
-        <div class="go"><a class="abtn" href="https://github.com/daizhouchen/ML-PD" target="_blank" rel="noopener">GitHub →</a></div>
-      </div>
     </div>
     <p class="sub" style="margin:18px 0 0">注：商业与研究敏感项目以私有仓库承载，本站仅文字概述；沟通中可提供详细文档与现场演示。</p>
   </div>
 </section>
 
-<!-- ============ 03 Skills ============ -->
+<!-- ============ 04 Skills ============ -->
 <section id="skills">
   <div class="wrap">
-    <h2><span class="num">03</span>AI Agent 工程 · Claude Code Skills</h2>
+    <h2><span class="num">04</span>AI Agent 工程 · Claude Code Skills</h2>
     <p class="sub">把流程工程化成可分发的 Skill：30+ 个作品全部公开、可直接安装。配图均为真实素材：真实产出页面、仓库原件或按仓库文档绘制的框架示意。</p>
     <div class="shot-grid">
       <a class="shot" href="https://github.com/daizhouchen/superpm" target="_blank" rel="noopener">
@@ -356,10 +359,10 @@
   </div>
 </section>
 
-<!-- ============ 04 时间轴 ============ -->
+<!-- ============ 05 时间轴 ============ -->
 <section id="timeline">
   <div class="wrap">
-    <h2><span class="num">04</span>实验家时间轴</h2>
+    <h2><span class="num">05</span>实验家时间轴</h2>
     <p class="sub">先动手，再沉淀，最后交付。按交付时间倒序，每条附关键交付物。</p>
     <div class="timeline">
       <div class="tl-item">
@@ -417,7 +420,7 @@
 <!-- ============ 联系 ============ -->
 <footer id="contact">
   <div class="wrap">
-    <h2><span class="num">05</span>联系我</h2>
+    <h2><span class="num">06</span>联系我</h2>
     <p class="sub">欢迎交流 AI 产品与 Agent 工程。简历与私有项目详情可在沟通中提供。</p>
     <div class="cta">
       <a class="btn primary" href="https://github.com/daizhouchen" target="_blank" rel="noopener">GitHub · daizhouchen</a>
