@@ -1,244 +1,86 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>能力森林 · 产品展示 — 感统轻训练微信小程序</title>
-<meta name="description" content="能力森林（V1.2.1）：感统轻训练微信小程序 MVP。微信小程序 + 腾讯云 CloudBase 全栈，10 页面 / 6 云函数 / 9 集合，已上传运行。"/>
-<style>
-  :root{
-    --paper:#faf9f5; --paper-2:#f0ede4; --line:#e2ddcf; --ink:#22261f; --ink-soft:#565b4e; --ink-faint:#8b9081;
-    --green:#3f8f66; --green-deep:#2c6b4b;
-    --c-balance:#4fc08d; --c-reaction:#f39c6a; --c-attention:#5aa9e6; --c-coordination:#b07fe6; --c-stress:#e37383;
-    --serif:"Noto Serif SC","Source Han Serif SC","Songti SC",Georgia,serif;
-    --sans:"Noto Sans SC","PingFang SC","Microsoft YaHei",-apple-system,sans-serif;
-    --mono:"JetBrains Mono","SFMono-Regular",Consolas,monospace;
-  }
-  *{margin:0;padding:0;box-sizing:border-box}
-  html{scroll-behavior:smooth}
-  body{background:var(--paper);color:var(--ink);font-family:var(--sans);line-height:1.75;font-size:16px}
-  a{color:var(--green-deep);text-decoration:none}
-  a:hover{text-decoration:underline}
-  .wrap{max-width:1020px;margin:0 auto;padding:0 24px}
-
-  header{padding:56px 0 44px;border-bottom:1px solid var(--line);
-    background:radial-gradient(900px 380px at 75% -120px, rgba(79,192,141,.14), transparent 60%)}
-  .topbar{display:flex;justify-content:space-between;margin-bottom:26px}
-  .back{font-family:var(--mono);font-size:12.5px;color:var(--ink-faint)}
-  .back:hover{color:var(--green-deep);text-decoration:none}
-  .eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.4em;color:var(--green);text-transform:uppercase;margin-bottom:16px}
-  h1{font-family:var(--serif);font-size:clamp(30px,5vw,44px);letter-spacing:.04em}
-  h1 small{display:block;font-size:.4em;font-weight:400;color:var(--ink-faint);letter-spacing:.16em;margin-top:8px;font-family:var(--mono)}
-  .lede{margin-top:16px;color:var(--ink-soft);max-width:700px;font-size:15.5px}
-  .lede b{color:var(--ink)}
-  .meta-line{margin-top:22px;display:flex;flex-wrap:wrap;gap:10px}
-  .chip{font-size:12.5px;padding:4px 13px;border:1px solid var(--line);border-radius:999px;color:var(--ink-soft);background:#fff}
-  .chip b{color:var(--green-deep)}
-
-  section{padding:54px 0;border-bottom:1px solid var(--line)}
-  h2{font-family:var(--serif);font-size:27px;margin-bottom:6px}
-  .sub{color:var(--ink-faint);font-size:14px;margin-bottom:26px}
-
-  /* ---------- numbers ---------- */
-  .nums{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px}
-  .num-card{border:1px solid var(--line);border-radius:12px;background:#fff;padding:20px;text-align:center;transition:.15s}
-  .num-card:hover{transform:translateY(-2px);box-shadow:0 8px 22px rgba(34,38,31,.07)}
-  .num-card .v{font-family:var(--serif);font-size:28px;font-weight:700;color:var(--green-deep)}
-  .num-card .v small{font-size:.55em;color:var(--ink-faint);font-weight:400}
-  .num-card .k{font-size:12.5px;color:var(--ink-soft);margin-top:4px}
-
-  /* ---------- dimensions ---------- */
-  .dim-layout{display:grid;grid-template-columns:1fr 340px;gap:36px;align-items:center}
-  .dims{display:flex;flex-direction:column;gap:12px}
-  .dim{border:1px solid var(--line);border-radius:12px;background:#fff;padding:14px 18px;display:flex;align-items:center;gap:14px}
-  .dim .dot{width:14px;height:14px;border-radius:50%;flex:none}
-  .dim h3{font-size:16px;font-family:var(--serif)}
-  .dim p{font-size:13px;color:var(--ink-soft)}
-  .radar-box{text-align:center}
-  .radar-box p{font-size:12.5px;color:var(--ink-faint);margin-top:10px}
-
-  /* ---------- flows ---------- */
-  .flows{counter-reset:flow}
-  .flow{display:grid;grid-template-columns:120px 1fr;gap:18px;padding:18px 4px;border-bottom:1px solid var(--line)}
-  .flow:last-child{border-bottom:none}
-  .flow:before{counter-increment:flow;content:"FLOW 0" counter(flow);font-family:var(--mono);font-size:11px;letter-spacing:.12em;color:var(--green);padding-top:5px}
-  .flow h4{font-family:var(--serif);font-size:16.5px;margin-bottom:4px}
-  .flow p{font-size:13.5px;color:var(--ink-soft)}
-  .flow code{font-family:var(--mono);font-size:11.5px;background:var(--paper-2);padding:1px 6px;border-radius:4px;color:var(--green-deep)}
-
-  /* ---------- arch ---------- */
-  .arch{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-  .acard{border:1px solid var(--line);border-radius:12px;background:#fff;padding:24px}
-  .acard h4{font-family:var(--serif);font-size:17px;margin-bottom:12px;color:var(--green-deep)}
-  .acard ul{list-style:none}
-  .acard li{font-size:13.5px;color:var(--ink-soft);padding:6px 0;border-bottom:1px dashed var(--paper-2)}
-  .acard li:last-child{border-bottom:none}
-  .acard li b{color:var(--ink)}
-  .acard code{font-family:var(--mono);font-size:11.5px;background:var(--paper-2);padding:1px 6px;border-radius:4px}
-
-  /* ---------- deploy ---------- */
-  .deploy{border:1px solid var(--line);border-radius:12px;background:#fff;padding:24px 28px}
-  .deploy ul{list-style:none}
-  .deploy li{font-size:14px;color:var(--ink-soft);padding:7px 0}
-  .deploy li:before{content:"✓";color:var(--green);font-weight:700;margin-right:10px}
-  .deploy li b{color:var(--ink)}
-
-  footer{padding:46px 0 60px}
-  .fine{margin-top:14px;font-size:12.5px;color:var(--ink-faint)}
-
-  @media (max-width:760px){
-    .dim-layout{grid-template-columns:1fr}
-    .arch{grid-template-columns:1fr}
-    .flow{grid-template-columns:1fr;gap:4px}
-    header{padding:42px 0 34px}
-  }
-</style>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="theme-color" content="#F6F4EA"/>
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml"/>
+  <title>能力森林 — 一起玩一小会儿，记录今天的尝试</title>
+  <meta name="description" content="能力森林产品案例：家长陪同的20秒轻互动练习。体验找叶子、等信号、顺序连点，随时暂停或退出，在当前浏览器回看本次记录。"/>
+  <style>
+    :root{--cream:#F6F4EA;--forest:#284E3D;--sage:#DDE7CB;--yellow:#EAC76C;--ink:#26382D;--muted:#65705F;--line:#D6DCCB;--white:#FDFCF7;--serif:"Songti SC","SimSun","Noto Serif SC",serif;--sans:"PingFang SC","Microsoft YaHei","Noto Sans SC",sans-serif}
+    *{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:84px}body{margin:0;background:var(--cream);color:var(--ink);font-family:var(--sans);font-size:15px;line-height:1.8}h1,h2,h3,p,figure,dl,dd{margin:0}h1,h2,h3{font-family:var(--serif)}a{color:inherit;text-decoration:none}a:hover{color:var(--forest)}a:focus-visible,summary:focus-visible{outline:3px solid #A37A22;outline-offset:5px}.wrap{width:min(1140px,calc(100% - 72px));margin-inline:auto}.skip{position:fixed;top:-90px;left:20px;padding:12px 18px;background:var(--forest);color:var(--cream);z-index:50}.skip:focus{top:12px}.topbar{min-height:86px;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;gap:20px}.back,.edition{font-size:11px;color:var(--muted)}.brand{display:flex;gap:10px;align-items:center;font-size:20px;font-family:var(--serif);font-weight:700}.brand-mark{width:32px;height:32px;color:var(--forest)}.brand small{font-family:var(--sans);font-size:9px;letter-spacing:.12em;font-weight:400;margin-left:1px}.hero{display:grid;grid-template-columns:1fr 1.04fr;align-items:center;gap:62px;padding:72px 0 56px}.eyebrow{color:var(--forest);font-size:10px;font-weight:600;letter-spacing:.16em}.hero h1{font-size:clamp(35px,4vw,51px);line-height:1.48;font-weight:500;letter-spacing:-.035em;margin:17px 0 24px}.hero h1 span{background:linear-gradient(transparent 76%,var(--sage) 76%);padding-bottom:3px}.hero-copy>p{font-size:15px;color:var(--muted);max-width:450px}.hero-copy>p strong{color:var(--ink);font-weight:500}.actions{display:flex;align-items:center;gap:20px;flex-wrap:wrap;margin-top:28px}.button{display:inline-flex;align-items:center;justify-content:center;gap:18px;background:var(--forest);color:var(--cream);border:1px solid var(--forest);border-radius:9px;padding:12px 21px;font-size:13px;font-weight:600;transition:transform .18s,background .18s}.button:hover{color:var(--cream);background:#1B392A;transform:translateY(-2px)}.arrow{width:17px;height:17px;stroke:currentColor;stroke-width:1.6;fill:none;stroke-linecap:round;stroke-linejoin:round}.text-link{font-size:12px;padding:7px 0;border-bottom:1px solid #A5B298}.hero-copy>.demo-note{font-size:11px;color:var(--muted);margin-top:18px;max-width:440px;line-height:1.85}.demo-note strong{color:var(--forest);font-weight:500}.hero-visual{position:relative;padding:20px 0 0 19px}.hero-visual:before{content:"";position:absolute;inset:0 18px 41px 0;border:1px solid #BDCDAA;border-radius:110px 15px 15px 15px}.hero-visual img{display:block;position:relative;width:100%;height:auto;border-radius:14px;box-shadow:0 18px 35px #284E3D0D}.hero-visual figcaption{font-size:10px;color:var(--muted);text-align:right;margin-top:14px}.brief{display:grid;grid-template-columns:1fr 1.1fr 1fr;gap:34px;border-top:1px solid var(--line);padding:23px 0 30px}.brief dt{font-size:10px;color:var(--muted);letter-spacing:.1em;margin-bottom:4px}.brief dd{font-size:12px}.chapter-nav{position:sticky;top:0;z-index:10;border-block:1px solid var(--line);background:rgba(246,244,234,.97)}.chapter-nav .wrap{display:flex;justify-content:space-between;align-items:center;gap:20px}.chapter-links{display:flex;gap:32px;overflow-x:auto;scrollbar-width:none}.chapter-nav a{display:block;white-space:nowrap;font-size:12px;padding:15px 0}.chapter-nav a span{color:var(--forest);font-size:10px;margin-right:6px}.chapter-nav .nav-cta{font-weight:600;flex-shrink:0;color:var(--forest)}.section{padding:69px 0;border-bottom:1px solid var(--line)}.section-grid{display:grid;grid-template-columns:226px 1fr;gap:55px}.label{font-size:10px;font-weight:600;letter-spacing:.1em;color:var(--forest);margin-bottom:12px}.section-heading h2{font-size:28px;line-height:1.55;font-weight:500;letter-spacing:-.03em}.section-heading>p{font-size:12px;color:var(--muted);margin-top:13px;max-width:205px}.intro{font-family:var(--serif);font-size:23px;line-height:1.7;margin-bottom:20px}.intro em{font-style:normal;color:var(--forest);background:var(--sage);padding-inline:4px}.body-copy{color:var(--muted);font-size:13px;max-width:720px}.role-notes{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:27px}.role-notes article{border-top:1px solid var(--line);padding-top:16px}.role-notes h3{font-size:18px;font-weight:500;margin-bottom:8px}.role-notes p{font-size:12px;color:var(--muted)}.parent-note{margin-top:25px;padding:15px 18px;border-left:3px solid #88A276;background:#E9EFDD;font-size:12px;color:var(--forest)}.path-section{background:#EDF0E2}.path-head{margin-bottom:32px;align-items:center}.path-lede{font-size:13px;max-width:680px;color:var(--muted)}.path{margin:0;padding:0;list-style:none;display:grid;grid-template-columns:repeat(4,1fr);gap:23px}.path li{position:relative;border-top:1px solid #B7C4AA;padding-top:18px}.path-number{width:31px;height:31px;border-radius:50%;background:var(--forest);color:var(--cream);display:grid;place-items:center;font-size:12px}.path h3{font-size:21px;font-weight:500;margin:14px 0 9px}.path p{font-size:12px;color:var(--muted)}.games{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:34px}.game{background:var(--white);border:1px solid #D4DDC7;border-radius:15px;padding:21px}.game-icon{width:39px;height:39px;margin-bottom:15px;display:grid;place-items:center;border-radius:12px;background:var(--sage);color:var(--forest)}.game-icon svg{width:25px;height:25px;stroke:currentColor;fill:none;stroke-width:1.4;stroke-linecap:round;stroke-linejoin:round}.game:nth-child(2) .game-icon{background:#F4E5B2}.game:nth-child(3) .game-icon{background:#E4EAD9}.game-title{display:flex;justify-content:space-between;align-items:baseline;gap:12px}.game h3{font-size:21px;font-weight:500}.game .duration{font-size:10px;color:var(--muted);white-space:nowrap}.game p{font-size:12px;color:var(--muted);margin-top:9px}.path-foot{display:flex;justify-content:space-between;gap:24px;font-size:11px;color:var(--muted);margin-top:22px}.path-foot a{align-self:flex-start;white-space:nowrap;border-bottom:1px solid #93A284;color:var(--forest)}.decisions{border-top:1px solid #96A387}.decision{display:grid;grid-template-columns:31px 1fr;gap:16px;padding:23px 0;border-bottom:1px solid var(--line)}.decision>span{font-family:var(--serif);font-size:15px;color:var(--forest);padding-top:1px}.decision h3{font-size:20px;font-weight:500;margin-bottom:9px}.decision p{font-size:13px;color:var(--muted)}.decision .reason{font-size:11px;margin-top:11px;color:var(--forest)}.versions{display:grid;grid-template-columns:1.1fr 1fr;gap:20px}.version{border:1px solid var(--line);border-radius:14px;padding:23px;background:var(--white)}.version.current{border-color:#A8BB96;background:#EEF3E4}.version-label{font-size:10px;color:var(--forest);letter-spacing:.07em}.version h3{font-size:21px;font-weight:500;margin:10px 0 12px}.version p{font-size:12px;color:var(--muted)}.version ul{padding-left:17px;margin:14px 0 0;font-size:12px;color:var(--muted)}.version li{margin-top:6px}.version .text-link{display:inline-block;font-size:12px;color:var(--forest);margin-top:14px}.evidence-note{font-size:12px;color:var(--muted);margin-top:23px}.evidence-note strong{color:var(--ink);font-weight:600}.technical{margin-top:25px;border:1px solid var(--line);border-radius:10px;background:#F9F8F0}.technical summary{list-style:none;display:flex;justify-content:space-between;align-items:center;gap:20px;cursor:pointer;padding:17px 20px;font-size:13px}.technical summary::-webkit-details-marker{display:none}.technical summary span{font-size:10px;color:var(--muted);white-space:nowrap}.technical summary span:after{content:"＋";font-size:16px;vertical-align:-1px;margin-left:10px}.technical[open] summary span:after{content:"−"}.technical-content{border-top:1px solid var(--line);padding:20px;font-size:12px;color:var(--muted)}.technical-content p+p{margin-top:13px}.technical-content strong{color:var(--ink);font-weight:500}.technical-content code{font-family:Consolas,monospace;font-size:11px;overflow-wrap:anywhere;background:#E6ECD9;padding:2px 4px;border-radius:3px}.function-list{display:grid;grid-template-columns:1fr 1fr;gap:10px 18px;margin:16px 0}.function-list dt{font-size:12px;color:var(--ink)}.function-list dd{margin-top:3px}.closing{background:var(--forest);color:var(--cream);padding:45px 0 47px}.closing .wrap{display:flex;justify-content:space-between;align-items:center;gap:40px}.closing .label{color:#D8E5BD;margin-bottom:11px}.closing h2{font-size:30px;font-weight:500;line-height:1.6}.closing p{color:#CDDAC7;font-size:12px;margin-top:10px}.closing .button{background:var(--yellow);color:#26382D;border-color:var(--yellow);white-space:nowrap}.closing .button:hover{background:#F2D586}.footer{display:flex;justify-content:space-between;gap:25px;padding:26px 0 31px;font-size:10px;color:var(--muted)}.footer a{border-bottom:1px solid var(--line)}
+    @media(max-width:1000px){.wrap{width:calc(100% - 52px)}.hero{gap:35px}.hero h1{font-size:39px}.section-grid{grid-template-columns:180px 1fr;gap:32px}.section-heading h2{font-size:25px}.game{padding:17px}.path{gap:18px}.version{padding:18px}.chapter-links{gap:23px}}
+    @media(max-width:760px){html{scroll-padding-top:68px}.wrap{width:calc(100% - 40px)}.topbar{min-height:72px}.brand{font-size:18px}.brand small,.edition{display:none}.back{font-size:10px}.hero{grid-template-columns:1fr;padding:41px 0 34px;gap:33px}.hero h1{font-size:39px;margin:15px 0 19px}.hero-copy>p{font-size:14px;max-width:none}.actions{gap:17px;margin-top:24px}.hero-copy>.demo-note{font-size:10px}.hero-visual{width:100%;max-width:490px;justify-self:center;padding:15px 0 0 15px}.hero-visual:before{inset:0 15px 35px 0}.hero-visual figcaption{font-size:9px;margin-top:12px}.brief{grid-template-columns:1fr;gap:15px;padding:21px 0 25px}.brief dl{display:grid;grid-template-columns:71px 1fr;gap:8px}.brief dt{margin:2px 0 0;font-size:9px}.brief dd{font-size:11px}.chapter-nav .wrap{width:100%;padding-inline:20px}.chapter-links{gap:24px}.chapter-nav a{font-size:11px;padding:13px 0}.chapter-nav .nav-cta{display:none}.section{padding:42px 0}.section-grid{grid-template-columns:1fr;gap:25px}.section-heading h2{font-size:28px}.section-heading>p{max-width:none;margin-top:9px}.section-heading h2 br{display:none}#choices .section-heading h2 br{display:initial}.label{font-size:9px;margin-bottom:8px}.intro{font-size:22px;margin-bottom:17px}.body-copy{font-size:12px}.role-notes{gap:19px;margin-top:23px}.role-notes h3{font-size:17px}.role-notes p{font-size:11px}.parent-note{font-size:11px;margin-top:20px}.path-head{margin-bottom:27px}.path{grid-template-columns:1fr 1fr;gap:26px 22px}.path-number{width:27px;height:27px;font-size:11px}.path h3{font-size:20px;margin-top:11px}.path p{font-size:11px}.games{grid-template-columns:1fr;gap:11px;margin-top:27px}.game{display:grid;grid-template-columns:42px 1fr;gap:0 15px;padding:18px}.game-icon{grid-row:1/3;margin:0;width:39px;height:39px}.game h3{font-size:19px}.game p{font-size:11px;margin-top:5px}.path-foot{display:block;font-size:10px}.path-foot a{display:inline-block;margin-top:12px}.decision{grid-template-columns:23px 1fr;gap:11px;padding:19px 0}.decision h3{font-size:19px}.decision p{font-size:12px}.decision .reason{font-size:10px}.versions{grid-template-columns:1fr;gap:17px}.version{padding:21px}.version h3{font-size:21px}.evidence-note{font-size:11px}.technical summary{padding:16px;font-size:12px;gap:14px}.technical summary span{font-size:9px}.technical-content{padding:17px;font-size:11px}.function-list{grid-template-columns:1fr}.closing{padding:35px 0 38px}.closing .wrap{display:block}.closing h2{font-size:27px}.closing p{font-size:11px}.closing .button{margin-top:23px}.footer{display:block;padding-block:23px}.footer p+p{margin-top:9px}}
+    @media(max-width:370px){.hero h1{font-size:34px}.button{padding:12px 17px;font-size:12px}.text-link{font-size:11px}.chapter-links{gap:12px}.chapter-nav a{font-size:10px}.chapter-nav a span{font-size:9px;margin-right:4px}.role-notes{grid-template-columns:1fr}.hero-copy>p{font-size:13px}.section-heading h2{font-size:25px}.technical summary{align-items:flex-start}.technical summary span{padding-top:2px}}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+  </style>
 </head>
 <body>
-
-<header>
-  <div class="wrap">
+  <a class="skip" href="#main">跳转到案例正文</a>
+  <header class="wrap">
     <div class="topbar">
-      <a class="back" href="../index.html">← 返回作品集</a>
-      <span class="back">V1.2.1 · 代码私有</span>
+      <a class="back" href="../index.html#product-showcase">← 返回作品集</a>
+      <a class="brand" href="#" aria-label="能力森林，返回页首"><svg class="brand-mark" viewBox="0 0 36 36" aria-hidden="true"><path d="M18 31V12M18 23C7 23 4 15 7 7c8 0 12 5 11 16ZM18 18C28 19 33 12 30 4c-8 0-12 5-12 14Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>能力森林 <small>A LITTLE EVERY DAY</small></a>
+      <span class="edition">产品案例 / 亲子轻互动练习</span>
     </div>
-    <div class="eyebrow">Product Showcase</div>
-    <h1>能力森林<small>SENSORY-INTEGRATION LIGHT TRAINING · WECHAT MINI PROGRAM</small></h1>
-    <p class="lede">感统轻训练微信小程序：把儿童感统训练拆成<b>五维能力小游戏</b>——初测评、每日 3 练、成长雷达反馈，形成"测 → 练 → 评"闭环。微信小程序 + 腾讯云 CloudBase 全栈交付，<b>已上传运行</b>。</p>
-    <div class="meta-line">
-      <span class="chip"><b>V1.2.1</b> PRD 校验版</span>
-      <span class="chip">小程序 <b>0.1.2</b> 已上传</span>
-      <span class="chip"><b>CloudBase</b> Serverless</span>
-      <span class="chip">本页为产品概述 · 可扫码体验</span>
-    </div>
-  </div>
-</header>
-
-<!-- ============ 交付规模 ============ -->
-<section>
-  <div class="wrap">
-    <h2>一个已跑通的全栈 MVP</h2>
-    <p class="sub">从 PRD、Epic 拆解到云函数部署与小程序上传，全流程一人完成并留档。</p>
-    <div class="nums">
-      <div class="num-card"><div class="v">10</div><div class="k">小程序页面</div></div>
-      <div class="num-card"><div class="v">5</div><div class="k">维能力玩法</div></div>
-      <div class="num-card"><div class="v">6</div><div class="k">云函数（Node.js）</div></div>
-      <div class="num-card"><div class="v">9</div><div class="k">数据库集合</div></div>
-      <div class="num-card"><div class="v">33</div><div class="k">训练模板</div></div>
-      <div class="num-card"><div class="v">4</div><div class="k">可复用组件</div></div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ 五维模型 ============ -->
-<section>
-  <div class="wrap">
-    <h2>五维能力模型</h2>
-    <p class="sub">每一维对应一组小游戏玩法，初测与日常训练都围绕这五个维度展开。</p>
-    <div class="dim-layout">
-      <div class="dims">
-        <div class="dim"><span class="dot" style="background:var(--c-balance)"></span><div><h3>平衡 Balance</h3><p>稳点保持 · 身体控制类小游戏</p></div></div>
-        <div class="dim"><span class="dot" style="background:var(--c-reaction)"></span><div><h3>反应 Reaction</h3><p>信号捕捉 · 快速响应类小游戏</p></div></div>
-        <div class="dim"><span class="dot" style="background:var(--c-attention)"></span><div><h3>注意力 Attention</h3><p>目标筛选 · 持续专注类小游戏</p></div></div>
-        <div class="dim"><span class="dot" style="background:var(--c-coordination)"></span><div><h3>协调 Coordination</h3><p>手眼配合 · 节律跟随类小游戏</p></div></div>
-        <div class="dim"><span class="dot" style="background:var(--c-stress)"></span><div><h3>抗压 Stress</h3><p>干扰环境 · 情绪稳定类小游戏</p></div></div>
+    <div class="hero">
+      <div class="hero-copy">
+        <div class="eyebrow">为一起尝试的每一天</div>
+        <h1>一起玩一小会儿，<br/>留下<span>今天的尝试</span>。</h1>
+        <p>陪孩子挑一项 <strong>20 秒轻互动练习</strong>。<br/>找叶子、等信号、顺序连点，做完回看本次记录；想休息时，随时暂停或退出。</p>
+        <div class="actions"><a class="button" href="forest/">体验 20 秒练习 <svg class="arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h16m-7-7 7 7-7 7"/></svg></a><a class="text-link" href="#context">看看设计思路 ↓</a></div>
+        <p class="demo-note"><strong>无需登录 · 亲子 / 自主两种模式 · 本地记录</strong><br/>网页版独立体验，不连接微信或云端。结果仅反映本次游戏操作，不用于评估孩子的能力或健康状况。</p>
       </div>
-      <div class="radar-box">
-        <svg viewBox="0 0 320 300" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:320px" aria-label="五维能力雷达示意图">
-          <g transform="translate(160,152)">
-            <polygon points="0,-108 102.7,-33.4 63.5,87.4 -63.5,87.4 -102.7,-33.4" fill="none" stroke="#d9cfba" stroke-width="1"/>
-            <polygon points="0,-72 68.5,-22.3 42.3,58.3 -42.3,58.3 -68.5,-22.3" fill="none" stroke="#e2ddcf" stroke-width="1"/>
-            <polygon points="0,-36 34.2,-11.1 21.2,29.1 -21.2,29.1 -34.2,-11.1" fill="none" stroke="#ece7da" stroke-width="1"/>
-            <polygon points="0,-88 77,-25 41.3,56.8 -50.8,70 -77,-25" fill="rgba(79,192,141,.16)" stroke="#3f8f66" stroke-width="2"/>
-            <circle cx="0" cy="-88" r="3.5" fill="var(--c-balance)"/>
-            <circle cx="77" cy="-25" r="3.5" fill="var(--c-reaction)"/>
-            <circle cx="41.3" cy="56.8" r="3.5" fill="var(--c-attention)"/>
-            <circle cx="-50.8" cy="70" r="3.5" fill="var(--c-coordination)"/>
-            <circle cx="-77" cy="-25" r="3.5" fill="var(--c-stress)"/>
-            <text x="0" y="-118" text-anchor="middle" font-size="11" fill="#565b4e">平衡</text>
-            <text x="122" y="-30" text-anchor="middle" font-size="11" fill="#565b4e">反应</text>
-            <text x="76" y="102" text-anchor="middle" font-size="11" fill="#565b4e">注意力</text>
-            <text x="-76" y="102" text-anchor="middle" font-size="11" fill="#565b4e">协调</text>
-            <text x="-122" y="-30" text-anchor="middle" font-size="11" fill="#565b4e">抗压</text>
-          </g>
-        </svg>
-        <p>成长雷达示意 · 真实报告中由 RadarChart 组件按测评数据绘制</p>
+      <figure class="hero-visual"><img src="../assets/nengli-senlin-preview.svg" alt="能力森林界面示意：挑一项20秒练习，可选找叶子、等信号、顺序连点" width="720" height="500" fetchpriority="high"/><figcaption>练习入口示意 · 非真实成绩或使用数据</figcaption></figure>
+    </div>
+    <div class="brief" aria-label="产品概要"><dl><dt>为谁设计</dt><dd>陪孩子尝试轻互动的家长，也支持自主练习</dd></dl><dl><dt>这次做什么</dt><dd>挑一项 → 练习 20 秒 → 回看本次记录</dd></dl><dl><dt>体验范围</dt><dd>三种触屏小游戏 · 当前浏览器本地保存</dd></dl></div>
+  </header>
+  <nav class="chapter-nav" aria-label="案例章节"><div class="wrap"><div class="chapter-links"><a href="#context"><span>01</span>使用场景</a><a href="#path"><span>02</span>一次练习</a><a href="#choices"><span>03</span>产品取舍</a><a href="#scope"><span>04</span>版本边界</a></div><a class="nav-cta" href="forest/">去玩一小会儿 ↗</a></div></nav>
+  <main id="main">
+    <section class="section" id="context"><div class="wrap section-grid">
+      <div class="section-heading"><div class="label">01 / 使用场景</div><h2>从一项小游戏，<br/>开始一次陪伴。</h2><p>先把一次陪伴安排明白，<br/>让开始和结束都轻一点。</p></div>
+      <div><p class="intro">家长需要一个好开始，<br/>孩子需要一件<em>看得懂、做得完的小事</em>。</p><p class="body-copy">设想你和孩子刚好有一小段空闲。相比先理解一组能力分数，更直接的任务是：选一个小游戏，看懂规则，一起试一次，再聊聊刚才发生了什么。能力森林把这一段过程做成可随时停止的短练习。</p>
+        <div class="role-notes"><article><h3>家长陪着，不代替孩子完成</h3><p>帮助读懂操作规则、安排开始与休息。亲子模式是一种使用情境，不要求填写孩子姓名或建立能力标签。</p></article><article><h3>孩子尝试，不追求一次全对</h3><p>每项练习都说明操作与时长。做完能看到本次记录，也能选择休息，不把继续挑战当成唯一出口。</p></article></div>
+        <p class="parent-note">如果想自己玩，也可以选择自主模式。两种模式都服务于短练习体验，不是不同年龄的能力测评标准。</p>
       </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ 核心 Flow ============ -->
-<section>
-  <div class="wrap">
-    <h2>五个核心 Flow</h2>
-    <p class="sub">PRD 中定义的完整用户旅程，每一环都对应真实页面与云函数。</p>
-    <div class="flows">
-      <div class="flow"><div>
-        <h4>首次进入</h4>
-        <p><code>wx.cloud.init</code> → 首页角色选择（家长 / 成人）→ <code>initUserProfile</code> 创建档案。</p>
-      </div></div>
-      <div class="flow"><div>
-        <h4>5 维初测</h4>
-        <p>测评引导 → 5 关串联小游戏（草稿保存）→ <code>submitAssessment</code> → 雷达图报告。</p>
-      </div></div>
-      <div class="flow"><div>
-        <h4>今日 3 练</h4>
-        <p><code>generateDailyTasks</code> 生成任务 → 进入训练小游戏 → <code>submitTrainingResult</code> → 积分 / 徽章结算。</p>
-      </div></div>
-      <div class="flow"><div>
-        <h4>成长反馈</h4>
-        <p><code>getGrowthDashboard</code> 聚合雷达、最佳纪录、积分与徽章，形成可视化的成长档案。</p>
-      </div></div>
-      <div class="flow"><div>
-        <h4>徽章激励</h4>
-        <p>4 枚种子徽章 + 机构体系（4 机构 / 33 训练模板），支撑长期留存动机。</p>
-      </div></div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ 架构与部署 ============ -->
-<section style="border-bottom:none">
-  <div class="wrap">
-    <h2>架构与部署状态</h2>
-    <p class="sub">Serverless 架构：小程序端零后端运维，全部业务逻辑收敛到 6 个云函数。</p>
-    <div class="arch">
-      <div class="acard">
-        <h4>小程序端</h4>
-        <ul>
-          <li><b>10 个页面</b>：首页 / 测评引导 / 测评游戏 / 报告 / 训练 / 训练玩法 / 结算 / 成长 等</li>
-          <li><b>4 个组件</b>：<code>GameShell</code> · <code>RadarChart</code> · <code>TaskCard</code> · <code>BadgeItem</code></li>
-          <li><b>5 维玩法目录</b>：balance / reaction / attention / coordination / stress</li>
-          <li><b>自定义 TabBar</b> + 统一常量与工具层</li>
-        </ul>
+    </div></section>
+    <section class="section path-section" id="path"><div class="wrap">
+      <div class="section-grid path-head"><div class="section-heading"><div class="label">02 / 一次练习</div><h2>选一项，<br/>留下一次记录。</h2></div><p class="path-lede">先尝试一项就好。三个练习各有一个清楚的动作，20 秒后结束计时；过程中可以暂停或退出，记录留在当前浏览器。</p></div>
+      <ol class="path"><li><span class="path-number">1</span><h3>选一个模式</h3><p>家长陪孩子一起体验，或自己独立练习。先说明这次由谁参与。</p></li><li><span class="path-number">2</span><h3>挑一项练习</h3><p>看懂规则，再决定从找叶子、等信号或顺序连点开始。</p></li><li><span class="path-number">3</span><h3>专心玩 20 秒</h3><p>跟随页面提示完成动作。需要休息时，暂停或退出都可以。</p></li><li><span class="path-number">4</span><h3>回看本次记录</h3><p>看看刚才的操作表现，再选择继续尝试或结束这次体验。</p></li></ol>
+      <div class="games" aria-label="可体验的三项练习">
+        <article class="game"><div class="game-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M20 4c-9-1-16 2-16 9a6 6 0 0 0 6 6c7 0 10-7 10-15ZM5 19 15 9M11 13v-4m0 4h4"/></svg></div><div class="game-title"><h3>找叶子</h3><span class="duration">20 秒 / 项</span></div><p>观察画面，找到目标叶子再点击。先看清楚，再做选择。</p></article>
+        <article class="game"><div class="game-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="M12 7v5l3 2M9 2h6"/></svg></div><div class="game-title"><h3>等信号</h3><span class="duration">20 秒 / 项</span></div><p>等待提示出现后再行动。页面会告诉你何时需要点击。</p></article>
+        <article class="game"><div class="game-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="5" cy="6" r="2.5"/><circle cx="19" cy="6" r="2.5"/><circle cx="12" cy="18" r="2.5"/><path d="M8 6h7m3 4-4 5"/></svg></div><div class="game-title"><h3>顺序连点</h3><span class="duration">20 秒 / 项</span></div><p>按页面给定的顺序依次点击。每次只处理眼前的下一步。</p></article>
       </div>
-      <div class="acard">
-        <h4>CloudBase 云端</h4>
-        <ul>
-          <li><b>6 云函数</b>：<code>initUserProfile</code> · <code>saveAssessmentDraft</code> · <code>submitAssessment</code> · <code>generateDailyTasks</code> · <code>submitTrainingResult</code> · <code>getGrowthDashboard</code></li>
-          <li><b>9 集合</b>幂等建表脚本，含种子数据（徽章 4 / 机构 4 / 模板 33）</li>
-          <li><b>一键部署脚本</b>：云函数非交互部署 + miniprogram-ci 上传 / 预览</li>
-          <li>运行时 Node.js 18.15，全部已部署就绪</li>
-        </ul>
+      <div class="path-foot"><p>网页中的记录来自你这一次操作。它不提供医学判断、同龄排名或能力提升结论。</p><a href="forest/">选一项，开始体验 ↗</a></div>
+    </div></section>
+    <section class="section" id="choices"><div class="wrap section-grid">
+      <div class="section-heading"><div class="label">03 / 产品取舍</div><h2>鼓励尝试，<br/>也尊重休息。</h2><p>用有限的任务和清楚的反馈，<br/>降低亲子一起开始的门槛。</p></div>
+      <div class="decisions">
+        <article class="decision"><span>一</span><div><h3>用具体动作，代替抽象能力标签</h3><p>入口直接告诉用户要找什么、等什么、按什么顺序点。记录解释游戏里的操作，让家长不必先理解一套能力模型才能陪孩子开始。</p><p class="reason">取舍 / 展示本次游戏表现，不把点击成绩解释为孩子的健康或发展水平。</p></div></article>
+        <article class="decision"><span>二</span><div><h3>给练习设终点，也留出退出的位置</h3><p>每项 20 秒，把一次尝试控制在可理解的范围内。暂停与退出始终是正常选择，做完后由用户决定是否再玩。</p><p class="reason">取舍 / 不用连续打卡压力或无限挑战，替用户决定应该玩多久。</p></div></article>
+        <article class="decision"><span>三</span><div><h3>先走通本地体验，再扩展服务</h3><p>网页打开即可玩，记录保存在当前浏览器。将小游戏和一次反馈做完整，避免初次体验被登录、云端配置或机构入口打断。</p><p class="reason">取舍 / 当前网页版不提供跨设备同步，也不包含机构推荐、预约或其他服务。</p></div></article>
       </div>
-    </div>
-    <div class="deploy" style="margin-top:16px">
-      <ul>
-        <li>CloudBase <b>9 集合</b>已就绪（含种子数据）</li>
-        <li><b>6 云函数</b>全部已部署（Node.js 18.15）</li>
-        <li>小程序最新版本 <b>0.1.2</b> 已上传至微信后台开发版本</li>
-        <li>仓库内含 <b>PRD V1.2.1（CloudBase 平台 · 校验版）</b> 与预览二维码，面试沟通中可安排真机体验</li>
-      </ul>
-    </div>
-  </div>
-</section>
-
-<footer>
-  <div class="wrap">
-    <p class="fine">本页为产品概述展示 · 能力森林源码为私有仓库，面试沟通中可提供真机体验与 PRD 文档 · <a href="../index.html">返回作品集首页</a></p>
-  </div>
-</footer>
-
+    </div></section>
+    <section class="section" id="scope"><div class="wrap section-grid">
+      <div class="section-heading"><div class="label">04 / 版本边界</div><h2>哪些已经实现，<br/>哪些仍待验证。</h2><p>网页体验和小程序源码，<br/>分别说明交付状态。</p></div>
+      <div>
+        <div class="versions">
+          <article class="version current"><div class="version-label">现在可体验 / 浏览器独立版</div><h3>三项可玩的短练习</h3><p>亲子与自主模式、玩法说明、20 秒练习、暂停退出和本次记录，组成一条可直接体验的路径。</p><ul><li>无需登录，不连接微信或云端。</li><li>记录保存在当前浏览器，清理浏览器数据后可能丢失。</li><li>不包含机构服务，不用于专业评估。</li></ul><a class="text-link" href="forest/">打开网页版体验 ↗</a></article>
+          <article class="version"><div class="version-label">源码迭代 / 微信小程序</div><h3>保留原型，继续复验</h3><p>原项目留有微信开发版上传与云端实现记录。本轮同步改进小程序源码中的用户路径与表达，仍需在微信真机环境复验。</p><ul><li>历史开发版上传不等于已公开上线。</li><li>网页版与小程序的数据互不相通。</li><li>本页不提供旧预览二维码，也不承诺当前真机可直接使用。</li></ul></article>
+        </div>
+        <p class="evidence-note"><strong>下一步要验证：</strong>家长和孩子能否看懂规则、独立开始与结束，以及是否愿意再次尝试。当前没有公开的亲子实测、留存结果或能力改善证据，不把设计目标写成已经发生的效果。</p>
+        <details class="technical"><summary>查看小程序实现与历史交付依据 <span>展开说明</span></summary><div class="technical-content">
+          <p><strong>可由原仓库核对：</strong>微信原生小程序页面与游戏组件、CloudBase 业务函数，以及 PRD 和部署脚本。以下是既有小程序的实现结构，不是网页版依赖。</p>
+          <div class="function-list"><dl><dt>用户档案</dt><dd><code>initUserProfile</code></dd></dl><dl><dt>初次体验草稿</dt><dd><code>saveAssessmentDraft</code></dd></dl><dl><dt>提交初次体验记录</dt><dd><code>submitAssessment</code></dd></dl><dl><dt>当天练习任务</dt><dd><code>generateDailyTasks</code></dd></dl><dl><dt>提交练习结果</dt><dd><code>submitTrainingResult</code></dd></dl><dl><dt>聚合历史记录</dt><dd><code>getGrowthDashboard</code></dd></dl></div>
+          <p>这 6 个云函数及相关数据集合属于原型工程证据。旧文档记载的小程序版本 0.1.2 上传到微信开发版本；本轮源码修改的真机表现和当前云端运行状态，需要另外验证。</p>
+          <p>历史最高分、积分与次数表示游戏记录，不构成儿童能力变化的证据。旧版中的机构种子数据，也不能作为真实合作或可用服务的证明。</p>
+        </div></details>
+      </div>
+    </div></section>
+    <section class="closing" aria-label="开始体验"><div class="wrap"><div><div class="label">今天，先从一项开始</div><h2>留 20 秒，给一次小小的尝试。</h2><p>不急着得出结论。一起读懂规则，玩一会儿，再看看这次记录。</p></div><a class="button" href="forest/">进入能力森林 <svg class="arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h16m-7-7 7 7-7 7"/></svg></a></div></section>
+  </main>
+  <footer class="wrap footer"><p>能力森林 · 亲子轻互动练习产品案例</p><p>网页版为独立本地体验 · <a href="../index.html#product-showcase">返回作品集</a></p></footer>
 </body>
 </html>

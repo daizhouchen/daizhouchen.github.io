@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#284E3D">
+  <meta name="description" content="能力森林浏览器体验：三个短小游戏，清晰的玩法与真实的本次记录。">
+  <title>能力森林 · 一起玩一小会儿</title>
+  <link rel="icon" href="assets/forest.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">跳到主要内容</a>
+  <div class="workspace">
+    <aside class="sidebar">
+      <a class="brand" href="#today" aria-label="能力森林，今日练习"><span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="M16 28V13M16 20C4 20 3 10 4 5c9-1 14 3 12 15ZM16 15C16 5 23 2 29 3c0 9-5 13-13 12Z"/></svg></span><span>能力森林<small>FOREST OF LITTLE STEPS</small></span></a>
+      <p class="sidebar-caption">慢慢来，也在向前。</p>
+      <nav class="main-nav" aria-label="主要导航">
+        <a href="#today" data-nav="today"><span aria-hidden="true">01</span> 今日练习</a>
+        <a href="#records" data-nav="records"><span aria-hidden="true">02</span> 练习记录</a>
+        <a href="#guide" data-nav="guide"><span aria-hidden="true">03</span> 陪玩手册</a>
+      </nav>
+      <div class="sidebar-note"><span class="tiny-label">A LITTLE EVERY DAY</span><p>每天留一点时间，<br>一起发现小小的变化。</p><div class="note-leaves" aria-hidden="true"></div></div>
+      <a class="case-link" href="../nengli-senlin.html">阅读产品案例 <span aria-hidden="true">↗</span></a>
+    </aside>
+    <div class="content-shell">
+      <header class="topbar"><div class="location-label">轻互动练习 <span>/</span> <span id="page-label">今日练习</span></div><div class="mode-switch" role="group" aria-label="练习模式"><button type="button" data-mode="family" aria-pressed="true">亲子模式</button><button type="button" data-mode="solo" aria-pressed="false">自主模式</button></div></header>
+      <div class="storage-banner" id="storage-banner" role="status" hidden></div>
+      <main id="main" tabindex="-1"></main>
+      <footer class="app-footer"><span><i aria-hidden="true"></i> 浏览器体验 · 记录仅保存在本机</span><a href="#guide">关于玩法与记录</a></footer>
+    </div>
+  </div>
+  <dialog id="game-dialog" aria-labelledby="dialog-title"></dialog>
+  <dialog id="clear-dialog" class="clear-dialog" aria-labelledby="clear-title"><div class="dialog-body"><p class="eyebrow">本机记录</p><h2 id="clear-title">清空所有练习记录？</h2><p>将删除这个浏览器里的记录和今日进度，无法恢复。</p><div class="button-row"><button class="button secondary" id="cancel-clear">保留记录</button><button class="button danger" id="confirm-clear">确认清空</button></div></div></dialog>
+  <div class="sr-only" id="announcer" aria-live="polite" aria-atomic="true"></div>
+  <noscript><p class="noscript">请开启 JavaScript 后体验小游戏。<a href="../nengli-senlin.html">查看产品案例</a></p></noscript>
+  <script type="module" src="app.js"></script>
+</body>
+</html>

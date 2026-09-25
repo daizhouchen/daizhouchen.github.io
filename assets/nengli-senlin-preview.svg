@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 500" role="img" aria-labelledby="title desc">
+  <title id="title">能力森林练习入口示意</title>
+  <desc id="desc">自然手册风格的练习入口，展示找叶子、等信号、顺序连点三项20秒游戏。界面示意，不是实际截图或成绩数据。</desc>
+  <defs><pattern id="dots" width="17" height="17" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r=".65" fill="#284E3D" opacity=".09"/></pattern></defs>
+  <rect width="720" height="500" fill="#DDE7CB"/>
+  <rect width="720" height="500" fill="url(#dots)"/>
+  <path d="M0 333c64-43 117-22 163 47S288 465 340 500H0Z" fill="#BDCCA9"/>
+  <path d="M590 0c-24 70 22 81 67 95s67 55 63 90V0Z" fill="#C8D6B6"/>
+  <g fill="none" stroke="#78926B" stroke-width="1.5"><path d="M53 317C22 251 55 213 88 204c6 46-7 83-35 113ZM54 314 81 223M53 317C16 298 11 275 20 256c23 6 35 27 33 61Z"/><path d="M660 162c-28-47-17-74 10-87 15 37 14 58-10 87Zm0 0 7-66"/></g>
+  <g transform="rotate(-3 356 259)"><rect x="114" y="47" width="511" height="421" rx="19" fill="#84976F" opacity=".15"/></g>
+  <rect x="96" y="40" width="521" height="410" rx="18" fill="#FDFCF7" stroke="#C3D0B4"/>
+  <path d="M96 102h521" stroke="#E1E6D8"/>
+  <g fill="none" stroke="#284E3D" stroke-width="1.8" stroke-linecap="round"><path d="M130 82V61m0 13c-11 1-16-6-13-14 9 0 14 5 13 14Zm0-5c9 0 14-6 12-13-8 0-12 5-12 13Z"/></g>
+  <text x="153" y="76" fill="#284E3D" font-family="Songti SC,SimSun,serif" font-size="23">能力森林</text>
+  <rect x="475" y="58" width="110" height="29" rx="14.5" fill="#EDF2E3"/>
+  <text x="530" y="77" text-anchor="middle" fill="#4B6549" font-family="Microsoft YaHei,sans-serif" font-size="11">家长陪同 · 示意</text>
+  <text x="130" y="148" fill="#284E3D" font-family="Songti SC,SimSun,serif" font-size="30">今天，先试一小会儿。</text>
+  <text x="132" y="178" fill="#65705F" font-family="Microsoft YaHei,sans-serif" font-size="12">每项 20 秒 · 想休息时，可以随时停下来</text>
+  <rect x="128" y="201" width="455" height="59" rx="12" fill="#EDF2E3"/>
+  <rect x="141" y="213" width="36" height="35" rx="10" fill="#DDE7CB"/>
+  <path d="M149 240c-4-13 5-20 17-17-1 13-5 19-17 17Zm0 0 12-12" fill="none" stroke="#284E3D" stroke-width="1.5" stroke-linejoin="round"/>
+  <text x="192" y="236" fill="#284E3D" font-family="Songti SC,SimSun,serif" font-size="20">找叶子</text>
+  <text x="460" y="235" fill="#65705F" font-family="Microsoft YaHei,sans-serif" font-size="11">20 秒</text>
+  <path d="M550 226l5 5-5 5" fill="none" stroke="#65705F" stroke-width="1.5"/>
+  <rect x="128" y="270" width="455" height="59" rx="12" fill="#F5EFDC"/>
+  <rect x="141" y="282" width="36" height="35" rx="10" fill="#EAC76C"/>
+  <circle cx="159" cy="300" r="10" fill="none" stroke="#284E3D" stroke-width="1.5"/>
+  <path d="M159 293v7l4 3" fill="none" stroke="#284E3D" stroke-width="1.5" stroke-linecap="round"/>
+  <text x="192" y="305" fill="#284E3D" font-family="Songti SC,SimSun,serif" font-size="20">等信号</text>
+  <text x="460" y="304" fill="#65705F" font-family="Microsoft YaHei,sans-serif" font-size="11">20 秒</text>
+  <path d="M550 295l5 5-5 5" fill="none" stroke="#65705F" stroke-width="1.5"/>
+  <rect x="128" y="339" width="455" height="59" rx="12" fill="#F0F2E9"/>
+  <rect x="141" y="351" width="36" height="35" rx="10" fill="#DDE7CB"/>
+  <g fill="none" stroke="#284E3D" stroke-width="1.4"><circle cx="151" cy="362" r="3"/><circle cx="167" cy="362" r="3"/><circle cx="159" cy="377" r="3"/><path d="M154 362h10m2 4-5 8"/></g>
+  <text x="192" y="374" fill="#284E3D" font-family="Songti SC,SimSun,serif" font-size="20">顺序连点</text>
+  <text x="460" y="373" fill="#65705F" font-family="Microsoft YaHei,sans-serif" font-size="11">20 秒</text>
+  <path d="M550 364l5 5-5 5" fill="none" stroke="#65705F" stroke-width="1.5"/>
+  <text x="132" y="425" fill="#65705F" font-family="Microsoft YaHei,sans-serif" font-size="10">先读懂规则，再开始。记录留在当前浏览器。</text>
+  <text x="680" y="478" text-anchor="end" fill="#52654A" font-family="Microsoft YaHei,sans-serif" font-size="10">界面示意 · 非真实成绩或使用数据</text>
+</svg>
