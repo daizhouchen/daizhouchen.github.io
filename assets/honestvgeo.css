@@ -1,0 +1,58 @@
+.research-feature {
+  margin: 0 0 28px;
+  padding: 28px 30px 20px;
+  border: 1px solid #c9c7b9;
+  border-top: 3px solid #355a4b;
+  background: #faf9f4;
+  scroll-margin-top: 85px;
+}
+.research-feature-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  font: 10px/1.6 var(--mono);
+  letter-spacing: .08em;
+  color: #536759;
+}
+.conference-badge {
+  padding: 5px 10px;
+  background: #e5ede2;
+  color: #284e39;
+  font-family: var(--sans);
+  font-weight: 600;
+  letter-spacing: .03em;
+  white-space: nowrap;
+}
+.research-feature-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  gap: 48px;
+  margin-top: 23px;
+}
+.research-feature-copy { min-width: 0; }
+.research-feature h3 { font: 600 32px/1.25 var(--serif); }
+.paper-title { margin-top: 10px; font: 12px/1.75 var(--sans); color: #716b60; }
+.research-question { margin-top: 23px; font: 22px/1.6 var(--serif); color: #29483a; }
+.research-summary { margin: 14px 0 22px; font-size: 13px; line-height: 1.95; color: var(--ink-soft); }
+.research-contributions { min-width: 0; border-top: 1px solid var(--line); }
+.research-contributions > div { padding: 15px 0 18px; border-bottom: 1px solid var(--line); }
+.research-contributions dt { font: 600 16px/1.7 var(--serif); }
+.research-contributions dt > span { display: block; margin-bottom: 6px; font: 9px/1.6 var(--mono); letter-spacing: .08em; color: #657766; }
+.research-contributions dd { margin-top: 6px; font-size: 12px; line-height: 1.9; color: var(--ink-soft); }
+.research-status { margin-top: 22px; padding-top: 15px; border-top: 1px solid var(--line); font-size: 10px; line-height: 1.9; color: #716b60; }
+@media (max-width: 760px) {
+  .research-feature { padding: 22px 20px 18px; }
+  .research-feature-grid { grid-template-columns: 1fr; gap: 24px; margin-top: 20px; }
+  .research-feature-head { flex-wrap: wrap; font-size: 9px; }
+  .research-feature h3 { font-size: 29px; }
+  .paper-title { font-size: 11px; }
+  .research-question { font-size: 21px; margin-top: 20px; }
+  .research-summary { font-size: 13px; }
+  .research-contributions dd { font-size: 12px; }
+}
+@media (max-width: 370px) {
+  .research-feature { padding-inline: 17px; }
+  .research-feature h3 { font-size: 27px; }
+  .research-feature .abtn { padding-inline: 9px; }
+}

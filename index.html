@@ -126,6 +126,7 @@
   @media print{ nav{display:none} .demo-card,.shot{break-inside:avoid;box-shadow:none} }
 </style>
 <link rel="stylesheet" href="assets/homepage.css"/>
+<link rel="stylesheet" href="assets/honestvgeo.css"/>
 </head>
 <body>
 
@@ -244,6 +245,24 @@
   <div class="wrap">
     <h2><span class="num">03</span>技术实践与工程交付</h2>
     <p class="sub">既有可体验的 AI 工程项目，也有来自实际交付与研究的积累：知识组织、模型运行、实验对照与系统部署。</p>
+    <article class="research-feature" id="honestvgeo" aria-labelledby="honestvgeo-heading">
+      <div class="research-feature-head"><span>RESEARCH / VISUAL GEO</span><span class="conference-badge">ICDM 2026 · 已录取</span></div>
+      <div class="research-feature-grid">
+        <div class="research-feature-copy">
+          <h3 id="honestvgeo-heading">HonestVGEO</h3>
+          <p class="paper-title" lang="en">Recalibrating Visual GEO:<br/>Anchor-Decoupled Evaluation and a Transfer Probe</p>
+          <p class="research-question">视觉优化的效果，<br/>如何被可信地衡量？</p>
+          <p class="research-summary">面向多模态检索中的视觉生成式引擎优化（Visual GEO），研究如何在不借用评测查询的前提下衡量图像优化带来的排名变化，并检验效果能否迁移到其他编码器。</p>
+          <div class="actions"><a class="abtn fill" href="https://github.com/daizhouchen/HonestVGEO" target="_blank" rel="noopener">查看研究代码 ↗</a><a class="abtn" href="https://github.com/daizhouchen/HonestVGEO/tree/main/results" target="_blank" rel="noopener">实验与结果 ↗</a></div>
+        </div>
+        <dl class="research-contributions">
+          <div><dt><span>01 / EVALUATION</span>HonestEval 评测协议</dt><dd>将优化锚点与评测查询解耦，校验扰动预算、图像完整性与评测覆盖，建立可核查的比较基础。</dd></div>
+          <div><dt><span>02 / TRANSFER</span>CoGEO 与 AE-CoGEO</dt><dd>对比白盒优化与跨编码器迁移，在不同检索模型与数据集上检验效果及其适用边界。</dd></div>
+          <div><dt><span>03 / REPRODUCTION</span>开放复现材料</dt><dd>公开实现代码、实验清单、逐样本结果和图表脚本，让研究结论能够追溯与复算。</dd></div>
+        </dl>
+      </div>
+      <p class="research-status">论文已被 ICDM 2026 录取。复现代码与结果已公开，论文终稿整理中。</p>
+    </article>
     <div class="demo-grid tech-grid">
       <div class="demo-card">
         <div class="preview"><img src="assets/scriptgraph-demo.png" alt="ScriptGraph 剧本知识图谱界面"/></div>
