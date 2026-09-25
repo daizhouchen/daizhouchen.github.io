@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 600" role="img" aria-labelledby="title desc">
+  <title id="title">Reality Director 双角色故事流程示意</title>
+  <desc id="desc">深夜电影风格的抽象故事结构：两组角色线索经过共享、保留或模糊表达，汇入信息对照、终局判断与实际选择复盘。不是产品界面截图或真实游玩记录。</desc>
+  <defs><pattern id="grain" width="13" height="13" patternUnits="userSpaceOnUse"><circle cx="2" cy="3" r=".6" fill="#E8DFD0" opacity=".065"/></pattern></defs>
+  <rect width="720" height="600" fill="#1A1918"/>
+  <rect width="720" height="600" fill="url(#grain)"/>
+  <path d="M0 0h720v47H0z" fill="#25211C"/>
+  <text x="31" y="30" fill="#C9A96E" font-family="Consolas,monospace" font-size="11" letter-spacing="2">REALITY DIRECTOR / STORY STRUCTURE</text>
+  <text x="689" y="30" text-anchor="end" fill="#B2A594" font-family="Microsoft YaHei,sans-serif" font-size="10">流程示意</text>
+  <text x="37" y="100" fill="#E8DFD0" font-family="Georgia,SimSun,serif" font-size="30">旧照相馆封档风波</text>
+  <text x="39" y="128" fill="#A99F91" font-family="Microsoft YaHei,sans-serif" font-size="11">同一个故事，两组不同的线索。</text>
+  <g transform="rotate(-4 192 227)"><rect x="48" y="159" width="276" height="142" fill="#E8DFD0"/><text x="70" y="188" fill="#755D35" font-family="Consolas,monospace" font-size="11" letter-spacing="2">PERSPECTIVE A</text><text x="70" y="227" fill="#27231D" font-family="Georgia,SimSun,serif" font-size="26">我知道的这一面</text><path d="M71 247h204M71 259h165M71 271h181" stroke="#B9AA95" stroke-width="2"/><rect x="239" y="172" width="61" height="13" fill="#D0C3AE"/></g>
+  <g transform="rotate(4 527 229)"><rect x="392" y="164" width="279" height="142" fill="#282624" stroke="#65563D"/><text x="413" y="194" fill="#C9A96E" font-family="Consolas,monospace" font-size="11" letter-spacing="2">PERSPECTIVE B</text><text x="413" y="233" fill="#E8DFD0" font-family="Georgia,SimSun,serif" font-size="26">你尚未看见的</text><path d="M414 253h205M414 265h167M414 277h180" stroke="#62584B" stroke-width="2"/></g>
+  <path d="M188 304v31h344v-27M360 335v31" fill="none" stroke="#8F7851" stroke-width="1.4"/>
+  <g fill="#24201A" stroke="#76613D"><rect x="57" y="366" width="186" height="49"/><rect x="267" y="366" width="186" height="49"/><rect x="477" y="366" width="186" height="49"/></g>
+  <g fill="#C9A96E" font-family="Georgia,SimSun,serif" font-size="20"><text x="150" y="397" text-anchor="middle">共享</text><text x="360" y="397" text-anchor="middle">保留</text><text x="570" y="397" text-anchor="middle">模糊表达</text></g>
+  <path d="M150 415v29h420v-29M360 444v25m-5-5 5 5 5-5" fill="none" stroke="#8F7851" stroke-width="1.4"/>
+  <rect x="126" y="480" width="468" height="53" fill="#31231D" stroke="#965A42"/>
+  <text x="360" y="513" text-anchor="middle" fill="#E8DFD0" font-family="Georgia,SimSun,serif" font-size="19">信息对照 → 终局判断 → 选择复盘</text>
+  <text x="38" y="571" fill="#A99F91" font-family="Microsoft YaHei,sans-serif" font-size="10">表达是一次行动。复盘回到这一次的选择。</text>
+  <text x="683" y="571" text-anchor="end" fill="#A99F91" font-family="Microsoft YaHei,sans-serif" font-size="9">抽象示意 · 非界面截图</text>
+</svg>
