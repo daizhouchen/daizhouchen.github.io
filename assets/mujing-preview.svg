@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 400" role="img" aria-labelledby="title desc">
+  <title id="title">幕境：从容开场</title>
+  <desc id="desc">活动工作流示意，非产品截图：选样例、备场、本机演练、复盘。</desc>
+  <rect width="640" height="400" fill="#EEE8DC"/>
+  <path d="M316 0h324v400H316z" fill="#F7F3EB"/>
+  <path d="M36 37h252v326H36z" fill="#D1C7B6" transform="rotate(-4 162 200)"/>
+  <g transform="rotate(3 165 194)">
+    <rect x="37" y="27" width="250" height="326" fill="#27251F"/>
+    <rect x="54" y="44" width="216" height="292" fill="none" stroke="#726957" stroke-width=".7"/>
+    <text x="72" y="82" fill="#D8AA98" font-family="Noto Sans SC, Microsoft YaHei, sans-serif" font-size="10" letter-spacing="3">MUJING</text>
+    <text x="70" y="149" fill="#F7F3EB" font-family="Noto Serif SC, Songti SC, SimSun, serif" font-size="46">幕境</text>
+    <path d="M72 178h70" stroke="#A94435" stroke-width="3"/>
+    <text x="72" y="220" fill="#E2DBCE" font-family="Noto Serif SC, Songti SC, SimSun, serif" font-size="21">好故事，也要</text>
+    <text x="72" y="255" fill="#E2DBCE" font-family="Noto Serif SC, Songti SC, SimSun, serif" font-size="21">从容开场。</text>
+    <text x="72" y="308" fill="#B9B19F" font-family="Noto Sans SC, Microsoft YaHei, sans-serif" font-size="10">主理人的活动工作台</text>
+  </g>
+  <text x="346" y="57" fill="#69655A" font-family="Noto Sans SC, Microsoft YaHei, sans-serif" font-size="11" letter-spacing="2">一场活动，四个步骤</text>
+  <path d="M349 100v200" stroke="#D8D1C3"/>
+  <g fill="#A94435"><circle cx="349" cy="102" r="4"/><circle cx="349" cy="165" r="4"/><circle cx="349" cy="228" r="4"/><circle cx="349" cy="291" r="4"/></g>
+  <g fill="#27251F" font-family="Noto Serif SC, Songti SC, SimSun, serif" font-size="24"><text x="372" y="110">选样例</text><text x="372" y="173">备场</text><text x="372" y="236">本机演练</text><text x="372" y="299">复盘</text></g>
+  <g fill="#A94435" font-family="Noto Serif SC, Songti SC, SimSun, serif" font-size="14"><text x="575" y="109">01</text><text x="575" y="172">02</text><text x="575" y="235">03</text><text x="575" y="298">04</text></g>
+  <path d="M346 331h252" stroke="#D8D1C3"/>
+  <text x="346" y="358" fill="#536A53" font-family="Noto Sans SC, Microsoft YaHei, sans-serif" font-size="10">内置样例 · 无需登录</text>
+  <text x="598" y="382" text-anchor="end" fill="#69655A" font-family="Noto Sans SC, Microsoft YaHei, sans-serif" font-size="9">工作流示意 · 非界面截图</text>
+</svg>

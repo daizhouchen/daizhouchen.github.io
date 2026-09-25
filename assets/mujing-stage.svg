@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 650" role="img" aria-labelledby="title desc">
+  <title id="title">幕境活动手册示意</title>
+  <desc id="desc">东方剧场风格的盛夏告别派对活动手册，以选样例、备场、本机演练、复盘四个步骤呈现工作流。此为视觉示意，不是产品截图。</desc>
+  <defs><pattern id="paper" width="9" height="9" patternUnits="userSpaceOnUse"><circle cx="1" cy="2" r=".55" fill="#27251F" opacity=".04"/></pattern></defs>
+  <rect width="640" height="650" fill="#E9E2D5"/>
+  <rect width="640" height="650" fill="url(#paper)"/>
+  <path d="M0 0h640v45H0z" fill="#27251F"/>
+  <text x="31" y="28" fill="#F7F3EB" font-family="Noto Sans SC, Microsoft YaHei, sans-serif" font-size="11" letter-spacing="2">MUJING / THE HOST’S HANDBOOK</text>
+  <text x="605" y="28" text-anchor="end" fill="#C5BDAE" font-family="Noto Sans SC, Microsoft YaHei, sans-serif" font-size="10">视觉示意</text>
+  <path d="M547 85h54v408h-54z" fill="#536A53" opacity=".14"/>
+  <path d="M563 91v392" stroke="#536A53" opacity=".5"/>
+  <path d="M49 95h488v405H49z" fill="#D0C5B3" transform="rotate(-4 294 299)"/>
+  <g transform="rotate(3 300 300)">
+    <rect x="75" y="75" width="486" height="420" fill="#FCF9F1" stroke="#D2C8B7"/>
+    <path d="M97 75v420" stroke="#DDD3C2"/>
+    <text x="125" y="117" fill="#A94435" font-family="Noto Sans SC, Microsoft YaHei, sans-serif" font-size="10" letter-spacing="3">活动手册 / SAMPLE 01</text>
+    <circle cx="455" cy="205" r="65" fill="#A94435" opacity=".12"/>
+    <circle cx="470" cy="190" r="49" fill="none" stroke="#A94435" opacity=".25"/>
+    <path d="M410 252c34-37 72-35 108-64M430 256c23-7 42-4 69 5" fill="none" stroke="#536A53" stroke-width="1.5" opacity=".8"/>
+    <text x="122" y="184" fill="#27251F" font-family="Noto Serif SC, Songti SC, SimSun, serif" font-size="43">盛夏</text>
+    <text x="122" y="241" fill="#27251F" font-family="Noto Serif SC, Songti SC, SimSun, serif" font-size="43">告别派对</text>
+    <text x="125" y="280" fill="#69655A" font-family="Noto Sans SC, Microsoft YaHei, sans-serif" font-size="12" letter-spacing="2">有些话，要在今晚说出口。</text>
+    <path d="M125 307h383" stroke="#D8D1C3"/>
+    <text x="125" y="334" fill="#536A53" font-family="Noto Sans SC, Microsoft YaHei, sans-serif" font-size="10" letter-spacing="1">主理人的三件事</text>
+    <text x="125" y="362" fill="#27251F" font-family="Noto Sans SC, Microsoft YaHei, sans-serif" font-size="13">读懂人物关系</text>
+    <text x="125" y="386" fill="#27251F" font-family="Noto Sans SC, Microsoft YaHei, sans-serif" font-size="13">准备每一幕的开场</text>
+    <text x="125" y="410" fill="#27251F" font-family="Noto Sans SC, Microsoft YaHei, sans-serif" font-size="13">把握现场的节奏</text>
+    <rect x="447" y="351" width="52" height="58" fill="none" stroke="#A94435" stroke-width="1.5"/>
+    <rect x="451" y="355" width="44" height="50" fill="none" stroke="#A94435" stroke-width=".6"/>
+    <text x="473" y="378" text-anchor="middle" fill="#A94435" font-family="Noto Serif SC, Songti SC, SimSun, serif" font-size="16">入戏</text>
+    <text x="473" y="397" text-anchor="middle" fill="#A94435" font-family="Noto Serif SC, Songti SC, SimSun, serif" font-size="16">有序</text>
+    <path d="M125 440h383" stroke="#D8D1C3"/>
+    <text x="125" y="465" fill="#69655A" font-family="Noto Sans SC, Microsoft YaHei, sans-serif" font-size="10">内置故事样例 · 由主理人掌握现场推进</text>
+  </g>
+  <path d="M38 540h564" stroke="#BEB39F"/>
+  <g fill="#A94435" font-family="Noto Serif SC, Songti SC, SimSun, serif" font-size="17"><text x="40" y="569">01</text><text x="190" y="569">02</text><text x="340" y="569">03</text><text x="490" y="569">04</text></g>
+  <g fill="#27251F" font-family="Noto Sans SC, Microsoft YaHei, sans-serif" font-size="13"><text x="40" y="595">选样例</text><text x="190" y="595">备场</text><text x="340" y="595">本机演练</text><text x="490" y="595">复盘</text></g>
+  <g fill="none" stroke="#8C806B"><path d="M116 579h38m-5-4 5 4-5 4"/><path d="M266 579h38m-5-4 5 4-5 4"/><path d="M416 579h38m-5-4 5 4-5 4"/></g>
+  <text x="40" y="628" fill="#69655A" font-family="Noto Sans SC, Microsoft YaHei, sans-serif" font-size="9" letter-spacing="1">从一份活动材料，到一次可走通的演练。</text>
+</svg>

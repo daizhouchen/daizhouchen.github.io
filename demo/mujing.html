@@ -1,223 +1,130 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>幕境 Mujing · 产品展示 — AI 驱动沉浸式活动引擎</title>
-<meta name="description" content="幕境（MVP v7.2）：面向线下场地的 AI 驱动沉浸式活动引擎。多 pass 生成流水线 + 实时 harness，约 16 分钟生成一整场活动。"/>
-<style>
-  :root{
-    --bg:#14120f; --panel:#1d1a16; --panel-2:#242019; --line:#37312a;
-    --ink:#e8e2d6; --ink-soft:#b3a996; --ink-faint:#7a7164;
-    --accent:#c96f4a; --accent-soft:#e0a184; --gold:#c9a86a;
-    --serif:"Noto Serif SC","Source Han Serif SC","Songti SC",Georgia,serif;
-    --sans:"Noto Sans SC","PingFang SC","Microsoft YaHei",-apple-system,sans-serif;
-    --mono:"JetBrains Mono","SFMono-Regular",Consolas,monospace;
-  }
-  *{margin:0;padding:0;box-sizing:border-box}
-  html{scroll-behavior:smooth}
-  body{background:var(--bg);color:var(--ink);font-family:var(--sans);line-height:1.75;font-size:16px}
-  a{color:var(--accent-soft);text-decoration:none}
-  a:hover{text-decoration:underline}
-  .wrap{max-width:1020px;margin:0 auto;padding:0 24px}
-
-  header{padding:56px 0 44px;border-bottom:1px solid var(--line);
-    background:radial-gradient(900px 380px at 75% -120px, rgba(201,111,74,.16), transparent 60%)}
-  .topbar{display:flex;justify-content:space-between;margin-bottom:26px}
-  .back{font-family:var(--mono);font-size:12.5px;color:var(--ink-faint)}
-  .back:hover{color:var(--accent-soft);text-decoration:none}
-  .eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.4em;color:var(--accent);text-transform:uppercase;margin-bottom:16px}
-  h1{font-family:var(--serif);font-size:clamp(30px,5vw,44px);letter-spacing:.04em}
-  h1 small{display:block;font-size:.4em;font-weight:400;color:var(--ink-faint);letter-spacing:.16em;margin-top:8px;font-family:var(--mono)}
-  .lede{margin-top:16px;color:var(--ink-soft);max-width:700px;font-size:15.5px}
-  .lede b{color:var(--ink)}
-  .meta-line{margin-top:22px;display:flex;flex-wrap:wrap;gap:10px}
-  .chip{font-size:12.5px;padding:4px 13px;border:1px solid var(--line);border-radius:999px;color:var(--ink-soft);background:var(--panel)}
-  .chip b{color:var(--gold)}
-  .cta-row{margin-top:26px;display:flex;flex-wrap:wrap;gap:12px;align-items:center}
-  .cta{display:inline-block;font-family:var(--serif);font-size:16px;letter-spacing:.12em;color:#14120f;background:linear-gradient(120deg,var(--accent),var(--accent-soft));padding:12px 30px;border-radius:8px;font-weight:700;transition:.15s;box-shadow:0 4px 18px rgba(201,111,74,.35)}
-  .cta:hover{text-decoration:none;transform:translateY(-2px);box-shadow:0 6px 24px rgba(201,111,74,.5)}
-  .cta-note{font-size:12.5px;color:var(--ink-faint);font-family:var(--mono)}
-
-  section{padding:54px 0;border-bottom:1px solid var(--line)}
-  h2{font-family:var(--serif);font-size:27px;margin-bottom:6px}
-  .sub{color:var(--ink-faint);font-size:14px;margin-bottom:26px}
-
-  /* ---------- numbers ---------- */
-  .nums{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px}
-  .num-card{border:1px solid var(--line);border-radius:12px;background:var(--panel);padding:20px;text-align:center;transition:.15s}
-  .num-card:hover{transform:translateY(-2px);border-color:#4a4136}
-  .num-card .v{font-family:var(--serif);font-size:28px;font-weight:700;color:var(--gold)}
-  .num-card .v small{font-size:.55em;color:var(--ink-faint);font-weight:400}
-  .num-card .k{font-size:12.5px;color:var(--ink-soft);margin-top:4px}
-
-  /* ---------- pipeline ---------- */
-  .pipe{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:14px;counter-reset:step}
-  .pstep{border:1px solid var(--line);border-radius:12px;background:var(--panel);padding:20px}
-  .pstep:before{counter-increment:step;content:"0" counter(step);font-family:var(--mono);font-size:11px;letter-spacing:.14em;color:var(--accent)}
-  .pstep h4{font-family:var(--serif);font-size:16px;margin:6px 0 4px}
-  .pstep p{font-size:13px;color:var(--ink-soft)}
-
-  /* ---------- architecture ---------- */
-  .arch{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-  .acard{border:1px solid var(--line);border-radius:12px;background:var(--panel);padding:24px}
-  .acard h4{font-family:var(--serif);font-size:17px;margin-bottom:12px;color:var(--gold)}
-  .acard ul{list-style:none}
-  .acard li{font-size:13.5px;color:var(--ink-soft);padding:6px 0;border-bottom:1px dashed var(--line)}
-  .acard li:last-child{border-bottom:none}
-  .acard li b{color:var(--ink)}
-  .acard code{font-family:var(--mono);font-size:11.5px;background:var(--panel-2);padding:1px 6px;border-radius:4px;color:var(--accent-soft)}
-
-  /* ---------- output sample ---------- */
-  .genres{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:22px}
-  .genre{font-family:var(--mono);font-size:11.5px;padding:4px 11px;border-radius:6px;background:var(--panel-2);color:var(--ink-soft);border:1px solid var(--line)}
-  .genre b{color:var(--gold)}
-  .doc-sample{border:1px solid var(--line);border-radius:12px;background:var(--panel);padding:26px 28px;max-width:720px}
-  .doc-sample .kind{font-family:var(--mono);font-size:11px;letter-spacing:.14em;color:var(--accent);text-transform:uppercase}
-  .doc-sample h3{font-family:var(--serif);font-size:20px;margin:4px 0 8px}
-  .doc-sample .meta{font-size:12.5px;color:var(--ink-faint);margin-bottom:14px}
-  .doc-sample p{font-size:14.5px;color:var(--ink-soft);margin-bottom:10px}
-  .doc-sample .cap{font-size:12px;color:var(--ink-faint);margin-top:16px;border-top:1px dashed var(--line);padding-top:12px}
-
-  footer{padding:46px 0 60px}
-  .fine{margin-top:14px;font-size:12.5px;color:var(--ink-faint)}
-
-  @media (max-width:760px){
-    .arch{grid-template-columns:1fr}
-    header{padding:42px 0 34px}
-  }
-</style>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="theme-color" content="#F7F3EB"/>
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml"/>
+  <title>幕境 Mujing — 从备场到复盘的沉浸式活动工作台</title>
+  <meta name="description" content="幕境产品案例：面向线下活动主理人的备场、演练与复盘工作台。了解场景判断、产品取舍与验证边界，使用内置样例体验本机演练。"/>
+  <style>
+    :root{--paper:#F7F3EB;--paper-deep:#EEE8DC;--ink:#27251F;--muted:#69655A;--line:#D8D1C3;--red:#A94435;--green:#536A53;--serif:"Noto Serif SC","Songti SC","SimSun",serif;--sans:"Noto Sans SC","Microsoft YaHei",sans-serif}
+    *{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:90px}body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:15px;line-height:1.85}a{color:inherit;text-decoration:none}a:hover{color:var(--red)}a:focus-visible,summary:focus-visible{outline:3px solid var(--green);outline-offset:5px}h1,h2,h3,p{margin:0}h1,h2,h3{font-family:var(--serif)}button,a,summary{-webkit-tap-highlight-color:transparent}.wrap{width:min(1160px,calc(100% - 80px));margin:0 auto}.skip{position:fixed;left:20px;top:-90px;z-index:20;padding:10px 20px;background:var(--ink);color:var(--paper)}.skip:focus{top:10px}.topbar{min-height:87px;display:flex;align-items:center;justify-content:space-between;gap:20px;border-bottom:1px solid var(--line)}.back{font-size:13px;color:var(--muted)}.brand{display:flex;align-items:center;gap:11px;font-family:var(--serif);font-size:21px;font-weight:700}.seal{display:grid;place-items:center;width:33px;height:37px;background:var(--red);color:var(--paper);font-size:22px;line-height:1}.brand small{font-family:var(--sans);font-size:10px;letter-spacing:.18em;font-weight:400}.edition{font-size:11px;color:var(--muted);letter-spacing:.08em}.hero{display:grid;grid-template-columns:1.12fr 1fr;gap:65px;align-items:center;padding:70px 0 62px}.eyebrow{font-size:11px;color:var(--red);letter-spacing:.19em;font-weight:600;text-transform:uppercase}.hero h1{font-size:clamp(38px,4.6vw,58px);line-height:1.4;font-weight:500;letter-spacing:-.04em;margin:21px 0 22px}.hero h1 span{color:var(--red)}.hero-copy>p{max-width:485px;font-size:16px;color:var(--muted)}.hero-copy>p strong{font-weight:500;color:var(--ink)}.buttons{display:flex;gap:20px;flex-wrap:wrap;align-items:center;margin-top:30px}.button{display:inline-flex;justify-content:center;align-items:center;gap:18px;padding:12px 21px;border:1px solid var(--red);background:var(--red);color:var(--paper);font-size:14px;font-weight:600;transition:background .18s,transform .18s}.button:hover{color:var(--paper);background:#853528;transform:translateY(-2px)}.text-link{font-size:13px;border-bottom:1px solid var(--line);padding:8px 0}.arrow{width:17px;height:17px;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0}.demo-note{font-size:11px;color:var(--muted);line-height:1.8;margin-top:17px;max-width:435px}.demo-note strong{color:var(--green);font-weight:500}.hero-art{position:relative;margin:0;padding:29px 25px 0 0}.hero-art:before{content:"";position:absolute;inset:0 0 44px 24px;border:1px solid var(--line);border-top:3px solid var(--red)}.hero-art img{display:block;width:100%;height:auto;position:relative;box-shadow:0 16px 32px #27251F0C}.hero-art figcaption{position:relative;margin:13px 0 0 24px;font-size:10px;color:var(--muted);text-align:right;letter-spacing:.04em}.brief{display:grid;grid-template-columns:1fr 1.3fr 1fr;border-top:1px solid var(--line);padding:22px 0 30px;gap:32px}.brief dt{font-size:10px;letter-spacing:.14em;color:var(--muted);margin-bottom:5px}.brief dd{font-size:13px;margin:0}.brief dl{margin:0}.section-nav{position:sticky;top:0;z-index:10;border-block:1px solid var(--line);background:rgba(247,243,235,.97)}.section-nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:20px}.section-nav .links{display:flex;gap:30px;overflow-x:auto;scrollbar-width:none}.section-nav a{white-space:nowrap;font-size:12px;padding:16px 0;display:block}.section-nav a span{font-size:10px;color:var(--red);margin-right:6px}.section-nav .nav-cta{color:var(--red);font-weight:600;flex-shrink:0}.case-section{padding:74px 0;border-bottom:1px solid var(--line)}.section-grid{display:grid;grid-template-columns:235px 1fr;gap:56px}.section-label{font-size:11px;letter-spacing:.12em;color:var(--red);margin-bottom:13px}.section-heading h2{font-size:29px;font-weight:500;line-height:1.6;letter-spacing:-.03em}.section-heading>p{font-size:12px;color:var(--muted);margin-top:15px;max-width:205px}.section-intro{font-family:var(--serif);font-size:24px;line-height:1.7;margin-bottom:26px}.section-intro em{font-style:normal;color:var(--red)}.scenario{border-left:2px solid var(--red);padding:4px 0 4px 22px;color:var(--muted);font-size:14px;max-width:735px}.scenario strong{color:var(--ink);font-weight:600}.needs{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:32px}.needs article{border-top:1px solid var(--line);padding-top:19px}.needs .overline{font-size:10px;letter-spacing:.08em;color:var(--green)}.needs h3{font-size:17px;font-weight:500;margin:7px 0 8px}.needs p{font-size:13px;color:var(--muted)}.flow-section{background:var(--paper-deep)}.flow-section .section-grid{margin-bottom:32px}.flow-lede{font-size:14px;color:var(--muted);align-self:center;max-width:660px}.flow{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid #BBB2A1;border-bottom:1px solid #BBB2A1}.flow li{padding:28px 23px 25px;border-right:1px solid #CFC5B5}.flow li:first-child{padding-left:0}.flow li:last-child{border-right:0;padding-right:0}.step-number{font-family:var(--serif);color:var(--red);font-size:27px}.flow h3{font-size:21px;font-weight:500;margin:15px 0 13px}.flow p{font-size:13px;color:var(--muted);margin-bottom:20px}.flow .outcome{border-top:1px solid #CFC5B5;padding-top:12px;font-size:11px;color:var(--green);margin-bottom:0}.flow-foot{display:flex;justify-content:space-between;gap:24px;margin-top:21px;font-size:12px;color:var(--muted)}.flow-foot a{color:var(--red);border-bottom:1px solid var(--red);white-space:nowrap;align-self:flex-start}.decisions{border-top:1px solid var(--ink)}.decision{display:grid;grid-template-columns:32px 1fr;gap:16px;border-bottom:1px solid var(--line);padding:24px 0}.decision-number{font-size:12px;color:var(--red);padding-top:3px}.decision h3{font-size:20px;font-weight:500;margin-bottom:9px}.decision p{font-size:13px;color:var(--muted)}.decision .choice{margin-top:11px;font-size:11px;color:var(--green)}.view-strip{margin-top:28px;padding:21px 24px;background:var(--paper-deep)}.view-strip h3{font-family:var(--sans);font-size:12px;font-weight:600;margin-bottom:12px}.views{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}.views dt{font-family:var(--serif);font-size:16px;margin-bottom:4px}.views dd{font-size:11px;color:var(--muted);margin:0}.views dl{margin:0}.boundary{margin-top:16px;font-size:11px;color:var(--muted);border-top:1px solid var(--line);padding-top:13px}.evidence-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}.evidence-item{padding-top:17px;border-top:1px solid var(--line)}.evidence-state{font-size:10px;letter-spacing:.07em;color:var(--green)}.evidence-item h3{font-size:20px;font-weight:500;margin:8px 0 10px}.evidence-item p{font-size:13px;color:var(--muted)}.evidence-item .small{font-size:11px;margin-top:14px}.evidence-item a{text-decoration:underline;text-underline-offset:4px;color:var(--red)}.sample{margin-top:28px;border:1px solid var(--line);background:#FCFAF5}.sample summary{list-style:none;cursor:pointer;padding:20px 24px;display:flex;justify-content:space-between;gap:20px;align-items:center}.sample summary::-webkit-details-marker{display:none}.sample summary .sample-type{font-size:10px;color:var(--red);letter-spacing:.12em;display:block;margin-bottom:3px}.sample summary strong{font-family:var(--serif);font-size:18px;font-weight:500}.sample .expand{font-size:11px;color:var(--muted);white-space:nowrap}.sample .expand:after{content:"＋";font-size:17px;vertical-align:-1px;margin-left:9px}.sample[open] .expand:after{content:"−"}.sample-content{border-top:1px solid var(--line);padding:24px;max-width:760px}.sample-meta{font-size:11px;color:var(--muted);margin-bottom:19px}.sample blockquote{margin:0}.sample blockquote p{font-family:var(--serif);font-size:15px;line-height:2.1;margin-bottom:15px}.sample-cap{font-size:11px;color:var(--muted);border-top:1px dashed var(--line);padding-top:16px}.validation-note{font-size:12px;color:var(--muted);margin-top:25px}.validation-note strong{color:var(--ink);font-weight:500}.closing{padding:52px 0 55px;background:var(--ink);color:var(--paper)}.closing .wrap{display:flex;align-items:center;justify-content:space-between;gap:40px}.closing .eyebrow{color:#D9AB99;font-size:10px}.closing h2{font-size:28px;font-weight:500;margin:12px 0 9px}.closing p{font-size:12px;color:#C6C1B5}.closing .button{border-color:#B95242;flex-shrink:0}.footer{display:flex;justify-content:space-between;gap:25px;padding:27px 0 30px;font-size:11px;color:var(--muted)}.footer a{border-bottom:1px solid var(--line)}
+    @media(min-width:1400px){.hero{padding-top:82px;padding-bottom:76px}}
+    @media(max-width:1000px){.wrap{width:calc(100% - 56px)}.hero{gap:35px}.hero h1{font-size:43px}.section-grid{grid-template-columns:185px 1fr;gap:35px}.section-heading h2{font-size:25px}.flow li{padding-inline:16px}.needs{gap:17px}.section-nav .links{gap:20px}}
+    @media(max-width:760px){html{scroll-padding-top:68px}.wrap{width:calc(100% - 40px)}.topbar{min-height:72px}.brand{font-size:18px}.brand small{display:none}.edition{display:none}.hero{grid-template-columns:1fr;padding:44px 0 34px;gap:32px}.hero h1{font-size:42px;margin-top:15px}.hero-copy>p{font-size:14px;max-width:none}.hero-art{max-width:470px;width:100%;justify-self:center;padding:18px 18px 0 0}.hero-art:before{inset:0 0 40px 18px}.hero-art figcaption{font-size:9px}.brief{grid-template-columns:1fr;gap:16px;padding:21px 0 25px}.brief dl{display:grid;grid-template-columns:73px 1fr;gap:10px}.brief dt{margin:2px 0 0;font-size:10px}.brief dd{font-size:12px}.section-nav .wrap{width:100%;padding:0 20px}.section-nav .links{gap:22px}.section-nav a{padding:13px 0;font-size:11px}.section-nav .nav-cta{display:none}.case-section{padding:44px 0}.section-grid{grid-template-columns:1fr;gap:24px}.section-heading h2{font-size:27px}.section-heading h2 br{display:none}#decisions .section-heading h2 br{display:initial}.section-heading>p{max-width:none;margin-top:8px}.section-label{margin-bottom:7px;font-size:10px}.section-intro{font-size:22px;margin-bottom:20px}.scenario{padding-left:16px;font-size:13px}.needs{grid-template-columns:1fr;gap:19px;margin-top:25px}.needs article{display:grid;grid-template-columns:96px 1fr;column-gap:15px;padding-top:15px}.needs .overline{grid-column:1/-1;margin-bottom:5px}.needs h3{margin:0;font-size:16px}.needs p{font-size:12px}.flow{grid-template-columns:1fr 1fr}.flow li{padding:23px 16px 22px!important}.flow li:nth-child(even){border-right:0}.flow li:nth-child(-n+2){border-bottom:1px solid #CFC5B5}.flow h3{font-size:20px;margin:10px 0}.flow p{font-size:12px}.flow .outcome{font-size:10px}.step-number{font-size:24px}.flow-foot{display:block;font-size:11px}.flow-foot a{display:inline-block;margin-top:13px}.decision{padding:19px 0;grid-template-columns:23px 1fr;gap:10px}.decision h3{font-size:18px}.decision p{font-size:12px}.view-strip{padding:20px 17px}.views{gap:10px}.views dt{font-size:15px}.views dd{font-size:10px}.boundary{font-size:10px}.evidence-grid{gap:24px;grid-template-columns:1fr}.evidence-item p{font-size:12px}.sample summary{padding:17px;gap:13px}.sample summary strong{font-size:16px}.sample .expand{font-size:10px}.sample-content{padding:20px 17px}.sample blockquote p{font-size:14px}.closing{padding:38px 0}.closing .wrap{display:block}.closing h2{font-size:26px}.closing .button{margin-top:22px}.footer{display:block;padding:23px 0}.footer p+ p{margin-top:10px}}
+    @media(max-width:370px){.hero h1{font-size:36px}.buttons{gap:13px}.button{font-size:13px;padding:12px 17px}.text-link{font-size:12px}.section-nav .links{gap:11px}.section-nav a{font-size:10px}.section-nav a span{font-size:9px;margin-right:4px}.views{grid-template-columns:1fr}.views dl{display:grid;grid-template-columns:90px 1fr}.flow li{padding-inline:12px!important}.sample summary{align-items:flex-start}.sample .expand{padding-top:18px}}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+  </style>
 </head>
 <body>
-
-<header>
-  <div class="wrap">
+  <a class="skip" href="#main">跳转到案例正文</a>
+  <header class="wrap">
     <div class="topbar">
-      <a class="back" href="../index.html">← 返回作品集</a>
-      <span class="back">MVP v7.2 · 代码私有</span>
+      <a class="back" href="../index.html#product-showcase">← 返回作品集</a>
+      <a class="brand" href="#" aria-label="幕境，返回页首"><span class="seal" aria-hidden="true">幕</span>幕境 <small>MUJING</small></a>
+      <span class="edition">产品案例 / 可交互原型</span>
     </div>
-    <div class="eyebrow">Product Showcase</div>
-    <h1>幕境 Mujing<small>AI-DRIVEN IMMERSIVE ACTIVITY ENGINE · MVP v7.2</small></h1>
-    <p class="lede">面向线下场地（剧本杀 / 轰趴馆 / 沉浸式空间）的 <b>AI 主理人</b>：每一场活动从 0 生成，现场实时推进。传统剧本杀是一场固定剧本的重复演出；幕境的解法是<b>生成层 + 运行层</b>——先由 LLM 生成一整场活动，再由实时 harness 在现场驱动它。</p>
-    <div class="meta-line">
-      <span class="chip"><b>TypeScript + Vite</b> 全栈</span>
-      <span class="chip"><b>35/35</b> 测试通过</span>
-      <span class="chip">端到端探针 <b>~16 min / 场</b></span>
-      <span class="chip">本页为产品概述 · 可当面演示</span>
-    </div>
-    <div class="cta-row">
-      <a class="cta" href="https://daizhouchen.github.io/mujing-demo/" target="_blank" rel="noopener">▶ 体验在线 Demo</a>
-      <span class="cta-note">静态演示版 · 可浏览内置示例《盛夏告别派对》与全部界面 · AI 实时生成需当面演示</span>
-    </div>
-  </div>
-</header>
-
-<!-- ============ 交付规模 ============ -->
-<section>
-  <div class="wrap">
-    <h2>一场活动 = 一个 ActivityPackage</h2>
-    <p class="sub">约 16 分钟内，多 pass 生成流水线产出一整场可直接开场的活动包，每一场都不同。</p>
-    <div class="nums">
-      <div class="num-card"><div class="v">14</div><div class="k">生成 pass（prompts 阶段）</div></div>
-      <div class="num-card"><div class="v">10</div><div class="k">角色 / 场</div></div>
-      <div class="num-card"><div class="v">5</div><div class="k">幕结构</div></div>
-      <div class="num-card"><div class="v">26</div><div class="k">私聊素材</div></div>
-      <div class="num-card"><div class="v">6</div><div class="k">视角角色本</div></div>
-      <div class="num-card"><div class="v">90<small> s</small></div><div class="k">现场 harness tick 间隔</div></div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ 生成流水线 ============ -->
-<section>
-  <div class="wrap">
-    <h2>生成层 · 多 pass 流水线</h2>
-    <p class="sub">从骨架到长文档逐层收敛，每个 pass 有独立 prompt 与结构化契约（contracts），全程 SSE 流式可观测。</p>
-    <div class="pipe">
-      <div class="pstep">
-        <h4>骨架与素材</h4>
-        <p>pass 1–2：故事骨架、世界观与线索素材先行生成，作为后续所有 pass 的共同地基。</p>
+    <div class="hero">
+      <div class="hero-copy">
+        <div class="eyebrow">For the people behind the story</div>
+        <h1>一场好故事，<br/>也要<span>从容开场</span>。</h1>
+        <p>给线下沉浸式活动主理人的工作台。<br/>把故事、角色与主持节奏放在一处，让<strong>备场、演练、复盘</strong>成为一条能走通的路径。</p>
+        <div class="buttons">
+          <a class="button" href="https://daizhouchen.github.io/mujing-demo/">用样例演练一场 <svg class="arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h16m-7-7 7 7-7 7"/></svg></a>
+          <a class="text-link" href="#approach">阅读产品设计思路 ↓</a>
+        </div>
+        <div class="demo-note"><strong>无需登录 · 内置样例 · 本机演练</strong><br/>公开 Demo 不连接实时 AI；大屏与玩家视角仅在同一浏览器内预览。</div>
       </div>
-      <div class="pstep">
-        <h4>剧本与事件</h4>
-        <p>pass 3–4.5：幕结构剧本、关键事件、高光时刻与意外事件，构建可推进的叙事引擎。</p>
-      </div>
-      <div class="pstep">
-        <h4>人物与关系</h4>
-        <p>pass 5 系列：角色弧光、多结局、私人支线与关系网，每个角色都有独立动机。</p>
-      </div>
-      <div class="pstep">
-        <h4>NPC 与长文档</h4>
-        <p>pass 7–15：NPC 对话人格、场景、多视角长文档与故事脊柱校验——产出即开场物料。</p>
-      </div>
+      <figure class="hero-art">
+        <img src="../assets/mujing-stage.svg" alt="幕境活动手册示意：盛夏告别派对，按选样例、备场、本机演练、复盘四步展开" width="640" height="650" fetchpriority="high"/>
+        <figcaption>活动工作流示意 · 非产品界面截图</figcaption>
+      </figure>
     </div>
-  </div>
-</section>
-
-<!-- ============ 运行层 ============ -->
-<section>
-  <div class="wrap">
-    <h2>运行层 · 实时 harness 与四端架构</h2>
-    <p class="sub">生成只是开始：现场每 90 秒一个 tick，AI 主理人根据现场信号实时决策。</p>
-    <div class="arch">
-      <div class="acard">
-        <h4>实时 harness 能力</h4>
-        <ul>
-          <li><b>tick 决策循环</b>：每 90s 评估场上状态并产出下一步动作</li>
-          <li><b>主持人提示</b>：实时给到场内主持的节奏与话术建议</li>
-          <li><b>惊喜事件 / 线索推进</b>：按策略引擎（policy）择机投放</li>
-          <li><b>NPC 召回与对话</b>：NPC 角色随时可被唤起互动</li>
-          <li><b>现场感知</b>：基于 Web Speech 的语音信号接入</li>
-          <li><b>玩家行动</b>：质询 / 私聊 / 指认等动作全链路支持</li>
-        </ul>
+    <div class="brief" aria-label="产品概要">
+      <dl><dt>面向谁</dt><dd>剧本活动、轰趴空间的主理人</dd></dl>
+      <dl><dt>核心任务</dt><dd>理解活动 → 确认备场 → 掌握现场节奏</dd></dl>
+      <dl><dt>当前阶段</dt><dd>原型验证 · 可体验本机工作流</dd></dl>
+    </div>
+  </header>
+  <nav class="section-nav" aria-label="案例章节">
+    <div class="wrap">
+      <div class="links"><a href="#approach"><span>01</span>场景判断</a><a href="#workflow"><span>02</span>核心路径</a><a href="#decisions"><span>03</span>产品取舍</a><a href="#evidence"><span>04</span>验证与边界</a></div>
+      <a class="nav-cta" href="https://daizhouchen.github.io/mujing-demo/">进入演练 ↗</a>
+    </div>
+  </nav>
+  <main id="main">
+    <section class="case-section" id="approach">
+      <div class="wrap section-grid">
+        <div class="section-heading"><div class="section-label">01 / 场景判断</div><h2>有了故事，<br/>就能开场吗？</h2><p>从主理人的开场任务出发，<br/>重新组织产品入口。</p></div>
+        <div>
+          <p class="section-intro">内容生成只是起点。<br/>主理人还要知道：<em>现在该做什么。</em></p>
+          <p class="scenario">设想一场朋友聚会即将开始：主理人需要确认人数、读懂人物关系、准备每幕主持词，再把信息交给合适的人。<strong>即使已有完整故事，准备是否充分、现场如何推进，仍然需要明确的操作顺序。</strong></p>
+          <div class="needs">
+            <article><div class="overline">开场前 / 可判断</div><h3>这场适合谁</h3><p>先看人数、时长与主题，选中适合现场的活动，再投入阅读。</p></article>
+            <article><div class="overline">开场时 / 可行动</div><h3>下一步做什么</h3><p>把角色与主持资料放进备场流程，让开场前的确认有据可依。</p></article>
+            <article><div class="overline">结束后 / 可回看</div><h3>实际发生了什么</h3><p>根据真实操作回看幕进度与事件记录，为下一次演练留一份依据。</p></article>
+          </div>
+        </div>
       </div>
-      <div class="acard">
-        <h4>四端交付</h4>
-        <ul>
-          <li><b>主理人控制台</b> <code>/room/:id/console</code> — 运营视角总控</li>
-          <li><b>大屏投放</b> <code>/room/:id/screen</code> — 现场公共画面</li>
-          <li><b>玩家手机端</b> <code>/room/:id/player</code> — H5 角色视角</li>
-          <li><b>复盘报告</b> <code>/room/:id/report</code> — 一场结束自动归档</li>
-          <li><b>创建 / 预览 / 编辑器</b> — 活动包生成后的二次加工</li>
-          <li><b>端到端探针</b> <code>npm run probe</code> — 真实调用验证全流程</li>
-        </ul>
+    </section>
+    <section class="case-section flow-section" id="workflow">
+      <div class="wrap">
+        <div class="section-grid"><div class="section-heading"><div class="section-label">02 / 核心路径</div><h2>把一场活动，<br/>走成四个步骤。</h2></div><p class="flow-lede">从《盛夏告别派对》或《消失的会议室》开始。公开 Demo 用预置内容保留完整的操作路径，让你先判断工作流是否好用。</p></div>
+        <ol class="flow">
+          <li><span class="step-number">01</span><h3>选一场样例</h3><p>比较主题、人数与时长。先决定这是不是适合本次聚会的活动。</p><p class="outcome">得到 / 一个明确的活动起点</p></li>
+          <li><span class="step-number">02</span><h3>确认备场</h3><p>读角色与每幕主持资料，核对人数和准备项，再进入现场。</p><p class="outcome">得到 / 开场前的准备清单</p></li>
+          <li><span class="step-number">03</span><h3>本机演练</h3><p>补齐演示角色，由主理人开始、暂停和推进，切换视角查看信息。</p><p class="outcome">得到 / 一次可控的流程演练</p></li>
+          <li><span class="step-number">04</span><h3>结束并复盘</h3><p>查看这次演练的时长、幕进度与事件。有多少记录，就呈现多少。</p><p class="outcome">得到 / 来自本次操作的记录</p></li>
+        </ol>
+        <div class="flow-foot"><p>体验提示：这是单浏览器的模拟演练，不需要邀请真实玩家；它不会创建可跨设备加入的线上房间。</p><a href="https://daizhouchen.github.io/mujing-demo/">从选样例开始 ↗</a></div>
       </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ 产出样例 ============ -->
-<section style="border-bottom:none">
-  <div class="wrap">
-    <h2>真实产出 · 30 篇多视角长文档</h2>
-    <p class="sub">特色场次《夏日轰趴》的生成产出：6 个角色视角 × 5 幕 × 8 种文档体裁。以下为其中一篇日记的原文节选。</p>
-    <div class="genres">
-      <span class="genre">聊天记录 <b>×8</b></span>
-      <span class="genre">日记 <b>×6</b></span>
-      <span class="genre">邮件 <b>×4</b></span>
-      <span class="genre">物件笔记 <b>×4</b></span>
-      <span class="genre">书信 <b>×3</b></span>
-      <span class="genre">语音转写 <b>×2</b></span>
-      <span class="genre">通话记录 <b>×2</b></span>
-      <span class="genre">社交动态 <b>×1</b></span>
-    </div>
-    <div class="doc-sample">
-      <div class="kind">diary_entry · 手写原件</div>
-      <h3>6月18日 晴</h3>
-      <div class="meta">2026-06-18 18:05 · 轰趴馆二楼储物间门口 · 页边有泪痕</div>
-      <p>早上给中班的小朋友上手工课，乐乐偷偷塞给我一朵用彩纸折的向日葵，说祝老师去山里也能每天看到太阳。我捏着那朵皱巴巴的纸花躲在教具室哭了十分钟……</p>
-      <p>下午收拾行李的时候犹豫了三次，还是把装集体照的天蓝色相册盒塞进了背包最内层……出门前收到支教队的通知，说下周一会派车来接，我对着镜子练了好几遍"我要去支教两年"的开场白，每次说到一半就卡壳。</p>
-      <p>刚才轰趴馆玄关的灯很暖，大家进门的时候都笑着抱我，我攥着背包肩带的手一直出汗，那句到了嘴边的话，还是咽回去了。</p>
-      <div class="cap">节选自角色"苏晓棠"的生成日记 · 全文与其余 29 篇文档可在当面演示中浏览</div>
-    </div>
-  </div>
-</section>
-
-<footer>
-  <div class="wrap">
-    <p class="fine">本页为产品概述展示 · 幕境源码为私有仓库，面试沟通中可提供现场演示与文档（PRD / 技术白皮书）· <a href="https://daizhouchen.github.io/mujing-demo/" target="_blank" rel="noopener">在线 Demo</a> · <a href="../index.html">返回作品集首页</a></p>
-  </div>
-</footer>
-
+    </section>
+    <section class="case-section" id="decisions">
+      <div class="wrap section-grid">
+        <div class="section-heading"><div class="section-label">03 / 产品取舍</div><h2>先让人掌握流程，<br/>再谈自动化。</h2><p>每个取舍都服务于同一个目标：<br/>主理人知道正在发生什么。</p></div>
+        <div>
+          <div class="decisions">
+            <article class="decision"><span class="decision-number">一</span><div><h3>先给样例，再让人判断</h3><p>第一次打开就面对空白配置，会把理解成本提前给用户。入口提供两种活动样例，让人数、时长与内容都能先看见。</p><p class="choice">取舍 / 公开版暂不开放实时 AI 生成，优先验证活动工作流。</p></div></article>
+            <article class="decision"><span class="decision-number">二</span><div><h3>把「准备好了」变成明确动作</h3><p>看过故事不等于能主持。把人物、幕结构与主持资料放在开场之前，经过备场确认再进入演练，减少在现场来回找资料的需要。</p><p class="choice">取舍 / 保留必要的准备步骤，不追求一键跳过所有判断。</p></div></article>
+            <article class="decision"><span class="decision-number">三</span><div><h3>让主理人保留节奏控制</h3><p>活动可能需要等待、解释或临时调整。开始、暂停、推进与结束都交给主理人，状态和结果明确可见。</p><p class="choice">取舍 / 当前演练由人工控制，不将本地模拟包装为实时 AI 主持。</p></div></article>
+          </div>
+          <div class="view-strip">
+            <h3>同一场活动，三种不同的阅读任务</h3>
+            <div class="views"><dl><dt>主理人</dt><dd>掌握进度与主持资料</dd></dl><dl><dt>现场大屏</dt><dd>呈现公共活动信息</dd></dl><dl><dt>玩家视角</dt><dd>阅读角色与个人线索</dd></dl></div>
+            <p class="boundary">演示边界：这些视角共用当前浏览器的本地数据，不代表已实现跨设备同步或正式的角色权限隔离。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="case-section" id="evidence">
+      <div class="wrap section-grid">
+        <div class="section-heading"><div class="section-label">04 / 验证与边界</div><h2>哪些能体验，<br/>哪些还待验证。</h2><p>把产品意图、已提供的证据，<br/>以及待验证假设分开说明。</p></div>
+        <div>
+          <div class="evidence-grid">
+            <article class="evidence-item"><div class="evidence-state">现在可体验 / 公开 Demo</div><h3>完整的本机操作路径</h3><p>两套内置样例、备场确认、角色预览、主理人控制与演练记录。无需登录，可<a href="https://daizhouchen.github.io/mujing-demo/">直接进入体验</a>。</p><p class="small">无实时 AI 服务；复盘基于本地记录，不提供 AI 生成建议。数据保存在当前浏览器，不是云端存档。</p></article>
+            <article class="evidence-item"><div class="evidence-state">历史原型 / 技术探索记录</div><h3>从生成内容到活动包</h3><p>早期 MVP 探索过分阶段生成、角色材料与现场运行结构。本页保留一份此前已公开的生成日记节选，作为内容产出的具体例子。</p><p class="small">原页面记载的「约 16 分钟 / 场」来自原型端到端探针，不是本次公开 Demo 的能力，也不是生成耗时承诺或 SLA。</p></article>
+          </div>
+          <details class="sample">
+            <summary><span><span class="sample-type">已公开生成样例 / 角色日记</span><strong>苏晓棠 · 6 月 18 日，晴</strong></span><span class="expand">阅读节选</span></summary>
+            <div class="sample-content">
+              <p class="sample-meta">故事内日期：2026-06-18 18:05 · 轰趴馆二楼储物间门口<br/>虚构角色的生成文稿，非真实人物记录。</p>
+              <blockquote>
+                <p>早上给中班的小朋友上手工课，乐乐偷偷塞给我一朵用彩纸折的向日葵，说祝老师去山里也能每天看到太阳。我捏着那朵皱巴巴的纸花躲在教具室哭了十分钟……</p>
+                <p>下午收拾行李的时候犹豫了三次，还是把装集体照的天蓝色相册盒塞进了背包最内层……出门前收到支教队的通知，说下周一会派车来接，我对着镜子练了好几遍"我要去支教两年"的开场白，每次说到一半就卡壳。</p>
+                <p>刚才轰趴馆玄关的灯很暖，大家进门的时候都笑着抱我，我攥着背包肩带的手一直出汗，那句到了嘴边的话，还是咽回去了。</p>
+              </blockquote>
+              <p class="sample-cap">节选沿用原产品展示页。它说明角色材料的内容形态，不代表真实场次效果，也不是由当前静态 Demo 实时生成。</p>
+            </div>
+          </details>
+          <p class="validation-note"><strong>下一步需要验证：</strong>主理人能否独立完成备场、现场是否仍需额外找资料、复盘是否能帮助调整下一场活动。当前没有公开的真实场次统计，暂不声称效率、留存或营收提升。</p>
+        </div>
+      </div>
+    </section>
+    <section class="closing" aria-label="开始体验">
+      <div class="wrap"><div><div class="eyebrow">The next scene is yours</div><h2>下一幕，从你的一次演练开始。</h2><p>选一个样例，走完备场、推进和结束，看看这套工作流是否顺手。</p></div><a class="button" href="https://daizhouchen.github.io/mujing-demo/">进入幕境演练 <svg class="arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h16m-7-7 7 7-7 7"/></svg></a></div>
+    </section>
+  </main>
+  <footer class="wrap footer"><p>幕境 MUJING · 产品案例与公开演练原型</p><p>完整引擎源码私有 · <a href="../index.html#product-showcase">返回作品集</a></p></footer>
 </body>
 </html>

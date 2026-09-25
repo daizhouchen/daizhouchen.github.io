@@ -68,14 +68,6 @@
   .abtn:hover{text-decoration:none;border-color:var(--accent);color:var(--accent)}
   .abtn.fill{background:var(--accent);border-color:var(--accent);color:#fff}
   .abtn.fill:hover{background:#822e25;color:#fff}
-  /* preview A: mujing archive room */
-  .pv-mujing{background:linear-gradient(160deg,#17140f,#241f16);width:100%;height:100%;padding:18px 20px;display:flex;flex-direction:column;gap:9px}
-  .pv-mujing .bar{height:7px;border-radius:4px;background:rgba(232,226,214,.16)}
-  .pv-mujing .bar.w1{width:42%;background:#c96f4a;opacity:.85}
-  .pv-mujing .bar.w2{width:78%}.pv-mujing .bar.w3{width:64%}.pv-mujing .bar.w4{width:70%}
-  .pv-mujing .role-row{display:flex;gap:7px;margin-top:auto}
-  .pv-mujing .role{height:20px;width:52px;border-radius:5px;border:1px solid rgba(201,111,74,.5)}
-  .pv-mujing .role.on{background:rgba(201,111,74,.35);border-color:#c96f4a}
   /* preview B: radar */
   .pv-radar{background:linear-gradient(160deg,#fdfbf6,#f4efe2);width:100%;height:100%}
   /* preview C: unitrade data */
@@ -185,16 +177,13 @@
 
       <div class="demo-card">
         <div class="preview">
-          <div class="pv-mujing">
-            <div class="bar w1"></div><div class="bar w2"></div><div class="bar w3"></div><div class="bar w4"></div>
-            <div class="role-row"><div class="role on"></div><div class="role"></div><div class="role"></div><div class="role"></div></div>
-          </div>
+          <img src="assets/mujing-preview.svg" alt="幕境活动工作流示意：选样例、备场、本机演练、复盘" width="640" height="400" loading="lazy"/>
         </div>
         <div class="demo-info">
-          <div class="kind">沉浸式叙事引擎 · MVP v7.2</div>
+          <div class="kind">沉浸式活动工作台 · 可交互原型</div>
           <h3>幕境 Mujing</h3>
-          <p>AI 驱动的线下沉浸式活动引擎：约 16 分钟生成一整场活动，现场每 90 秒实时推进。展示页含多 pass 流水线、四端架构与真实生成文档节选。</p>
-          <div class="actions"><a class="abtn fill" href="demo/mujing.html">查看产品展示 →</a><a class="abtn" href="https://daizhouchen.github.io/mujing-demo/" target="_blank" rel="noopener">体验 Demo</a></div>
+          <p>帮助线下活动主理人从故事材料走到从容开场。用内置样例走完备场、本机演练与复盘；案例页呈现场景判断、产品取舍与验证边界。公开版不连接实时 AI。</p>
+          <div class="actions"><a class="abtn fill" href="demo/mujing.html">阅读产品案例 →</a><a class="abtn" href="https://daizhouchen.github.io/mujing-demo/" target="_blank" rel="noopener">用样例演练</a></div>
         </div>
       </div>
 
@@ -292,8 +281,8 @@
         <div class="go"><a class="abtn fill" href="demo/unitrade.html">展示页 →</a><a class="abtn" href="https://daizhouchen.github.io/unitrade-demo/" target="_blank" rel="noopener">后台 Demo</a></div>
       </div>
       <div class="row">
-        <div class="name">幕境<small>沉浸式活动引擎 · 私有</small></div>
-        <div class="desc">面向线下场地的 AI 活动引擎：14-pass 生成流水线 + 实时 harness，MVP v7.2。</div>
+        <div class="name">幕境<small>活动工作台 · 原型验证</small></div>
+        <div class="desc">面向线下活动主理人的备场与演练工作台：选样例、确认备场、控制现场节奏、回看演练记录。公开 Demo 为本机演练，完整引擎源码私有。</div>
         <div class="go"><a class="abtn fill" href="demo/mujing.html">展示页 →</a><a class="abtn" href="https://daizhouchen.github.io/mujing-demo/" target="_blank" rel="noopener">体验 Demo</a></div>
       </div>
       <div class="row">
