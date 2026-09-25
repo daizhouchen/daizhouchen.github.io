@@ -53,6 +53,7 @@
 
   /* ---------- demo showcase ---------- */
   .demo-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  .demo-grid.product-grid{grid-template-columns:repeat(2,1fr)}
   .demo-grid.tech-grid{grid-template-columns:repeat(2,1fr)}
   .demo-card{border:1px solid var(--line);border-radius:14px;background:#fff;overflow:hidden;display:flex;flex-direction:column;transition:transform .15s ease,box-shadow .15s ease,border-color .15s ease}
   .demo-card:hover{transform:translateY(-3px);box-shadow:0 12px 30px rgba(28,26,23,.09);border-color:#d5cbb6}
@@ -124,7 +125,7 @@
   .fine{margin-top:36px;font-size:12.5px;color:var(--ink-faint)}
 
   @media (max-width:860px){
-    .demo-grid,.demo-grid.tech-grid{grid-template-columns:1fr}
+    .demo-grid,.demo-grid.product-grid,.demo-grid.tech-grid{grid-template-columns:1fr}
     .row{grid-template-columns:1fr;gap:8px}
     .row .go{text-align:left}
     section{padding:46px 0}
@@ -146,7 +147,7 @@
       <a class="btn ghost" href="https://unitrade.shop" target="_blank" rel="noopener">UniTrade 产品站</a>
     </div>
     <div class="hero-stats">
-      <div><b>3</b>产品展示页</div>
+      <div><b>4</b>产品展示页</div>
       <div><b>60+</b>公开仓库</div>
       <div><b>5</b>环节全链路交付（UniTrade）</div>
       <div><b>30+</b>AI Skills 全部公开</div>
@@ -170,7 +171,17 @@
   <div class="wrap">
     <h2><span class="num">01</span>产品作品</h2>
     <p class="sub">围绕真实用户与使用场景完成的产品设计和交付。公开版本可直接体验，私有代码可在沟通中现场演示。</p>
-    <div class="demo-grid">
+    <div class="demo-grid product-grid">
+
+      <div class="demo-card">
+        <div class="preview"><img src="assets/mist-island-preview.png" alt="雾屿来信交互原型：故事航线与幻想伙伴的陪伴体验" loading="lazy"/></div>
+        <div class="demo-info">
+          <div class="kind">AI 陪伴产品设计 · 交互原型</div>
+          <h3>雾屿来信</h3>
+          <p>把用户愿意留下的故事画成航线，与航路记录员岚一起倾听、停留与回访。用可点击原型呈现角色一致性、记忆授权和故事解释权；当前为前端预设情境，未接真实大模型。</p>
+          <div class="actions"><a class="abtn fill" href="demo/mist-island.html">查看产品展示 →</a><a class="abtn" href="https://daizhouchen.github.io/mist-island-demo/" target="_blank" rel="noopener">体验 Demo</a><a class="abtn" href="https://github.com/daizhouchen/mist-island-demo" target="_blank" rel="noopener">GitHub</a></div>
+        </div>
+      </div>
 
       <div class="demo-card">
         <div class="preview">
@@ -365,6 +376,12 @@
     <h2><span class="num">05</span>实验家时间轴</h2>
     <p class="sub">先动手，再沉淀，最后交付。按交付时间倒序，每条附关键交付物。</p>
     <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-date">2026.09</div>
+        <h4>雾屿来信 · AI 陪伴产品原型交付</h4>
+        <p>完成幻想伙伴的产品定义、对话与记忆规则，并交付故事成路、共同停留与跨日回访的前端交互原型。<a href="demo/mist-island.html">查看设计与演示 →</a></p>
+        <div class="tl-tags"><span class="tl-tag">故事航线</span><span class="tl-tag">记忆控制</span><span class="tl-tag">预设情境 Demo</span></div>
+      </div>
       <div class="tl-item">
         <div class="tl-date">2026.08</div>
         <h4>作品集站点与 GitHub Profile 重构</h4>

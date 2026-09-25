@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml"/>
+<title>雾屿来信 · 产品展示 — 让故事成为一起走过的路</title>
+<meta name="description" content="雾屿来信：面向初入职场成年人的幻想伙伴陪伴产品设计。用户愿意留下的故事成为航线，演示倾诉、确认成路、共同停留与跨日回访。前端预设情境原型，未接真实大模型。"/>
+<style>
+  :root{
+    --ink:#1c1a17;--ink-soft:#4a453e;--muted:#716a60;--paper:#faf7f1;--paper-2:#f2ede3;--line:#e3dccd;
+    --sea:#102f35;--sea-soft:#21444a;--mist:#d7e4e1;--gold:#d9b57a;--light:#f5f1e7;
+    --serif:"Noto Serif SC","Source Han Serif SC","Songti SC",Georgia,serif;
+    --sans:"Noto Sans SC","PingFang SC","Microsoft YaHei",-apple-system,sans-serif;
+    --mono:"JetBrains Mono","SFMono-Regular",Consolas,monospace;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.8}
+  a{color:var(--sea-soft);text-decoration:none}
+  a:hover{text-decoration:underline}
+  a:focus-visible{outline:3px solid #b47832;outline-offset:5px}
+  .skip{position:absolute;left:20px;top:-90px;padding:10px 18px;background:var(--paper);color:var(--sea);z-index:10}
+  .skip:focus{top:12px}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 28px}
+  header{background:var(--sea);color:var(--light);padding:32px 0 54px;border-bottom:1px solid var(--sea-soft)}
+  .topbar{display:flex;align-items:center;justify-content:space-between;gap:20px;margin-bottom:56px;font-size:12.5px}
+  .topbar a{color:var(--mist);padding:8px 0}
+  .edition{font-family:var(--mono);color:var(--mist);text-align:right}
+  .hero{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.2fr);gap:46px;align-items:center}
+  .eyebrow{font:11px var(--mono);letter-spacing:.22em;color:var(--gold);margin-bottom:20px}
+  h1,h2,h3,.quote{font-family:var(--serif)}
+  h1{font-size:clamp(36px,4.8vw,50px);line-height:1.25;letter-spacing:.06em;font-weight:600}
+  h1 small{display:block;font:11px var(--mono);letter-spacing:.22em;color:var(--mist);margin-top:16px}
+  .hero-line{font-family:var(--serif);font-size:clamp(22px,2.5vw,29px);line-height:1.65;color:var(--gold);margin:28px 0 16px}
+  .lede{font-size:14.5px;color:var(--mist);max-width:420px}
+  .cta-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:27px}
+  .btn{display:inline-flex;align-items:center;justify-content:center;min-height:44px;border:1px solid var(--gold);border-radius:7px;padding:10px 18px;color:var(--sea);background:var(--gold);font-size:14px;font-weight:600}
+  .btn:hover{background:#e4c797;text-decoration:none}
+  .btn.outline{color:var(--light);background:transparent;border-color:#79928f}
+  .btn.outline:hover{background:var(--sea-soft)}
+  .hero-note{font-size:12px;color:var(--mist);margin-top:15px;line-height:1.8}
+  .preview{align-self:center;min-width:0}
+  .preview a{display:block;border:1px solid #557774;border-radius:12px;overflow:hidden;background:var(--sea-soft)}
+  .preview img{width:100%;height:auto;display:block}
+  figcaption{font-size:12px;line-height:1.8;color:var(--mist);margin-top:12px;max-width:460px}
+  .section{padding:56px 0;border-bottom:1px solid var(--line)}
+  .intro{display:grid;grid-template-columns:.65fr 1.35fr;gap:62px}
+  .section-label{font:11px var(--mono);letter-spacing:.14em;color:var(--muted);margin-bottom:12px}
+  h2{font-size:27px;line-height:1.5;font-weight:600}
+  .copy{color:var(--ink-soft);font-size:15px}
+  .copy p+p{margin-top:14px}
+  .copy strong{color:var(--ink)}
+  .three-words{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
+  .chip{font-size:12px;background:var(--paper-2);border:1px solid var(--line);border-radius:5px;padding:4px 10px;color:var(--ink-soft)}
+  .sub{font-size:14px;color:var(--muted);margin-top:10px;max-width:720px}
+  .journey{list-style:none;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;margin-top:34px;border-top:1px solid #b6c4b9}
+  .journey li{position:relative;padding:25px 24px 0 0}
+  .journey li:before{content:"";width:9px;height:9px;border-radius:50%;background:var(--sea-soft);position:absolute;top:-5px;left:0}
+  .day{font:11px var(--mono);letter-spacing:.1em;color:var(--muted)}
+  .journey h3{font-size:18px;margin:8px 0}
+  .journey p{font-size:13.5px;color:var(--ink-soft)}
+  .route-note{margin-top:32px;padding:20px 24px;border-left:3px solid #9eaa99;background:var(--paper-2);font-size:14px;color:var(--ink-soft)}
+  .route-note strong{color:var(--sea)}
+  .choice-list{margin-top:30px}
+  .choice{display:grid;grid-template-columns:46px 220px 1fr;gap:22px;padding:25px 0;border-top:1px solid var(--line)}
+  .choice .n{font:13px var(--mono);color:var(--muted);padding-top:4px}
+  .choice h3{font-size:18px;line-height:1.6}
+  .choice p{font-size:14px;color:var(--ink-soft)}
+  .quote{font-size:21px;color:var(--sea);line-height:1.8;margin-top:24px;max-width:730px}
+  .delivery{background:var(--paper-2)}
+  .boundary{display:grid;grid-template-columns:1fr 1fr;gap:44px;margin-top:28px}
+  .boundary h3{font-size:17px;margin-bottom:10px}
+  .boundary ul{padding-left:18px;font-size:14px;color:var(--ink-soft)}
+  .boundary li+li{margin-top:8px}
+  .boundary-note{margin-top:27px;font-size:13px;color:var(--muted);border-top:1px solid #d8cebb;padding-top:18px}
+  footer{padding:38px 0 48px}
+  .footer-row{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:20px}
+  .footer-row a{font-size:13px;padding:8px 0}
+  .footer-links{display:flex;flex-wrap:wrap;gap:22px}
+  .fine{font-size:12px;color:var(--muted);margin-top:16px}
+  @media(max-width:850px){
+    .hero{grid-template-columns:1fr;gap:30px}.lede{max-width:640px}.preview{max-width:700px}.topbar{margin-bottom:34px}
+    .intro{grid-template-columns:1fr;gap:22px}.journey{grid-template-columns:1fr 1fr;gap:30px 20px;border-top:0}
+    .journey li{border-top:1px solid #b6c4b9}.choice{grid-template-columns:34px 190px 1fr;gap:14px}
+  }
+  @media(max-width:560px){
+    .wrap{padding:0 22px}.topbar{align-items:flex-start}.edition{max-width:140px;font-size:11px}
+    header{padding-bottom:34px}.section{padding:40px 0}.hero-line{font-size:24px}.journey{grid-template-columns:1fr;gap:28px}
+    .journey li{padding:18px 0 0 0}.journey h3{font-size:19px}.journey p{font-size:14px}
+    .choice{grid-template-columns:30px 1fr;gap:9px 13px}.choice p{grid-column:2}.boundary{grid-template-columns:1fr;gap:25px}
+    .quote{font-size:20px}.route-note{padding:18px}.hero-note{font-size:12px}
+  }
+  @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+  @media print{header{background:#fff;color:#1c1a17}.hero-line,.lede,.topbar a,.edition,.hero-note,figcaption{color:#4a453e}.btn{color:#1c1a17}.choice,.journey li{break-inside:avoid}}
+</style>
+</head>
+<body>
+<a class="skip" href="#story">跳到产品介绍</a>
+<header>
+  <div class="wrap">
+    <div class="topbar"><a href="../index.html#product-showcase">← 返回作品集</a><span class="edition">2026.09 · 产品设计 / 交互原型</span></div>
+    <div class="hero">
+      <div>
+        <p class="eyebrow">PRODUCT SHOWCASE / 04</p>
+        <h1>雾屿来信<small>LETTERS FROM THE MIST</small></h1>
+        <p class="hero-line">你的故事，<br/>在这里有一段路。</p>
+        <p class="lede">一位来自幻想世界的航路记录员，和你一起走进那些愿意留下的片段。故事由你确认，前路可以暂时留白。</p>
+        <div class="cta-row"><a class="btn" href="https://daizhouchen.github.io/mist-island-demo/" target="_blank" rel="noopener">体验在线 Demo →</a><a class="btn outline" href="https://github.com/daizhouchen/mist-island-demo" target="_blank" rel="noopener">查看 GitHub</a></div>
+        <p class="hero-note">前端预设情境 Demo · 无真实大模型接入<br/>通过可选消息体验对话、航图与记忆变化。</p>
+      </div>
+      <figure class="preview">
+        <a href="https://daizhouchen.github.io/mist-island-demo/" target="_blank" rel="noopener" aria-label="打开雾屿来信在线交互原型"><img src="../assets/mist-island-preview.png" alt="雾屿来信原型预览：在雾海与灯塔之间，让用户故事形成可回访的航线"/></a>
+        <figcaption>从灯塔出发，沿着来信、航图和记忆，体验一段可以暂停、修改和重新回看的共同经历。</figcaption>
+      </figure>
+    </div>
+  </div>
+</header>
+<main id="story">
+  <section class="section">
+    <div class="wrap intro">
+      <div><p class="section-label">01 / PRODUCT QUESTION</p><h2>倾诉之后，<br/>还能共同留下些什么？</h2></div>
+      <div class="copy">
+        <p>设计以初入职场的成年人为核心用户，聚焦工作受挫、被打断、暂时看不清下一步的时刻。陪伴的价值，来自具体地理解当下，也来自下一次交流时仍然记得准确。</p>
+        <p><strong>用户愿意留下的真实故事，直接成为航线的一部分。</strong>岚是有自己生活与价值观的航路记录员，和用户同行。只有用户确认的片段与含义进入航图：一次未讲完的汇报，可以成为“半句峡”；它的含义由讲述者决定。</p>
+        <div class="three-words"><span class="chip">来信 · 理解当下</span><span class="chip">航图 · 共同经历</span><span class="chip">记忆 · 随时可改</span></div>
+      </div>
+    </div>
+  </section>
+  <section class="section">
+    <div class="wrap">
+      <p class="section-label">02 / THE EXPERIENCE</p><h2>一段故事，四次相遇</h2>
+      <p class="sub">主线以“试用期工作汇报受挫”为示例，跨日演示通过情境切换完成。每次相遇都回应用户此刻的需要。</p>
+      <ol class="journey">
+        <li><span class="day">DAY 01 / 倾诉</span><h3>先听你把话说完</h3><p>用户希望先被倾听，岚回应具体感受。只有明确授权的下次汇报安排与交流偏好被留下，倾诉细节不自动转成长期记忆。</p></li>
+        <li><span class="day">DAY 02 / 确认成路</span><h3>由你决定怎样成图</h3><p>准备的两天成为叠页码头，没讲完的话成为半句峡。先查看原话与象征草稿，再决定命名和保存；也可以选择今天不画。</p></li>
+        <li><span class="day">DAY 04 / 共同停留</span><h3>这里，也可以停一停</h3><p>用户说“别找出口”，岚便收起测距绳。双方在峡口留下无字纸船，按用户约定停在原处，不替它添加额外寓意。</p></li>
+        <li><span class="day">DAY 08 / 跨日回访</span><h3>故事有了后来</h3><p>汇报终于讲完，用户确认后新增完整句渡口。纸船仍在峡口；现实中的转正结果尚未确定，航线的远处继续留白。</p></li>
+      </ol>
+      <p class="route-note"><strong>叠页码头 → 半句峡 → 完整句渡口 → 留白</strong><br/>每个地标都能回到它的故事来源；现实的新进展与虚构探索分别记录。</p>
+    </div>
+  </section>
+  <section class="section">
+    <div class="wrap">
+      <p class="section-label">03 / DESIGN DECISIONS</p><h2>让陪伴成立的三个取舍</h2>
+      <div class="choice-list">
+        <article class="choice"><span class="n">01</span><h3>故事的解释权<br/>留在用户手里</h3><p>“半句峡”只承载用户确认的“话没讲完”。原型把来源、象征含义和确认步骤展示出来；拒绝成图、暂停探索后，普通交流仍可继续。</p></article>
+        <article class="choice"><span class="n">02</span><h3>用行动回应意愿</h3><p>角色一致性体现在此刻怎样相处。用户想停留，岚会收起测距绳；用户寻求办法，再进入共同分析。场景的推进服从当次意愿，共同约定会影响下一次回访。</p></article>
+        <article class="choice"><span class="n">03</span><h3>记得准确，<br/>也允许改变主意</h3><p>记忆可以查看、纠错和删除。纸船位置等共同细节保持连续；删除故事时，同时呈现关联航段与记录的清理范围，让记忆变成用户能检查的具体对象。</p></article>
+      </div>
+      <p class="quote">“它留在这里。下次回来，<br/>你仍然能认出我们停下的位置。”</p>
+    </div>
+  </section>
+  <section class="section delivery">
+    <div class="wrap">
+      <p class="section-label">04 / DELIVERY &amp; LIMITS</p><h2>当前交付与验证边界</h2>
+      <div class="boundary">
+        <div><h3>可以在原型中体验</h3><ul><li>完整预设主线：倾诉、记忆授权、草稿确认、场景停留与跨日回访。</li><li>来信、航图、记忆的状态联动，以及拒绝、纠错、删除等交互分支。</li><li>幻想伙伴的视觉形象、场景氛围与动作对白，以及可点击的故事地标。</li></ul></div>
+        <div><h3>仍需进一步验证</h3><ul><li>当前对话由预设情境驱动，尚未接入真实大模型或提供开放式 AI 聊天。</li><li>原型呈现了记忆与角色规则；接入模型后的准确性和长期一致性尚待测试。</li><li>四周用户试用仍是拟议方案，持续陪伴价值与实际留存效果尚未验证。</li></ul></div>
+      </div>
+      <p class="boundary-note">此项目展示从产品定位、角色与机制设计到交互原型的设计过程。演示中的跨日连续性用于检验交互规则，不代表已取得长期用户效果。</p>
+    </div>
+  </section>
+</main>
+<footer><div class="wrap"><div class="footer-row"><a href="../index.html#product-showcase">← 返回产品作品</a><div class="footer-links"><a href="https://daizhouchen.github.io/mist-island-demo/" target="_blank" rel="noopener">在线 Demo ↗</a><a href="https://github.com/daizhouchen/mist-island-demo" target="_blank" rel="noopener">GitHub 源码 ↗</a></div></div><p class="fine">雾屿来信 · 产品展示 / 2026 · 戴宙辰 Daizhouchen</p></div></footer>
+</body>
+</html>
