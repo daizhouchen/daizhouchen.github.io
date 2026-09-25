@@ -4,8 +4,8 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml"/>
-<title>戴宙辰 Daizhouchen · AI 产品作品集</title>
-<meta name="description" content="戴宙辰 — AI 产品经理 / 独立实验者。产品展示页 · 产品工程与创业经历 · Claude Code Skills。"/>
+<title>戴宙辰 Daizhouchen · AI 产品与工程实践</title>
+<meta name="description" content="戴宙辰的产品与工程实践：UniTrade 真实上线经历、可体验的产品作品、知识图谱与大模型部署，以及开源 AI Skills。"/>
 <style>
   :root{
     --ink:#1c1a17; --ink-soft:#4a453e; --ink-faint:#8a8278;
@@ -125,6 +125,7 @@
   }
   @media print{ nav{display:none} .demo-card,.shot{break-inside:avoid;box-shadow:none} }
 </style>
+<link rel="stylesheet" href="assets/homepage.css"/>
 </head>
 <body>
 
@@ -132,37 +133,61 @@
   <div class="wrap">
     <div class="eyebrow">Portfolio · 2026</div>
     <h1>戴宙辰<span class="en">DAI ZHOUCHEN · AI PRODUCT &amp; EXPERIMENTS</span></h1>
-    <p class="tagline">AI 产品经理 / 独立实验者。曾主导 <b>UniTrade</b>（AI Native B2B 跨境贸易）创业，现在持续做一批小实验——用研究的方式做产品，用产品的方式做研究。<b>下面每个作品都能点开看。</b></p>
+    <p class="tagline">AI 产品经理 / 独立实验者。曾主导 <b>UniTrade</b>（AI Native B2B 跨境贸易）创业，现在持续做一批小实验——用研究的方式做产品，用产品的方式做研究。<b>从真实上线的产品，到可以亲手体验的原型与工程实践。</b></p>
     <div class="cta">
-      <a class="btn primary" href="#product-showcase">先看产品作品 ↓</a>
+      <a class="btn primary" href="#unitrade">先看真实上线产品 ↓</a>
       <a class="btn ghost" href="https://github.com/daizhouchen" target="_blank" rel="noopener">GitHub 主页</a>
-      <a class="btn ghost" href="https://unitrade.shop" target="_blank" rel="noopener">UniTrade 产品站</a>
+      <a class="btn ghost" href="#product-showcase">浏览产品作品</a>
     </div>
     <div class="hero-stats">
-      <div><b>4</b>产品展示页</div>
-      <div><b>60+</b>公开仓库</div>
-      <div><b>5</b>环节全链路交付（UniTrade）</div>
-      <div><b>30+</b>AI Skills 全部公开</div>
+      <div><b>真实产品</b>业务与工程完整交付</div>
+      <div><b>可体验作品</b>从场景走到用户流程</div>
+      <div><b>开源实践</b>模型、知识与 Agent 工具</div>
     </div>
   </div>
 </header>
 
 <nav>
   <div class="wrap">
+    <a href="#unitrade">上线产品</a>
     <a href="#product-showcase">产品作品</a>
-    <a href="#projects">技术项目</a>
-    <a href="#products">产品交付</a>
+    <a href="#projects">技术实践</a>
     <a href="#skills">AI Skills</a>
     <a href="#timeline">时间轴</a>
     <a href="#contact">联系</a>
   </div>
 </nav>
 
-<!-- ============ 01 产品作品 ============ -->
-<section id="product-showcase">
+<!-- ============ 01 真实上线产品 ============ -->
+<section class="live-product" id="unitrade" aria-labelledby="unitrade-heading">
   <div class="wrap">
-    <h2><span class="num">01</span>产品作品</h2>
-    <p class="sub">围绕真实用户与使用场景完成的产品设计和交付。公开版本可直接体验，私有代码可在沟通中现场演示。</p>
+    <div class="live-section-head"><h2 id="unitrade-heading"><span class="num">01</span>真实上线的产品</h2><span>独立创业 / 从业务到系统交付</span></div>
+    <div class="live-layout">
+      <div class="live-copy">
+        <p class="live-kicker">B2B CROSS-BORDER COMMERCE</p>
+        <h3>UniTrade<span>从供给接入，<br/>到交易协同。</span></h3>
+        <p class="live-intro">一段真实上线的跨境 B2B 创业实践。我独立承担产品设计、业务流程、数据治理与工程交付，把供应商、采购方和平台运营连接在同一套系统里。</p>
+        <div class="actions"><a class="abtn fill" href="https://unitrade.shop" target="_blank" rel="noopener">访问 unitrade.shop <span aria-hidden="true">↗</span></a><a class="abtn" href="demo/unitrade.html">阅读创业案例 <span aria-hidden="true">→</span></a></div>
+      </div>
+      <aside class="live-dossier" aria-label="UniTrade 产品档案">
+        <div class="dossier-top"><span>PRODUCT / 001</span><span class="dossier-mark" aria-hidden="true">UT</span></div>
+        <p class="dossier-label">一个真正交付过的产品。</p>
+        <p class="dossier-title">让供给被理解，<br/>让交易能衔接。</p>
+        <dl class="dossier-facts"><div><dt>产品形态</dt><dd>跨境 B2B 平台 · 独立域名</dd></div><div><dt>面向角色</dt><dd>供应商 / 采购方 / 平台运营</dd></div><div><dt>我的职责</dt><dd>产品、业务、数据与工程</dd></div></dl>
+        <a class="dossier-domain" href="https://unitrade.shop" target="_blank" rel="noopener"><span>unitrade.shop</span><span aria-hidden="true">↗</span></a>
+      </aside>
+    </div>
+    <div class="delivery-strip"><article><span>产品与业务</span><h4>把角色任务串成流程</h4><p>从商家接入、选品与询盘，到交易流转，定义各方在每一步要完成的事。</p></article><article><span>商品与数据</span><h4>建立共同的信息规范</h4><p>统一商品、规格、类目与属性的表达，让历史资料和新增供给进入同一套规范。</p></article><article><span>工程与交付</span><h4>让方案进入真实系统</h4><p>完成前后端实现、部署上线与持续迭代，把产品判断落实到可运行的业务链路。</p></article></div>
+    <p class="live-note">这里展示产品职责与交付范围。具体商品、供应商资料及经营数据不公开。</p>
+  </div>
+</section>
+
+<!-- ============ 02 产品作品 ============ -->
+<section id="product-showcase">
+  <span id="products" class="anchor-alias" aria-hidden="true"></span>
+  <div class="wrap">
+    <h2><span class="num">02</span>可以亲手体验的作品</h2>
+    <p class="sub">从陪伴、活动到亲子互动与故事体验。每个作品都从具体场景出发，提供可走通的公开体验与产品案例。</p>
     <div class="demo-grid product-grid">
 
       <div class="demo-card">
@@ -200,14 +225,12 @@
       </div>
 
       <div class="demo-card">
-        <div class="preview">
-          <img src="assets/unitrade-preview.svg" alt="UniTrade业务结构示意：供给发布、商品结构化、选品与交易流程" width="720" height="500" loading="lazy" style="object-fit:contain;background:#E7EBEC"/>
-        </div>
+        <div class="preview reality-preview"><img src="assets/reality-director-home.png" alt="Reality Director 真实体验首页：旧照相馆、双角色视角与短篇入口" width="1240" height="727" loading="lazy"/></div>
         <div class="demo-info">
-          <div class="kind">跨境 B2B 产品 · 创业经历</div>
-          <h3>UniTrade</h3>
-          <p>跨境 B2B 平台的真实创业经历：独立负责商家接入、商品数据治理、选品与交易流程、上线运维。案例聚焦商品规范、业务流程与工程交付，产品站使用独立域名。</p>
-          <div class="actions"><a class="abtn fill" href="https://unitrade.shop" target="_blank" rel="noopener">访问产品站 ↗</a><a class="abtn" href="demo/unitrade.html">阅读创业案例 →</a></div>
+          <div class="kind">双角色互动短篇 · 本机体验</div>
+          <h3>Reality Director</h3>
+          <p>在《旧照相馆封档风波》中读到不同线索，选择如何表达，再对照证据形成判断。支持独自预览或两人同屏，最后回看并下载本局选择记录。</p>
+          <div class="actions"><a class="abtn fill" href="https://daizhouchen.github.io/reality-director-demo/" target="_blank" rel="noopener">体验互动短篇 →</a><a class="abtn" href="demo/reality-director.html">阅读产品案例</a></div>
         </div>
       </div>
 
@@ -216,11 +239,11 @@
   </div>
 </section>
 
-<!-- ============ 02 技术项目 ============ -->
+<!-- ============ 03 技术实践 ============ -->
 <section id="projects">
   <div class="wrap">
-    <h2><span class="num">02</span>技术项目</h2>
-    <p class="sub">围绕模型、检索和工程部署完成的可复现实践。重点展示技术问题、实验对照与实现结果。</p>
+    <h2><span class="num">03</span>技术实践与工程交付</h2>
+    <p class="sub">既有可体验的 AI 工程项目，也有来自实际交付与研究的积累：知识组织、模型运行、实验对照与系统部署。</p>
     <div class="demo-grid tech-grid">
       <div class="demo-card">
         <div class="preview"><img src="assets/scriptgraph-demo.png" alt="ScriptGraph 剧本知识图谱界面"/></div>
@@ -243,51 +266,31 @@
       </div>
 
     </div>
-    <div class="rows" style="margin-top:18px">
-      <div class="row">
-        <div class="name">ML-PD<small>机器学习实践 · 公开</small></div>
-        <div class="desc">基于代谢组学数据的帕金森病诊断：完成特征工程、多模型训练与指标对比的 Notebook 流程。</div>
-        <div class="go"><a class="abtn" href="https://github.com/daizhouchen/ML-PD" target="_blank" rel="noopener">GitHub →</a></div>
-      </div>
+    <div class="practice-grid">
+      <article class="practice-card deployment-card" id="knowledge-deployment" aria-labelledby="knowledge-heading">
+        <div class="practice-meta"><span>LLM / KNOWLEDGE ENGINEERING</span><span>2024–2025</span></div>
+        <h3 id="knowledge-heading">知识图谱与大模型部署</h3>
+        <p class="practice-intro">将项目资料、实体关系和模型服务接到同一条问答链路中，并完成受限环境下的部署与交付。</p>
+        <dl class="practice-work"><div><dt>知识组织</dt><dd>用 Neo4j 管理实体与关系，处理增量更新和一致性校验；整理资料、配置入库与检索，将检索结果接入模型问答。</dd></div><div><dt>模型运行</dt><dd>完成模型量化、加载与运行配置，参与分布式推理的节点配置及请求联调，让推理服务接入项目应用。</dd></div><div><dt>部署交付</dt><dd>用 Docker 封装模型与知识服务，配置依赖、网络和数据挂载，参与现场部署、驻场联调与问题排查。</dd></div></dl>
+        <div class="practice-bottom"><div class="tags"><span class="tag">Neo4j</span><span class="tag">知识库检索</span><span class="tag">模型量化</span><span class="tag">Docker</span></div><span class="practice-note">项目经历 · 公开呈现职责与实现范围</span></div>
+      </article>
+      <article class="practice-card" id="ml-pd" aria-labelledby="mlpd-heading">
+        <div class="practice-meta"><span>MACHINE LEARNING / RESEARCH</span><span>公开实验</span></div>
+        <h3 id="mlpd-heading">ML-PD</h3>
+        <p class="practice-intro">围绕健康对照、前驱期与帕金森病三组代谢组学数据，开展分类研究，探索候选代谢特征与模型表现。</p>
+        <dl class="practice-work"><div><dt>任务与模型</dt><dd>进行三分类和两两分类实验，对比 XGBoost、随机森林、SVM 等模型的表现。</dd></div><div><dt>特征筛选</dt><dd>通过 RFECV 递归特征筛选，观察不同特征组合对分类实验的影响。</dd></div><div><dt>实验评估</dt><dd>结合交叉验证、ROC 曲线和混淆矩阵分析结果，以 Notebook 保留训练、比较与分析过程。</dd></div></dl>
+        <div class="practice-bottom"><div class="tags"><span class="tag">Python</span><span class="tag">特征筛选</span><span class="tag">模型对比</span></div><a class="abtn" href="https://github.com/daizhouchen/ML-PD" target="_blank" rel="noopener">查看研究代码 ↗</a></div>
+        <p class="research-note">研究实验档案；原始合作数据未公开，结果不作为临床诊断能力的证明。</p>
+      </article>
     </div>
-  </div>
-</section>
-<!-- ============ 03 产品交付 ============ -->
-<section id="products">
-  <div class="wrap">
-    <h2><span class="num">03</span>产品工程 · 从 0 到 1 的交付</h2>
-    <p class="sub">已上线 / 已交付的完整产品。带「展示页」标记的可直接点开。</p>
-    <div class="rows">
-      <div class="row">
-        <div class="name">UniTrade<small>跨境 B2B 产品 · 创业经历</small></div>
-        <div class="desc">独立承担跨境贸易平台的供给接入、数据治理、选品匹配、询盘交易与上线运维。建立商品字段规范、分类与属性体系，完成历史商品迁移与业务链路衔接。</div>
-        <div class="go"><a class="abtn fill" href="https://unitrade.shop" target="_blank" rel="noopener">访问产品站</a><a class="abtn" href="demo/unitrade.html">创业案例 →</a></div>
-      </div>
-      <div class="row">
-        <div class="name">幕境<small>活动工作台 · 原型验证</small></div>
-        <div class="desc">面向线下活动主理人的备场与演练工作台：选样例、确认备场、控制现场节奏、回看演练记录。公开 Demo 为本机演练，完整引擎源码私有。</div>
-        <div class="go"><a class="abtn fill" href="demo/mujing.html">展示页 →</a><a class="abtn" href="https://daizhouchen.github.io/mujing-demo/" target="_blank" rel="noopener">体验 Demo</a></div>
-      </div>
-      <div class="row">
-        <div class="name">能力森林<small>亲子短练习 · 含网页体验</small></div>
-        <div class="desc">围绕家长陪同的 20 秒小游戏，走通选练习、暂停退出与本次记录。网页版为独立本地体验；小程序历史开发版上传不等于公开上线，本轮源码改进待真机复验。</div>
-        <div class="go"><a class="abtn fill" href="demo/nengli-senlin.html">产品案例 →</a><a class="abtn" href="demo/forest/">体验短练习</a></div>
-      </div>
-      <div class="row">
-        <div class="name">Reality Director<small>双角色互动短篇 · 本机体验</small></div>
-        <div class="desc">《旧照相馆封档风波》：分别读线索，选择共享、保留或模糊表达，经对照作出终局判断，再回看实际选择。可独自预览双人故事，或两人共用一台设备轮流读。</div>
-        <div class="go"><a class="abtn fill" href="https://daizhouchen.github.io/reality-director-demo/" target="_blank" rel="noopener">体验短篇 ↗</a><a class="abtn" href="demo/reality-director.html">产品案例 →</a></div>
-      </div>
-    </div>
-    <p class="sub" style="margin:18px 0 0">注：商业与研究敏感项目以私有仓库承载，本站仅文字概述；沟通中可提供详细文档与现场演示。</p>
   </div>
 </section>
 
 <!-- ============ 04 Skills ============ -->
 <section id="skills">
   <div class="wrap">
-    <h2><span class="num">04</span>AI Agent 工程 · Claude Code Skills</h2>
-    <p class="sub">把流程工程化成可分发的 Skill：30+ 个作品全部公开、可直接安装。配图均为真实素材：真实产出页面、仓库原件或按仓库文档绘制的框架示意。</p>
+    <h2><span class="num">04</span>可复用的 AI Skills</h2>
+    <p class="sub">把产品研究、方案设计与工程执行中的重复步骤，沉淀为可复用的工作流。精选公开仓库，配图展示仓库介绍或模板示例。</p>
     <div class="shot-grid">
       <a class="shot" href="https://github.com/daizhouchen/superpm" target="_blank" rel="noopener">
         <img src="assets/skill-superpm.png" alt="SuperPM 七阶段生命周期与质量门（据仓库 SKILL.md 绘制）" loading="lazy"/>
@@ -298,47 +301,47 @@
         </div>
       </a>
       <a class="shot" href="https://github.com/daizhouchen/book-distiller" target="_blank" rel="noopener">
-        <img src="assets/now-book-distiller.png" alt="book-distiller 产出的典雅单文件 HTML 书页" loading="lazy"/>
+        <img src="assets/now-book-distiller.png" alt="Book Distiller 仓库介绍图：从书籍内容到单页知识摘要" loading="lazy"/>
         <div class="body">
           <h3>Distiller 蒸馏系列</h3>
-          <p>把书 / 电影 / 领域 / JD 蒸馏成一张典雅的单文件 HTML 网页（上图即真实产出）。含 book · movie · domain · jd-interview 四个 Skill。</p>
-          <div class="tags"><span class="tag hot">4 个仓库</span><span class="tag">单文件 HTML</span></div>
+          <p>把书籍、电影和领域知识整理成结构清晰的单页 HTML，便于理解、回看与分享。这里收录 book、movie、domain 三个方向。</p>
+          <div class="tags"><span class="tag hot">知识提炼</span><span class="tag">单文件 HTML</span></div>
         </div>
       </a>
       <a class="shot" href="https://github.com/daizhouchen/prism-research" target="_blank" rel="noopener">
-        <img src="assets/now-prism-research.png" alt="prism-research 产出的深度研究报告页面" loading="lazy"/>
+        <img src="assets/now-prism-research.png" alt="Prism Research 仓库介绍图：多层次研究框架" loading="lazy"/>
         <div class="body">
           <h3>棱镜研究 Prism Research</h3>
-          <p>多层次穿透式调研产品 / 公司 / 概念 / 技术，产出可打印为 PDF 的精美报告（上图即真实产出）。</p>
+          <p>围绕产品、公司、概念与技术开展多层次研究，结合横向比较和历史脉络，整理可追溯来源的研究报告。</p>
           <div class="tags"><span class="tag hot">深度研究</span><span class="tag">HTML 报告</span></div>
         </div>
       </a>
-      <a class="shot" href="https://github.com/daizhouchen/jd-interview-prep" target="_blank" rel="noopener">
-        <img src="assets/now-jd-interview-prep.png" alt="jd-interview-prep 产出的面试准备页面" loading="lazy"/>
+      <a class="shot" href="https://github.com/daizhouchen/market-research-skill" target="_blank" rel="noopener">
+        <img src="assets/skill-market-research.png" alt="Market Research 仓库介绍图：研究问题、数据源策略与市场洞察" loading="lazy"/>
         <div class="body">
-          <h3>JD 面试准备</h3>
-          <p>输入职位描述，产出针对性的面试准备方案页面（上图即真实产出）。配套 jd-interview-arsenal 知识武器库。</p>
-          <div class="tags"><span class="tag hot">面试场景</span><span class="tag">单文件 HTML</span></div>
+          <h3>Market Research</h3>
+          <p>按可用数据源规划市场调研，交叉核对需求与竞争信息，输出区分事实、推断和数据缺口的报告。</p>
+          <div class="tags"><span class="tag hot">市场研究</span><span class="tag">数据源策略</span></div>
         </div>
       </a>
       <a class="shot" href="https://github.com/daizhouchen/openclaw-skills" target="_blank" rel="noopener">
         <img src="assets/skill-openclaw.png" alt="openclaw-skills 仓库官方 hero 图" loading="lazy"/>
         <div class="body">
           <h3>OpenClaw Skills 合集</h3>
-          <p>"11 天 11 个 Skill"集中实验：api-mocker、codebase-cartographer、data-detective、git-storyteller 等 10 个开发者工具 Skill，已合并至聚合仓库。</p>
-          <div class="tags"><span class="tag hot">10 个 Skill</span><span class="tag">Python</span></div>
+          <p>面向日常开发的工具合集：模拟 API、梳理代码库、分析数据与整理 Git 变更，把重复的工程任务组织成可调用的工作流。</p>
+          <div class="tags"><span class="tag hot">开发者工具</span><span class="tag">Python</span></div>
         </div>
       </a>
       <a class="shot" href="https://github.com/daizhouchen/claude-product-designer" target="_blank" rel="noopener">
-        <img src="assets/skill-product-designer.png" alt="claude-product-designer 仓库内 8 个预制 SVG 模板原件" loading="lazy"/>
+        <img class="template-preview" src="assets/skill-product-designer.svg" alt="Claude Product Designer 仓库移动端线框模板：阅读清单填充示例" loading="lazy"/>
         <div class="body">
           <h3>Claude Product Designer</h3>
-          <p>把粗糙想法蒸馏成大师级 0→1 产品设计稿（单文件 HTML）：24 张理论卡按情境调度 + 8 个预制 SVG，benchmark 通过率 100%（基线 40%）。</p>
+          <p>将产品想法整理为可阅读的设计稿，按场景调用理论卡与预制图形模板，覆盖用户、流程和界面表达。</p>
           <div class="tags"><span class="tag hot">产品设计</span><span class="tag">HTML</span></div>
         </div>
       </a>
     </div>
-    <p class="sub" style="margin:18px 0 0">更多公开 Skill：resume-builder · wechat-mp-writer · tool-mastery · market-research-skill · svg-icon-forge · ppt-master —— 全部可在 <a href="https://github.com/daizhouchen" target="_blank" rel="noopener">GitHub 主页</a>直接安装。</p>
+    <p class="sub" style="margin:18px 0 0">更多公开 Skill：wechat-mp-writer · tool-mastery · svg-icon-forge · ppt-master —— 可在 <a href="https://github.com/daizhouchen" target="_blank" rel="noopener">GitHub 主页</a>查看仓库与使用说明。</p>
   </div>
 </section>
 
@@ -374,9 +377,9 @@
       </div>
       <div class="tl-item">
         <div class="tl-date">2026.05</div>
-        <h4>Distiller 系列与面试武器库</h4>
-        <p>book / movie / domain / jd 四个蒸馏 Skill + jd-interview-arsenal 知识武器库 + claude-product-designer 产品设计 Skill。</p>
-        <div class="tl-tags"><span class="tl-tag">4 个蒸馏 Skill</span><span class="tl-tag">benchmark 通过率 100%</span><span class="tl-tag">单文件 HTML</span></div>
+        <h4>知识蒸馏与产品设计工具</h4>
+        <p>围绕书籍、电影与领域知识构建蒸馏工具，并将产品分析方法沉淀为 claude-product-designer 可复用设计流程。</p>
+        <div class="tl-tags"><span class="tl-tag">知识蒸馏</span><span class="tl-tag">产品设计</span><span class="tl-tag">单文件 HTML</span></div>
       </div>
       <div class="tl-item">
         <div class="tl-date">2026.04</div>
