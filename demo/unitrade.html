@@ -1,251 +1,57 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>UniTrade · 创业经历展示 — AI Native B2B 跨境贸易全链路</title>
-<meta name="description" content="UniTrade：一段已告一段落的 AI Native B2B 跨境贸易创业经历。独立负责全链路：商家接入与供给治理、商品数据底座、选品与供需匹配、询盘与交易闭环、平台工程与上线运维。"/>
-<style>
-  :root{
-    --paper:#f8f9fb; --paper-2:#eef1f5; --line:#dde3ea; --ink:#16202e; --ink-soft:#4c5a6d; --ink-faint:#8a97a8;
-    --blue:#2456a6; --blue-deep:#1a3f7c; --gold:#b98a2e;
-    --serif:"Noto Serif SC","Source Han Serif SC","Songti SC",Georgia,serif;
-    --sans:"Noto Sans SC","PingFang SC","Microsoft YaHei",-apple-system,sans-serif;
-    --mono:"JetBrains Mono","SFMono-Regular",Consolas,monospace;
-  }
-  *{margin:0;padding:0;box-sizing:border-box}
-  html{scroll-behavior:smooth}
-  body{background:var(--paper);color:var(--ink);font-family:var(--sans);line-height:1.75;font-size:16px}
-  a{color:var(--blue-deep);text-decoration:none}
-  a:hover{text-decoration:underline}
-  .wrap{max-width:1020px;margin:0 auto;padding:0 24px}
-
-  header{padding:56px 0 44px;border-bottom:1px solid var(--line);
-    background:radial-gradient(900px 380px at 75% -120px, rgba(36,86,166,.12), transparent 60%)}
-  .topbar{display:flex;justify-content:space-between;margin-bottom:26px}
-  .back{font-family:var(--mono);font-size:12.5px;color:var(--ink-faint)}
-  .back:hover{color:var(--blue-deep);text-decoration:none}
-  .eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.4em;color:var(--blue);text-transform:uppercase;margin-bottom:16px}
-  h1{font-family:var(--serif);font-size:clamp(30px,5vw,44px);letter-spacing:.04em}
-  h1 small{display:block;font-size:.4em;font-weight:400;color:var(--ink-faint);letter-spacing:.16em;margin-top:8px;font-family:var(--mono)}
-  .lede{margin-top:16px;color:var(--ink-soft);max-width:680px;font-size:15.5px}
-  .meta-line{margin-top:22px;display:flex;flex-wrap:wrap;gap:10px}
-  .chip{font-size:12.5px;padding:4px 13px;border:1px solid var(--line);border-radius:999px;color:var(--ink-soft);background:#fff}
-  .chip b{color:var(--blue-deep)}
-  .visit{display:inline-block;margin-top:24px;padding:11px 26px;border-radius:8px;background:var(--blue);color:#fff;font-weight:600;font-size:14.5px}
-  .visit:hover{background:var(--blue-deep);text-decoration:none}
-
-  section{padding:54px 0;border-bottom:1px solid var(--line)}
-  h2{font-family:var(--serif);font-size:27px;margin-bottom:6px}
-  .sub{color:var(--ink-faint);font-size:14px;margin-bottom:26px}
-
-  /* ---------- big numbers ---------- */
-  .nums{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:14px}
-  .num-card{border:1px solid var(--line);border-radius:12px;background:#fff;padding:20px;text-align:center;transition:.15s}
-  .num-card:hover{transform:translateY(-2px);box-shadow:0 8px 22px rgba(22,32,46,.08)}
-  .num-card .v{font-family:var(--serif);font-size:30px;font-weight:700;color:var(--blue-deep)}
-  .num-card .v small{font-size:.55em;color:var(--ink-faint);font-weight:400}
-  .num-card .k{font-size:12.5px;color:var(--ink-soft);margin-top:4px}
-
-  /* ---------- pipeline ---------- */
-  .pipe{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:14px;counter-reset:step}
-  .pstep{border:1px solid var(--line);border-radius:12px;background:#fff;padding:20px;position:relative}
-  .pstep:before{counter-increment:step;content:"0" counter(step);font-family:var(--mono);font-size:11px;letter-spacing:.14em;color:var(--blue)}
-  .pstep h4{font-family:var(--serif);font-size:16px;margin:6px 0 4px}
-  .pstep p{font-size:13px;color:var(--ink-soft)}
-
-  /* ---------- data foundation ---------- */
-  .foundation{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
-  .fcard{border:1px solid var(--line);border-radius:12px;background:#fff;padding:24px}
-  .fcard h4{font-family:var(--serif);font-size:17px;margin-bottom:12px;color:var(--blue-deep)}
-  .fcard ul{list-style:none}
-  .fcard li{font-size:13.5px;color:var(--ink-soft);padding:6px 0;border-bottom:1px dashed var(--paper-2)}
-  .fcard li:last-child{border-bottom:none}
-  .fcard li b{color:var(--ink)}
-
-  /* ---------- tree visual ---------- */
-  .tree-box{border:1px solid var(--line);border-radius:12px;background:#fff;padding:26px;margin-top:16px}
-  .tree-box p.cap{font-size:12.5px;color:var(--ink-faint);text-align:center;margin-top:12px}
-
-  footer{padding:46px 0 60px}
-  .fine{margin-top:14px;font-size:12.5px;color:var(--ink-faint)}
-
-  @media (max-width:760px){
-    header{padding:42px 0 34px}
-  }
-</style>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="theme-color" content="#202C35"/>
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml"/>
+  <title>UniTrade — 跨境 B2B 产品与创业交付案例</title>
+  <meta name="description" content="UniTrade 跨境 B2B 产品与真实创业经历：从商家接入、商品结构化、选品与交易流程到平台上线运维，回顾关键产品决策及历史工程交付。"/>
+  <style>
+    :root{--navy:#202C35;--paper:#F6F5F1;--red:#A33732;--muted:#66737C;--line:#DDE1E3;--white:#FFFFFF;--panel:#ECEFED;--sans:"Microsoft YaHei","PingFang SC",sans-serif;--display:"Bahnschrift","Microsoft YaHei",sans-serif;--mono:"Consolas",monospace}
+    *{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:83px}body{margin:0;color:var(--navy);background:var(--paper);font-family:var(--sans);font-size:15px;line-height:1.8}h1,h2,h3,p,figure,dl,dd{margin:0}h1,h2,h3{font-family:var(--display)}a{color:inherit;text-decoration:none}a:hover{color:var(--red)}a:focus-visible,summary:focus-visible{outline:3px solid var(--red);outline-offset:5px}.wrap{width:min(1160px,calc(100% - 80px));margin-inline:auto}.skip{position:fixed;left:20px;top:-90px;z-index:30;background:var(--navy);color:var(--white);padding:12px 18px}.skip:focus{top:12px}.topbar{min-height:84px;display:flex;align-items:center;justify-content:space-between;gap:20px;border-bottom:1px solid #B6BEC1}.brand{font-family:var(--display);font-size:25px;letter-spacing:-.035em;font-weight:600;display:flex;align-items:center;gap:10px}.brand-mark{display:grid;place-items:center;background:var(--navy);color:var(--paper);width:31px;height:31px;font-size:14px;letter-spacing:-.06em}.back,.edition{font-size:10px;color:var(--muted)}.edition{font-family:var(--display);letter-spacing:.1em}.hero{display:grid;grid-template-columns:1.03fr 1fr;gap:57px;padding:68px 0 50px;align-items:center}.eyebrow{font-family:var(--display);font-size:10px;font-weight:600;letter-spacing:.15em;color:var(--red)}.hero h1{font-size:clamp(35px,3.7vw,48px);font-weight:500;line-height:1.52;letter-spacing:-.04em;margin:19px 0 22px}.hero h1 span{color:var(--red)}.hero-copy>p{font-size:14px;color:var(--muted);max-width:490px}.hero-copy>p strong{font-weight:500;color:var(--navy)}.actions{display:flex;flex-wrap:wrap;align-items:center;gap:21px;margin-top:29px}.button{display:inline-flex;justify-content:center;align-items:center;gap:17px;padding:12px 21px;background:var(--red);color:var(--white);border:1px solid var(--red);font-size:13px;font-weight:600;transition:background .18s,transform .18s}.button:hover{color:var(--white);background:#822B27;transform:translateY(-2px)}.arrow{width:17px;height:17px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}.text-link{font-size:12px;border-bottom:1px solid #AEB8BD;padding:7px 0}.hero-copy>.demo-note{margin-top:17px;font-size:10px;line-height:1.85;color:var(--muted);max-width:460px}.demo-note strong{color:var(--navy);font-weight:500}.hero-visual{position:relative;padding:15px 0 0 15px}.hero-visual:before{content:"";position:absolute;inset:0 15px 35px 0;border:1px solid #B4BEC4;border-top:3px solid var(--red)}.hero-visual img{display:block;position:relative;width:100%;height:auto;box-shadow:0 16px 26px #202C350A}.hero-visual figcaption{font-size:9px;color:var(--muted);text-align:right;margin-top:12px}.brief{border-top:1px solid #B6BEC1;padding:22px 0 27px;display:grid;grid-template-columns:1fr 1.25fr 1fr;gap:30px}.brief dt{font-size:9px;letter-spacing:.1em;color:var(--muted);margin-bottom:4px}.brief dd{font-size:12px}.section-nav{background:var(--navy);color:#CFD6DA;position:sticky;top:0;z-index:10}.section-nav .wrap{display:flex;justify-content:space-between;align-items:center;gap:20px}.section-links{display:flex;gap:27px;overflow-x:auto;scrollbar-width:none}.section-nav a{display:block;white-space:nowrap;padding:15px 0;font-size:11px}.section-nav a:hover{color:#FFF}.section-nav a span{color:#B5C1C9;font-family:var(--mono);font-size:9px;margin-right:6px}.section-nav .nav-cta{color:#FFF;font-weight:600;flex-shrink:0}.section{padding:68px 0;border-bottom:1px solid var(--line)}.section-grid{display:grid;grid-template-columns:238px 1fr;gap:56px}.section-label{font-family:var(--display);font-size:10px;font-weight:600;letter-spacing:.11em;color:var(--red);margin-bottom:12px}.section-heading h2{font-size:26px;line-height:1.62;font-weight:500;letter-spacing:-.04em}.section-heading>p{font-size:11px;color:var(--muted);margin-top:14px;max-width:225px}.intro{font-size:22px;line-height:1.7;font-weight:500;margin-bottom:22px;letter-spacing:-.025em}.intro em{color:var(--red);font-style:normal}.body-copy{font-size:13px;color:var(--muted)}.criteria{margin-top:27px;border-top:2px solid var(--navy)}.criterion{display:grid;grid-template-columns:126px 1fr;gap:20px;padding:16px 0;border-bottom:1px solid var(--line)}.criterion dt{font-size:13px;font-weight:600}.criterion dd{font-size:12px;color:var(--muted)}.small-note{font-size:11px;color:var(--muted);margin-top:20px}.flow-section{background:#ECEFED}.flow-head{margin-bottom:31px;align-items:center}.flow-lede{font-size:13px;color:var(--muted);max-width:690px}.flow{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,1fr);border-block:1px solid #AFBAC0}.flow li{padding:25px 22px 23px;border-right:1px solid #C9D0D2}.flow li:first-child{padding-left:0}.flow li:last-child{padding-right:0;border-right:0}.step{font-family:var(--display);font-size:27px;color:var(--red);line-height:1}.flow h3{font-size:19px;font-weight:500;margin:18px 0 11px}.flow p{font-size:12px;color:var(--muted)}.flow .result{border-top:1px solid #CDD3D5;margin-top:18px;padding-top:12px;font-size:10px;color:var(--navy)}.flow-foot{margin-top:21px;display:flex;justify-content:space-between;gap:25px;color:var(--muted);font-size:11px}.flow-foot a{white-space:nowrap;align-self:flex-start;color:var(--red);border-bottom:1px solid var(--red)}.decisions{border-top:2px solid var(--navy)}.decision{display:grid;grid-template-columns:32px 1fr;gap:16px;padding:23px 0;border-bottom:1px solid var(--line)}.decision-number{font-family:var(--display);font-size:13px;color:var(--red);padding-top:2px}.decision h3{font-size:19px;font-weight:500;margin-bottom:10px}.decision p{font-size:12px;color:var(--muted)}.decision .reason{font-size:10px;color:var(--navy);margin-top:12px}.history{background:var(--navy);color:var(--paper);padding:60px 0 58px}.history .section-label{color:#E7A69F}.history .section-heading>p{color:#B5C1C9}.history .history-lede{font-size:13px;color:#C6D0D6;align-self:center}.history-metrics{margin-top:34px;display:grid;grid-template-columns:repeat(4,1fr);border-block:1px solid #56636B}.metric{padding:22px 24px 21px;border-right:1px solid #56636B}.metric:first-child{padding-left:0}.metric:last-child{border-right:0;padding-right:0}.metric strong{display:block;font-family:var(--display);font-size:42px;line-height:1.2;font-weight:500;letter-spacing:-.03em}.metric span{display:block;font-size:11px;color:#CFD8DC;margin-top:11px}.history-caption{font-size:10px;color:#B5C1C9;margin-top:16px}.history-work{margin-top:35px;display:grid;grid-template-columns:repeat(5,1fr);gap:23px}.history-work h3{font-size:14px;font-weight:500;margin-bottom:9px}.history-work p{font-size:11px;color:#B5C1C9}.history-bottom{display:flex;justify-content:space-between;gap:30px;margin-top:30px;padding-top:18px;border-top:1px solid #56636B;font-size:10px;color:#B5C1C9}.history-bottom a{color:#CFD8DC;text-decoration:underline;text-underline-offset:4px;white-space:nowrap}.scope-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px}.scope-card{padding-top:18px;border-top:1px solid #AFBAC0}.scope-card .tag{font-size:10px;color:var(--red);letter-spacing:.06em}.scope-card h3{font-size:19px;font-weight:500;margin:9px 0 12px}.scope-card p{font-size:12px;color:var(--muted)}.scope-card ul{margin:14px 0 0;padding-left:16px;font-size:12px;color:var(--muted)}.scope-card li{margin:6px 0}.scope-note{margin-top:24px;padding:17px 19px;background:#ECEFED;font-size:11px;color:var(--muted);border-left:3px solid #80909A}.scope-note strong{color:var(--navy);font-weight:500}.technical{margin-top:22px;border:1px solid #CED5D8;background:#FAFAF7}.technical summary{list-style:none;display:flex;justify-content:space-between;align-items:center;gap:20px;cursor:pointer;padding:17px 20px;font-size:12px}.technical summary::-webkit-details-marker{display:none}.technical summary span{font-size:10px;white-space:nowrap;color:var(--muted)}.technical summary span:after{content:"＋";font-size:16px;vertical-align:-1px;margin-left:10px}.technical[open] summary span:after{content:"−"}.technical-content{padding:20px;border-top:1px solid var(--line);font-size:11px;color:var(--muted)}.technical-content p+p{margin-top:12px}.technical-content strong{color:var(--navy);font-weight:600}.closing{padding:47px 0;background:#E9EBE8;border-bottom:1px solid var(--line)}.closing .wrap{display:flex;justify-content:space-between;align-items:center;gap:40px}.closing h2{font-size:27px;font-weight:500;line-height:1.6;letter-spacing:-.02em}.closing p{font-size:11px;color:var(--muted);margin-top:10px}.closing .button{white-space:nowrap;flex-shrink:0}.footer{display:flex;justify-content:space-between;gap:25px;padding:26px 0 30px;font-size:10px;color:var(--muted)}.footer a{border-bottom:1px solid var(--line)}
+    @media(max-width:1000px){.wrap{width:calc(100% - 56px)}.hero{gap:33px}.hero h1{font-size:37px}.section-grid{grid-template-columns:185px 1fr;gap:33px}.section-heading h2{font-size:23px}.section-links{gap:20px}.section-nav a{font-size:10px}.flow li{padding-inline:16px}.flow h3{font-size:17px}.history-work{gap:16px}.metric strong{font-size:35px}.history-work h3{font-size:13px}}
+    @media(max-width:760px){html{scroll-padding-top:70px}.wrap{width:calc(100% - 40px)}.topbar{min-height:71px}.brand{font-size:22px}.brand-mark{width:28px;height:28px;font-size:12px}.edition{display:none}.back{font-size:10px}.hero{grid-template-columns:1fr;padding:41px 0 33px;gap:32px}.hero h1{font-size:36px;margin:16px 0 20px}.hero-copy>p{font-size:13px;max-width:none}.hero-copy>.demo-note{font-size:10px}.actions{gap:17px;margin-top:24px}.button{font-size:12px;padding:12px 17px}.text-link{font-size:11px}.hero-visual{max-width:510px;justify-self:center;width:100%;padding:13px 0 0 13px}.brief{grid-template-columns:1fr;gap:14px;padding:20px 0 25px}.brief dl{display:grid;grid-template-columns:72px 1fr;gap:9px}.brief dt{font-size:9px;margin:2px 0 0}.brief dd{font-size:11px}.section-nav .wrap{width:100%;padding-inline:20px}.section-links{gap:17px}.section-nav a{font-size:10px;padding:13px 0}.section-nav a span{font-size:8px;margin-right:4px}.section-nav .nav-cta{display:none}.section{padding:43px 0}.section-grid{grid-template-columns:1fr;gap:25px}.section-heading h2{font-size:25px}.section-heading h2 br{display:none}#choices .section-heading h2 br{display:initial}.section-heading>p{max-width:none;font-size:11px;margin-top:10px}.section-label{font-size:9px;margin-bottom:8px}.intro{font-size:20px;margin-bottom:18px}.body-copy{font-size:12px}.criterion{grid-template-columns:92px 1fr;gap:16px;padding:14px 0}.criterion dt{font-size:12px}.criterion dd{font-size:11px}.small-note{font-size:10px;margin-top:18px}.flow-head{margin-bottom:26px}.flow-lede{font-size:12px}.flow{grid-template-columns:1fr 1fr}.flow li{padding:22px 16px!important}.flow li:nth-child(even){border-right:0}.flow li:nth-child(-n+2){border-bottom:1px solid #C9D0D2}.step{font-size:24px}.flow h3{font-size:18px;margin:13px 0 9px}.flow p{font-size:11px}.flow .result{font-size:9px;margin-top:15px}.flow-foot{display:block;font-size:10px}.flow-foot a{display:inline-block;margin-top:12px}.decision{grid-template-columns:23px 1fr;gap:11px;padding:20px 0}.decision h3{font-size:18px}.decision p{font-size:11px}.decision .reason{font-size:10px}.history{padding:42px 0}.history .history-lede{font-size:12px}.history-metrics{grid-template-columns:1fr 1fr;margin-top:28px}.metric{padding:19px 17px!important}.metric:nth-child(even){border-right:0}.metric:nth-child(-n+2){border-bottom:1px solid #56636B}.metric strong{font-size:34px}.metric span{font-size:10px;margin-top:8px}.history-caption{font-size:10px}.history-work{grid-template-columns:1fr;gap:18px;margin-top:29px}.history-work article{display:grid;grid-template-columns:95px 1fr;gap:15px}.history-work h3{font-size:13px;line-height:1.8;margin:0}.history-work p{font-size:11px}.history-bottom{display:block;margin-top:23px}.history-bottom a{display:inline-block;margin-top:10px}.scope-grid{grid-template-columns:1fr;gap:25px}.scope-card h3{font-size:19px}.scope-card p,.scope-card ul{font-size:11px}.scope-note{font-size:10px;padding:15px 16px}.technical summary{padding:16px;font-size:11px;gap:13px}.technical summary span{font-size:9px}.technical-content{padding:17px;font-size:11px}.closing{padding:34px 0 37px}.closing .wrap{display:block}.closing h2{font-size:25px}.closing p{font-size:11px}.closing .button{margin-top:23px}.footer{display:block;padding-block:23px}.footer p+p{margin-top:9px}}
+    @media(max-width:370px){.hero h1{font-size:31px}.section-links{gap:13px}.section-nav a{font-size:9px}.section-nav a span{display:none}.hero-copy>p{font-size:12px}.section-heading h2{font-size:23px}.flow li{padding-inline:12px!important}.criterion{grid-template-columns:80px 1fr;gap:12px}.technical summary{align-items:flex-start}.technical summary span{padding-top:2px}}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+  </style>
 </head>
 <body>
-
-<header>
-  <div class="wrap">
-    <div class="topbar">
-      <a class="back" href="../index.html">← 返回作品集</a>
-      <a class="back" href="https://unitrade.shop" target="_blank" rel="noopener">unitrade.shop ↗</a>
+  <a class="skip" href="#main">跳转到案例正文</a>
+  <header class="wrap">
+    <div class="topbar"><a class="back" href="../index.html#product-showcase">← 返回作品集</a><a class="brand" href="#" aria-label="UniTrade，返回页首"><span class="brand-mark" aria-hidden="true">UT</span>UniTrade</a><span class="edition">PRODUCT CASE / B2B COMMERCE</span></div>
+    <div class="hero">
+      <div class="hero-copy"><div class="eyebrow">FROM SUPPLY TO TRADE</div><h1>把供给组织起来，<br/>接上<span>交易流程</span>。</h1><p>一段真实的跨境 B2B 创业经历。独立承担<strong>商家接入、商品数据治理、选品与交易流程，以及上线运维</strong>，将产品、业务和工程连接起来。</p><div class="actions"><a class="button" href="https://unitrade.shop" target="_blank" rel="noopener">访问产品站 <svg class="arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h16m-7-7 7 7-7 7"/></svg></a><a class="text-link" href="#context">阅读创业案例 ↓</a></div><p class="demo-note"><strong>独立域名 · unitrade.shop</strong><br/>这段创业经历已告一段落。本页记录当时的产品决策与工程交付，产品站通过独立域名访问。</p></div>
+      <figure class="hero-visual"><img src="../assets/unitrade-preview.svg" alt="UniTrade业务结构示意：供给发布、商品结构化、选品与交易流转，贯穿商家、采购方与平台运营" width="720" height="500" fetchpriority="high"/><figcaption>业务链路与商品数据结构示意 · 非产品界面截图</figcaption></figure>
     </div>
-    <div class="eyebrow">Product Showcase</div>
-    <h1>UniTrade<small>AI NATIVE B2B CROSS-BORDER TRADE · A COMPLETE STARTUP EXPERIENCE</small></h1>
-    <p class="lede">一段完整的 AI Native B2B 跨境贸易创业经历（现已告一段落）。独立负责<b>全链路</b>：从商家接入、供给治理、商品数据底座，到选品匹配、询盘交易与平台上线运维——不只是数据迁移，而是把一条 B2B 跨境贸易链路完整跑通。创业期间平台上线运营于 unitrade.shop。</p>
-    <div class="meta-line">
-      <span class="chip"><b>Java + Python</b> 全栈</span>
-      <span class="chip"><b>2026.06</b> 起交付 · 已告一段落</span>
-      <span class="chip">源码与数据 <b>私有</b> · 本页为产品概述</span>
-    </div>
-    <a class="visit" href="https://unitrade.shop" target="_blank" rel="noopener">unitrade.shop · 创业期间上线 →</a>
-    <a class="visit" style="margin-left:12px;background:transparent;color:var(--blue-deep);border:1px solid var(--blue-deep)" href="https://daizhouchen.github.io/unitrade-demo/" target="_blank" rel="noopener">体验后台 Demo（静态演示版）→</a>
-  </div>
-</header>
-
-<!-- ============ 全链路总览 ============ -->
-<section>
-  <div class="wrap">
-    <h2>全链路总览 · 五个环节都做过</h2>
-    <p class="sub">B2B 跨境贸易不是单点功能，而是一条从供给到交易的长链路。以下每个环节都有实际交付。</p>
-    <div class="pipe">
-      <div class="pstep">
-        <h4>商家接入与供给治理</h4>
-        <p>商家入驻与 Excel / SPU / SKU 三种批量上传路径；商品规范治理保证供给质量。</p>
+    <div class="brief" aria-label="产品概要"><dl><dt>面向角色</dt><dd>供应商、采购方与平台运营</dd></dl><dl><dt>产品链路</dt><dd>供给发布 → 商品结构化 → 选品与交易</dd></dl><dl><dt>项目背景</dt><dd>真实跨境贸易创业经历 · 已告一段落</dd></dl></div>
+  </header>
+  <nav class="section-nav" aria-label="案例章节"><div class="wrap"><div class="section-links"><a href="#context"><span>01</span>产品需求</a><a href="#choices"><span>02</span>关键决策</a><a href="#history"><span>03</span>五环节交付</a><a href="#scope"><span>04</span>工程证据</a></div><a class="nav-cta" href="https://unitrade.shop" target="_blank" rel="noopener">访问产品站 ↗</a></div></nav>
+  <main id="main">
+    <section class="section" id="context"><div class="wrap section-grid">
+      <div class="section-heading"><div class="section-label">01 / PRODUCT NEEDS</div><h2>商品可以发布，<br/>信息还要能流转。</h2><p>跨境 B2B 平台要连接供给与需求，也要让不同角色使用同一套商品信息。</p></div>
+      <div><p class="intro">先让供给有共同的表达，<br/>再让<em>选品、沟通与交易接得上</em>。</p><p class="body-copy">供应商需要把商品与规格完整发布，采购方需要找到并理解这些信息，平台运营则需要维持供给质量。商品字段、类目、规格和状态如果各自表达，后续环节就需要反复转换。产品的起点，是把这几类任务放回同一条业务链路。</p><dl class="criteria"><div class="criterion"><dt>供应商</dt><dd>发布和维护商品，表达规格与交易信息，并通过批量接入减少重复录入。</dd></div><div class="criterion"><dt>采购方</dt><dd>浏览、检索与选择商品，查看商品细节，并进入沟通和交易流程。</dd></div><div class="criterion"><dt>平台运营</dt><dd>管理商家与商品信息，维护分类和数据规范，跟进商品与交易状态。</dd></div></dl><p class="small-note">这份案例按原产品任务与历史交付梳理，未将工程实现直接等同于真实成交或经营效果。</p></div>
+    </div></section>
+    <section class="section flow-section" id="choices"><div class="wrap section-grid">
+      <div class="section-heading"><div class="section-label">02 / PRODUCT DECISIONS</div><h2>把业务规则，<br/>变成可执行结构。</h2><p>以供给接入与商品信息为基础，为上层选品和交易建立共同语言。</p></div>
+      <div class="decisions"><article class="decision"><span class="decision-number">01</span><div><h3>先定义商品，再设计接入方式</h3><p>用字段规范明确商品应包含什么，并区分 SPU 商品层与 SKU 规格层。单个发布与批量接入围绕同一套定义展开，避免不同入口形成不同表达。</p><p class="reason">决策依据 / 接入方便与信息完整需要一起考虑；必填、选填及规格边界属于产品规则。</p></div></article><article class="decision"><span class="decision-number">02</span><div><h3>把分类与属性作为检索的共同语言</h3><p>类目回答商品属于哪里，属性补充商品有什么特征。分类节点、L4 属性清单与中英类目同义词共同服务于商品组织和跨语言检索。</p><p class="reason">决策依据 / 先建立可复用的数据表达，再支撑选品和供需匹配，不只依靠商品标题描述。</p></div></article><article class="decision"><span class="decision-number">03</span><div><h3>让批量导入的进度和错误都可见</h3><p>商家可以下载 Excel 模板、查阅必填字段说明，并在上传后看到异步导入进度。完成后的成功与失败统计、失败详情，让异常有明确的定位依据，便于修正后继续处理。</p><p class="reason">决策依据 / 降低接入门槛，也给错误留下修正路径，避免上传之后只能等待或重新猜测。</p></div></article></div>
+    </div></section>
+    <section class="history" id="history"><div class="wrap">
+      <div class="section-grid"><div class="section-heading"><div class="section-label">03 / STARTUP DELIVERY</div><h2>一次真实创业，<br/>五个环节的交付。</h2><p>UniTrade · AI Native B2B 跨境贸易<br/>创业经历已告一段落。</p></div><p class="history-lede">作为独立创业者，我承担了产品、业务链路、数据架构与工程交付：从商家接入和供给治理，到商品数据底座、选品匹配、询盘与交易流转，再到平台上线运维。创业期间，平台在 unitrade.shop 上线运营。</p></div>
+      <div class="history-metrics" aria-label="创业期间历史工程交付"><div class="metric"><strong>9,141</strong><span>件旧商品完成迁移</span></div><div class="metric"><strong>28</strong><span>字段商品规范</span></div><div class="metric"><strong>866</strong><span>分类体系节点</span></div><div class="metric"><strong>737</strong><span>项 L4 属性清单</span></div></div>
+      <p class="history-caption">以上沿用原公开创业交付记录，均为创业期间的历史工程成果，不是产品站当前商品总量、实时经营数据或商业收益。</p>
+      <div class="history-work"><article><h3>商家接入</h3><p>设计供给接入与商品规范，提供 Excel、SPU、SKU 等批量上传路径。</p></article><article><h3>数据治理</h3><p>明确字段、类目、属性与 SPU / SKU 粒度，完成旧商品迁移。</p></article><article><h3>选品匹配</h3><p>以类目与属性为共同语言，中英类目同义词支撑跨语言检索。</p></article><article><h3>询盘与交易</h3><p>承担询盘发起、沟通跟进及交易流转的产品与业务链路设计。</p></article><article><h3>工程与运维</h3><p>完成 Java API 与前端工程交付，以及创业期间的部署上线和持续迭代。</p></article></div>
+      <div class="history-bottom"><p>完整系统源码与商业数据保持私有，本页展示产品思路与历史交付范围。</p><a href="https://unitrade.shop" target="_blank" rel="noopener">产品独立域名 · unitrade.shop ↗</a></div>
+    </div></section>
+    <section class="section" id="scope"><div class="wrap section-grid">
+      <div class="section-heading"><div class="section-label">04 / ENGINEERING EVIDENCE</div><h2>用工程交付，<br/>说明产品如何落地。</h2><p>分别说明历史资料与原系统实现，不以技术规模代替经营结果。</p></div>
+      <div><div class="scope-grid"><article class="scope-card"><div class="tag">历史交付记录 / 商品数据底座</div><h3>规范进入了迁移与业务链路</h3><p>28 字段商品规范、866 分类节点和 737 项 L4 属性，描述了商品信息的组织方式；9,141 件旧商品迁移，记录了这套规范的一次实际工程交付。</p><ul><li>字段与 SPU / SKU 边界属于数据规范。</li><li>类目与属性属于供给组织基础。</li><li>迁移数量属于历史交付规模。</li></ul></article><article class="scope-card"><div class="tag">原平台源码 / 角色与页面结构</div><h3>从发布到管理，再到交易</h3><p>原平台保留供应商、采购方与管理端的页面结构，覆盖商品发布、批量上传、商品管理、订单与退款，以及多语言和客服相关模块。</p><ul><li>前端采用 React 与 TypeScript。</li><li>Java 后端按用户、商品、订单等领域组织。</li><li>源代码和部署配置属于私有工程资产。</li></ul></article></div>
+        <p class="scope-note"><strong>证据口径：</strong>这些资料说明当时的产品职责、实现结构与工程交付，不作为成交量、营收或运营效率提升的证明。历史数据不代表产品站当前实时统计。</p>
+        <details class="technical"><summary>查看历史资料与技术实现说明 <span>展开说明</span></summary><div class="technical-content"><p><strong>数据与业务资料：</strong>商品字段定义、SPU / SKU 粒度、类目与属性体系、中英类目同义词及迁移交付记录。9,141 / 28 / 866 / 737 统一采用原公开案例中的历史工程口径。</p><p><strong>原平台前端：</strong>React、TypeScript 与 Vite，按采购方、供应商和平台管理角色组织页面，留有商品、订单、退款、多语言及客服等业务结构。</p><p><strong>原平台后端：</strong>Java / Spring Boot 分模块实现用户、商品、订单与基础业务，配有部署、迁移和运维相关工程文件。</p><p>完整私有源码、供应商资料、商业数据与部署配置不在作品集中公开。这里保留的是可对照的实现范围及历史交付说明。</p></div></details>
       </div>
-      <div class="pstep">
-        <h4>商品数据底座</h4>
-        <p>28 字段规范 + 866 节点分类树 + 9141 商品迁移，让选品与匹配有共同的结构化语言。</p>
-      </div>
-      <div class="pstep">
-        <h4>选品与供需匹配</h4>
-        <p>基于类目与属性体系的选品与供需匹配，中英双语同义词支撑跨语言检索。</p>
-      </div>
-      <div class="pstep">
-        <h4>询盘与交易闭环</h4>
-        <p>从供需匹配到询盘发起与沟通跟进的完整流转，AI agent 参与自动化环节。</p>
-      </div>
-      <div class="pstep">
-        <h4>平台工程与上线运维</h4>
-        <p>Java API + 前端 UI 全栈开发与部署，创业期间 unitrade.shop 上线运营。</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ 数据规模 ============ -->
-<section>
-  <div class="wrap">
-    <h2>数据底座 · 一组已交付的数字</h2>
-    <p class="sub">B2B 跨境贸易的商品数据远比 C 端复杂：多语言、多层级类目、SKU/SPU 双粒度。先建数据规范，再做平台功能。</p>
-    <div class="nums">
-      <div class="num-card"><div class="v">28</div><div class="k">字段商品规范</div></div>
-      <div class="num-card"><div class="v">866</div><div class="k">节点分类树</div></div>
-      <div class="num-card"><div class="v">737</div><div class="k">L4 属性清单</div></div>
-      <div class="num-card"><div class="v">9141</div><div class="k">冷启动商品（已迁移）</div></div>
-      <div class="num-card"><div class="v">2<small> 语</small></div><div class="k">中英类目同义词</div></div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ 分类树示意 ============ -->
-<section>
-  <div class="wrap">
-    <h2>866 节点分类体系 · 结构示意</h2>
-    <p class="sub">四层类目 + 属性挂载。下图为结构示意（真实类目体系为商业资产，不在此展示）。</p>
-    <div class="tree-box">
-      <svg viewBox="0 0 760 240" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto" aria-label="分类树结构示意图">
-        <rect x="310" y="10" width="140" height="34" rx="8" fill="#1a3f7c"/>
-        <text x="380" y="32" text-anchor="middle" font-size="13" fill="#fff" font-family="sans-serif">根类目 · L1</text>
-        <line x1="380" y1="44" x2="150" y2="86" stroke="#c3cede" stroke-width="1.4"/>
-        <line x1="380" y1="44" x2="380" y2="86" stroke="#c3cede" stroke-width="1.4"/>
-        <line x1="380" y1="44" x2="610" y2="86" stroke="#c3cede" stroke-width="1.4"/>
-        <rect x="80" y="86" width="140" height="32" rx="8" fill="#fff" stroke="#2456a6" stroke-width="1.4"/>
-        <text x="150" y="106" text-anchor="middle" font-size="12" fill="#16202e" font-family="sans-serif">行业类目 · L2</text>
-        <rect x="310" y="86" width="140" height="32" rx="8" fill="#fff" stroke="#2456a6" stroke-width="1.4"/>
-        <text x="380" y="106" text-anchor="middle" font-size="12" fill="#16202e" font-family="sans-serif">行业类目 · L2</text>
-        <rect x="540" y="86" width="140" height="32" rx="8" fill="#fff" stroke="#2456a6" stroke-width="1.4"/>
-        <text x="610" y="106" text-anchor="middle" font-size="12" fill="#16202e" font-family="sans-serif">行业类目 · L2</text>
-        <line x1="150" y1="118" x2="150" y2="152" stroke="#c3cede" stroke-width="1.2"/>
-        <line x1="380" y1="118" x2="380" y2="152" stroke="#c3cede" stroke-width="1.2"/>
-        <line x1="610" y1="118" x2="610" y2="152" stroke="#c3cede" stroke-width="1.2"/>
-        <rect x="80" y="152" width="140" height="32" rx="8" fill="#fff" stroke="#8a97a8" stroke-width="1.2"/>
-        <text x="150" y="172" text-anchor="middle" font-size="12" fill="#4c5a6d" font-family="sans-serif">细分类目 · L3</text>
-        <rect x="310" y="152" width="140" height="32" rx="8" fill="#fff" stroke="#8a97a8" stroke-width="1.2"/>
-        <text x="380" y="172" text-anchor="middle" font-size="12" fill="#4c5a6d" font-family="sans-serif">细分类目 · L3</text>
-        <rect x="540" y="152" width="140" height="32" rx="8" fill="#fff" stroke="#8a97a8" stroke-width="1.2"/>
-        <text x="610" y="172" text-anchor="middle" font-size="12" fill="#4c5a6d" font-family="sans-serif">细分类目 · L3</text>
-        <line x1="380" y1="184" x2="380" y2="204" stroke="#b98a2e" stroke-width="1.4"/>
-        <rect x="270" y="204" width="220" height="30" rx="8" fill="#fdf6e7" stroke="#b98a2e" stroke-width="1.4"/>
-        <text x="380" y="223" text-anchor="middle" font-size="12" fill="#8a6416" font-family="sans-serif">L4 属性清单 · 737 项挂载</text>
-      </svg>
-      <p class="cap">L1 → L2 → L3 → L4 属性：共 866 节点 · 中英双语类目同义词支撑跨语言检索</p>
-    </div>
-  </div>
-</section>
-
-<!-- ============ 交付链路 ============ -->
-<section>
-  <div class="wrap">
-    <h2>从数据到业务 · 交付链路</h2>
-    <p class="sub">数据底座不是孤立的表结构，而是按业务链路倒推设计的。</p>
-    <div class="pipe">
-      <div class="pstep">
-        <h4>商品规范先行</h4>
-        <p>28 字段规范统一 SPU/SKU 双粒度表达，商家可按 Excel / SPU / SKU 三种方式批量上传。</p>
-      </div>
-      <div class="pstep">
-        <h4>类目与属性体系</h4>
-        <p>866 节点分类树 + 737 项 L4 属性，让"选品"与"匹配"有共同的结构化语言。</p>
-      </div>
-      <div class="pstep">
-        <h4>冷启动迁移</h4>
-        <p>9141 件旧商品按新规范完整迁移交付——规范不是纸面设计，而是跑通了全量数据。</p>
-      </div>
-      <div class="pstep">
-        <h4>服务上层业务</h4>
-        <p>选品、供需匹配与自动询盘流程建立在同一数据底座上，避免各环节各说各话。</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ 我的角色 ============ -->
-<section style="border-bottom:none">
-  <div class="wrap">
-    <h2>我在其中的角色</h2>
-    <p class="sub">独立创业者：产品、业务链路、数据架构与工程交付一肩挑。</p>
-    <div class="foundation">
-      <div class="fcard">
-        <h4>产品与数据架构</h4>
-        <ul>
-          <li><b>商品数据规范</b>：28 字段定义、SPU/SKU 粒度边界、必填/选填策略</li>
-          <li><b>分类体系设计</b>：866 节点类目树 + L4 属性清单的建模与演进</li>
-          <li><b>跨语言检索</b>：中英双语类目同义词表，服务跨境场景的供需匹配</li>
-          <li><b>文档体系</b>：30 秒导读 + 全栈概览，让协作者快速进入语境</li>
-        </ul>
-      </div>
-      <div class="fcard">
-        <h4>全链路业务</h4>
-        <ul>
-          <li><b>供给侧</b>：商家接入流程设计与供给质量治理</li>
-          <li><b>选品与匹配</b>：基于类目/属性体系的选品逻辑与供需匹配</li>
-          <li><b>询盘与交易</b>：询盘发起、沟通跟进的流转设计，AI agent 参与自动化</li>
-          <li><b>数据迁移</b>：9141 件旧商品按新规范迁移，交付可核验</li>
-        </ul>
-      </div>
-      <div class="fcard">
-        <h4>工程与运维</h4>
-        <ul>
-          <li><b>平台全栈</b>：Java API + 前端 UI，支撑选品 / 匹配 / 自动询盘</li>
-          <li><b>批量上传工具</b>：Excel / SPU / SKU 三种商家接入路径</li>
-          <li><b>部署与上线</b>：创业期间 unitrade.shop 上线运营</li>
-          <li><b>运维迭代</b>：上线后的问题响应与持续迭代</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
-
-<footer>
-  <div class="wrap">
-    <a class="visit" href="https://unitrade.shop" target="_blank" rel="noopener">unitrade.shop · 创业期间上线 →</a>
-    <p class="fine">本页为产品概述演示 · UniTrade 源码与数据为商业资产，不在此公开 · <a href="https://daizhouchen.github.io/unitrade-demo/" target="_blank" rel="noopener">后台 Demo</a> · <a href="../index.html">返回作品集首页</a></p>
-  </div>
-</footer>
-
+    </div></section>
+    <section class="closing" aria-label="访问产品站"><div class="wrap"><div><div class="section-label">UNITRADE / INDEPENDENT PRODUCT SITE</div><h2>从产品案例，走进 UniTrade。</h2><p>供给发布、商品组织与交易流转，共同构成这段创业实践。</p></div><a class="button" href="https://unitrade.shop" target="_blank" rel="noopener">访问产品站 <svg class="arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h16m-7-7 7 7-7 7"/></svg></a></div></section>
+  </main>
+  <footer class="wrap footer"><p>UniTrade · 跨境 B2B 产品与真实创业交付案例</p><p>历史商业数据与完整源码私有 · <a href="../index.html#product-showcase">返回作品集</a></p></footer>
 </body>
 </html>

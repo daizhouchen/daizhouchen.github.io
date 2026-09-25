@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 500" role="img" aria-labelledby="title desc">
+  <title id="title">UniTrade 业务链路与商品数据结构示意</title>
+  <desc id="desc">供应商发布供给，经商品字段、SPU与SKU、分类和属性进行结构化，再进入选品与交易流程。本图为业务结构示意，不是产品界面或实时运营数据。</desc>
+  <rect width="720" height="500" fill="#E7EBEC"/>
+  <path d="M0 0h720v54H0z" fill="#202C35"/>
+  <text x="29" y="35" fill="#F6F5F1" font-family="Bahnschrift,Microsoft YaHei,sans-serif" font-size="21" font-weight="600">UniTrade</text>
+  <text x="686" y="33" text-anchor="end" fill="#C8D2D8" font-family="Microsoft YaHei,sans-serif" font-size="10" letter-spacing="1">BUSINESS STRUCTURE / 业务结构示意</text>
+  <rect x="27" y="77" width="666" height="385" fill="#F6F5F1" stroke="#CAD2D6"/>
+  <text x="48" y="111" fill="#A33732" font-family="Bahnschrift,Microsoft YaHei,sans-serif" font-size="10" letter-spacing="1">FROM SUPPLY TO TRADE</text>
+  <text x="48" y="151" fill="#202C35" font-family="Microsoft YaHei,sans-serif" font-size="27">商品信息，贯穿业务。</text>
+  <g stroke="#CAD2D6"><rect x="48" y="178" width="177" height="86" fill="#FFFFFF"/><rect x="272" y="178" width="177" height="86" fill="#202C35" stroke="#202C35"/><rect x="495" y="178" width="177" height="86" fill="#FFFFFF"/></g>
+  <text x="65" y="203" fill="#66737C" font-family="Bahnschrift,Microsoft YaHei,sans-serif" font-size="10">01 / SUPPLY</text>
+  <text x="65" y="238" fill="#202C35" font-family="Microsoft YaHei,sans-serif" font-size="20">供给发布</text>
+  <text x="289" y="203" fill="#C8D2D8" font-family="Bahnschrift,Microsoft YaHei,sans-serif" font-size="10">02 / STRUCTURE</text>
+  <text x="289" y="238" fill="#F6F5F1" font-family="Microsoft YaHei,sans-serif" font-size="20">商品结构化</text>
+  <text x="512" y="203" fill="#66737C" font-family="Bahnschrift,Microsoft YaHei,sans-serif" font-size="10">03 / COMMERCE</text>
+  <text x="512" y="238" fill="#202C35" font-family="Microsoft YaHei,sans-serif" font-size="20">选品与交易</text>
+  <g fill="none" stroke="#A33732" stroke-width="1.5"><path d="M235 222h26m-6-5 6 5-6 5"/><path d="M460 222h24m-6-5 6 5-6 5"/></g>
+  <path d="M360 264v26M137 304v-14h447v14M360 290v14" fill="none" stroke="#99A7AF" stroke-width="1.3"/>
+  <g fill="#FFFFFF" stroke="#DDE1E3"><rect x="48" y="305" width="177" height="105"/><rect x="272" y="305" width="177" height="105"/><rect x="495" y="305" width="177" height="105"/></g>
+  <g font-family="Microsoft YaHei,sans-serif" font-size="13" fill="#202C35"><text x="65" y="332">商品层 · SPU</text><text x="289" y="332">规格层 · SKU</text><text x="512" y="332">组织与检索</text></g>
+  <g font-family="Microsoft YaHei,sans-serif" font-size="11" fill="#66737C"><text x="65" y="359">名称 / 类目 / 描述</text><text x="65" y="385">统一商品的基础表达</text><text x="289" y="359">规格 / 价格 / 库存</text><text x="289" y="385">承载具体规格的信息</text><text x="512" y="359">类目树 / 属性 / 同义词</text><text x="512" y="385">支持信息组织与查找</text></g>
+  <text x="48" y="442" fill="#66737C" font-family="Microsoft YaHei,sans-serif" font-size="10">供应商、采购方与平台运营，围绕同一套商品信息协作。</text>
+  <text x="691" y="485" text-anchor="end" fill="#66737C" font-family="Microsoft YaHei,sans-serif" font-size="9">业务结构示意 · 非产品界面截图 · 不表示当前运营数据</text>
+</svg>
