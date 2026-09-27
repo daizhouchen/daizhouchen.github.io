@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="560" viewBox="0 0 720 560" role="img" aria-labelledby="title desc">
+  <title id="title">图立方的时序超图概念示意</title>
+  <desc id="desc">三个时间切片中，企业与金融机构形成不同的多方关系。虚线连接同一实体的时间轨迹，着色区域表示一个多方关系。节点均为抽象示例。</desc>
+  <defs>
+    <pattern id="grid" width="24" height="24" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r=".8" fill="#677d6a" opacity=".12"/></pattern>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="5" refY="3" orient="auto"><path d="m0 0 5 3-5 3" fill="none" stroke="#7a8d7c" stroke-width="1.1"/></marker>
+  </defs>
+  <rect width="720" height="560" rx="18" fill="#eeeee3"/>
+  <rect x="22" y="22" width="676" height="516" rx="12" fill="url(#grid)"/>
+  <g font-family="Noto Sans SC,Microsoft YaHei,sans-serif">
+    <text x="39" y="49" font-size="13" fill="#5c6f60" letter-spacing="2">GRAPH CUBE</text>
+    <text x="679" y="49" text-anchor="end" font-size="12" fill="#5c6f60">实体 · 多方关系 · 时间</text>
+    <g stroke="#b8c7b3" stroke-width="1.2">
+      <path d="M138 362 452 362 609 435 295 435Z" fill="#dbe5d2"/>
+      <path d="M138 227 452 227 609 300 295 300Z" fill="#e3eadb"/>
+      <path d="M138 92 452 92 609 165 295 165Z" fill="#edf0e3"/>
+    </g>
+    <g fill="none" stroke="#799583" stroke-width="1.4" stroke-dasharray="4 6" opacity=".8">
+      <path d="M228 383V113M348 398V128M480 399V129"/>
+    </g>
+    <g stroke="#a58956" stroke-width="1.1" fill="#e6ce9f" fill-opacity=".38">
+      <path d="M203 103Q202 85 229 89L481 106Q507 110 507 129Q507 154 478 151L230 138Q202 135 203 103Z"/>
+      <path d="M321 251Q321 232 347 235L482 245Q505 248 505 267Q505 287 479 286L344 277Q320 275 321 251Z"/>
+      <path d="M206 371Q209 355 230 358L350 373Q370 376 370 393Q370 415 344 415L228 405Q204 400 206 371Z"/>
+    </g>
+    <g fill="none" stroke="#5e826c" stroke-width="1.6">
+      <path d="m228 113 120 15 132 1M228 248l120 15 132 1M228 383l120 15 132 1"/>
+    </g>
+    <g stroke="#f8f8ef" stroke-width="3.5">
+      <g fill="#365d4b"><circle cx="228" cy="113" r="9"/><circle cx="228" cy="248" r="9"/><circle cx="228" cy="383" r="9"/></g>
+      <g fill="#72947a"><circle cx="348" cy="128" r="9"/><circle cx="348" cy="263" r="9"/><circle cx="348" cy="398" r="9"/></g>
+      <g fill="#b3915d"><circle cx="480" cy="129" r="9"/><circle cx="480" cy="264" r="9"/><circle cx="480" cy="399" r="9"/></g>
+    </g>
+    <g font-size="14" fill="#324d3e">
+      <text x="219" y="162">企业 A</text><text x="325" y="180">企业 B</text><text x="457" y="178">金融机构</text>
+    </g>
+    <g fill="#586e5b" font-family="Georgia,serif" font-style="italic" font-size="21">
+      <text x="103" y="126">t₃</text><text x="103" y="261">t₂</text><text x="103" y="396">t₁</text>
+    </g>
+    <path d="M74 409V101" fill="none" stroke="#7a8d7c" stroke-width="1.2" marker-end="url(#arrow)"/>
+    <text x="56" y="457" font-size="12" fill="#5c6f60">时间演进</text>
+    <g transform="translate(370 471)">
+      <rect x="0" y="0" width="22" height="10" rx="5" fill="#e6ce9f" stroke="#a58956"/>
+      <text x="32" y="10" font-size="12" fill="#536957">同一事件中的多方关系</text>
+    </g>
+    <path d="M39 499H681" stroke="#c9d2c0"/>
+    <text x="39" y="526" font-size="12" fill="#5c6f60">多方关系如何形成，又如何随时间变化</text>
+    <text x="681" y="526" text-anchor="end" font-size="11" fill="#76836e">概念示意</text>
+  </g>
+</svg>

@@ -180,6 +180,21 @@ footer{padding:72px 0 20px;background:var(--green);color:var(--paper);scroll-mar
 .skill-category{font-size:11px}
 .research-feature .abtn,.practice-card .abtn{border-radius:30px}
 
+/* Graph Cube: an awarded research product, distinct from deployment practice. */
+.tulifang-feature{padding:33px 37px 27px;margin-bottom:35px;background:#f7f4e9;border:1px solid #e0d9c6;border-radius:18px;scroll-margin-top:110px}
+.tulifang-feature-top{display:flex;align-items:center;justify-content:space-between;gap:16px;font-size:12px;color:var(--ink-soft)}
+.tulifang-award{display:inline-flex;align-items:center;padding:7px 13px;border:1px solid #c9b78a;border-radius:24px;background:#f1e7cc;color:#6b5527;font-size:12px;white-space:nowrap}
+.tulifang-feature-grid{display:grid;grid-template-columns:1fr 1.05fr;gap:42px;align-items:center;margin-top:30px}
+.tulifang-feature-copy{min-width:0}.tulifang-feature h3{font:600 38px/1.4 var(--sans);letter-spacing:-.04em}.tulifang-feature h3>span{display:block;font:400 17px/1.8 var(--sans);letter-spacing:.015em;color:#6d745f;margin-top:5px}
+.tulifang-feature-subtitle{font-size:17px;color:var(--green);margin-top:16px}.tulifang-feature-intro{font-size:14px;line-height:1.95;color:var(--ink-soft);margin-top:17px}
+.tulifang-feature-topics{display:flex;flex-wrap:wrap;gap:9px 17px;margin:20px 0 23px;font-size:11px;color:#6d745f}.tulifang-feature-topics>span+span::before{content:"/";margin-right:17px;color:#a2a68e}
+.tulifang-feature .abtn{border-radius:30px;font-size:12px}.tulifang-feature .abtn:not(.fill){background:transparent;border-color:#d6ceb9}
+.tulifang-feature-visual{min-width:0}.tulifang-feature-visual img{width:100%;height:auto;border-radius:12px}.tulifang-feature-visual figcaption{font-size:11px;line-height:1.8;color:#6d745f;padding:12px 3px 0}
+.tulifang-feature-facts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:25px;border-top:1px solid #dcd7c6;margin-top:29px;padding-top:21px}.tulifang-feature-facts dt{font-size:11px;color:#717764;margin-bottom:5px}.tulifang-feature-facts dd{font-size:13px;color:var(--ink)}
+@media(max-width:1000px){.tulifang-feature{padding:29px}.tulifang-feature-grid{gap:28px}.tulifang-feature h3{font-size:33px}.tulifang-feature-subtitle{font-size:15px}.tulifang-feature-intro{font-size:13px}}
+@media(max-width:760px){.tulifang-feature{padding:25px 22px;scroll-margin-top:90px}.tulifang-feature-grid{grid-template-columns:1fr;gap:27px;margin-top:26px}.tulifang-feature-top{align-items:flex-start;flex-wrap:wrap;gap:12px;font-size:11px}.tulifang-award{font-size:11px;padding:6px 11px}.tulifang-feature h3{font-size:33px}.tulifang-feature h3>span{font-size:16px}.tulifang-feature-subtitle{font-size:16px}.tulifang-feature-intro{font-size:14px}.tulifang-feature-topics{margin-block:17px 21px}.tulifang-feature .abtn{font-size:11px;padding-inline:14px}.tulifang-feature-facts{grid-template-columns:1fr;gap:13px;margin-top:24px;padding-top:19px}.tulifang-feature-facts>div{display:grid;grid-template-columns:67px 1fr;gap:10px;align-items:baseline}.tulifang-feature-facts dt{margin:0}.tulifang-feature-facts dd{font-size:12px}}
+@media(max-width:370px){.tulifang-feature{padding:23px 18px}.tulifang-feature-subtitle{font-size:15px}.tulifang-feature .actions{gap:7px}.tulifang-feature .abtn{padding-inline:11px;gap:7px}}
+
 /* Composition and quiet emphasis, using only the existing project artwork. */
 .eyebrow::before{content:"";width:24px;height:1px;background:var(--gold)}
 .hero-composition{position:relative;padding:16px 0 78px 26px}
