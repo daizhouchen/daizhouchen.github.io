@@ -6,164 +6,55 @@
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml"/>
 <title>戴宙辰 Daizhouchen · AI 产品与工程实践</title>
 <meta name="description" content="戴宙辰的产品与工程实践：UniTrade 真实上线经历、可体验的产品作品、知识图谱与大模型部署，以及开源 AI Skills。"/>
-<style>
-  :root{
-    --ink:#1c1a17; --ink-soft:#4a453e; --ink-faint:#8a8278;
-    --paper:#faf7f1; --paper-2:#f2ede3; --line:#e3dccd;
-    --accent:#9e3a2f; --accent-soft:#b8654f;
-    --serif:"Noto Serif SC","Source Han Serif SC","Songti SC",Georgia,serif;
-    --sans:"Noto Sans SC","PingFang SC","Microsoft YaHei",-apple-system,sans-serif;
-    --mono:"JetBrains Mono","SFMono-Regular",Consolas,monospace;
-  }
-  *{margin:0;padding:0;box-sizing:border-box}
-  html{scroll-behavior:smooth}
-  body{background:var(--paper);color:var(--ink);font-family:var(--sans);line-height:1.75;font-size:16px}
-  a{color:var(--accent);text-decoration:none}
-  a:hover{text-decoration:underline}
-  .wrap{max-width:1000px;margin:0 auto;padding:0 24px}
-
-  /* ---------- header ---------- */
-  header{padding:76px 0 52px;border-bottom:1px solid var(--line);
-    background:radial-gradient(1200px 420px at 82% -120px, rgba(158,58,47,.07), transparent 60%),var(--paper)}
-  .eyebrow{font-family:var(--mono);font-size:13px;letter-spacing:.35em;color:var(--accent);text-transform:uppercase;margin-bottom:18px}
-  h1{font-family:var(--serif);font-size:clamp(36px,6vw,54px);font-weight:700;letter-spacing:.02em;line-height:1.2}
-  h1 .en{display:block;font-size:.4em;font-weight:400;color:var(--ink-faint);letter-spacing:.14em;margin-top:8px}
-  .tagline{margin-top:20px;font-family:var(--serif);font-size:19.5px;color:var(--ink-soft);max-width:680px}
-  .tagline b{color:var(--ink)}
-  .cta{margin-top:30px;display:flex;flex-wrap:wrap;gap:12px}
-  .btn{display:inline-block;padding:10px 22px;border-radius:8px;font-size:14.5px;font-weight:600;border:1px solid var(--ink)}
-  .btn.primary{background:var(--ink);color:var(--paper)}
-  .btn.primary:hover{background:var(--accent);border-color:var(--accent);text-decoration:none}
-  .btn.ghost{color:var(--ink)}
-  .btn.ghost:hover{border-color:var(--accent);color:var(--accent);text-decoration:none}
-  .hero-stats{margin-top:30px;display:flex;flex-wrap:wrap;gap:28px;font-size:13.5px;color:var(--ink-faint)}
-  .hero-stats b{display:block;font-family:var(--serif);font-size:24px;color:var(--ink);line-height:1.3}
-
-  /* ---------- nav ---------- */
-  nav{position:sticky;top:0;z-index:50;background:rgba(250,247,241,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
-  nav .wrap{display:flex;gap:4px;overflow-x:auto;padding-top:0;padding-bottom:0}
-  nav a{font-size:14px;color:var(--ink-soft);padding:13px 14px;white-space:nowrap;border-bottom:2px solid transparent}
-  nav a:hover{color:var(--accent);text-decoration:none;border-bottom-color:var(--accent)}
-
-  /* ---------- sections ---------- */
-  section{padding:60px 0;border-bottom:1px solid var(--line)}
-  h2{font-family:var(--serif);font-size:29px;margin-bottom:6px}
-  .sub{color:var(--ink-faint);font-size:14.5px;margin-bottom:30px}
-  .num{font-family:var(--mono);color:var(--accent);font-size:14px;margin-right:10px}
-
-  /* ---------- demo showcase ---------- */
-  .demo-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-  .demo-grid.product-grid{grid-template-columns:repeat(2,1fr)}
-  .demo-grid.tech-grid{grid-template-columns:repeat(2,1fr)}
-  .demo-card{border:1px solid var(--line);border-radius:14px;background:#fff;overflow:hidden;display:flex;flex-direction:column;transition:transform .15s ease,box-shadow .15s ease,border-color .15s ease}
-  .demo-card:hover{transform:translateY(-3px);box-shadow:0 12px 30px rgba(28,26,23,.09);border-color:#d5cbb6}
-  .preview{aspect-ratio:16/10;display:flex;align-items:center;justify-content:center;overflow:hidden;border-bottom:1px solid var(--line)}
-  .preview>img{width:100%;height:100%;object-fit:cover;object-position:top;display:block}
-  .demo-info{padding:18px 20px 20px;display:flex;flex-direction:column;flex:1}
-  .demo-info h3{font-family:var(--serif);font-size:19px;margin-bottom:4px}
-  .demo-info .kind{font-family:var(--mono);font-size:11px;letter-spacing:.14em;color:var(--accent);text-transform:uppercase;margin-bottom:8px}
-  .demo-info p{font-size:13.5px;color:var(--ink-soft);flex:1;margin-bottom:14px}
-  .actions{display:flex;gap:8px;flex-wrap:wrap}
-  .abtn{font-size:12.5px;font-weight:600;padding:7px 14px;border-radius:7px;border:1px solid var(--ink);color:var(--ink);background:#fff}
-  .abtn:hover{text-decoration:none;border-color:var(--accent);color:var(--accent)}
-  .abtn.fill{background:var(--accent);border-color:var(--accent);color:#fff}
-  .abtn.fill:hover{background:#822e25;color:#fff}
-  /* preview B: radar */
-  .pv-radar{background:linear-gradient(160deg,#fdfbf6,#f4efe2);width:100%;height:100%}
-  /* preview C: unitrade data */
-  .pv-ut{background:linear-gradient(160deg,#f2f6fc,#e6edf7);width:100%;height:100%;padding:18px 22px;display:flex;flex-direction:column;gap:9px;justify-content:center}
-  .pv-ut .st{display:flex;gap:8px}
-  .pv-ut .box{flex:1;height:44px;border-radius:7px;background:#fff;border:1px solid #ccd8e8;position:relative;overflow:hidden}
-  .pv-ut .box:before{content:"";position:absolute;left:8px;top:8px;width:34px;height:8px;border-radius:4px;background:#2456a6;opacity:.75}
-  .pv-ut .box:after{content:"";position:absolute;left:8px;top:24px;width:52px;height:6px;border-radius:3px;background:#c3cede}
-  .pv-ut .bar{height:7px;border-radius:4px;background:#c3cede}
-  .pv-ut .bar.b1{width:82%}.pv-ut .bar.b2{width:60%}
-
-  /* ---------- compact rows ---------- */
-  .rows{display:flex;flex-direction:column}
-  .row{display:grid;grid-template-columns:190px 1fr auto;gap:18px;align-items:center;padding:18px 4px;border-bottom:1px solid var(--line)}
-  .row:last-child{border-bottom:none}
-  .row .name{font-family:var(--serif);font-size:17px;font-weight:600}
-  .row .name small{display:block;font-family:var(--mono);font-size:10.5px;font-weight:400;letter-spacing:.1em;color:var(--ink-faint);text-transform:uppercase;margin-top:2px}
-  .row .desc{font-size:13.8px;color:var(--ink-soft)}
-  .row .desc .tags{margin-top:5px;display:flex;flex-wrap:wrap;gap:6px}
-  .tag{font-family:var(--mono);font-size:10.5px;padding:2px 8px;border-radius:5px;background:var(--paper-2);color:var(--ink-soft)}
-  .tag.hot{background:rgba(158,58,47,.09);color:var(--accent)}
-  .tag.lock{border:1px dashed #c9bfa9;background:transparent;color:var(--ink-faint)}
-  .row .go{text-align:right;white-space:nowrap}
-
-  /* ---------- skills with shots ---------- */
-  .shot-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:18px}
-  .shot{border:1px solid var(--line);border-radius:12px;background:#fff;overflow:hidden;display:flex;flex-direction:column;transition:transform .15s ease,box-shadow .15s ease,border-color .15s ease;color:inherit}
-  a.shot:hover{transform:translateY(-3px);box-shadow:0 10px 26px rgba(28,26,23,.08);border-color:#d5cbb6;text-decoration:none}
-  .shot img{width:100%;aspect-ratio:16/9;object-fit:cover;object-position:top;border-bottom:1px solid var(--line);background:var(--paper-2)}
-  .shot .body{padding:16px 18px 18px;display:flex;flex-direction:column;flex:1}
-  .shot h3{font-family:var(--serif);font-size:17px;color:var(--ink);margin-bottom:4px}
-  .shot p{font-size:13px;color:var(--ink-soft);flex:1}
-  .shot .tags{margin-top:12px;display:flex;flex-wrap:wrap;gap:6px}
-
-  /* ---------- timeline ---------- */
-  .timeline{border-left:2px solid var(--line);margin-left:6px;padding-left:28px}
-  .tl-item{position:relative;padding-bottom:24px}
-  .tl-item:before{content:"";position:absolute;left:-35px;top:8px;width:10px;height:10px;border-radius:50%;background:var(--accent)}
-  .tl-date{font-family:var(--mono);font-size:12.5px;color:var(--ink-faint)}
-  .tl-item h4{font-family:var(--serif);font-size:16.5px;margin:2px 0}
-  .tl-item p{font-size:14px;color:var(--ink-soft)}
-  .tl-tags{margin-top:7px;display:flex;flex-wrap:wrap;gap:6px}
-  .tl-tag{font-family:var(--mono);font-size:10.5px;padding:2px 9px;border-radius:5px;background:var(--paper-2);color:var(--ink-soft);border:1px solid var(--line)}
-
-  /* ---------- footer ---------- */
-  footer{padding:56px 0 72px}
-  .fine{margin-top:36px;font-size:12.5px;color:var(--ink-faint)}
-
-  @media (max-width:860px){
-    .demo-grid,.demo-grid.product-grid,.demo-grid.tech-grid{grid-template-columns:1fr}
-    .row{grid-template-columns:1fr;gap:8px}
-    .row .go{text-align:left}
-    section{padding:46px 0}
-    header{padding:54px 0 38px}
-  }
-  @media print{ nav{display:none} .demo-card,.shot{break-inside:avoid;box-shadow:none} }
-</style>
-<link rel="stylesheet" href="assets/homepage.css"/>
-<link rel="stylesheet" href="assets/honestvgeo.css"/>
-<link rel="stylesheet" href="assets/skills.css"/>
+<link rel="stylesheet" href="assets/portfolio.css"/>
+<script src="assets/homepage.js" defer></script>
 </head>
 <body>
 
-<header>
-  <div class="wrap">
-    <div class="eyebrow">Portfolio · 2026</div>
-    <h1>戴宙辰<span class="en">DAI ZHOUCHEN · AI PRODUCT &amp; EXPERIMENTS</span></h1>
-    <p class="tagline">AI 产品经理 / 独立实验者。曾主导 <b>UniTrade</b>（AI Native B2B 跨境贸易）创业，现在持续做一批小实验——用研究的方式做产品，用产品的方式做研究。<b>从真实上线的产品，到可以亲手体验的原型与工程实践。</b></p>
-    <div class="cta">
-      <a class="btn primary" href="#unitrade">先看真实上线产品 ↓</a>
-      <a class="btn ghost" href="https://github.com/daizhouchen" target="_blank" rel="noopener">GitHub 主页</a>
-      <a class="btn ghost" href="#product-showcase">浏览产品作品</a>
+<a class="skip-link" href="#main">跳到作品内容</a>
+<nav aria-label="主页导航">
+  <div class="wrap nav-shell">
+    <a class="brand" href="#top" aria-label="戴宙辰，返回页首">DZ<span class="brand-dot" aria-hidden="true">.</span></a>
+    <div class="nav-links">
+      <a href="#unitrade">上线产品</a>
+      <a href="#product-showcase">产品作品</a>
+      <a href="#projects">技术实践</a>
+      <a href="#skills">AI Skills</a>
+      <a href="#timeline">经历</a>
+      <a href="#contact">联系</a>
     </div>
-    <div class="hero-stats">
-      <div><b>真实产品</b>业务与工程完整交付</div>
-      <div><b>可体验作品</b>从场景走到用户流程</div>
-      <div><b>开源实践</b>模型、知识与 Agent 工具</div>
+  </div>
+</nav>
+<header id="top" class="hero">
+  <div class="wrap">
+    <div class="hero-topline"><span>PRODUCT / RESEARCH / ENGINEERING</span><span>SELECTED WORK · 2026</span></div>
+    <div class="hero-layout">
+      <div class="hero-copy">
+        <p class="eyebrow">AI 产品经理 · 独立实验者</p>
+        <h1>戴宙辰<span class="name-dot" aria-hidden="true">.</span><span class="en">DAI ZHOUCHEN</span></h1>
+        <p class="hero-statement">用研究的方式做产品，<br/>用产品的方式做研究。</p>
+        <p class="tagline">曾主导 UniTrade 跨境 B2B 创业。这里记录我从场景判断、产品设计到工程交付的实践。</p>
+        <div class="cta"><a class="btn primary" href="#unitrade">浏览作品 <span aria-hidden="true">↓</span></a><a class="btn ghost" href="https://github.com/daizhouchen" target="_blank" rel="noopener">GitHub <span aria-hidden="true">↗</span></a></div>
+      </div>
+      <aside class="hero-index" aria-label="作品集内容概览">
+        <div class="index-heading"><span>实践笔记</span><span>FIELD NOTES / 2026</span></div>
+        <p class="index-title">让想法走到<br/><em>可以使用。</em></p>
+        <dl class="index-list">
+          <div><dt><span>01</span>真实产品</dt><dd>UniTrade · 跨境 B2B 创业交付</dd></div>
+          <div><dt><span>02</span>交互作品</dt><dd>从具体场景出发，走通用户流程</dd></div>
+          <div><dt><span>03</span>研究与工具</dt><dd>知识图谱、模型部署与开源 Skills</dd></div>
+        </dl>
+        <div class="index-bottom"><span class="index-mark" aria-hidden="true">DZ /</span><span>定义问题。验证方案。完成交付。</span></div>
+      </aside>
     </div>
   </div>
 </header>
-
-<nav>
-  <div class="wrap">
-    <a href="#unitrade">上线产品</a>
-    <a href="#product-showcase">产品作品</a>
-    <a href="#projects">技术实践</a>
-    <a href="#skills">AI Skills</a>
-    <a href="#timeline">时间轴</a>
-    <a href="#contact">联系</a>
-  </div>
-</nav>
+<main id="main" tabindex="-1">
 
 <!-- ============ 01 真实上线产品 ============ -->
 <section class="live-product" id="unitrade" aria-labelledby="unitrade-heading">
   <div class="wrap">
-    <div class="live-section-head"><h2 id="unitrade-heading"><span class="num">01</span>真实上线的产品</h2><span>独立创业 / 从业务到系统交付</span></div>
+    <div class="live-section-head"><h2 id="unitrade-heading"><span class="num">01</span>真实上线的产品</h2><span>VENTURE / PRODUCT DELIVERY</span></div>
     <div class="live-layout">
       <div class="live-copy">
         <p class="live-kicker">B2B CROSS-BORDER COMMERCE</p>
@@ -173,68 +64,71 @@
       </div>
       <aside class="live-dossier" aria-label="UniTrade 产品档案">
         <div class="dossier-top"><span>PRODUCT / 001</span><span class="dossier-mark" aria-hidden="true">UT</span></div>
-        <p class="dossier-label">一个真正交付过的产品。</p>
+        <p class="dossier-label">跨境 B2B · 创业实践</p>
         <p class="dossier-title">让供给被理解，<br/>让交易能衔接。</p>
         <dl class="dossier-facts"><div><dt>产品形态</dt><dd>跨境 B2B 平台 · 独立域名</dd></div><div><dt>面向角色</dt><dd>供应商 / 采购方 / 平台运营</dd></div><div><dt>我的职责</dt><dd>产品、业务、数据与工程</dd></div></dl>
         <a class="dossier-domain" href="https://unitrade.shop" target="_blank" rel="noopener"><span>unitrade.shop</span><span aria-hidden="true">↗</span></a>
       </aside>
     </div>
     <div class="delivery-strip"><article><span>产品与业务</span><h4>把角色任务串成流程</h4><p>从商家接入、选品与询盘，到交易流转，定义各方在每一步要完成的事。</p></article><article><span>商品与数据</span><h4>建立共同的信息规范</h4><p>统一商品、规格、类目与属性的表达，让历史资料和新增供给进入同一套规范。</p></article><article><span>工程与交付</span><h4>让方案进入真实系统</h4><p>完成前后端实现、部署上线与持续迭代，把产品判断落实到可运行的业务链路。</p></article></div>
-    <p class="live-note">这里展示产品职责与交付范围。具体商品、供应商资料及经营数据不公开。</p>
+    <p class="live-note">公开展示产品职责、业务流程与交付范围，保留商品、供应商与经营数据的隐私。</p>
   </div>
 </section>
 
 <!-- ============ 02 产品作品 ============ -->
-<section id="product-showcase">
+<section id="product-showcase" aria-labelledby="products-heading">
   <span id="products" class="anchor-alias" aria-hidden="true"></span>
   <div class="wrap">
-    <h2><span class="num">02</span>可以亲手体验的作品</h2>
-    <p class="sub">从陪伴、活动到亲子互动与故事体验。每个作品都从具体场景出发，提供可走通的公开体验与产品案例。</p>
+    <div class="section-head"><div><h2 id="products-heading"><span class="num">02</span>可以亲手体验的作品</h2><p class="sub">从陪伴、活动到亲子互动与城市故事，把场景变成可走通的体验。</p></div><span class="section-label">SELECTED PRODUCTS</span></div>
     <div class="demo-grid product-grid">
 
-      <div class="demo-card">
-        <div class="preview"><img src="assets/mist-island-preview.png" alt="雾屿来信交互原型：故事航线与幻想伙伴的陪伴体验" loading="lazy"/></div>
+      <article class="demo-card">
+        <div class="preview"><img width="1440" height="1024" src="assets/mist-island-preview.png" alt="雾屿来信交互原型：故事航线与幻想伙伴的陪伴体验" loading="lazy"/></div>
         <div class="demo-info">
-          <div class="kind">AI 陪伴产品设计 · 交互原型</div>
+          <div class="kind">AI 陪伴 · 交互原型</div>
           <h3>雾屿来信</h3>
-          <p>把用户愿意留下的故事画成航线，与航路记录员岚一起倾听、停留与回访。用可点击原型呈现角色一致性、记忆授权和故事解释权；当前为前端预设情境，未接真实大模型。</p>
-          <div class="actions"><a class="abtn fill" href="demo/mist-island.html">查看产品展示 →</a><a class="abtn" href="https://daizhouchen.github.io/mist-island-demo/" target="_blank" rel="noopener">体验 Demo</a><a class="abtn" href="https://github.com/daizhouchen/mist-island-demo" target="_blank" rel="noopener">GitHub</a></div>
+          <p>把用户愿意留下的故事画成航线，与航路记录员岚一起倾听、停留与回访。围绕角色一致性、记忆授权和故事解释权设计陪伴体验。</p>
+          <p class="project-note">前端预设情境，未连接真实大模型。</p>
+          <div class="actions"><a class="abtn fill" href="https://daizhouchen.github.io/mist-island-demo/" target="_blank" rel="noopener">体验交互原型 <span aria-hidden="true">↗</span></a><a class="abtn" href="demo/mist-island.html">产品案例 <span aria-hidden="true">→</span></a><a class="abtn" href="https://github.com/daizhouchen/mist-island-demo" target="_blank" rel="noopener">GitHub 源码 <span aria-hidden="true">↗</span></a></div>
         </div>
-      </div>
+      </article>
 
-      <div class="demo-card">
+      <article class="demo-card">
         <div class="preview">
           <img src="assets/mujing-preview.svg" alt="幕境活动工作流示意：选样例、备场、本机演练、复盘" width="640" height="400" loading="lazy"/>
         </div>
         <div class="demo-info">
-          <div class="kind">沉浸式活动工作台 · 可交互原型</div>
+          <div class="kind">沉浸式活动 · 演练原型</div>
           <h3>幕境 Mujing</h3>
-          <p>帮助线下活动主理人从故事材料走到从容开场。用内置样例走完备场、本机演练与复盘；案例页呈现场景判断、产品取舍与验证边界。公开版不连接实时 AI。</p>
-          <div class="actions"><a class="abtn fill" href="demo/mujing.html">阅读产品案例 →</a><a class="abtn" href="https://daizhouchen.github.io/mujing-demo/" target="_blank" rel="noopener">用样例演练</a></div>
+          <p>帮助线下活动主理人从故事材料走到从容开场。选择样例、确认备场、控制节奏，再回看演练记录，把开场前的准备串成一条流程。</p>
+          <p class="project-note">公开版使用内置样例，在本机演练，不连接实时 AI。</p>
+          <div class="actions"><a class="abtn fill" href="https://daizhouchen.github.io/mujing-demo/" target="_blank" rel="noopener">开始样例演练 <span aria-hidden="true">↗</span></a><a class="abtn" href="demo/mujing.html">产品案例 <span aria-hidden="true">→</span></a></div>
         </div>
-      </div>
+      </article>
 
-      <div class="demo-card">
+      <article class="demo-card">
         <div class="preview">
-          <img src="assets/nengli-senlin-preview.svg" alt="能力森林练习入口示意：找叶子、等信号、顺序连点，每项20秒" width="720" height="500" loading="lazy" style="object-fit:contain;background:#DDE7CB"/>
+          <img src="assets/nengli-senlin-preview.svg" alt="能力森林练习入口示意：找叶子、等信号、顺序连点，每项20秒" width="720" height="500" loading="lazy" class="forest-cover"/>
         </div>
         <div class="demo-info">
-          <div class="kind">亲子轻互动练习 · 浏览器体验</div>
+          <div class="kind">亲子互动 · 浏览器体验</div>
           <h3>能力森林</h3>
-          <p>给亲子陪伴一个轻量起点：找叶子、等信号、顺序连点，每项 20 秒。随时暂停或退出，做完回看本次记录。网页版独立运行，记录仅保存在当前浏览器。</p>
-          <div class="actions"><a class="abtn fill" href="demo/nengli-senlin.html">阅读产品案例 →</a><a class="abtn" href="demo/forest/">体验短练习</a></div>
+          <p>给亲子陪伴一个轻量起点：找叶子、等信号、顺序连点，每项 20 秒。可以随时暂停或退出，结束后回看本次记录。</p>
+          <p class="project-note">网页版独立运行，记录仅保存在当前浏览器。</p>
+          <div class="actions"><a class="abtn fill" href="demo/forest/">体验短练习 <span aria-hidden="true">→</span></a><a class="abtn" href="demo/nengli-senlin.html">产品案例 <span aria-hidden="true">→</span></a></div>
         </div>
-      </div>
+      </article>
 
-      <div class="demo-card">
-        <div class="preview reality-preview"><img src="assets/reality-director-home.png" alt="Reality Director 真实体验首页：城市秘密行动与虚构渡口场景" width="1280" height="727" loading="lazy"/></div>
+      <article class="demo-card">
+        <div class="preview reality-preview"><img src="assets/reality-director-home.png" alt="Reality Director 体验首页：城市秘密行动与虚构渡口场景" width="1280" height="727" loading="lazy"/></div>
         <div class="demo-info">
-          <div class="kind">城市秘密行动 · 独行 / 双人样例</div>
+          <div class="kind">城市秘密行动 · 故事体验</div>
           <h3>Reality Director</h3>
-          <p>在旧渡口独自追查，或与同伴调查旧照相馆。从现场材料提出推测，选择不同路线，用两条凭据留下自己的版本。虚构街区线上样例，可补查与下载行动手记。</p>
-          <div class="actions"><a class="abtn fill" href="https://daizhouchen.github.io/reality-director-demo/" target="_blank" rel="noopener">选择一场行动 →</a><a class="abtn" href="demo/reality-director.html">阅读产品案例</a></div>
+          <p>独自在旧渡口追查，或与同伴调查旧照相馆。从现场材料提出推测、选择路线，用两条凭据留下自己的版本，补查并下载行动手记。</p>
+          <p class="project-note">虚构街区线上样例，支持独行与双人故事。</p>
+          <div class="actions"><a class="abtn fill" href="https://daizhouchen.github.io/reality-director-demo/" target="_blank" rel="noopener">选择一场行动 <span aria-hidden="true">↗</span></a><a class="abtn" href="demo/reality-director.html">产品案例 <span aria-hidden="true">→</span></a></div>
         </div>
-      </div>
+      </article>
 
     </div>
 
@@ -242,10 +136,9 @@
 </section>
 
 <!-- ============ 03 技术实践 ============ -->
-<section id="projects">
+<section id="projects" aria-labelledby="projects-heading">
   <div class="wrap">
-    <h2><span class="num">03</span>技术实践与工程交付</h2>
-    <p class="sub">既有可体验的 AI 工程项目，也有来自实际交付与研究的积累：知识组织、模型运行、实验对照与系统部署。</p>
+    <div class="section-head"><div><h2 id="projects-heading"><span class="num">03</span>技术实践与工程交付</h2><p class="sub">从浏览器工作台，到研究评测、知识组织与模型部署。</p></div><span class="section-label">RESEARCH &amp; ENGINEERING</span></div>
     <article class="research-feature" id="honestvgeo" aria-labelledby="honestvgeo-heading">
       <div class="research-feature-head"><span>RESEARCH / VISUAL GEO</span><span class="conference-badge">ICDM 2026 · 已录取</span></div>
       <div class="research-feature-grid">
@@ -265,25 +158,27 @@
       <p class="research-status">论文已被 ICDM 2026 录取。复现代码与结果已公开，论文终稿整理中。</p>
     </article>
     <div class="demo-grid tech-grid">
-      <div class="demo-card">
+      <article class="demo-card">
         <div class="preview"><img src="assets/scriptgraph-demo.png" alt="ScriptGraph 逐场改稿：修订草稿、关联原文与修改要求同屏核对" width="1280" height="800" loading="lazy"/></div>
         <div class="demo-info">
-          <div class="kind">AI 影视 · GraphRAG · 公开</div>
+          <div class="kind">剧本改稿 · 本机工作台</div>
           <h3>ScriptGraph</h3>
-          <p>从一处疑点完成一轮改稿：按行选取原文依据，带着任务逐场修改并暂存草稿；生成新稿后查看具体增删，优先复核依据发生变化的任务，导出带出处的改稿记录。人物与道具关联辅助检查前后文，旧稿与引用始终保留。技术实验室保留 GraphRAG 固定评测。</p>
-          <div class="actions"><a class="abtn fill" href="https://daizhouchen.github.io/scriptgraph-rag/" target="_blank" rel="noopener">打开改稿工作台 →</a><a class="abtn" href="https://github.com/daizhouchen/scriptgraph-rag" target="_blank" rel="noopener">GitHub</a></div>
+          <p>从原文疑点走到一轮改稿：按行引用依据、逐场编辑并暂存草稿，再比较版本增删，复核引用变化，导出带出处的改稿记录。人物与道具关联辅助检查前后文。</p>
+          <p class="project-note">公开工作台在本机运行；GraphRAG 研究保留在技术实验室。</p>
+          <div class="actions"><a class="abtn fill" href="https://daizhouchen.github.io/scriptgraph-rag/" target="_blank" rel="noopener">打开改稿工作台 <span aria-hidden="true">↗</span></a><a class="abtn" href="https://github.com/daizhouchen/scriptgraph-rag" target="_blank" rel="noopener">GitHub 源码 <span aria-hidden="true">↗</span></a></div>
         </div>
-      </div>
+      </article>
 
-      <div class="demo-card">
+      <article class="demo-card">
         <div class="preview"><img src="assets/flowspec-demo.png" alt="FlowSpec 工作流方案台首页：业务需求、手动编排与场景模板" width="1280" height="800" loading="lazy"/></div>
         <div class="demo-info">
-          <div class="kind">Agent 工程 · SFT · 公开</div>
+          <div class="kind">工作流编排 · 本机工作台</div>
           <h3>FlowSpec</h3>
-          <p>把业务需求整理成可以检查和交接的流程：编辑步骤、参数与依赖，定位校验问题，再演练高低风险、人工审批、重试与失败处理。支持本机保存、版本试跑记录和完整备份。公开版使用规则与虚拟工具；原 QLoRA 训练和固定评测保留在研究页。</p>
-          <div class="actions"><a class="abtn fill" href="https://daizhouchen.github.io/flowspec-sft/" target="_blank" rel="noopener">打开工作流方案台 →</a><a class="abtn" href="https://github.com/daizhouchen/flowspec-sft" target="_blank" rel="noopener">GitHub</a></div>
+          <p>把业务需求整理成可检查、可交接的流程。编辑步骤、参数与依赖，演练风险分支、人工审批、重试和失败处理，保留版本试跑记录与完整备份。</p>
+          <p class="project-note">公开版使用规则与虚拟工具；QLoRA 训练与评测保留在研究页。</p>
+          <div class="actions"><a class="abtn fill" href="https://daizhouchen.github.io/flowspec-sft/" target="_blank" rel="noopener">打开工作流方案台 <span aria-hidden="true">↗</span></a><a class="abtn" href="https://github.com/daizhouchen/flowspec-sft" target="_blank" rel="noopener">GitHub 源码 <span aria-hidden="true">↗</span></a></div>
         </div>
-      </div>
+      </article>
 
     </div>
     <div class="practice-grid">
@@ -297,19 +192,19 @@
       <article class="practice-card" id="ml-pd" aria-labelledby="mlpd-heading">
         <div class="practice-meta"><span>MACHINE LEARNING / RESEARCH</span><span>公开实验</span></div>
         <h3 id="mlpd-heading">ML-PD</h3>
-        <p class="practice-intro">围绕健康对照、前驱期与帕金森病三组代谢组学数据，开展分类研究，探索候选代谢特征与模型表现。</p>
-        <dl class="practice-work"><div><dt>任务与模型</dt><dd>进行三分类和两两分类实验，对比 XGBoost、随机森林、SVM 等模型的表现。</dd></div><div><dt>特征筛选</dt><dd>通过 RFECV 递归特征筛选，观察不同特征组合对分类实验的影响。</dd></div><div><dt>实验评估</dt><dd>结合交叉验证、ROC 曲线和混淆矩阵分析结果，以 Notebook 保留训练、比较与分析过程。</dd></div></dl>
-        <div class="practice-bottom"><div class="tags"><span class="tag">Python</span><span class="tag">特征筛选</span><span class="tag">模型对比</span></div><a class="abtn" href="https://github.com/daizhouchen/ML-PD" target="_blank" rel="noopener">查看研究代码 ↗</a></div>
-        <p class="research-note">研究实验档案；原始合作数据未公开，结果不作为临床诊断能力的证明。</p>
+        <p class="practice-intro">将健康对照、前驱期与帕金森病的早期分类实验，整理为从输入校验、模型比较到结果追踪的可复现研究流程。</p>
+        <dl class="practice-work"><div><dt>任务与模型</dt><dd>进行三分类和两两分类实验，对比先验基线、逻辑回归、SVM、随机森林与 XGBoost 等模型。</dd></div><div><dt>训练与隔离</dt><dd>按受试者隔离测试数据，在训练折内完成预处理、RFE 特征筛选和参数选择。</dd></div><div><dt>结果与复现</dt><dd>保留各折指标、ROC、混淆矩阵、特征入选频率与版本指纹，通过命令行、Notebook 和网页追踪实验。</dd></div></dl>
+        <div class="practice-bottom"><div class="tags"><span class="tag">Python</span><span class="tag">可复现实验</span><span class="tag">模型对比</span></div><div class="actions"><a class="abtn fill" href="https://daizhouchen.github.io/ML-PD/" target="_blank" rel="noopener">打开研究展示 ↗</a><a class="abtn" href="https://github.com/daizhouchen/ML-PD" target="_blank" rel="noopener">GitHub 源码 ↗</a></div></div>
+        <p class="research-note">公开展示以合成数据验证流程。原始合作数据未公开，新流程尚未在其上复验，不代表临床效果。</p>
       </article>
     </div>
   </div>
 </section>
 
 <!-- ============ 04 Skills ============ -->
-<section id="skills" class="skills-window">
+<section id="skills" class="skills-window" aria-labelledby="skills-heading">
   <div class="wrap">
-    <div class="skills-heading"><div><h2><span class="num">04</span>可复用的 AI Skills</h2><p class="sub">研究、设计与工程执行中沉淀的工具。按需选用，直接查看源码。</p></div><span class="skills-index" aria-hidden="true">06 / COLLECTION</span></div>
+    <div class="skills-heading section-head"><div><h2 id="skills-heading"><span class="num">04</span>可复用的 AI Skills</h2><p class="sub">研究、设计与工程执行中沉淀的工具。按需选用，直接查看源码。</p></div><span class="skills-index" aria-hidden="true">REUSABLE TOOLS</span></div>
     <div class="skill-grid">
       <a class="skill-card" href="https://github.com/daizhouchen/superpm" target="_blank" rel="noopener">
         <div class="skill-art"><img src="assets/skills/superpm.svg" alt="从需求文档、并行任务到交付检查的概念示意" width="960" height="540" loading="lazy"/></div>
@@ -353,10 +248,9 @@
 </section>
 
 <!-- ============ 05 时间轴 ============ -->
-<section id="timeline">
+<section id="timeline" aria-labelledby="timeline-heading">
   <div class="wrap">
-    <h2><span class="num">05</span>实验家时间轴</h2>
-    <p class="sub">先动手，再沉淀，最后交付。按交付时间倒序，每条附关键交付物。</p>
+    <div class="section-head"><div><h2 id="timeline-heading"><span class="num">05</span>一路做过的事</h2><p class="sub">记录产品、研究与工具的形成过程，以及每个阶段留下的东西。</p></div><span class="section-label">SELECTED MILESTONES</span></div>
     <div class="timeline">
       <div class="tl-item">
         <div class="tl-date">2026.09</div>
@@ -367,37 +261,37 @@
       <div class="tl-item">
         <div class="tl-date">2026.08</div>
         <h4>作品集站点与 GitHub Profile 重构</h4>
-        <p>把 35 个仓库梳理成站点 + 展示页 + Profile README 三层叙事，全部自托管、无外链依赖。</p>
-        <div class="tl-tags"><span class="tl-tag">3 个展示页</span><span class="tl-tag">35 仓库盘点</span><span class="tl-tag">GitHub Pages</span></div>
+        <p>整理产品作品、工程实践与开源工具，形成主页、产品案例与 GitHub 仓库相互衔接的展示结构。</p>
+        <div class="tl-tags"><span class="tl-tag">作品整理</span><span class="tl-tag">产品案例</span><span class="tl-tag">GitHub Pages</span></div>
       </div>
       <div class="tl-item">
         <div class="tl-date">2026.06 – 2026.08 · 已告一段落</div>
-        <h4>UniTrade · AI Native B2B 创业经历</h4>
+        <h4>UniTrade · 跨境 B2B 创业经历</h4>
         <p>独立负责商家接入、数据治理、选品匹配、询盘交易到平台上线运维，创业期间 unitrade.shop 上线运营。建立统一的商品规范、分类与属性体系，并完成历史商品迁移。</p>
         <div class="tl-tags"><span class="tl-tag">历史全链路交付</span><span class="tl-tag">商品规范与数据治理</span><span class="tl-tag">创业期间上线运营</span></div>
       </div>
       <div class="tl-item">
         <div class="tl-date">2026.04 – 2026.06</div>
         <h4>幕境 MVP 交付</h4>
-        <p>沉浸式活动引擎 MVP v7.2：14-pass 多视角生成流水线 + 实时 harness，30 篇生成文档留档。</p>
-        <div class="tl-tags"><span class="tl-tag">MVP v7.2</span><span class="tl-tag">14-pass 流水线</span><span class="tl-tag">30 篇文档</span></div>
+        <p>完成沉浸式活动引擎的历史 MVP 探索。当前公开版本呈现备场、本机演练与复盘流程，使用预置内容，不连接实时 AI。</p>
+        <div class="tl-tags"><span class="tl-tag">历史 MVP</span><span class="tl-tag">公开演练原型</span></div>
       </div>
       <div class="tl-item">
         <div class="tl-date">2026.05</div>
         <h4>知识蒸馏与产品设计工具</h4>
         <p>围绕书籍、电影与领域知识构建蒸馏工具，并将产品分析方法沉淀为 claude-product-designer 可复用设计流程。</p>
-        <div class="tl-tags"><span class="tl-tag">知识蒸馏</span><span class="tl-tag">产品设计</span><span class="tl-tag">单文件 HTML</span></div>
+        <div class="tl-tags"><span class="tl-tag">知识蒸馏</span><span class="tl-tag">产品设计</span><span class="tl-tag">HTML 阅读页</span></div>
       </div>
       <div class="tl-item">
         <div class="tl-date">2026.04</div>
-        <h4>研究与内容 Skill 潮</h4>
-        <p>prism-research 深度调研、wechat-mp-writer、ppt-master、market-research-skill —— 一周内密集落 4 个方向。</p>
+        <h4>研究与内容工具实践</h4>
+        <p>围绕深度研究、公众号写作、演示文稿与市场调研，开发或整理可复用的 Skill 工作流。</p>
         <div class="tl-tags"><span class="tl-tag">深度研究报告</span><span class="tl-tag">PPT 生成</span><span class="tl-tag">市场调研</span></div>
       </div>
       <div class="tl-item">
         <div class="tl-date">2026.03 – 2026.04</div>
-        <h4>11 天 11 个 Skill 实验</h4>
-        <p>SuperPM + 10 个 OpenClaw 开发者 Skill，一次关于"Skill 工程化"的集中实验，后合并为聚合仓库。</p>
+        <h4>SuperPM 与 OpenClaw Skills</h4>
+        <p>将项目管理与开发任务整理为可复用工具：SuperPM 保持独立，10 个 OpenClaw 开发者工具归入合集维护。</p>
         <div class="tl-tags"><span class="tl-tag">SuperPM</span><span class="tl-tag">OpenClaw × 10</span><span class="tl-tag">Python / Shell</span></div>
       </div>
       <div class="tl-item">
@@ -409,25 +303,22 @@
       <div class="tl-item">
         <div class="tl-date">2022.09</div>
         <h4>ML-PD · 机器学习起点</h4>
-        <p>代谢组学疾病的机器学习建模：特征工程 + 多模型对比，最早的公开仓库。</p>
+        <p>围绕代谢组学数据开展分类研究，探索特征筛选与多模型比较，以 Notebook 留下实验过程。</p>
         <div class="tl-tags"><span class="tl-tag">特征工程</span><span class="tl-tag">多模型对比</span><span class="tl-tag">Python</span></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ============ 联系 ============ -->
-<footer id="contact">
+</main>
+<footer id="contact" aria-labelledby="contact-heading">
   <div class="wrap">
-    <h2><span class="num">06</span>联系我</h2>
-    <p class="sub">欢迎交流 AI 产品与 Agent 工程。简历与私有项目详情可在沟通中提供。</p>
-    <div class="cta">
-      <a class="btn primary" href="https://github.com/daizhouchen" target="_blank" rel="noopener">GitHub · daizhouchen</a>
-      <a class="btn ghost" href="https://unitrade.shop" target="_blank" rel="noopener">unitrade.shop</a>
+    <div class="contact-layout">
+      <div><p class="eyebrow">CONTINUE THE CONVERSATION</p><h2 id="contact-heading"><span class="num">06</span>从一个具体问题，<br/>开始交流。</h2><p class="sub">欢迎交流产品设计、AI 应用与工程实践。<br/>项目细节与私有材料可在沟通中进一步介绍。</p></div>
+      <a class="contact-link" href="https://github.com/daizhouchen" target="_blank" rel="noopener"><span>在 GitHub 找到我<small>@daizhouchen</small></span><span aria-hidden="true">↗</span></a>
     </div>
-    <p class="fine">© 2026 戴宙辰 Daizhouchen · 本站为纯静态 HTML/CSS，无追踪、无外部依赖 · 由 <a href="https://github.com/daizhouchen/daizhouchen.github.io" target="_blank" rel="noopener">daizhouchen.github.io</a> 仓库托管</p>
+    <div class="footer-bottom"><span>© 2026 戴宙辰 · Daizhouchen</span><span>静态站点 · 无追踪脚本</span><a href="https://github.com/daizhouchen/daizhouchen.github.io" target="_blank" rel="noopener">本站源码 ↗</a><a href="#top">回到页首 ↑</a></div>
   </div>
 </footer>
-
 </body>
 </html>
