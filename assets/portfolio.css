@@ -183,6 +183,7 @@ footer{padding:72px 0 20px;background:var(--green);color:var(--paper);scroll-mar
 /* Graph Cube: an awarded research product, distinct from deployment practice. */
 .tulifang-feature{padding:33px 37px 27px;margin-bottom:35px;background:#f7f4e9;border:1px solid #e0d9c6;border-radius:18px;scroll-margin-top:110px}
 .tulifang-feature-top{display:flex;align-items:center;justify-content:space-between;gap:16px;font-size:12px;color:var(--ink-soft)}
+.tulifang-awards{display:flex;flex-wrap:wrap;gap:8px}.tulifang-feature-top>span{flex:none}
 .tulifang-award{display:inline-flex;align-items:center;padding:7px 13px;border:1px solid #c9b78a;border-radius:24px;background:#f1e7cc;color:#6b5527;font-size:12px;white-space:nowrap}
 .tulifang-feature-grid{display:grid;grid-template-columns:1fr 1.05fr;gap:42px;align-items:center;margin-top:30px}
 .tulifang-feature-copy{min-width:0}.tulifang-feature h3{font:600 38px/1.4 var(--sans);letter-spacing:-.04em}.tulifang-feature h3>span{display:block;font:400 17px/1.8 var(--sans);letter-spacing:.015em;color:#6d745f;margin-top:5px}

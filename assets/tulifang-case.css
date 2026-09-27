@@ -21,7 +21,8 @@
 .tulifang-page h1>span{display:block;margin-top:12px;font-size:.53em;line-height:1.2;letter-spacing:-.04em;font-weight:500}
 .tulifang-page .case-subtitle{margin-top:23px;font-size:20px;line-height:1.6;font-weight:500;letter-spacing:-.035em}
 .tulifang-page .case-intro{max-width:470px;margin-top:21px;font-size:14px;line-height:2.05;color:#536159}
-.tulifang-page .case-award{display:inline-flex;align-items:center;gap:10px;margin-top:26px;min-height:43px;padding:8px 13px;border:1px solid #d7c7a9;border-radius:4px;color:#695330;font-size:12px;background:#f2ebdb}
+.tulifang-page .case-awards{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}
+.tulifang-page .case-award{display:inline-flex;align-items:center;gap:10px;min-height:43px;padding:8px 13px;border:1px solid #d7c7a9;border-radius:4px;color:#695330;font-size:12px;background:#f2ebdb}
 .tulifang-page .case-award:hover{background:#ebe1cc;text-decoration:none}
 .tulifang-page .award-mark{font-size:17px;color:#977345}
 .tulifang-page .case-award>span:last-child{margin-left:7px}
@@ -72,7 +73,8 @@
 .tulifang-page .award-panel{min-height:317px;border-left:3px solid #b49162;padding:7px 0 8px 32px}
 .tulifang-page .award-symbol{display:block;color:#a7834e;font-size:30px;line-height:1;margin-bottom:22px}
 .tulifang-page .award-panel>p{color:#68726a;font-size:12px;margin-bottom:13px}
-.tulifang-page .award-panel h3{font-size:34px;line-height:1.5;color:#203f35;font-weight:500}
+.tulifang-page .award-panel h3{font-size:24px;line-height:1.5;color:#203f35;font-weight:500}
+.tulifang-page .award-panel h3+h3{margin-top:20px}
 .tulifang-page .award-caption{display:block;margin-top:25px;font-size:11px;color:#68726a}
 .tulifang-page .source-list{list-style:none;border-top:1px solid #c9cdbf}
 .tulifang-page .source-list li{border-bottom:1px solid #c9cdbf}
@@ -132,7 +134,8 @@
   .tulifang-page h1>span{font-size:29px;margin-top:8px}
   .tulifang-page .case-subtitle{font-size:18px;margin-top:21px}
   .tulifang-page .case-intro{margin-top:17px;font-size:13px;line-height:2}
-  .tulifang-page .case-award{margin-top:21px;font-size:11px;min-height:44px}
+  .tulifang-page .case-awards{margin-top:21px;gap:8px}
+  .tulifang-page .case-award{font-size:11px;min-height:44px}
   .tulifang-page .case-hero-figure{width:100%;max-width:520px;justify-self:center}
   .tulifang-page .case-hero-figure figcaption{font-size:9px;text-align:left;margin-top:10px}
   .tulifang-page .case-facts{grid-template-columns:1fr;gap:12px;margin-top:27px;padding-block:22px}
@@ -174,7 +177,7 @@
   .tulifang-page .award-panel{min-height:0;padding-left:23px;position:relative}
   .tulifang-page .award-symbol{position:absolute;right:9px;top:12px;font-size:35px}
   .tulifang-page .award-panel>p{font-size:11px;margin-bottom:9px}
-  .tulifang-page .award-panel h3{font-size:29px}
+  .tulifang-page .award-panel h3{font-size:22px}
   .tulifang-page .award-caption{font-size:10px;margin-top:15px}
   .tulifang-page .source-list a{padding-block:17px;gap:18px}
   .tulifang-page .source-list h3{font-size:14px}
