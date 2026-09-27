@@ -127,6 +127,7 @@
 </style>
 <link rel="stylesheet" href="assets/homepage.css"/>
 <link rel="stylesheet" href="assets/honestvgeo.css"/>
+<link rel="stylesheet" href="assets/skills.css"/>
 </head>
 <body>
 
@@ -306,61 +307,48 @@
 </section>
 
 <!-- ============ 04 Skills ============ -->
-<section id="skills">
+<section id="skills" class="skills-window">
   <div class="wrap">
-    <h2><span class="num">04</span>可复用的 AI Skills</h2>
-    <p class="sub">把产品研究、方案设计与工程执行中的重复步骤，沉淀为可复用的工作流。精选公开仓库，配图展示仓库介绍或模板示例。</p>
-    <div class="shot-grid">
-      <a class="shot" href="https://github.com/daizhouchen/superpm" target="_blank" rel="noopener">
-        <img src="assets/skill-superpm.png" alt="SuperPM 七阶段生命周期与质量门（据仓库 SKILL.md 绘制）" loading="lazy"/>
-        <div class="body">
-          <h3>SuperPM <span class="tag hot" style="vertical-align:2px">Flagship</span></h3>
-          <p>给 AI Agent 用的 spec 驱动项目管理框架：7 阶段生命周期、质量门、风险管理与并行执行。</p>
-          <div class="tags"><span class="tag">Shell</span><span class="tag">Agent 编排</span><span class="tag">Spec 驱动</span></div>
+    <div class="skills-heading"><div><h2><span class="num">04</span>可复用的 AI Skills</h2><p class="sub">研究、设计与工程执行中沉淀的工具。按需选用，直接查看源码。</p></div><span class="skills-index" aria-hidden="true">06 / COLLECTION</span></div>
+    <div class="skill-grid">
+      <a class="skill-card" href="https://github.com/daizhouchen/superpm" target="_blank" rel="noopener">
+        <div class="skill-art"><img src="assets/skills/superpm.svg" alt="从需求文档、并行任务到交付检查的概念示意" width="960" height="540" loading="lazy"/></div>
+        <div class="skill-body"><span class="skill-category">工程执行</span><h3>SuperPM</h3><p>把需求拆成任务，跟踪依赖、风险与交付检查。</p>
+          <div class="skill-bottom"><div class="skill-tags"><span>项目管理</span><span>Bash</span></div><span class="skill-link">GitHub <span aria-hidden="true">↗</span></span></div>
         </div>
       </a>
-      <a class="shot" href="https://github.com/daizhouchen/book-distiller" target="_blank" rel="noopener">
-        <img src="assets/now-book-distiller.png" alt="Book Distiller 仓库介绍图：从书籍内容到单页知识摘要" loading="lazy"/>
-        <div class="body">
-          <h3>Distiller 蒸馏系列</h3>
-          <p>把书籍、电影和领域知识整理成结构清晰的单页 HTML，便于理解、回看与分享。这里收录 book、movie、domain 三个方向。</p>
-          <div class="tags"><span class="tag hot">知识提炼</span><span class="tag">单文件 HTML</span></div>
+      <a class="skill-card" href="https://github.com/daizhouchen/book-distiller" target="_blank" rel="noopener">
+        <div class="skill-art"><img src="assets/skills/distiller.svg" alt="将来源材料提炼为结构化单页的概念示意" width="960" height="540" loading="lazy"/></div>
+        <div class="skill-body"><span class="skill-category">知识整理</span><h3>Distiller 蒸馏系列</h3><p>从书籍、电影与领域资料中提炼结构，生成单页 HTML。</p>
+          <div class="skill-bottom"><div class="skill-tags"><span>书籍 · 电影 · 领域</span><span>HTML</span></div><span class="skill-link">GitHub <span aria-hidden="true">↗</span></span></div>
         </div>
       </a>
-      <a class="shot" href="https://github.com/daizhouchen/prism-research" target="_blank" rel="noopener">
-        <img src="assets/now-prism-research.png" alt="Prism Research 仓库介绍图：多层次研究框架" loading="lazy"/>
-        <div class="body">
-          <h3>棱镜研究 Prism Research</h3>
-          <p>围绕产品、公司、概念与技术开展多层次研究，结合横向比较和历史脉络，整理可追溯来源的研究报告。</p>
-          <div class="tags"><span class="tag hot">深度研究</span><span class="tag">HTML 报告</span></div>
+      <a class="skill-card" href="https://github.com/daizhouchen/prism-research" target="_blank" rel="noopener">
+        <div class="skill-art"><img src="assets/skills/prism.svg" alt="多层分析汇合为可追溯研究结论的概念示意" width="960" height="540" loading="lazy"/></div>
+        <div class="skill-body"><span class="skill-category">深度研究</span><h3>棱镜研究 Prism Research</h3><p>结合历史脉络与横向比较，组织证据、推断和研究结论。</p>
+          <div class="skill-bottom"><div class="skill-tags"><span>研究框架</span><span>来源追溯</span></div><span class="skill-link">GitHub <span aria-hidden="true">↗</span></span></div>
         </div>
       </a>
-      <a class="shot" href="https://github.com/daizhouchen/market-research-skill" target="_blank" rel="noopener">
-        <img src="assets/skill-market-research.png" alt="Market Research 仓库介绍图：研究问题、数据源策略与市场洞察" loading="lazy"/>
-        <div class="body">
-          <h3>Market Research</h3>
-          <p>按可用数据源规划市场调研，交叉核对需求与竞争信息，输出区分事实、推断和数据缺口的报告。</p>
-          <div class="tags"><span class="tag hot">市场研究</span><span class="tag">数据源策略</span></div>
+      <a class="skill-card" href="https://github.com/daizhouchen/market-research-skill" target="_blank" rel="noopener">
+        <div class="skill-art"><img src="assets/skills/market.svg" alt="从需求、竞争和趋势信息形成市场判断的概念示意" width="960" height="540" loading="lazy"/></div>
+        <div class="skill-body"><span class="skill-category">市场判断</span><h3>Market Research</h3><p>按可用数据源规划调研，交叉核对需求与竞争信息。</p>
+          <div class="skill-bottom"><div class="skill-tags"><span>市场调研</span><span>Python</span></div><span class="skill-link">GitHub <span aria-hidden="true">↗</span></span></div>
         </div>
       </a>
-      <a class="shot" href="https://github.com/daizhouchen/openclaw-skills" target="_blank" rel="noopener">
-        <img src="assets/skill-openclaw.png" alt="openclaw-skills 仓库官方 hero 图" loading="lazy"/>
-        <div class="body">
-          <h3>OpenClaw Skills 合集</h3>
-          <p>面向日常开发的工具合集：模拟 API、梳理代码库、分析数据与整理 Git 变更，把重复的工程任务组织成可调用的工作流。</p>
-          <div class="tags"><span class="tag hot">开发者工具</span><span class="tag">Python</span></div>
+      <a class="skill-card" href="https://github.com/daizhouchen/openclaw-skills" target="_blank" rel="noopener">
+        <div class="skill-art"><img src="assets/skills/openclaw.svg" alt="开发工具分别组织为独立模块的概念示意" width="960" height="540" loading="lazy"/></div>
+        <div class="skill-body"><span class="skill-category">开发工具</span><h3>OpenClaw Skills</h3><p>API 模拟、代码库梳理与数据分析，按需取用的开发工具。</p>
+          <div class="skill-bottom"><div class="skill-tags"><span>10 个工具</span><span>按需安装</span></div><span class="skill-link">GitHub <span aria-hidden="true">↗</span></span></div>
         </div>
       </a>
-      <a class="shot" href="https://github.com/daizhouchen/claude-product-designer" target="_blank" rel="noopener">
-        <img class="template-preview" src="assets/skill-product-designer.svg" alt="Claude Product Designer 仓库移动端线框模板：阅读清单填充示例" loading="lazy"/>
-        <div class="body">
-          <h3>Claude Product Designer</h3>
-          <p>将产品想法整理为可阅读的设计稿，按场景调用理论卡与预制图形模板，覆盖用户、流程和界面表达。</p>
-          <div class="tags"><span class="tag hot">产品设计</span><span class="tag">HTML</span></div>
+      <a class="skill-card" href="https://github.com/daizhouchen/claude-product-designer" target="_blank" rel="noopener">
+        <div class="skill-art"><img src="assets/skills/designer.svg" alt="把用户任务、流程与界面对应起来的概念示意" width="960" height="540" loading="lazy"/></div>
+        <div class="skill-body"><span class="skill-category">产品设计</span><h3>Product Designer</h3><p>用功能清单、线框与用户流程，把想法写成可讨论的设计稿。</p>
+          <div class="skill-bottom"><div class="skill-tags"><span>产品设计</span><span>SVG + HTML</span></div><span class="skill-link">GitHub <span aria-hidden="true">↗</span></span></div>
         </div>
       </a>
     </div>
-    <p class="sub" style="margin:18px 0 0">更多公开 Skill：wechat-mp-writer · tool-mastery · svg-icon-forge · ppt-master —— 可在 <a href="https://github.com/daizhouchen" target="_blank" rel="noopener">GitHub 主页</a>查看仓库与使用说明。</p>
+    <p class="skills-more">更多工具：wechat-mp-writer · tool-mastery · svg-icon-forge · ppt-master <a href="https://github.com/daizhouchen" target="_blank" rel="noopener">GitHub 主页 <span aria-hidden="true">↗</span></a></p>
   </div>
 </section>
 
