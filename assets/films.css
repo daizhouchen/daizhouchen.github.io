@@ -1,0 +1,19 @@
+@font-face{font-family:"Portfolio Serif";src:url("fonts/portfolio-serif-film.woff2") format("woff2");font-style:normal;font-weight:500;font-display:swap;unicode-range:U+4EBA,U+4EFF,U+4F1A,U+50CF,U+5668,U+5728,U+5B66,U+5F71,U+601D,U+662F,U+673A,U+6A21,U+6B63,U+8003,U+8FD8}
+/* An inline film spread within the existing portfolio design system. */
+.film-feature{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);align-items:start;gap:38px}
+.film-screen{min-width:0}
+.film-screen video{display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:contain;background:#111b20;border:1px solid rgba(32,39,35,.12);border-radius:14px}
+.film-screen video:focus-visible{outline:3px solid var(--accent);outline-offset:5px}
+.film-screen figcaption{display:flex;justify-content:space-between;flex-wrap:wrap;gap:7px 18px;margin-top:14px;color:var(--ink-faint);font-size:11px;line-height:1.8}
+.film-copy{min-width:0;padding-top:3px}
+.film-copy h3{font:600 clamp(23px,2.1vw,29px)/1.5 var(--sans);letter-spacing:-.025em}
+.film-question{margin:18px 0;font:500 21px/1.8 var(--serif);color:var(--green)}
+.film-copy>p:not(.kind):not(.film-question){font-size:14px;line-height:1.95;color:var(--ink-soft)}
+.film-copy>.film-credit{margin-top:17px;font-size:12px!important;color:var(--ink-faint)!important}
+.film-actions{margin-top:24px;gap:10px 14px}
+.film-actions .abtn{font-size:12px;padding-inline:14px}
+.film-download{font-size:12px;display:inline-flex;align-items:center;gap:8px;min-height:44px}
+@media(max-width:1100px){.film-feature{grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:28px}.film-copy h3{font-size:24px}.film-question{font-size:19px}}
+@media(max-width:900px){.film-feature{grid-template-columns:1fr;gap:25px}.film-screen figcaption{margin-top:11px}.film-copy h3{font-size:27px}.film-question{font-size:22px}.film-copy>p{max-width:760px}}
+@media(max-width:700px){.film-feature{gap:23px}.film-screen video{border-radius:10px}.film-screen figcaption{font-size:10px;gap:5px 13px}.film-copy h3{font-size:25px}.film-question{font-size:21px;margin:16px 0}.film-actions{margin-top:20px;gap:8px 12px}}
+@media print{.film-screen video{display:none}.film-feature{display:block;break-inside:avoid}.film-copy{margin-top:15px}}

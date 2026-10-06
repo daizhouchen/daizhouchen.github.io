@@ -1,0 +1,241 @@
+《像人一样回答之后》叙事版 V3——AI 的发展史，与理解的边界
+研究与许可核对日期：2026-10-06
+成片规格：4 分 06 秒（含片尾）、1920×1080、16:9、30 fps、MP4 / H.264 + AAC。
+旁白正文：1031 个汉字；中文神经网络合成旁白，非真人采访录音。
+
+一、主要研究资料与事实对应
+
+1. Alan M. Turing (1950), Computing Machinery and Intelligence, Mind 59(236), 433–460.
+原始论文（大学存档）：https://www.csee.umbc.edu/courses/471/papers/turing.pdf
+对应：00:21–00:41，图灵提出模仿游戏；影片将其解释为行为评价思路，不声称测试证明主观意识。人物照片拍摄于 1928–1929，不是 1950 年的照片。
+
+2. John McCarthy, Marvin Minsky, Nathaniel Rochester, Claude Shannon (1955-08-31), A Proposal for the Dartmouth Summer Research Project on Artificial Intelligence.
+原始提案（Stanford / McCarthy 档案）：https://www-formal.stanford.edu/jmc/history/dartmouth/dartmouth.html
+麦卡锡回顾：https://www-formal.stanford.edu/jmc/slides/dartmouth/dartmouth/node1.html
+对应：00:41–00:54。提案写于 1955 年，研讨项目在 1956 年夏季举行；片中年份标注明确区分这两个时间，不把 1957 年 MIT 计算机影像说成达特茅斯会议现场。
+
+3. David R. Martinez et al. (2019), Artificial Intelligence: Short History, Present Developments, and Future Outlook, MIT Lincoln Laboratory.
+机构记录：https://www.ll.mit.edu/r-d/publications/artificial-intelligence-short-history-present-developments-and-future-outlook
+报告：https://www.ll.mit.edu/sites/default/files/publication/doc/2022-10/Artificial%20Intelligence%20Short%20History%2C%20Present%20Developments%2C%20and%20Future%20Outlook%20-%20Final%20Report%20-%20Martinez_.pdf
+Computer History Museum 历史资料：https://www.computerhistory.org/timeline/ai-robotics/
+对应：00:54–01:16。早期逻辑推理、有限领域成果，以及承诺、实际效果和投资之间的落差。寒冬有多种历史分期；影片不把研究说成完全停止，也不把规则与学习说成整齐的前后替代。叙事版用档案与情境片段衔接研究期待和低谷，没有伪造统计趋势。
+
+4. Yann LeCun, Yoshua Bengio, Geoffrey Hinton (2015), Deep learning, Nature 521, 436–444.
+论文：https://www.nature.com/articles/nature14539
+对应：01:16–01:50。通过训练调整参数、多层表示逐步提取特征；猫的实拍素材、硬件画面和图形标签用于机制说明，不是模型实际训练结果。
+
+5. Alex Krizhevsky, Ilya Sutskever, Geoffrey Hinton (2012), ImageNet Classification with Deep Convolutional Neural Networks.
+原始论文：https://www.cs.toronto.edu/~hinton/absps/imagenet.pdf
+对应：01:42–01:50。2012 年图像识别突破是深度学习的重要转折，不声称深度学习起源于 2012 年。
+
+6. Google DeepMind, AlphaGo 官方项目历史与技术说明。
+https://deepmind.google/research/alphago/
+对应：01:50–01:59。2016 年 3 月首尔，AlphaGo 以 4:1 战胜李世石；结合神经网络与搜索，使用专家棋谱和自我对弈。棋盘是原创 19×19 围棋概念动画，不是某一真实棋局的复盘；照片也不是比赛现场。
+
+7. Ashish Vaswani et al. (2017), Attention Is All You Need.
+https://arxiv.org/abs/1706.03762
+8. Jonathan Ho, Ajay Jain, Pieter Abbeel (2020), Denoising Diffusion Probabilistic Models.
+https://arxiv.org/abs/2006.11239
+对应：01:59–02:16。语言模型的上下文关系与后续内容预测、部分图像模型的逐步去噪机制。使用“一些图像模型”，没有说所有图像生成方法都是扩散模型。语言与图像素材是机制示意，不冒充生成系统屏幕实录。
+
+9. John R. Searle (1980), Minds, Brains, and Programs, Behavioral and Brain Sciences 3, 417–457.
+原始论文（Case Western Reserve University 存档）：https://artscimedia.case.edu/wp-content/uploads/2013/07/14182625/Searle-Minds-Brains-and-Programs.pdf
+10. Stanford Encyclopedia of Philosophy, The Chinese Room Argument.
+https://plato.stanford.edu/entries/chinese-room/
+对应：02:16–02:59。房间、规则手册和符号输入输出是思想实验的简化呈现。影片明确把“形式规则不足以产生理解”归于塞尔的立场，同时介绍系统回应、与世界互动的回应；没有宣称思想实验已经证明所有 AI 永远不能理解。
+
+11. Patrick Butlin et al. (2023), Consciousness in Artificial Intelligence: Insights from the Science of Consciousness.
+https://arxiv.org/abs/2308.08708
+12. Identifying indicators of consciousness in AI systems, Trends in Cognitive Sciences, DOI: 10.1016/j.tics.2025.10.011.
+https://doi.org/10.1016/j.tics.2025.10.011
+对应：02:59–03:15。区分问题解决能力与主观体验；意识指标仍处于研究和争论中。“智能是解决问题的能力”是面向普通观众的简化工作定义，并非声称唯一公认定义。2023 年报告对当时系统的判断，没有被当成 2026 年所有系统的既定结论。
+
+13. NIST, AI Risk Management Framework.
+https://www.nist.gov/itl/ai-risk-management-framework
+对应：03:15–04:06。核查、纠错、角色责任与治理。结尾的责任判断属于影片的规范性论述，并非对某一国家法律责任的判定。
+
+二、实拍素材与许可
+
+新版采用 51 个镜头，旁白相对 V1 提速 18%。普通实拍画面为情境素材，不是人物采访、真实 AI 屏幕演示或历史事件重构。重要哲学立场与历史资料保持原稿。
+
+统一许可：Pexels License。可免费使用、修改；无需署名，本片仍记录作者。不得把可识别人物置于侮辱性情境、暗示人物或品牌背书、转售未经修改的素材，或在其他素材平台重新分发。本片用于有实质剪辑的科普作品，没有把素材人物说成塞尔、图灵、实际实验参与者或失责者。
+许可原文：https://www.pexels.com/license/
+使用条款：https://www.pexels.com/terms-of-service/
+
+素材：typing
+作者：Ufuk Avcuoğlu
+来源：https://www.pexels.com/video/close-up-shot-of-a-person-typing-on-the-computer-keyboard-4450059/
+实际媒体：https://videos.pexels.com/video-files/4450059/4450059-hd_1920_1080_24fps.mp4
+许可：Pexels License
+许可链接：https://www.pexels.com/license/
+处理：截取、必要的裁切、统一调色、去原声、叠加字幕与关键词。
+出现：00:00.00–00:03.60（源 0.00–3.60s）；00:05.20–00:07.40（源 6.00–8.20s）；01:06.83–01:10.10（源 20.00–23.27s）；03:33.57–03:37.47（源 13.00–16.90s）
+
+素材：server
+作者：ALL IZ Well
+来源：https://www.pexels.com/video/database-storage-of-a-server-5028622/
+实际媒体：https://videos.pexels.com/video-files/5028622/5028622-uhd_3840_2160_25fps.mp4
+许可：Pexels License
+许可链接：https://www.pexels.com/license/
+处理：截取、必要的裁切、统一调色、去原声、叠加字幕与关键词。
+出现：00:07.40–00:11.57（源 3.00–7.17s）；00:15.97–00:21.20（源 9.00–14.23s）；01:35.93–01:40.47（源 17.00–21.53s）；01:57.53–01:59.17（源 7.00–8.63s）；02:08.50–02:10.50（源 13.00–15.00s）；03:46.93–03:52.20（源 22.00–27.27s）
+
+素材：server_detail
+作者：MrColo
+来源：https://www.pexels.com/video/close-up-of-a-cpu-7140928/
+实际媒体：https://videos.pexels.com/video-files/7140928/7140928-uhd_3840_2160_24fps.mp4
+许可：Pexels License
+许可链接：https://www.pexels.com/license/
+处理：截取、必要的裁切、统一调色、去原声、叠加字幕与关键词。
+出现：03:11.83–03:14.80（源 1.00–3.97s）
+
+素材：thinking
+作者：Cup of Couple
+来源：https://www.pexels.com/video/man-with-an-afro-hair-thinking-6956679/
+实际媒体：https://videos.pexels.com/video-files/6956679/6956679-hd_1080_1920_25fps.mp4
+许可：Pexels License
+许可链接：https://www.pexels.com/license/
+处理：截取、必要的裁切、统一调色、去原声、叠加字幕与关键词。
+出现：00:11.57–00:15.97（源 0.30–4.70s）；02:10.50–02:15.60（源 1.20–6.30s）；02:34.13–02:38.87（源 0.20–4.93s）
+
+素材：crowd
+作者：Coverr
+来源：https://www.pexels.com/video/slow-motion-video-of-people-crossing-the-street-853957/
+实际媒体：https://videos.pexels.com/video-files/853957/853957-hd_1920_1080_30fps.mp4
+许可：CC0 / Pexels License
+许可链接：https://www.pexels.com/license/
+处理：截取、必要的裁切、统一调色、去原声、叠加字幕与关键词。
+出现：01:10.10–01:16.27（源 0.00–6.17s）；03:18.20–03:23.00（源 5.00–9.80s）；03:39.67–03:41.60（源 0.00–1.93s）；03:52.20–03:59.83（源 4.00–11.63s）；03:59.83–04:06.00（源 6.00–12.17s）
+
+素材：writing
+作者：www.kaboompics.com
+来源：https://www.pexels.com/video/person-writing-on-a-notebook-using-a-pen-6326847/
+实际媒体：https://videos.pexels.com/video-files/6326847/6326847-uhd_4096_2160_25fps.mp4
+许可：Pexels License
+许可链接：https://www.pexels.com/license/
+处理：截取、必要的裁切、统一调色、去原声、叠加字幕与关键词。
+出现：00:40.47–00:42.77（源 3.00–5.30s）；02:15.60–02:20.37（源 0.00–4.77s）；03:41.60–03:46.93（源 4.00–9.33s）
+
+素材：eye
+作者：Kindel Media
+来源：https://www.pexels.com/video/eye-close-up-7298045/
+实际媒体：https://videos.pexels.com/video-files/7298045/7298045-uhd_3840_2160_30fps.mp4
+许可：Pexels License
+许可链接：https://www.pexels.com/license/
+处理：截取、必要的裁切、统一调色、去原声、叠加字幕与关键词。
+出现：02:45.03–02:48.43（源 6.00–9.40s）；03:07.03–03:11.83（源 6.00–10.80s）
+
+素材：cat
+作者：Marc Espejo
+来源：https://www.pexels.com/video/close-up-shot-of-a-cat-6983539/
+实际媒体：https://videos.pexels.com/video-files/6983539/6983539-uhd_3840_2160_24fps.mp4
+许可：Pexels License
+许可链接：https://www.pexels.com/license/
+处理：截取、必要的裁切、统一调色、去原声、叠加字幕与关键词。
+出现：01:22.97–01:31.07（源 7.00–15.10s）
+
+素材：lab
+作者：Mikhail Nilov
+来源：https://www.pexels.com/video/scientist-using-microscope-9430411/
+实际媒体：https://videos.pexels.com/video-files/9430411/9430411-hd_1920_1080_25fps.mp4
+许可：Pexels License
+许可链接：https://www.pexels.com/license/
+处理：截取、必要的裁切、统一调色、去原声、叠加字幕与关键词。
+出现：03:37.47–03:39.67（源 1.00–3.20s）
+
+素材：drawing
+作者：cottonbro studio
+来源：https://www.pexels.com/video/sketching-using-stylus-on-digital-tablet-7117913/
+实际媒体：https://videos.pexels.com/video-files/7117913/7117913-uhd_4096_2160_25fps.mp4
+许可：Pexels License
+许可链接：https://www.pexels.com/license/
+处理：截取、必要的裁切、统一调色、去原声、叠加字幕与关键词。
+出现：00:03.60–00:05.20（源 2.00–3.60s）
+
+素材：meeting
+作者：Mikhail Nilov
+来源：https://www.pexels.com/video/a-business-team-doing-a-meeting-8103039/
+实际媒体：https://videos.pexels.com/video-files/8103039/8103039-hd_1920_1080_25fps.mp4
+许可：Pexels License
+许可链接：https://www.pexels.com/license/
+处理：截取、必要的裁切、统一调色、去原声、叠加字幕与关键词。
+出现：02:53.20–02:58.77（源 2.00–7.57s）；03:14.80–03:18.20（源 9.00–12.40s）
+
+三、沿用的档案与照片
+
+File:Alan Turing at age 16.jpg
+作者：Possibly Arthur Reginald Chaffin (1893-1954)
+来源：https://commons.wikimedia.org/wiki/File:Alan_Turing_at_age_16.jpg
+许可：Public domain
+许可链接：https://commons.wikimedia.org/wiki/File:Alan_Turing_at_age_16.jpg
+出现：00:21.20–00:26.90；03:31.87–03:33.57
+1928–1929 年少年图灵照片；与 1950 年论文讨论并置，影片标注照片年代。
+处理：截取或推近、缩放、必要的照片裁切、去原声、字幕合成。CC BY 素材在对应镜头和片尾署名；工程保留原许可页面快照。
+
+File:Eniac.jpg
+作者：作者未详（美国陆军职务作品）
+来源：https://commons.wikimedia.org/wiki/File:Glen_Beck_and_Betty_Snyder_program_the_ENIAC_in_building_328_at_the_Ballistic_Research_Laboratory.jpg
+许可：Public domain
+许可链接：https://commons.wikimedia.org/wiki/File:Glen_Beck_and_Betty_Snyder_program_the_ENIAC_in_building_328_at_the_Ballistic_Research_Laboratory.jpg
+出现：00:54.17–00:57.17
+美国陆军职务作品，在美国属于公共领域；照片约摄于 1947–1955 年，用作计算史背景。
+处理：截取或推近、缩放、必要的照片裁切、去原声、字幕合成。CC BY 素材在对应镜头和片尾署名；工程保留原许可页面快照。
+
+File:MIT unveils IBM 704 computer at ribbon cutting - the first on campus computer ever!.webm
+作者：IBM Research
+来源：https://commons.wikimedia.org/wiki/File:MIT_unveils_IBM_704_computer_at_ribbon_cutting_-_the_first_on_campus_computer_ever!.webm
+许可：CC BY 3.0
+许可链接：https://creativecommons.org/licenses/by/3.0
+出现：00:42.77–00:47.27；00:47.27–00:54.17；01:03.33–01:06.83
+IBM Research 2024 年发布的 MIT / IBM 704 历史回顾，事件是 1957 年。保留原始标识，没有冒充 1956 年会议现场。
+处理：截取或推近、缩放、必要的照片裁切、去原声、字幕合成。CC BY 素材在对应镜头和片尾署名；工程保留原许可页面快照。
+
+File:How Computers Compute (Science Out Loud S2 Ep5).webm
+作者：MITK12Videos
+来源：https://commons.wikimedia.org/wiki/File:How_Computers_Compute_(Science_Out_Loud_S2_Ep5).webm
+许可：CC BY 3.0
+许可链接：https://creativecommons.org/licenses/by/3.0
+出现：00:57.17–01:03.33；01:31.07–01:35.93；02:48.43–02:53.20
+2014 年机械计算科普演示，保留原始标识；没有说成 AI 系统训练实录。
+处理：截取或推近、缩放、必要的照片裁切、去原声、字幕合成。CC BY 素材在对应镜头和片尾署名；工程保留原许可页面快照。
+
+File:Lee Se-Dol.jpg
+作者：LG Electronics
+来源：https://commons.wikimedia.org/wiki/File:Lee_Se-Dol.jpg
+许可：CC BY 2.0
+许可链接：https://creativecommons.org/licenses/by/2.0
+出现：01:50.33–01:52.33
+2016 年 5 月资料照片，不是 AlphaGo 比赛现场。
+处理：截取或推近、缩放、必要的照片裁切、去原声、字幕合成。CC BY 素材在对应镜头和片尾署名；工程保留原许可页面快照。
+
+四、原创与合成
+
+旁白：zh-CN-YunxiNeural 中文神经网络合成声线，使用保留音高的 atempo 提速 18%。非真人采访或历史人物声音。
+配乐：原创缓慢和弦与 82 BPM 轻脉冲，程序合成，无既有旋律、录音或采样。叙事版调整章节音乐强弱，在图示处加入三处低音量原创提示音。
+棋盘：原创 19×19 透视棋盘动画，明确注明非实战复盘，没有将演示落子说成第 37 手或李世石实战记录。
+标题、字幕、关键词和 11 段连续动态图示为原创；未制作或使用伪装成档案的生成历史镜头。
+字体：本机微软雅黑，仅栅格化于成片，不随工程分发。
+工程：edit.json 记录 51 个源片段和实际入出点；render_edit.py 完成画面剪辑，finish_edit.py 完成字幕与混音。现成配音和素材可脱机重渲染。
+
+五、本次剪辑技能与实际应用
+
+已安装并阅读 Ultimate Video Editor（社区技能，作者 Raj Bharti，MIT 代码许可）及叙事、动效、混音和音效章节。
+仓库：https://github.com/Rajbharti06/Ultimate-Video-Editing-Skills
+技能：https://github.com/Rajbharti06/Ultimate-Video-Editing-Skills/blob/main/skills/ultimate-video-editor/SKILL.md
+对照阅读 Remotion 官方技能说明：https://www.remotion.dev/docs/ai/skills
+本片沿用 FFmpeg / Pillow 制作，没有使用或宣称运行 Remotion。
+实际采用：镜头服务叙事、旁白作为连续声音主线、快慢交替、图中一次强调一个关系、使用缓出运动、先建立情境再展示动作与结果、章节音乐强弱变化、字幕最后合成。没有将平均镜头长度、拍点或夸张营销描述当作普遍定律。
+
+26.90–33.00 秒：图灵测试：文本问答逐步输入、符号沿连接移动。
+33.00–40.47 秒：交流表现与内心体验：沿用空间布局，展开证据边界。
+76.27–82.97 秒：规则与学习：示意规则链、预测以及误差反馈回路。
+100.47–110.33 秒：分层计算：节点与连接依序亮起，注明 2012 / AlexNet。
+119.17–124.07 秒：上下文与候选：符号选择后回填文本。
+124.07–128.50 秒：去噪概念：原创几何图像从噪声中显现；并非真实生成结果或物理算法模拟。
+140.37–148.03 秒：中文房间：输入符号、查手册、输出回答。
+148.03–154.13 秒：中文房间：门外观察到回答流畅，门内操作者不知道含义。
+158.87–165.03 秒：系统反驳：边界从个人扩大到房间与手册，表达一个反驳立场。
+178.77–187.03 秒：智能与意识：区分可观察能力与主观体验。
+203.00–211.87 秒：责任链：按角色展示评估、核查、反馈和承担责任。
+
+图示中的模型结构、候选排序、符号转换均为教学示意，不是测量数据。历史年份仍以原始论文、研讨提案、研究机构及大学资料为依据。
