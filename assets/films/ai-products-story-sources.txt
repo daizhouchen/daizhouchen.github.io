@@ -1,0 +1,152 @@
+《AI产品的故事：惊喜之后，谁还在用？》
+主题：从会说话，到真正有用。
+资料核对日期：2026-10-06。成片：4分06秒，1920×1080，16:9，30fps，H.264 / AAC MP4。
+
+一、研究资料与事实对应
+
+1. Joseph Weizenbaum (1966), ELIZA—A Computer Program for the Study of Natural Language Communication Between Man and Machine.
+Communications of the ACM 9(1), 36–45。原始论文，斯坦福大学课程存档：
+https://web.stanford.edu/class/cs124/p36-weizenabaum.pdf
+对应00:20–00:57：MIT研究者、1966年论文、关键词及分解/重组规则、以治疗师对话作为脚本范例；影片明确区分早期研究原型与商业产品。
+中文对话是机制的意译/情境重构，不是运行原始ELIZA所得的记录，也不声称这些回复证明理解或意识。
+
+2. Microsoft Stories, Office System archive, 2001-04-11, Farewell Clippy.
+https://news.microsoft.com/tag/office-system/page/26/
+Microsoft Learn / MSDN Magazine, David Platt (2011), The Power of the Default：
+https://learn.microsoft.com/en-us/archive/msdn-magazine/2011/august/don-t-get-me-started-the-power-of-the-default
+对应00:57–01:34：办公助手的提醒、Office XP于2001年默认关闭助手；不是2001年彻底移除功能。Microsoft官方档案目录保留同期公告，旧公告详情链接失效，默认状态另以微软MSDN文章交叉核实。
+回形针图形和信件界面均为原创概念重构，不复制Clippy角色美术，不冒充软件截图。
+
+3. Eric Horvitz (1999), Principles of Mixed-Initiative User Interfaces, CHI '99.
+Microsoft Research：
+https://www.microsoft.com/en-us/research/publication/principles-mixed-initiative-user-interfaces/
+原文PDF：
+https://www.microsoft.com/en-us/research/wp-content/uploads/2016/11/chi99horvitz-1.pdf
+对应01:15–01:34和03:10–03:28：主动服务的时机、用户意图的不确定性、打断成本、用户指导与修正。
+影片关于“好意可能成为打扰”和“重要行动先确认”的表述属于基于交互设计研究的创作分析，不称某个功能必然适合所有用户。
+
+4. OpenAI (2022-11-30), Introducing ChatGPT.
+https://openai.com/index/chatgpt/
+对应01:34–02:30：研究预览发布日、对话与追问、基于GPT-3.5及人类反馈的训练、看似合理但可能错误的回答。
+“同一入口降低使用门槛”是导演对产品形态的分析；不声称ChatGPT是第一个聊天机器人，也不把其成功只归因于输入框。
+聊天和邮件画面为自制示意，文字由作者撰写；不引用真实用户聊天，不冒充2022年的原始界面或当前产品测试。
+
+5. GitHub, Eirini Kalliamvakou (2022-09-07; updated 2024-05-21), Research: quantifying GitHub Copilot's impact on developer productivity and happiness.
+https://github.blog/news-insights/research/research-quantifying-github-copilots-impact-on-developer-productivity-and-happiness/
+对应02:32–03:10：2021年技术预览、代码建议的工作流、受控任务中的用时变化。
+图表数据：95名专业开发者；指定JavaScript HTTP服务器任务；使用Copilot平均1小时11分，无Copilot平均2小时41分。为出版者报告的受控实验数据，不是本片实测；不可直接外推到所有编程任务、开发者或完整项目。
+演示代码由作者撰写，接受/改写/忽略只是交互机制示意，不是调用真实产品后的输出。
+
+6. 最后两章为基于上述材料的产品设计讨论。
+邮件草拟/发送、文件总结/决策是作者构造的生活例子，不是已发生的客户事故，也不作为特定产品的性能结论。
+本片讨论用户价值与控制权，不提供产品排行、购买建议或对当前版本的评测。
+
+二、实际入片的视频素材及许可
+
+所有Pexels情境实拍依Pexels License使用，允许用于剪辑成片。许可页面：
+https://www.pexels.com/license/
+不是公共领域素材；遵守不得暗示人物/品牌背书、不得把素材当作独立素材库再出售等条件。
+本片人物作为办公情境示意，不声称他们是上述产品的实际用户、开发者或采访对象。
+原实拍声音全部移除；片中对白为合成旁白。
+
+1. codeclose
+作者：Airraft _channel
+素材页面：https://www.pexels.com/video/close-up-on-computer-screen-while-programming-10130349/
+许可：Pexels License
+许可链接：https://www.pexels.com/license/
+出现位置：02:42–02:46, 03:01–03:05
+修改：选段、统一画幅、轻度调色、去除原声音，并叠加中文旁白/字幕/局部文字。
+
+2. coders
+作者：Kampus Production
+素材页面：https://www.pexels.com/video/people-programming-on-a-computer-8632602/
+许可：Pexels License
+许可链接：https://www.pexels.com/license/
+出现位置：02:31–02:36, 02:50–02:54, 03:36–03:39
+修改：选段、统一画幅、轻度调色、去除原声音，并叠加中文旁白/字幕/局部文字。
+
+3. collaborate
+作者：fauxels
+素材页面：https://www.pexels.com/video/two-ladies-looking-on-information-and-data-in-a-laptop-and-smart-phone-3044993/
+许可：Pexels License
+许可链接：https://www.pexels.com/license/
+出现位置：00:05–00:07, 00:50–00:57, 01:43–01:47, 02:46–02:50, 03:24–03:28, 03:50–03:58, 03:58–04:06
+修改：选段、统一画幅、轻度调色、去除原声音，并叠加中文旁白/字幕/局部文字。
+
+4. drawing
+作者：cottonbro studio
+素材页面：https://www.pexels.com/video/sketching-using-stylus-on-digital-tablet-7117913/
+许可：Pexels License
+许可链接：https://www.pexels.com/license/
+出现位置：02:02–02:06, 03:33–03:36
+修改：选段、统一画幅、轻度调色、去除原声音，并叠加中文旁白/字幕/局部文字。
+
+5. frustrated
+作者：Kampus Production
+素材页面：https://www.pexels.com/video/frustrated-woman-using-a-laptop-8632780/
+许可：Pexels License
+许可链接：https://www.pexels.com/license/
+出现位置：00:07–00:10, 01:11–01:15, 02:26–02:29
+修改：选段、统一画幅、轻度调色、去除原声音，并叠加中文旁白/字幕/局部文字。
+
+6. homework
+作者：Mikael Blomkvist
+素材页面：https://www.pexels.com/video/a-woman-on-a-phone-call-doing-work-4361298/
+许可：Pexels License
+许可链接：https://www.pexels.com/license/
+出现位置：00:00–00:02, 00:36–00:40, 01:30–01:34, 03:14–03:18
+修改：选段、统一画幅、轻度调色、去除原声音，并叠加中文旁白/字幕/局部文字。
+
+7. ibm704
+作者：IBM Research
+素材页面：https://commons.wikimedia.org/wiki/File:MIT_unveils_IBM_704_computer_at_ribbon_cutting_-_the_first_on_campus_computer_ever!.webm
+许可：CC BY 3.0
+许可链接：https://creativecommons.org/licenses/by/3.0
+出现位置：00:20–00:24
+内容：MIT于1957年安装IBM 704的计算机背景档案。不是1966年ELIZA开发现场。画面内明确标注年份、背景性质、作者与许可。依据CC BY 3.0进行裁切、调色、去除原声音，并叠加解释与中文字幕；保留署名和许可链接。
+
+8. officephone
+作者：Mikhail Nilov
+素材页面：https://www.pexels.com/video/a-man-using-a-cellphone-at-the-office-7989834/
+许可：Pexels License
+许可链接：https://www.pexels.com/license/
+出现位置：00:10–00:12, 01:19–01:24, 02:16–02:20, 03:45–03:50
+修改：选段、统一画幅、轻度调色、去除原声音，并叠加中文旁白/字幕/局部文字。
+
+9. server
+作者：ALL IZ Well
+素材页面：https://www.pexels.com/video/database-storage-of-a-server-5028622/
+许可：Pexels License
+许可链接：https://www.pexels.com/license/
+出现位置：01:53–01:57
+修改：选段、统一画幅、轻度调色、去除原声音，并叠加中文旁白/字幕/局部文字。
+
+10. typing
+作者：Ufuk Avcuoğlu
+素材页面：https://www.pexels.com/video/close-up-shot-of-a-person-typing-on-the-computer-keyboard-4450059/
+许可：Pexels License
+许可链接：https://www.pexels.com/license/
+出现位置：00:12–00:20, 01:09–01:11, 01:34–01:37
+修改：选段、统一画幅、轻度调色、去除原声音，并叠加中文旁白/字幕/局部文字。
+
+11. writing
+作者：www.kaboompics.com
+素材页面：https://www.pexels.com/video/person-writing-on-a-notebook-using-a-pen-6326847/
+许可：Pexels License
+许可链接：https://www.pexels.com/license/
+出现位置：00:47–00:50, 02:29–02:31
+修改：选段、统一画幅、轻度调色、去除原声音，并叠加中文旁白/字幕/局部文字。
+
+三、自制内容与制作方法
+
+脚本、21个动态交互/概念镜头、剪辑、邮件与代码示例、数据图、配乐及UI音效为本次原创制作。
+所有交互和历史概念重构在画面内标注；没有AI生成的历史照片或伪造的采访。
+配乐使用程序合成的原创和声、低频脉冲与轻微节拍；音效为原创短音，不使用第三方歌曲或录音。
+中文旁白：Microsoft中文神经网络合成声线zh-CN-YunxiNeural，合成设置rate=+10%、pitch=-2Hz。非真人采访或名人声音克隆。
+中文字体：本机Microsoft YaHei，输出为视频像素；不分发字体文件。
+
+剪辑技能：Ultimate Video Editor（Raj Bharti，MIT代码许可）和local-video。
+https://github.com/Rajbharti06/Ultimate-Video-Editing-Skills/blob/main/skills/ultimate-video-editor/SKILL.md
+实际应用：语义节拍剪辑、硬切为主、短暂停顿、分层动效、对白优先、音乐压低、字幕最后烧录、逐镜头画面与技术验收。
+工程包含可改的脚本、时间线、字幕、动态图形代码、已剪素材段与旁白/配乐。研究论文仅提供链接，不随工程分发。
+第三方画面沿用各自许可；工程代码不替代素材许可。

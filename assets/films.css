@@ -1,6 +1,8 @@
-@font-face{font-family:"Portfolio Serif";src:url("fonts/portfolio-serif-film.woff2") format("woff2");font-style:normal;font-weight:500;font-display:swap;unicode-range:U+4EBA,U+4EFF,U+4F1A,U+50CF,U+5668,U+5728,U+5B66,U+5F71,U+601D,U+662F,U+673A,U+6A21,U+6B63,U+8003,U+8FD8}
+@font-face{font-family:"Portfolio Serif";src:url("fonts/portfolio-serif-film.woff2?v=20261006-two-films") format("woff2");font-style:normal;font-weight:500;font-display:swap;unicode-range:U+4E4B,U+4EBA,U+4EFF,U+4F1A,U+50CF,U+540E,U+559C,U+5668,U+5728,U+5B66,U+5F71,U+601D,U+60CA,U+662F,U+673A,U+6A21,U+6B63,U+8003,U+8C01,U+8FD8}
 /* An inline film spread within the existing portfolio design system. */
 .film-feature{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);align-items:start;gap:38px}
+.film-feature+.film-feature{margin-top:52px;padding-top:42px;border-top:1px solid rgba(32,39,35,.12)}
+#ai-products-film{scroll-margin-top:100px}
 .film-screen{min-width:0}
 .film-screen video{display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:contain;background:#111b20;border:1px solid rgba(32,39,35,.12);border-radius:14px}
 .film-screen video:focus-visible{outline:3px solid var(--accent);outline-offset:5px}
