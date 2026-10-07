@@ -1,0 +1,47 @@
+/* A motion layer for the homepage; all content remains visible without JS. */
+.hero{isolation:isolate}
+.hero-atmosphere{position:absolute;inset:0;z-index:-1;overflow:hidden;pointer-events:none;background-image:linear-gradient(rgba(49,94,76,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(49,94,76,.035) 1px,transparent 1px);background-size:58px 58px;mask-image:linear-gradient(to bottom,black 72%,transparent)}
+.hero-light{position:absolute;width:640px;height:640px;border-radius:50%;opacity:.65}
+.hero-light-green{top:-300px;right:-130px;background:radial-gradient(circle,rgba(103,171,139,.32),rgba(149,185,156,.12) 45%,transparent 70%)}
+.hero-light-gold{bottom:-380px;left:-190px;background:radial-gradient(circle,rgba(207,166,103,.33),rgba(216,193,145,.12) 45%,transparent 70%)}
+.hero-constellation{position:absolute;inset:0;width:100%;height:100%;opacity:.72}
+.hero-orbit{position:absolute;border:1px solid rgba(126,151,118,.17);border-radius:50%;width:560px;height:560px;right:1%;top:-110px;transform:rotate(-24deg) scaleY(.7)}
+.hero-orbit::before{content:"";position:absolute;top:24%;left:6%;width:7px;height:7px;border-radius:50%;background:#b49162;box-shadow:0 0 18px 5px rgba(180,145,98,.18)}
+.hero-orbit-two{width:700px;height:700px;right:-7%;top:-180px;transform:rotate(30deg) scaleY(.72);border-color:rgba(180,145,98,.13)}
+.hero-orbit-two::before{top:75%;left:5%;width:4px;height:4px;background:#6b9179}
+.motion-enabled .hero-light-green{animation:light-drift 16s ease-in-out infinite alternate}
+.motion-enabled .hero-light-gold{animation:light-drift 20s ease-in-out -8s infinite alternate-reverse}
+.motion-enabled .hero-orbit-one{animation:orbit-drift 24s ease-in-out infinite alternate}
+.motion-enabled .hero-orbit-two{animation:orbit-drift-two 30s ease-in-out infinite alternate}
+.motion-enabled .eyebrow::before{height:5px;width:5px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 5px rgba(49,94,76,.08);animation:signal-pulse 3s ease-in-out infinite}
+.motion-enabled .hero-composition{transform:perspective(1100px) rotateX(var(--tilt-x,0deg)) rotateY(var(--tilt-y,0deg));transition:transform .45s cubic-bezier(.2,.7,.2,1)}
+.motion-enabled .preview,.motion-enabled .skill-art{position:relative;transform:perspective(1100px) rotateX(var(--tilt-x,0deg)) rotateY(var(--tilt-y,0deg));transition:transform .45s cubic-bezier(.2,.7,.2,1),box-shadow .45s ease}
+.motion-enabled .preview[data-hover],.motion-enabled .skill-art[data-hover]{box-shadow:0 20px 38px -24px rgba(32,63,53,.5)}
+.motion-enabled .preview::after,.motion-enabled .skill-art::after{content:"";position:absolute;inset:0;pointer-events:none;border-radius:inherit;opacity:0;transition:opacity .35s ease;background:radial-gradient(ellipse at var(--pointer-x,50%) var(--pointer-y,50%),rgba(255,255,255,.28),transparent 65%);box-shadow:inset 0 0 0 1px rgba(255,255,255,.35)}
+.motion-enabled .preview[data-hover]::after,.motion-enabled .skill-art[data-hover]::after{opacity:1}
+.motion-enabled .btn:hover,.motion-enabled .abtn.fill:hover{transform:translateY(-3px);box-shadow:0 9px 20px -13px rgba(32,63,53,.65)}
+.motion-enabled .btn span,.motion-enabled .abtn span,.motion-enabled .contact-link>span:last-child{transition:transform .3s ease}
+.motion-enabled .btn:hover span,.motion-enabled .abtn:hover span{transform:translate(2px,-2px)}
+.motion-enabled .contact-link:hover>span:last-child{transform:rotate(-12deg)}
+.reading-progress{position:fixed;top:0;left:0;width:100%;height:3px;background:linear-gradient(90deg,#315e4c,#8dba8e,#b49162);transform:scaleX(0);transform-origin:left;z-index:70;pointer-events:none;box-shadow:0 0 10px rgba(49,94,76,.18)}
+.motion-control{position:fixed;right:22px;bottom:22px;z-index:60;display:flex;align-items:center;gap:9px;min-height:44px;padding:10px 15px;border:1px solid rgba(49,94,76,.18);border-radius:30px;background:rgba(255,254,250,.94);color:var(--green);box-shadow:0 8px 26px -12px rgba(32,63,53,.25);backdrop-filter:blur(12px);font:500 11px/1.5 var(--sans);cursor:pointer}
+.motion-control::before{content:"";width:6px;height:6px;border-radius:50%;background:#939c92}
+.motion-control[aria-pressed="true"]::before{background:#477b60;box-shadow:0 0 0 3px rgba(71,123,96,.12)}
+.motion-control:hover{border-color:var(--accent)}
+.motion-control:focus-visible{outline:3px solid var(--accent);outline-offset:4px}
+.motion-control:disabled{cursor:default}
+.motion-paused .hero-atmosphere *{animation-play-state:paused!important}
+.motion-paused .hero .eyebrow::before{animation-play-state:paused!important}
+.motion-disabled{scroll-behavior:auto}
+.motion-disabled *,.motion-disabled *::before,.motion-disabled *::after{animation:none!important;transition:none!important}
+.motion-disabled .skill-card:hover,.motion-disabled .demo-card:hover .preview>img{transform:none}
+.motion-disabled .hero-work-image:hover{transform:rotate(2deg)}
+.motion-disabled .hero-companion:hover{transform:rotate(-5deg)}
+@keyframes light-drift{from{transform:translate(-35px,15px) scale(.92)}to{transform:translate(70px,55px) scale(1.15)}}
+@keyframes orbit-drift{from{transform:rotate(-24deg) scaleY(.7) translateY(0)}to{transform:rotate(-6deg) scaleY(.7) translateY(22px)}}
+@keyframes orbit-drift-two{from{transform:rotate(30deg) scaleY(.72)}to{transform:rotate(14deg) scaleY(.72) translateX(-20px)}}
+@keyframes signal-pulse{50%{box-shadow:0 0 0 8px rgba(49,94,76,.025)}}
+@media(max-width:700px){.hero-orbit{width:390px;height:390px;right:-170px;top:60px}.hero-orbit-two{width:500px;height:500px;right:-220px;top:20px}.hero-light{width:500px;height:500px}.hero-light-green{top:-220px;right:-230px}.hero-light-gold{bottom:-260px;left:-220px}.hero-atmosphere{background-size:44px 44px}.motion-control{right:12px;bottom:12px;padding:10px 12px;font-size:10px}.motion-disabled .hero-work-image:hover{transform:rotate(1deg)}}
+@media(hover:none),(pointer:coarse){.motion-enabled .hero-composition,.motion-enabled .preview,.motion-enabled .skill-art{transform:none}.motion-enabled .btn:hover,.motion-enabled .abtn.fill:hover{transform:none}}
+@media(prefers-reduced-motion:reduce){.hero-atmosphere *{animation:none!important}.motion-enabled .hero-composition,.motion-enabled .preview,.motion-enabled .skill-art,.motion-enabled .btn:hover,.motion-enabled .abtn.fill:hover{transform:none!important}.motion-enabled .preview::after,.motion-enabled .skill-art::after{display:none}.motion-disabled .hero-work-image,.motion-disabled .hero-work-image:hover,.motion-disabled .hero-companion,.motion-disabled .hero-companion:hover{transform:none}}
+@media print{.hero-atmosphere,.motion-control,.reading-progress{display:none}.motion-enabled .hero-composition,.motion-enabled .preview,.motion-enabled .skill-art{transform:none}}

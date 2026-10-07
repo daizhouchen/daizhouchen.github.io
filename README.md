@@ -32,4 +32,4 @@ python -m http.server 8000
 
 章节标题与引语使用本地托管的 Noto Serif SC 子集（500 字重，重命名为 Portfolio Serif），来源为 [Google Fonts 官方仓库](https://github.com/google/fonts/tree/main/ofl/notoserifsc)，许可证保存在 `assets/fonts/OFL-NotoSerifSC.txt`。`subset-text.txt` 记录当前收录字符；新增标题字符时应重新生成子集，未收录字符会使用 CSS 指定的中文衬线后备字体。正文采用设备可用的中文无衬线字体，无第三方字体请求。
 
-轻量入场动效使用浏览器原生 API；禁用 JavaScript 时内容仍全部可见，系统选择减少动态效果时停止动效并保留原生锚点导航。
+主页的 `assets/motion.css` / `assets/motion.js` 提供首屏光场与粒子连线、分层入场、封面倾斜与悬停光泽、顶部阅读进度和右下角动效开关，使用浏览器原生 API，不依赖第三方动效库。粒子画布最多 34 个点，限制像素密度与绘制帧率；首屏离开视口或页面进入后台时暂停，触屏设备关闭鼠标倾斜。禁用 JavaScript 时内容仍全部可见，系统选择减少动态效果时停止动效并保留原生锚点导航；键盘焦点进入正在入场的内容时立即取消该动画。
